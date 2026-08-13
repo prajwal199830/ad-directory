@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>India Publisher CPM Directory & Market Analyzer</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+
+<div class="container">
+    <header class="page-header" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px;">
+        <div>
+            <h1>Indian & International Publisher Ad Directory</h1>
+            <p class="subtitle">Analyze benchmark CPM rates and ad buying portals across premium publisher networks.</p>
+        </div>
+        
+        <!-- 🆕 NEW: Currency Toggle Switch Header Widget -->
+        <div class="currency-toggle-wrapper">
+            <span class="currency-label">Currency:</span>
+            <button id="currencyToggleBtn" class="toggle-btn active-inr">₹ INR</button>
+        </div>
+    </header>
+
+    <div class="filter-bar">
+        <div class="filter-group" style="flex: 2; min-width: 250px;">
+            <label for="searchBar">Search Publisher</label>
+            <input type="text" id="searchBar" placeholder="Type to search (e.g., Netflix, Spotify, Jio...)">
+        </div>
+
+        <div class="filter-group">
+            <label for="nicheFilter">Content Niche</label>
+            <select id="nicheFilter">
+                <option value="all">All Niches</option>
+                <option value="Sports">Sports</option>
+                <option value="News">News</option>
+                <option value="Finance">Finance</option>
+                <option value="Live Streaming">Live Streaming</option>
+                <option value="Gaming">Gaming</option>
+                <option value="Regional Content">Regional Content</option>
+                <option value="General Entertainment">General Entertainment</option>
+            </select>
+        </div>
+
+        <div class="filter-group">
+            <label for="platformFilter">Platform</label>
+            <select id="platformFilter">
+                <option value="all">All Platforms</option>
+                <option value="OTT / Connected TV">OTT / Connected TV</option>
+                <option value="Mobile App">Mobile App</option>
+                <option value="Mobile App / Web">Mobile App & Web</option>
+                <option value="Web">Web Only</option>
+                <option value="Web / Desktop">Web & Desktop</option>
+                <option value="Web / App">Web & App</option>
+            </select>
+        </div>
+
+        <!-- 🆕 NEW: Dynamic Ad Format Filter Option -->
+        <div class="filter-group">
+            <label for="formatFilter">Ad Format</label>
+            <select id="formatFilter">
+                <option value="all">All Ad Formats</option>
+                <option value="Video Pre-Roll">Video Pre-Roll</option>
+                <option value="Video Mid-Roll">Video Mid-Roll</option>
+                <option value="Banner Displays">Banner Displays</option>
+                <option value="Native In-Feed">Native In-Feed</option>
+                <option value="Audio Ads">Audio Ads</option>
+                <option value="Connected TV Banner">Connected TV Banner</option>
+            </select>
+        </div>
+
+        <!-- 🆕 NEW: Premium Media Plan Exporter Trigger Button -->
+        <button id="exportCsvBtn" class="export-btn" style="height: 43px; padding: 0 20px; font-weight: 700; border-radius: 8px;">📥 Export Media Plan</button>
+    </div>
+
+    <div class="grid" id="directoryGrid"></div>
+</div>
+
+<div id="detailsModal" class="modal-overlay">
+    <div class="modal-content">
+        <span class="close-modal" id="closeModalBtn">&times;</span>
+        <h2 id="modalPublisherName">Publisher Name</h2>
+        <div id="modalMetaTags" class="tag-container"></div>
+        
+        <div class="modal-body">
+           <!-- Replace your current <div class="calculator-panel"> block with this: -->
+<div class="calculator-panel">
+    <h3>🧮 Impression Spend Calculator</h3>
+    <div class="calc-row">
+        <div class="calc-input-wrapper">
+            <label for="calcBudgetInput" id="calcBudgetLabel">Enter Campaign Budget (₹)</label>
+            <input type="number" id="calcBudgetInput" placeholder="e.g., 50000" min="0">
+        </div>
+        <div class="calc-output-wrapper">
+            <label>Est. Ad Impressions</label>
+            <div id="calcImpressionOutput" class="calc-display-box">0</div>
+        </div>
+    </div>
+    <p id="calcNoticeText" class="calc-note">Enter an amount to calculate projections based on average pricing.</p>
+    
+    <!-- ⚠️ NEW: Professional Industry Operational Disclaimer Block -->
+    <div class="calc-disclaimer-box">
+        <strong>⚠️ Market Disclaimer:</strong> Rates displayed are historical agency cards and programmatic midpoint estimates. Actual campaign CPMs fluctuate in real-time based on target demographics, geo-targeting, season demand spikes (e.g., IPL/Festivals), and bidding auction dynamics. Projections are directional benchmarks and do not constitute a guaranteed delivery binding contract.
+    </div>
+</div>
+            <div class="detail-section">
+                <h3>📺 Channels / Sub-Networks Offered</h3>
+                <ul id="modalChannelsList" class="detail-list"></ul>
+            </div>
+            <div class="detail-section">
+                <h3>⚽ Sports Coverage / Key Content</h3>
+                <ul id="modalSportsList" class="detail-list"></ul>
+            </div>
+        </div>
+        
+        <div class="modal-footer">
+            <a id="modalPortalBtn" href="#" target="_blank" class="buy-btn">Explore Ad Portal ↗</a>
+        </div>
+    </div>
+</div>
+
+<script src="main.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
