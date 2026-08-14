@@ -1,1 +1,1113 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>What is Header Bidding? | PubsRate</title>
+
+    <meta name="description"
+          content="Learn what header bidding is, why publishers use it, and the differences between client-side and server-side header bidding.">
+
+    <meta name="robots" content="index, follow">
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f5f7fb;
+            color: #1f2937;
+            line-height: 1.7;
+        }
+
+
+        /* =========================
+           HEADER
+        ========================= */
+
+        header {
+            background: #111827;
+            color: white;
+            padding: 18px 20px;
+        }
+
+        .header-container {
+            max-width: 1150px;
+            margin: auto;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 27px;
+            font-weight: bold;
+        }
+
+        .logo span {
+            color: #38bdf8;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 25px;
+            font-size: 15px;
+        }
+
+        nav a:hover {
+            color: #38bdf8;
+        }
+
+
+        /* =========================
+           MAIN
+        ========================= */
+
+        .container {
+            max-width: 1150px;
+            margin: auto;
+            padding: 40px 20px;
+        }
+
+
+        /* =========================
+           ARTICLE
+        ========================= */
+
+        .article {
+            background: white;
+            padding: 45px;
+            border-radius: 18px;
+
+            box-shadow:
+                0 4px 18px rgba(0,0,0,0.06);
+        }
+
+
+        /* =========================
+           BREADCRUMB
+        ========================= */
+
+        .breadcrumb {
+            font-size: 14px;
+            color: #64748b;
+            margin-bottom: 25px;
+        }
+
+        .breadcrumb a {
+            color: #2563eb;
+            text-decoration: none;
+        }
+
+
+        /* =========================
+           LABEL
+        ========================= */
+
+        .label {
+            display: inline-block;
+
+            background: #e0f2fe;
+            color: #0369a1;
+
+            padding: 6px 13px;
+
+            border-radius: 20px;
+
+            font-size: 12px;
+            font-weight: bold;
+
+            text-transform: uppercase;
+        }
+
+
+        /* =========================
+           TITLE
+        ========================= */
+
+        h1 {
+            font-size: 42px;
+            line-height: 1.25;
+
+            margin: 18px 0 15px;
+
+            color: #111827;
+        }
+
+        .meta {
+            color: #94a3b8;
+
+            font-size: 14px;
+
+            border-bottom: 1px solid #e5e7eb;
+
+            padding-bottom: 25px;
+        }
+
+
+        /* =========================
+           INTRO
+        ========================= */
+
+        .intro {
+            font-size: 20px;
+
+            color: #374151;
+
+            line-height: 1.8;
+
+            margin-top: 30px;
+
+            font-weight: 500;
+        }
+
+
+        /* =========================
+           HEADINGS
+        ========================= */
+
+        h2 {
+            font-size: 30px;
+
+            margin-top: 50px;
+
+            margin-bottom: 18px;
+
+            color: #111827;
+
+            padding-bottom: 10px;
+
+            border-bottom: 2px solid #e5e7eb;
+        }
+
+        h3 {
+            font-size: 22px;
+
+            margin-top: 30px;
+
+            color: #1f2937;
+        }
+
+
+        /* =========================
+           TEXT
+        ========================= */
+
+        p {
+            font-size: 17px;
+
+            color: #4b5563;
+
+            line-height: 1.8;
+        }
+
+
+        /* =========================
+           INFO BOX
+        ========================= */
+
+        .info-box {
+            background: #eff6ff;
+
+            border-left: 5px solid #2563eb;
+
+            padding: 22px;
+
+            margin: 30px 0;
+
+            border-radius: 8px;
+        }
+
+        .info-box p {
+            margin: 0;
+        }
+
+
+        /* =========================
+           FLOW
+        ========================= */
+
+        .flow {
+            margin: 30px 0;
+
+            padding: 25px;
+
+            background: #f8fafc;
+
+            border-radius: 12px;
+
+            text-align: center;
+
+            font-weight: bold;
+
+            color: #334155;
+        }
+
+        .flow span {
+            display: inline-block;
+
+            margin: 5px 8px;
+        }
+
+
+        /* =========================
+           TYPES
+        ========================= */
+
+        .type-card {
+
+            margin-top: 30px;
+
+            padding: 28px;
+
+            background: #f8fafc;
+
+            border: 1px solid #e5e7eb;
+
+            border-radius: 12px;
+        }
+
+        .type-card h3 {
+            margin-top: 0;
+        }
+
+
+        /* =========================
+           ADVANTAGES / CHALLENGES
+        ========================= */
+
+        .columns {
+
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 20px;
+
+            margin-top: 20px;
+        }
+
+        .column-box {
+
+            padding: 25px;
+
+            border-radius: 12px;
+
+            border: 1px solid #e5e7eb;
+
+            background: white;
+        }
+
+        .column-box h4 {
+
+            margin-top: 0;
+
+            font-size: 18px;
+
+            color: #111827;
+        }
+
+        ul {
+
+            padding-left: 22px;
+        }
+
+        li {
+
+            margin-bottom: 9px;
+
+            color: #4b5563;
+
+            font-size: 16px;
+        }
+
+
+        /* =========================
+           COMPARISON TABLE
+        ========================= */
+
+        .table-wrapper {
+
+            overflow-x: auto;
+
+            margin-top: 25px;
+        }
+
+        table {
+
+            width: 100%;
+
+            border-collapse: collapse;
+
+            min-width: 600px;
+
+            background: white;
+        }
+
+        th {
+
+            background: #111827;
+
+            color: white;
+
+            padding: 15px;
+
+            text-align: left;
+
+        }
+
+        td {
+
+            padding: 15px;
+
+            border-bottom: 1px solid #e5e7eb;
+
+            color: #4b5563;
+
+        }
+
+        tr:nth-child(even) {
+
+            background: #f8fafc;
+
+        }
+
+
+        /* =========================
+           SIMPLE EXPLANATION
+        ========================= */
+
+        .simple-box {
+
+            margin-top: 35px;
+
+            padding: 28px;
+
+            background: #111827;
+
+            color: white;
+
+            border-radius: 12px;
+
+        }
+
+        .simple-box h3 {
+
+            color: white;
+
+            margin-top: 0;
+
+        }
+
+        .simple-box p {
+
+            color: #cbd5e1;
+
+        }
+
+
+        /* =========================
+           RELATED GUIDE
+        ========================= */
+
+        .related {
+
+            margin-top: 50px;
+
+            padding: 25px;
+
+            background: #f1f5f9;
+
+            border-radius: 12px;
+
+        }
+
+        .related h3 {
+
+            margin-top: 0;
+
+        }
+
+        .related a {
+
+            color: #2563eb;
+
+            text-decoration: none;
+
+            font-weight: bold;
+
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+
+            text-align: center;
+
+            padding: 45px 20px;
+
+            color: #64748b;
+
+            font-size: 14px;
+
+        }
+
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 800px) {
+
+            .header-container {
+
+                flex-direction: column;
+
+                gap: 15px;
+
+            }
+
+            nav a {
+
+                margin: 0 8px;
+
+            }
+
+            .article {
+
+                padding: 28px;
+
+            }
+
+            h1 {
+
+                font-size: 32px;
+
+            }
+
+            h2 {
+
+                font-size: 26px;
+
+            }
+
+            .columns {
+
+                grid-template-columns: 1fr;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     HEADER
+========================= -->
+
+<header>
+
+    <div class="header-container">
+
+        <div class="logo">
+
+            Pubs<span>Rate</span>
+
+        </div>
+
+
+        <nav>
+
+            <a href="../index.html">
+                Home
+            </a>
+
+            <a href="../publishers/">
+                Publishers
+            </a>
+
+            <a href="index.html">
+                Advertising
+            </a>
+
+        </nav>
+
+    </div>
+
+</header>
+
+
+
+<main class="container">
+
+
+<article class="article">
+
+
+    <!-- BREADCRUMB -->
+
+    <div class="breadcrumb">
+
+        <a href="../index.html">
+            PubsRate
+        </a>
+
+        →
+
+        <a href="index.html">
+            Advertising
+        </a>
+
+        →
+
+        Header Bidding
+
+    </div>
+
+
+
+    <!-- TITLE -->
+
+    <span class="label">
+        AdTech Guide
+    </span>
+
+
+    <h1>
+        What is Header Bidding?
+    </h1>
+
+
+    <div class="meta">
+
+        Advertising Guide • Programmatic Advertising • AdTech
+
+    </div>
+
+
+
+    <!-- INTRO -->
+
+    <p class="intro">
+
+        Header bidding is a programmatic advertising technique that
+        allows publishers to offer an ad impression to multiple demand
+        partners simultaneously before the final ad-serving decision
+        is made.
+
+    </p>
+
+
+    <p>
+
+        By increasing competition among eligible demand partners,
+        header bidding can help publishers improve the value of their
+        ad inventory and potentially increase advertising revenue.
+
+    </p>
+
+
+
+    <!-- SIMPLE FLOW -->
+
+    <div class="flow">
+
+        <span>Publisher Inventory</span>
+
+        →
+
+        <span>Multiple Demand Partners</span>
+
+        →
+
+        <span>Competing Bids</span>
+
+        →
+
+        <span>Ad Server</span>
+
+        →
+
+        <span>Ad Impression</span>
+
+    </div>
+
+
+
+    <!-- WHY -->
+
+    <section>
+
+        <h2>
+            Why is Header Bidding Used?
+        </h2>
+
+
+        <p>
+
+            Header bidding is primarily used to increase competition
+            among multiple demand sources for the same ad impression.
+
+        </p>
+
+
+        <p>
+
+            Instead of relying on a single demand source, publishers
+            can allow multiple demand partners to compete for an
+            impression. The resulting bids can then compete with other
+            eligible demand, helping the publisher identify the most
+            valuable opportunity.
+
+        </p>
+
+
+        <div class="simple-box">
+
+            <h3>
+                In simple terms
+            </h3>
+
+            <p>
+
+                More eligible demand competing for an impression
+                → greater auction competition
+                → potentially higher publisher revenue.
+
+            </p>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- TYPES -->
+
+    <section>
+
+        <h2>
+            Types of Header Bidding
+        </h2>
+
+
+        <p>
+
+            Header bidding is commonly implemented using two broad
+            approaches: client-side and server-side.
+
+        </p>
+
+
+
+        <!-- CLIENT SIDE -->
+
+        <div class="type-card">
+
+            <h3>
+                1. Client-Side Header Bidding
+            </h3>
+
+
+            <p>
+
+                In client-side header bidding, the auction takes place
+                in the user's browser or app environment before the
+                ad request is sent to the ad server.
+
+            </p>
+
+
+            <div class="columns">
+
+
+                <div class="column-box">
+
+                    <h4>
+                        Advantages
+                    </h4>
+
+                    <ul>
+
+                        <li>
+                            Direct interaction with demand partners
+                        </li>
+
+                        <li>
+                            Greater visibility into bid responses
+                        </li>
+
+                        <li>
+                            Can provide direct access to multiple
+                            demand partners
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+
+                <div class="column-box">
+
+                    <h4>
+                        Challenges
+                    </h4>
+
+                    <ul>
+
+                        <li>
+                            Browser latency
+                        </li>
+
+                        <li>
+                            Additional browser-side requests
+                        </li>
+
+                        <li>
+                            Page performance considerations
+                        </li>
+
+                        <li>
+                            Limits on how many partners can efficiently
+                            participate
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+
+
+        <!-- SERVER SIDE -->
+
+        <div class="type-card">
+
+            <h3>
+                2. Server-Side Header Bidding
+            </h3>
+
+
+            <p>
+
+                In server-side header bidding, the auction is handled
+                through a server or intermediary rather than requiring
+                each demand partner to communicate directly with the
+                user's browser.
+
+            </p>
+
+
+            <div class="columns">
+
+
+                <div class="column-box">
+
+                    <h4>
+                        Advantages
+                    </h4>
+
+                    <ul>
+
+                        <li>
+                            Can support a larger number of demand partners
+                        </li>
+
+                        <li>
+                            Reduces browser-side requests
+                        </li>
+
+                        <li>
+                            Can reduce the workload on the user's browser
+                        </li>
+
+                        <li>
+                            Potentially improves page performance
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+
+                <div class="column-box">
+
+                    <h4>
+                        Challenges
+                    </h4>
+
+                    <ul>
+
+                        <li>
+                            Potentially less transparency
+                        </li>
+
+                        <li>
+                            Additional server-side infrastructure
+                        </li>
+
+                        <li>
+                            Some demand partners may have less access
+                            to certain user signals
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- COMPARISON -->
+
+    <section>
+
+        <h2>
+            Client-Side vs Server-Side Header Bidding
+        </h2>
+
+
+        <div class="table-wrapper">
+
+            <table>
+
+                <thead>
+
+                    <tr>
+
+                        <th>
+                            Feature
+                        </th>
+
+                        <th>
+                            Client-Side
+                        </th>
+
+                        <th>
+                            Server-Side
+                        </th>
+
+                    </tr>
+
+                </thead>
+
+
+                <tbody>
+
+                    <tr>
+
+                        <td>
+                            Auction location
+                        </td>
+
+                        <td>
+                            Browser / app environment
+                        </td>
+
+                        <td>
+                            Server / intermediary
+                        </td>
+
+                    </tr>
+
+
+                    <tr>
+
+                        <td>
+                            Browser requests
+                        </td>
+
+                        <td>
+                            Higher
+                        </td>
+
+                        <td>
+                            Lower
+                        </td>
+
+                    </tr>
+
+
+                    <tr>
+
+                        <td>
+                            Number of partners
+                        </td>
+
+                        <td>
+                            Can be limited
+                        </td>
+
+                        <td>
+                            Can scale more easily
+                        </td>
+
+                    </tr>
+
+
+                    <tr>
+
+                        <td>
+                            Transparency
+                        </td>
+
+                        <td>
+                            Generally higher
+                        </td>
+
+                        <td>
+                            Can be lower
+                        </td>
+
+                    </tr>
+
+
+                    <tr>
+
+                        <td>
+                            Page performance
+                        </td>
+
+                        <td>
+                            Can be affected by additional requests
+                        </td>
+
+                        <td>
+                            Can reduce browser workload
+                        </td>
+
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- WHY IMPORTANT -->
+
+    <section>
+
+        <h2>
+            Why is Header Bidding Important for Publishers?
+        </h2>
+
+
+        <p>
+
+            Advertising inventory is a valuable resource for publishers.
+            Header bidding gives publishers a way to expose eligible
+            impressions to multiple sources of demand and increase
+            competition.
+
+        </p>
+
+
+        <p>
+
+            However, higher competition does not automatically guarantee
+            higher revenue. Results depend on factors such as demand
+            quality, bid participation, latency, floor prices, user
+            signals, inventory quality and the publisher's overall
+            monetization strategy.
+
+        </p>
+
+    </section>
+
+
+
+    <!-- RELATED -->
+
+    <section class="related">
+
+        <h3>
+            Related PubsRate Guides
+        </h3>
+
+
+        <p>
+
+            Learn more about the technologies that work alongside
+            header bidding.
+
+        </p>
+
+
+        <p>
+
+            <a href="what-is-google-ad-manager.html">
+                What is Google Ad Manager? →
+            </a>
+
+        </p>
+
+
+        <p>
+
+            <a href="#">
+                What is Programmatic Advertising? →
+            </a>
+
+        </p>
+
+
+    </section>
+
+
+</article>
+
+
+</main>
+
+
+
+<footer>
+
+    © 2026 PubsRate. All rights reserved.
+
+</footer>
+
+
+</body>
+
+</html>
