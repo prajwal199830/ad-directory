@@ -1,0 +1,1221 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Web Ad Tag Tester | GPT & GAM Tag Validator | PubsRate</title>
+
+    <meta name="description"
+          content="Test and troubleshoot Google Publisher Tag implementations. Check GPT libraries, ad units, slot IDs, sizes, targeting and common configuration issues.">
+
+    <meta name="robots" content="index, follow">
+
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+
+            font-family:
+                Arial,
+                Helvetica,
+                sans-serif;
+
+            background: #f5f7fb;
+
+            color: #1f2937;
+        }
+
+
+        /* =========================
+           HEADER
+        ========================= */
+
+        header {
+            background: #111827;
+
+            color: white;
+
+            padding: 18px 20px;
+        }
+
+        .header-container {
+            max-width: 1150px;
+
+            margin: auto;
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 27px;
+
+            font-weight: bold;
+        }
+
+        .logo span {
+            color: #38bdf8;
+        }
+
+        nav a {
+            color: white;
+
+            text-decoration: none;
+
+            margin-left: 24px;
+
+            font-size: 15px;
+        }
+
+        nav a:hover {
+            color: #38bdf8;
+        }
+
+
+        /* =========================
+           MAIN
+        ========================= */
+
+        .container {
+            max-width: 1100px;
+
+            margin: auto;
+
+            padding: 45px 20px;
+        }
+
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .hero {
+            background: white;
+
+            padding: 40px;
+
+            border-radius: 18px;
+
+            box-shadow:
+                0 4px 15px rgba(0,0,0,0.06);
+
+            margin-bottom: 30px;
+        }
+
+        .hero h1 {
+            margin:
+                0 0 12px;
+
+            font-size: 36px;
+        }
+
+        .hero p {
+            color: #64748b;
+
+            line-height: 1.7;
+
+            max-width: 800px;
+        }
+
+
+        /* =========================
+           TEST BOX
+        ========================= */
+
+        .test-box {
+            background: white;
+
+            padding: 30px;
+
+            border-radius: 16px;
+
+            box-shadow:
+                0 4px 15px rgba(0,0,0,0.06);
+
+            margin-bottom: 30px;
+        }
+
+        .test-box h2 {
+            margin-top: 0;
+        }
+
+        .test-box p {
+            color: #64748b;
+
+            line-height: 1.6;
+        }
+
+
+        /* =========================
+           TEXTAREA
+        ========================= */
+
+        textarea {
+            width: 100%;
+
+            min-height: 300px;
+
+            resize: vertical;
+
+            padding: 16px;
+
+            border:
+                1px solid #cbd5e1;
+
+            border-radius: 10px;
+
+            font-family:
+                Consolas,
+                Monaco,
+                monospace;
+
+            font-size: 14px;
+
+            line-height: 1.6;
+
+            outline: none;
+        }
+
+        textarea:focus {
+            border-color: #2563eb;
+
+            box-shadow:
+                0 0 0 3px rgba(37,99,235,0.10);
+        }
+
+
+        /* =========================
+           BUTTONS
+        ========================= */
+
+        .button-row {
+            display: flex;
+
+            gap: 12px;
+
+            margin-top: 18px;
+
+            flex-wrap: wrap;
+        }
+
+        button {
+            border: none;
+
+            cursor: pointer;
+
+            padding: 12px 20px;
+
+            border-radius: 8px;
+
+            font-weight: bold;
+
+            font-size: 14px;
+        }
+
+        .primary-button {
+            background: #2563eb;
+
+            color: white;
+        }
+
+        .primary-button:hover {
+            background: #1d4ed8;
+        }
+
+        .secondary-button {
+            background: #e2e8f0;
+
+            color: #334155;
+        }
+
+        .secondary-button:hover {
+            background: #cbd5e1;
+        }
+
+
+        /* =========================
+           RESULTS
+        ========================= */
+
+        #results {
+            display: none;
+        }
+
+        .result-header {
+            background: #111827;
+
+            color: white;
+
+            padding: 25px;
+
+            border-radius:
+                14px 14px 0 0;
+        }
+
+        .result-header h2 {
+            margin: 0 0 8px;
+        }
+
+        .result-header p {
+            margin: 0;
+
+            color: #cbd5e1;
+        }
+
+
+        /* =========================
+           CHECK GRID
+        ========================= */
+
+        .checks {
+            background: white;
+
+            padding: 25px;
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap: 15px;
+
+            border-radius:
+                0 0 14px 14px;
+
+            box-shadow:
+                0 4px 15px rgba(0,0,0,0.06);
+        }
+
+        .check {
+            padding: 17px;
+
+            border-radius: 10px;
+
+            border:
+                1px solid #e2e8f0;
+
+            background: #f8fafc;
+        }
+
+        .check-title {
+            font-weight: bold;
+
+            margin-bottom: 6px;
+        }
+
+        .check-message {
+            color: #64748b;
+
+            font-size: 14px;
+
+            line-height: 1.5;
+        }
+
+        .success {
+            border-left:
+                5px solid #16a34a;
+        }
+
+        .warning {
+            border-left:
+                5px solid #f59e0b;
+        }
+
+        .error {
+            border-left:
+                5px solid #dc2626;
+        }
+
+
+        /* =========================
+           DETAILS
+        ========================= */
+
+        .details {
+            margin-top: 25px;
+
+            background: white;
+
+            padding: 25px;
+
+            border-radius: 14px;
+
+            box-shadow:
+                0 4px 15px rgba(0,0,0,0.06);
+        }
+
+        .details h3 {
+            margin-top: 0;
+        }
+
+        .detail-row {
+            display: flex;
+
+            justify-content: space-between;
+
+            gap: 20px;
+
+            padding: 12px 0;
+
+            border-bottom:
+                1px solid #e2e8f0;
+        }
+
+        .detail-row:last-child {
+            border-bottom: none;
+        }
+
+        .detail-label {
+            font-weight: bold;
+        }
+
+        .detail-value {
+            color: #64748b;
+
+            text-align: right;
+
+            word-break: break-word;
+        }
+
+
+        /* =========================
+           TEST SLOT
+        ========================= */
+
+        .test-slot {
+            margin-top: 30px;
+
+            background: white;
+
+            padding: 25px;
+
+            border-radius: 14px;
+
+            box-shadow:
+                0 4px 15px rgba(0,0,0,0.06);
+        }
+
+        .slot-container {
+            min-height: 250px;
+
+            border:
+                2px dashed #cbd5e1;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            text-align: center;
+
+            padding: 20px;
+
+            background: #f8fafc;
+        }
+
+        .slot-placeholder {
+            color: #64748b;
+        }
+
+
+        /* =========================
+           INFORMATION
+        ========================= */
+
+        .info {
+            margin-top: 30px;
+
+            background: #eff6ff;
+
+            border:
+                1px solid #bfdbfe;
+
+            padding: 25px;
+
+            border-radius: 14px;
+        }
+
+        .info h3 {
+            margin-top: 0;
+        }
+
+        .info p {
+            color: #475569;
+
+            line-height: 1.7;
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            text-align: center;
+
+            padding: 45px 20px;
+
+            color: #64748b;
+        }
+
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 750px) {
+
+            .header-container {
+                flex-direction: column;
+
+                gap: 15px;
+            }
+
+            nav a {
+                margin: 0 7px;
+            }
+
+            .hero {
+                padding: 30px 25px;
+            }
+
+            .hero h1 {
+                font-size: 30px;
+            }
+
+            .checks {
+                grid-template-columns: 1fr;
+            }
+
+            .detail-row {
+                flex-direction: column;
+
+                gap: 5px;
+            }
+
+            .detail-value {
+                text-align: left;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     HEADER
+========================= -->
+
+<header>
+
+    <div class="header-container">
+
+        <div class="logo">
+            Pubs<span>Rate</span>
+        </div>
+
+        <nav>
+
+            <a href="../index.html">
+                Home
+            </a>
+
+            <a href="../publishers/">
+                Publishers
+            </a>
+
+            <a href="../advertising/">
+                Advertising
+            </a>
+
+            <a href="index.html">
+                Tools
+            </a>
+
+        </nav>
+
+    </div>
+
+</header>
+
+
+
+<main class="container">
+
+
+<!-- =========================
+     HERO
+========================= -->
+
+<section class="hero">
+
+    <h1>
+        🌐 Web Ad Tag Tester
+    </h1>
+
+    <p>
+        Test and troubleshoot Google Publisher Tag (GPT)
+        implementations. Paste your web advertising code
+        below and PubsRate will analyze the implementation
+        for common configuration issues.
+    </p>
+
+</section>
+
+
+
+<!-- =========================
+     INPUT
+========================= -->
+
+<section class="test-box">
+
+    <h2>
+        Paste Your Web Ad Tag
+    </h2>
+
+    <p>
+        Paste the GPT / GAM implementation code you want
+        to analyze.
+    </p>
+
+
+    <textarea
+        id="tagInput"
+        placeholder="Paste your Google Publisher Tag code here...
+
+Example:
+
+<script async src='https://securepubads.g.doubleclick.net/tag/js/gpt.js'></script>
+
+<script>
+window.googletag = window.googletag || {cmd: []};
+
+googletag.cmd.push(function() {
+
+    googletag.defineSlot(
+        '/123456/example',
+        [300, 250],
+        'div-gpt-ad-example'
+    ).addService(googletag.pubads());
+
+    googletag.enableServices();
+
+});
+</script>
+
+<div id='div-gpt-ad-example'></div>
+
+<script>
+googletag.cmd.push(function() {
+    googletag.display('div-gpt-ad-example');
+});
+</script>"
+    ></textarea>
+
+
+    <div class="button-row">
+
+        <button
+            class="primary-button"
+            onclick="analyzeTag()">
+
+            🔍 Analyze Tag
+
+        </button>
+
+
+        <button
+            class="secondary-button"
+            onclick="clearTag()">
+
+            Clear
+
+        </button>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     RESULTS
+========================= -->
+
+<section id="results">
+
+    <div class="result-header">
+
+        <h2>
+            Tag Analysis
+        </h2>
+
+        <p id="summary">
+            Analysis completed.
+        </p>
+
+    </div>
+
+
+    <div
+        class="checks"
+        id="checks">
+    </div>
+
+
+    <div class="details">
+
+        <h3>
+            Detected Configuration
+        </h3>
+
+
+        <div class="detail-row">
+
+            <div class="detail-label">
+                Ad Unit
+            </div>
+
+            <div
+                class="detail-value"
+                id="adUnit">
+
+                Not detected
+
+            </div>
+
+        </div>
+
+
+        <div class="detail-row">
+
+            <div class="detail-label">
+                Slot ID
+            </div>
+
+            <div
+                class="detail-value"
+                id="slotId">
+
+                Not detected
+
+            </div>
+
+        </div>
+
+
+        <div class="detail-row">
+
+            <div class="detail-label">
+                Ad Size
+            </div>
+
+            <div
+                class="detail-value"
+                id="adSize">
+
+                Not detected
+
+            </div>
+
+        </div>
+
+
+        <div class="detail-row">
+
+            <div class="detail-label">
+                Targeting
+            </div>
+
+            <div
+                class="detail-value"
+                id="targeting">
+
+                Not detected
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- TEST SLOT -->
+
+    <div class="test-slot">
+
+        <h3>
+            Test Environment
+        </h3>
+
+        <div class="slot-container">
+
+            <div class="slot-placeholder">
+
+                🧪
+
+                <br><br>
+
+                The diagnostic test environment
+                is ready.
+
+                <br>
+
+                Actual ad delivery depends on the
+                publisher's GAM configuration,
+                consent settings, network conditions
+                and other factors.
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     INFORMATION
+========================= -->
+
+<section class="info">
+
+    <h3>
+        About Web Ad Tag Testing
+    </h3>
+
+    <p>
+        Google Publisher Tag implementations can involve
+        several components, including the GPT library,
+        ad units, slot IDs, sizes, targeting and ad-serving
+        configuration.
+    </p>
+
+    <p>
+        This tool performs client-side code checks to help
+        identify common implementation issues. It does not
+        replace Google Ad Manager diagnostics or the
+        publisher's own browser and network debugging tools.
+    </p>
+
+</section>
+
+
+</main>
+
+
+
+<footer>
+
+    © 2026 PubsRate. All rights reserved.
+
+</footer>
+
+
+
+<script>
+
+function analyzeTag() {
+
+    const code =
+        document.getElementById("tagInput").value.trim();
+
+
+    if (!code) {
+
+        alert(
+            "Please paste a web ad tag before analyzing."
+        );
+
+        return;
+    }
+
+
+    const checks =
+        document.getElementById("checks");
+
+    checks.innerHTML = "";
+
+
+    let passed = 0;
+
+    let warnings = 0;
+
+    let errors = 0;
+
+
+    function addCheck(
+        title,
+        message,
+        status
+    ) {
+
+        const div =
+            document.createElement("div");
+
+        div.className =
+            "check " + status;
+
+
+        div.innerHTML = `
+
+            <div class="check-title">
+                ${status === "success" ? "✅" :
+                  status === "warning" ? "⚠️" : "❌"}
+
+                ${title}
+            </div>
+
+            <div class="check-message">
+                ${message}
+            </div>
+
+        `;
+
+
+        checks.appendChild(div);
+
+
+        if (status === "success") {
+
+            passed++;
+
+        } else if (status === "warning") {
+
+            warnings++;
+
+        } else {
+
+            errors++;
+
+        }
+
+    }
+
+
+    /* =========================
+       GPT LIBRARY
+    ========================= */
+
+    const gptLibrary =
+        code.includes(
+            "securepubads.g.doubleclick.net/tag/js/gpt.js"
+        );
+
+
+    if (gptLibrary) {
+
+        addCheck(
+            "GPT Library",
+            "Google Publisher Tag library reference detected.",
+            "success"
+        );
+
+    } else {
+
+        addCheck(
+            "GPT Library",
+            "GPT library reference was not detected.",
+            "warning"
+        );
+
+    }
+
+
+    /* =========================
+       GOOGLE TAG
+    ========================= */
+
+    const googletag =
+        code.includes("googletag");
+
+
+    if (googletag) {
+
+        addCheck(
+            "googletag Object",
+            "googletag implementation detected.",
+            "success"
+        );
+
+    } else {
+
+        addCheck(
+            "googletag Object",
+            "googletag object was not detected.",
+            "error"
+        );
+
+    }
+
+
+    /* =========================
+       DEFINE SLOT
+    ========================= */
+
+    const defineSlot =
+        code.includes("defineSlot(");
+
+
+    if (defineSlot) {
+
+        addCheck(
+            "Ad Slot Definition",
+            "defineSlot() was detected.",
+            "success"
+        );
+
+    } else {
+
+        addCheck(
+            "Ad Slot Definition",
+            "defineSlot() was not detected.",
+            "error"
+        );
+
+    }
+
+
+    /* =========================
+       DISPLAY
+    ========================= */
+
+    const display =
+        code.includes("googletag.display");
+
+
+    if (display) {
+
+        addCheck(
+            "Ad Slot Display",
+            "googletag.display() was detected.",
+            "success"
+        );
+
+    } else {
+
+        addCheck(
+            "Ad Slot Display",
+            "googletag.display() was not detected.",
+            "warning"
+        );
+
+    }
+
+
+    /* =========================
+       ENABLE SERVICES
+    ========================= */
+
+    const enableServices =
+        code.includes("enableServices");
+
+
+    if (enableServices) {
+
+        addCheck(
+            "GPT Services",
+            "enableServices() was detected.",
+            "success"
+        );
+
+    } else {
+
+        addCheck(
+            "GPT Services",
+            "enableServices() was not detected.",
+            "warning"
+        );
+
+    }
+
+
+    /* =========================
+       SLOT ID
+    ========================= */
+
+    const slotMatch =
+        code.match(
+            /defineSlot\s*\(\s*['"]([^'"]+)['"]\s*,[\s\S]*?,\s*['"]([^'"]+)['"]/
+        );
+
+
+    if (slotMatch) {
+
+        document.getElementById("adUnit").textContent =
+            slotMatch[1];
+
+        document.getElementById("slotId").textContent =
+            slotMatch[2];
+
+    } else {
+
+        document.getElementById("adUnit").textContent =
+            "Not detected";
+
+        document.getElementById("slotId").textContent =
+            "Not detected";
+
+    }
+
+
+    /* =========================
+       SIZE
+    ========================= */
+
+    const sizeMatch =
+        code.match(
+            /\[\s*(\d+)\s*,\s*(\d+)\s*\]/
+        );
+
+
+    if (sizeMatch) {
+
+        document.getElementById("adSize").textContent =
+            sizeMatch[1] +
+            " × " +
+            sizeMatch[2];
+
+        addCheck(
+            "Ad Size",
+            "A fixed ad size was detected.",
+            "success"
+        );
+
+    } else {
+
+        document.getElementById("adSize").textContent =
+            "Not detected";
+
+        addCheck(
+            "Ad Size",
+            "A standard fixed ad size was not detected.",
+            "warning"
+        );
+
+    }
+
+
+    /* =========================
+       TARGETING
+    ========================= */
+
+    const targeting =
+        code.includes("setTargeting");
+
+
+    if (targeting) {
+
+        document.getElementById("targeting").textContent =
+            "Custom targeting detected";
+
+        addCheck(
+            "Targeting",
+            "Custom key-value targeting was detected.",
+            "success"
+        );
+
+    } else {
+
+        document.getElementById("targeting").textContent =
+            "No custom targeting detected";
+
+        addCheck(
+            "Targeting",
+            "No setTargeting() implementation detected. This is not necessarily an error.",
+            "warning"
+        );
+
+    }
+
+
+    /* =========================
+       COMMAND QUEUE
+    ========================= */
+
+    const commandQueue =
+        code.includes("googletag.cmd.push");
+
+
+    if (commandQueue) {
+
+        addCheck(
+            "GPT Command Queue",
+            "googletag.cmd.push() was detected.",
+            "success"
+        );
+
+    } else {
+
+        addCheck(
+            "GPT Command Queue",
+            "GPT command queue usage was not detected.",
+            "warning"
+        );
+
+    }
+
+
+    /* =========================
+       SUMMARY
+    ========================= */
+
+    document.getElementById("summary").textContent =
+
+        passed +
+        " checks passed • " +
+        warnings +
+        " warnings • " +
+        errors +
+        " errors";
+
+
+    document.getElementById("results").style.display =
+        "block";
+
+
+    document.getElementById("results")
+        .scrollIntoView({
+            behavior: "smooth"
+        });
+
+}
+
+
+
+function clearTag() {
+
+    document.getElementById("tagInput").value = "";
+
+    document.getElementById("results").style.display =
+        "none";
+
+}
+
+</script>
+
+
+</body>
+
+</html>
