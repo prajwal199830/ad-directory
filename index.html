@@ -28,15 +28,18 @@
 
     <meta charset="UTF-8">
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
     <title>
-        PubsRate | Publishers, Advertising & AdTech Tools
+        PubsRate | Publishers, Advertising & AdTech Resources
     </title>
 
     <meta
         name="description"
-        content="PubsRate is a publisher and advertising resource covering publishers, digital advertising, AdTech, programmatic advertising, VAST testing and web advertising tools."
+        content="PubsRate provides publisher information, digital advertising knowledge, AdTech resources and practical ad tag testing tools for publishers, developers and advertising professionals."
     >
 
     <meta
@@ -294,7 +297,7 @@
 
         .section-heading p {
 
-            max-width: 700px;
+            max-width: 720px;
 
             margin: auto;
 
@@ -305,7 +308,7 @@
 
 
         /* =========================
-           MAIN FEATURE CARDS
+           FEATURE CARDS
         ========================== */
 
         .feature-grid {
@@ -313,16 +316,16 @@
             display: grid;
 
             grid-template-columns:
-                repeat(3, 1fr);
+                repeat(4, 1fr);
 
-            gap: 22px;
+            gap: 20px;
         }
 
         .feature-card {
 
             background: white;
 
-            padding: 32px;
+            padding: 28px;
 
             border-radius: 15px;
 
@@ -346,14 +349,16 @@
 
         .feature-icon {
 
-            font-size: 40px;
+            font-size: 38px;
 
             margin-bottom: 15px;
         }
 
         .feature-card h3 {
 
-            font-size: 22px;
+            font-size: 20px;
+
+            line-height: 1.3;
 
             margin: 0 0 12px;
         }
@@ -364,23 +369,70 @@
 
             line-height: 1.6;
 
-            font-size: 15px;
+            font-size: 14px;
+
+            margin-bottom: 18px;
         }
 
         .feature-link {
 
             display: inline-block;
 
-            margin-top: 10px;
-
             color: #2563eb;
 
             font-weight: bold;
+
+            font-size: 14px;
         }
 
         .feature-link:hover {
 
             color: #1d4ed8;
+        }
+
+
+        /* =========================
+           TOPICS
+        ========================== */
+
+        .topics-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap: 20px;
+        }
+
+        .topic-card {
+
+            background: white;
+
+            padding: 25px;
+
+            border-radius: 12px;
+
+            border: 1px solid #e5e7eb;
+
+            box-shadow:
+                0 3px 12px rgba(0,0,0,0.04);
+        }
+
+        .topic-card h3 {
+
+            margin-top: 0;
+
+            font-size: 20px;
+        }
+
+        .topic-card p {
+
+            color: #64748b;
+
+            line-height: 1.6;
+
+            margin-bottom: 0;
         }
 
 
@@ -391,8 +443,6 @@
         .why-section {
 
             background: #f8fafc;
-
-            max-width: none;
         }
 
         .why-inner {
@@ -450,51 +500,6 @@
             line-height: 1.5;
 
             font-size: 14px;
-        }
-
-
-        /* =========================
-           WHAT YOU CAN FIND
-        ========================== */
-
-        .topics-grid {
-
-            display: grid;
-
-            grid-template-columns:
-                repeat(2, 1fr);
-
-            gap: 20px;
-        }
-
-        .topic-card {
-
-            background: white;
-
-            padding: 25px;
-
-            border-radius: 12px;
-
-            border: 1px solid #e5e7eb;
-
-            box-shadow:
-                0 3px 12px rgba(0,0,0,0.04);
-        }
-
-        .topic-card h3 {
-
-            margin-top: 0;
-
-            font-size: 20px;
-        }
-
-        .topic-card p {
-
-            color: #64748b;
-
-            line-height: 1.6;
-
-            margin-bottom: 0;
         }
 
 
@@ -623,10 +628,10 @@
 
 
         /* =========================
-           MOBILE
+           RESPONSIVE
         ========================== */
 
-        @media (max-width: 900px) {
+        @media (max-width: 1000px) {
 
             .feature-grid {
 
@@ -725,10 +730,10 @@
             </a>
 
             <a
-                href="tools/"
+                href="testtag/"
                 class="nav-tools">
 
-                Tools
+                Ad Tag Testing
 
             </a>
 
@@ -760,7 +765,7 @@
 
             PubsRate brings together publisher information,
             digital advertising knowledge and practical
-            AdTech tools in one place.
+            AdTech resources and testing tools in one place.
 
         </p>
 
@@ -777,10 +782,10 @@
 
 
             <a
-                href="tools/"
+                href="advertising/"
                 class="hero-button secondary">
 
-                Explore AdTech Tools
+                Explore Advertising
 
             </a>
 
@@ -806,9 +811,9 @@
 
         <p>
 
-            Find publishers, learn about advertising
-            technology and use practical tools designed
-            for the digital advertising ecosystem.
+            Discover publishers, learn about digital
+            advertising and use practical tools for
+            testing advertising technologies.
 
         </p>
 
@@ -818,7 +823,9 @@
     <div class="feature-grid">
 
 
-        <!-- PUBLISHERS -->
+        <!-- =========================
+             PUBLISHER DIRECTORY
+        ========================== -->
 
         <article class="feature-card">
 
@@ -850,7 +857,9 @@
 
 
 
-        <!-- ADVERTISING -->
+        <!-- =========================
+             ADVERTISING
+        ========================== -->
 
         <article class="feature-card">
 
@@ -866,8 +875,8 @@
 
                 Learn about Google Ad Manager,
                 programmatic advertising, header bidding,
-                CTV, VAST, publisher monetization and
-                other advertising technologies.
+                CTV, publisher monetization and
+                advertising technology.
 
             </p>
 
@@ -883,7 +892,44 @@
 
 
 
-        <!-- TOOLS -->
+        <!-- =========================
+             AD TAG TESTING
+        ========================== -->
+
+        <article class="feature-card">
+
+            <div class="feature-icon">
+                🧪
+            </div>
+
+            <h3>
+                Ad Tag Testing
+            </h3>
+
+            <p>
+
+                Test video and web advertising tags
+                with practical tools designed for
+                publishers, developers and AdOps
+                professionals.
+
+            </p>
+
+            <a
+                href="testtag/"
+                class="feature-link">
+
+                Explore Ad Tag Testing →
+
+            </a>
+
+        </article>
+
+
+
+        <!-- =========================
+             ADTECH RESOURCES
+        ========================== -->
 
         <article class="feature-card">
 
@@ -892,23 +938,22 @@
             </div>
 
             <h3>
-                AdTech Tools
+                AdTech Resources
             </h3>
 
             <p>
 
-                Test VAST video advertising tags,
-                web advertising tags and explore
-                practical tools for AdOps and
-                advertising professionals.
+                Explore advertising concepts,
+                terminology, measurement, programmatic
+                technology and publisher monetization.
 
             </p>
 
             <a
-                href="tools/"
+                href="advertising/"
                 class="feature-link">
 
-                Explore Tools →
+                Explore Resources →
 
             </a>
 
@@ -922,7 +967,7 @@
 
 
 <!-- =====================================================
-     TOPICS
+     WHAT YOU CAN FIND
 ====================================================== -->
 
 <section class="section">
@@ -1005,14 +1050,15 @@
         <article class="topic-card">
 
             <h3>
-                🧪 Advertising Tools
+                🧪 Ad Tag Testing
             </h3>
 
             <p>
 
-                Use practical tools to test advertising
-                tags and understand how web and video
-                advertising requests work.
+                Test VAST video advertising tags and
+                web advertising tags with practical
+                tools for troubleshooting and
+                validation.
 
             </p>
 
@@ -1097,17 +1143,17 @@
             <div class="why-card">
 
                 <div class="icon">
-                    🛠️
+                    🧪
                 </div>
 
                 <h3>
-                    Practical Tools
+                    Testing Tools
                 </h3>
 
                 <p>
 
-                    Test and troubleshoot common
-                    advertising technologies.
+                    Test VAST and web advertising tags
+                    using practical AdTech tools.
 
                 </p>
 
@@ -1150,24 +1196,23 @@
 <section class="cta">
 
     <h2>
-        Explore PubsRate AdTech Tools
+        Test Your Advertising Tags
     </h2>
 
 
     <p>
 
-        Test VAST tags, web advertising tags and
-        explore practical tools built for publishers,
-        developers and AdOps professionals.
+        Validate VAST video ad tags and web advertising
+        tags with PubsRate's practical testing tools.
 
     </p>
 
 
     <a
-        href="tools/"
+        href="testtag/"
         class="cta-button">
 
-        Explore Tools →
+        Open Ad Tag Testing →
 
     </a>
 
@@ -1191,7 +1236,7 @@
     <p>
 
         Publisher discovery, advertising knowledge
-        and practical AdTech tools.
+        and practical AdTech resources.
 
     </p>
 
@@ -1210,8 +1255,8 @@
             Advertising
         </a>
 
-        <a href="tools/">
-            Tools
+        <a href="testtag/">
+            Ad Tag Testing
         </a>
 
     </div>
