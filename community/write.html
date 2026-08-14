@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Write a Blog | PubsRate Community</title>
+
+    <meta
+        name="description"
+        content="Share your AdTech experience, knowledge and ideas with the PubsRate community."
+    >
+
+    <link rel="stylesheet" href="write.css">
+
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     NAVBAR
+========================= -->
+
+<nav class="navbar">
+
+    <div class="nav-container">
+
+        <a href="../index.html" class="logo">
+            Pubs<span>Rate</span>
+        </a>
+
+
+        <div class="nav-links">
+
+            <a href="../index.html">
+                Home
+            </a>
+
+            <a href="../publisher/index.html">
+                Publishers
+            </a>
+
+            <a href="../advertising/index.html">
+                Advertising
+            </a>
+
+            <a href="../tools/index.html">
+                AdTech Tools
+            </a>
+
+            <a href="index.html">
+                Community
+            </a>
+
+        </div>
+
+
+        <a href="index.html" class="back-button">
+            ← Community
+        </a>
+
+    </div>
+
+</nav>
+
+
+
+<!-- =========================
+     PAGE HEADER
+========================= -->
+
+<section class="write-hero">
+
+    <div class="write-hero-content">
+
+        <div class="write-badge">
+            ✍️ COMMUNITY CONTRIBUTOR
+        </div>
+
+
+        <h1>
+            What's your
+            <span>AdTech story?</span>
+        </h1>
+
+
+        <p>
+            Share your experience, knowledge, solution or opinion
+            with publishers and advertising professionals around
+            the world.
+        </p>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     WRITING AREA
+========================= -->
+
+<main class="write-container">
+
+
+    <div class="writing-layout">
+
+
+        <!-- LEFT SIDE -->
+
+        <div class="writing-main">
+
+
+            <form id="blogForm">
+
+
+                <!-- NAME -->
+
+                <div class="form-group">
+
+                    <label for="authorName">
+                        Your Name
+                    </label>
+
+                    <span class="field-hint">
+                        This name will appear with your blog
+                    </span>
+
+
+                    <input
+                        type="text"
+                        id="authorName"
+                        name="authorName"
+                        placeholder="e.g. Prajwal"
+                        maxlength="60"
+                        required
+                    >
+
+                </div>
+
+
+
+                <!-- TITLE -->
+
+                <div class="form-group">
+
+                    <label for="blogTitle">
+                        Blog Title
+                    </label>
+
+
+                    <input
+                        type="text"
+                        id="blogTitle"
+                        name="blogTitle"
+                        placeholder="Give your story a great title..."
+                        maxlength="120"
+                        required
+                    >
+
+
+                    <div class="character-count">
+
+                        <span id="titleCount">
+                            0
+                        </span>
+
+                        / 120
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- CATEGORY -->
+
+                <div class="form-group">
+
+                    <label for="category">
+                        Category
+                    </label>
+
+
+                    <select
+                        id="category"
+                        name="category"
+                        required
+                    >
+
+                        <option value="">
+                            Select a category
+                        </option>
+
+                        <option value="Monetization">
+                            📊 Monetization
+                        </option>
+
+                        <option value="Programmatic">
+                            🎯 Programmatic
+                        </option>
+
+                        <option value="CTV & Video">
+                            📺 CTV & Video
+                        </option>
+
+                        <option value="Publishers">
+                            🌐 Publishers
+                        </option>
+
+                        <option value="AdTech Engineering">
+                            🛠️ AdTech Engineering
+                        </option>
+
+                        <option value="Career">
+                            💼 Career
+                        </option>
+
+                        <option value="Other">
+                            💡 Other
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+
+                <!-- BLOG -->
+
+                <div class="form-group">
+
+                    <div class="label-row">
+
+                        <label for="blogContent">
+                            Your Story
+                        </label>
+
+                        <span>
+                            Be useful. Be authentic.
+                        </span>
+
+                    </div>
+
+
+                    <textarea
+                        id="blogContent"
+                        name="blogContent"
+                        placeholder="Start writing your story...
+
+For example:
+
+What problem were you trying to solve?
+
+What did you discover?
+
+What solution worked?
+
+What did you learn?"
+                        required
+                    ></textarea>
+
+
+                    <div class="character-count">
+
+                        <span id="contentCount">
+                            0
+                        </span>
+
+                        characters
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- GUIDELINES -->
+
+                <div class="guidelines">
+
+                    <div class="guideline-icon">
+                        💡
+                    </div>
+
+
+                    <div>
+
+                        <strong>
+                            A few tips before publishing
+                        </strong>
+
+                        <ul>
+
+                            <li>
+                                Share your real experience or knowledge.
+                            </li>
+
+                            <li>
+                                Keep the content useful for the community.
+                            </li>
+
+                            <li>
+                                Avoid spam or promotional content.
+                            </li>
+
+                            <li>
+                                Don't share confidential company information.
+                            </li>
+
+                        </ul>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- BUTTON -->
+
+                <div class="publish-area">
+
+                    <button
+                        type="submit"
+                        id="publishButton"
+                    >
+
+                        🚀 Publish Blog
+
+                    </button>
+
+
+                    <span class="publish-note">
+                        Your blog will be reviewed before appearing publicly.
+                    </span>
+
+                </div>
+
+
+            </form>
+
+
+            <!-- SUCCESS MESSAGE -->
+
+            <div
+                id="successMessage"
+                class="success-message"
+            >
+
+                <div class="success-icon">
+                    🎉
+                </div>
+
+                <h2>
+                    Your story has been submitted!
+                </h2>
+
+                <p>
+                    Thanks for contributing to the PubsRate community.
+                    Your blog will appear after review.
+                </p>
+
+                <a href="index.html">
+                    ← Back to Community
+                </a>
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- RIGHT SIDE -->
+
+        <aside class="writing-sidebar">
+
+
+            <div class="sidebar-card author-card">
+
+                <div class="author-icon">
+                    👋
+                </div>
+
+
+                <h3>
+                    Welcome, Contributor
+                </h3>
+
+
+                <p>
+                    You don't need an account to share your
+                    experience. Just enter your name and start writing.
+                </p>
+
+            </div>
+
+
+
+            <div class="sidebar-card">
+
+                <span class="sidebar-label">
+                    WHAT CAN YOU WRITE?
+                </span>
+
+
+                <div class="idea">
+
+                    <span>
+                        📈
+                    </span>
+
+                    <div>
+
+                        <strong>
+                            A lesson you learned
+                        </strong>
+
+                        <p>
+                            Something you discovered while
+                            working in AdTech.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="idea">
+
+                    <span>
+                        🛠️
+                    </span>
+
+                    <div>
+
+                        <strong>
+                            A technical solution
+                        </strong>
+
+                        <p>
+                            Explain how you solved a difficult
+                            AdTech problem.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="idea">
+
+                    <span>
+                        💭
+                    </span>
+
+                    <div>
+
+                        <strong>
+                            Your opinion
+                        </strong>
+
+                        <p>
+                            Start a discussion about something
+                            happening in the industry.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="idea">
+
+                    <span>
+                        💼
+                    </span>
+
+                    <div>
+
+                        <strong>
+                            Career experience
+                        </strong>
+
+                        <p>
+                            Share your journey and help others
+                            entering AdTech.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="sidebar-quote">
+
+                <div>
+                    “
+                </div>
+
+                <p>
+                    The best knowledge is knowledge
+                    shared with others.
+                </p>
+
+            </div>
+
+
+        </aside>
+
+
+    </div>
+
+</main>
+
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+    <div class="footer-content">
+
+        <div>
+
+            <div class="footer-logo">
+                Pubs<span>Rate</span>
+            </div>
+
+            <p>
+                The AdTech ecosystem directory and community.
+            </p>
+
+        </div>
+
+
+        <div class="footer-links">
+
+            <a href="../index.html">
+                Home
+            </a>
+
+            <a href="../publisher/index.html">
+                Publishers
+            </a>
+
+            <a href="../advertising/index.html">
+                Advertising
+            </a>
+
+            <a href="../tools/index.html">
+                AdTech Tools
+            </a>
+
+            <a href="index.html">
+                Community
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <div class="footer-bottom">
+
+        © 2026 PubsRate. All rights reserved.
+
+    </div>
+
+</footer>
+
+
+
+<!-- =========================
+     BASIC FORM SCRIPT
+========================= -->
+
+<script>
+
+const titleInput =
+    document.getElementById("blogTitle");
+
+const contentInput =
+    document.getElementById("blogContent");
+
+const titleCount =
+    document.getElementById("titleCount");
+
+const contentCount =
+    document.getElementById("contentCount");
+
+
+titleInput.addEventListener("input", function () {
+
+    titleCount.textContent =
+        this.value.length;
+
+});
+
+
+contentInput.addEventListener("input", function () {
+
+    contentCount.textContent =
+        this.value.length;
+
+});
+
+
+
+document
+    .getElementById("blogForm")
+    .addEventListener("submit", function(event) {
+
+        event.preventDefault();
+
+
+        const name =
+            document
+            .getElementById("authorName")
+            .value
+            .trim();
+
+
+        const title =
+            titleInput
+            .value
+            .trim();
+
+
+        const category =
+            document
+            .getElementById("category")
+            .value;
+
+
+        const content =
+            contentInput
+            .value
+            .trim();
+
+
+        if (!name || !title || !category || !content) {
+
+            alert(
+                "Please complete all fields before publishing."
+            );
+
+            return;
+
+        }
+
+
+        /*
+            Firebase will be connected here.
+
+            We will replace this section with
+            the Firebase Firestore code.
+        */
+
+
+        document
+            .getElementById("blogForm")
+            .style.display = "none";
+
+
+        document
+            .getElementById("successMessage")
+            .classList.add("show");
+
+    });
+
+</script>
+
+
+</body>
+
+</html>
