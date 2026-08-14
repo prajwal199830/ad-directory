@@ -1,1 +1,941 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Advertising Updates & AdTech News | PubsRate</title>
+
+    <meta name="description"
+          content="Latest advertising, AdTech, programmatic, Google Ad Manager, CTV, AI advertising and publisher monetization updates from PubsRate.">
+
+    <meta name="robots" content="index, follow">
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f5f7fb;
+            color: #1f2937;
+        }
+
+        /* =========================
+           HEADER
+        ========================= */
+
+        header {
+            background: #111827;
+            color: white;
+            padding: 18px 20px;
+        }
+
+        .header-container {
+            max-width: 1150px;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 27px;
+            font-weight: bold;
+        }
+
+        .logo span {
+            color: #38bdf8;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 25px;
+            font-size: 15px;
+        }
+
+        nav a:hover {
+            color: #38bdf8;
+        }
+
+
+        /* =========================
+           MAIN CONTAINER
+        ========================= */
+
+        .container {
+            max-width: 1150px;
+            margin: auto;
+            padding: 40px 20px;
+        }
+
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .hero {
+            background: white;
+            padding: 45px;
+            border-radius: 18px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.07);
+            margin-bottom: 35px;
+        }
+
+        .hero h1 {
+            font-size: 42px;
+            margin: 0 0 15px;
+        }
+
+        .hero p {
+            max-width: 800px;
+            font-size: 18px;
+            line-height: 1.7;
+            color: #64748b;
+        }
+
+
+        /* =========================
+           CATEGORIES
+        ========================= */
+
+        .categories {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 25px;
+        }
+
+        .category {
+            padding: 9px 15px;
+            border-radius: 20px;
+            background: #e0f2fe;
+            color: #0369a1;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .category:hover {
+            background: #bae6fd;
+        }
+
+
+        /* =========================
+           SECTION HEADER
+        ========================= */
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .section-header h2 {
+            font-size: 28px;
+            margin: 0;
+        }
+
+        .view-all {
+            color: #2563eb;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+
+        /* =========================
+           FEATURED ARTICLE
+        ========================= */
+
+        .featured {
+            display: grid;
+            grid-template-columns: 1.4fr 1fr;
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+            margin-bottom: 45px;
+        }
+
+        .featured-image {
+            background: linear-gradient(135deg, #1e3a8a, #0284c7);
+            min-height: 300px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            color: white;
+            font-size: 65px;
+        }
+
+        .featured-content {
+            padding: 35px;
+        }
+
+        .label {
+            color: #2563eb;
+            font-size: 13px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .featured-content h2 {
+            font-size: 28px;
+            line-height: 1.35;
+        }
+
+        .featured-content p {
+            color: #64748b;
+            line-height: 1.6;
+        }
+
+        .date {
+            font-size: 13px;
+            color: #94a3b8;
+            margin-top: 12px;
+        }
+
+        .read-more {
+            display: inline-block;
+            margin-top: 15px;
+            background: #2563eb;
+            color: white;
+            padding: 11px 17px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .read-more:hover {
+            background: #1d4ed8;
+        }
+
+
+        /* =========================
+           ARTICLE GRID
+        ========================= */
+
+        .articles {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+        }
+
+        .article {
+            background: white;
+            border-radius: 14px;
+            overflow: hidden;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.06);
+
+            transition: transform 0.2s;
+        }
+
+        .article:hover {
+            transform: translateY(-4px);
+        }
+
+        .article-image {
+            height: 150px;
+            background: #e2e8f0;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            font-size: 42px;
+        }
+
+        .article-content {
+            padding: 20px;
+        }
+
+        .article-content h3 {
+            font-size: 19px;
+            line-height: 1.4;
+            margin: 8px 0;
+        }
+
+        .article-content p {
+            color: #64748b;
+            line-height: 1.5;
+            font-size: 14px;
+        }
+
+
+        /* =========================
+           CATEGORY SECTIONS
+        ========================= */
+
+        .category-section {
+            margin-top: 60px;
+        }
+
+
+        /* =========================
+           GUIDES
+        ========================= */
+
+        .guides {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 18px;
+        }
+
+        .guide {
+            background: white;
+            padding: 24px;
+            border-radius: 12px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+        }
+
+        .guide h3 {
+            margin-top: 0;
+        }
+
+        .guide p {
+            color: #64748b;
+            line-height: 1.5;
+        }
+
+        .guide a {
+            color: #2563eb;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+
+        /* =========================
+           PUBLISHER CTA
+        ========================= */
+
+        .cta {
+            margin-top: 65px;
+            background: #111827;
+            color: white;
+
+            padding: 45px;
+
+            border-radius: 16px;
+            text-align: center;
+        }
+
+        .cta h2 {
+            font-size: 30px;
+        }
+
+        .cta p {
+            color: #cbd5e1;
+            line-height: 1.6;
+        }
+
+        .cta a {
+            display: inline-block;
+            margin-top: 15px;
+
+            background: #38bdf8;
+            color: #082f49;
+
+            padding: 12px 20px;
+
+            border-radius: 8px;
+
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            text-align: center;
+            padding: 45px 20px;
+            color: #64748b;
+        }
+
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 800px) {
+
+            .header-container {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav a {
+                margin: 0 8px;
+            }
+
+            .hero {
+                padding: 30px;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .featured {
+                grid-template-columns: 1fr;
+            }
+
+            .articles {
+                grid-template-columns: 1fr;
+            }
+
+            .guides {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     HEADER
+========================= -->
+
+<header>
+
+    <div class="header-container">
+
+        <div class="logo">
+            Pubs<span>Rate</span>
+        </div>
+
+        <nav>
+
+            <a href="../index.html">Home</a>
+
+            <a href="../publishers/">Publishers</a>
+
+            <a href="index.html">Advertising</a>
+
+        </nav>
+
+    </div>
+
+</header>
+
+
+
+<main class="container">
+
+
+<!-- =========================
+     HERO
+========================= -->
+
+<section class="hero">
+
+    <h1>
+        Advertising Updates
+    </h1>
+
+    <p>
+        Stay updated with the latest developments in digital
+        advertising, AdTech, programmatic advertising,
+        publisher monetization, CTV, AI and the digital media industry.
+    </p>
+
+
+    <div class="categories">
+
+        <a class="category" href="#">
+            AdTech
+        </a>
+
+        <a class="category" href="#">
+            Programmatic
+        </a>
+
+        <a class="category" href="#">
+            Google Ad Manager
+        </a>
+
+        <a class="category" href="#">
+            CTV & OTT
+        </a>
+
+        <a class="category" href="#">
+            AI & Advertising
+        </a>
+
+        <a class="category" href="#">
+            Publisher Monetization
+        </a>
+
+        <a class="category" href="#">
+            Mobile Advertising
+        </a>
+
+        <a class="category" href="#">
+            Google Ads
+        </a>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     FEATURED
+========================= -->
+
+<div class="section-header">
+
+    <h2>
+        🔥 Featured Update
+    </h2>
+
+</div>
+
+
+<article class="featured">
+
+    <div class="featured-image">
+        📢
+    </div>
+
+
+    <div class="featured-content">
+
+        <div class="label">
+            Advertising
+        </div>
+
+        <h2>
+            Latest Developments in Digital Advertising
+        </h2>
+
+        <p>
+            Discover important developments across digital
+            advertising, AdTech, programmatic advertising and
+            publisher monetization.
+        </p>
+
+        <div class="date">
+            August 2026
+        </div>
+
+        <a class="read-more" href="#">
+            Read Article →
+        </a>
+
+    </div>
+
+</article>
+
+
+
+<!-- =========================
+     LATEST UPDATES
+========================= -->
+
+<div class="section-header">
+
+    <h2>
+        Latest Updates
+    </h2>
+
+    <a class="view-all" href="#">
+        View All →
+    </a>
+
+</div>
+
+
+<section class="articles">
+
+
+    <article class="article">
+
+        <div class="article-image">
+            🤖
+        </div>
+
+        <div class="article-content">
+
+            <div class="label">
+                AI & Advertising
+            </div>
+
+            <h3>
+                How AI Is Changing Digital Advertising
+            </h3>
+
+            <p>
+                Explore how artificial intelligence is
+                changing advertising and publisher workflows.
+            </p>
+
+            <div class="date">
+                August 14, 2026
+            </div>
+
+            <a class="read-more" href="#">
+                Read Article →
+            </a>
+
+        </div>
+
+    </article>
+
+
+
+    <article class="article">
+
+        <div class="article-image">
+            📊
+        </div>
+
+        <div class="article-content">
+
+            <div class="label">
+                Programmatic
+            </div>
+
+            <h3>
+                Latest Programmatic Advertising Developments
+            </h3>
+
+            <p>
+                Important developments affecting publishers,
+                advertisers and programmatic platforms.
+            </p>
+
+            <div class="date">
+                August 13, 2026
+            </div>
+
+            <a class="read-more" href="#">
+                Read Article →
+            </a>
+
+        </div>
+
+    </article>
+
+
+
+    <article class="article">
+
+        <div class="article-image">
+            📺
+        </div>
+
+        <div class="article-content">
+
+            <div class="label">
+                CTV & OTT
+            </div>
+
+            <h3>
+                What's Changing in CTV Advertising?
+            </h3>
+
+            <p>
+                Key trends and developments in connected
+                television advertising.
+            </p>
+
+            <div class="date">
+                August 12, 2026
+            </div>
+
+            <a class="read-more" href="#">
+                Read Article →
+            </a>
+
+        </div>
+
+    </article>
+
+
+</section>
+
+
+
+<!-- =========================
+     PROGRAMMATIC
+========================= -->
+
+<section class="category-section">
+
+    <div class="section-header">
+
+        <h2>
+            📊 Programmatic Advertising
+        </h2>
+
+        <a class="view-all" href="#">
+            More →
+        </a>
+
+    </div>
+
+
+    <section class="articles">
+
+
+        <article class="article">
+
+            <div class="article-image">
+                💻
+            </div>
+
+            <div class="article-content">
+
+                <div class="label">
+                    Programmatic
+                </div>
+
+                <h3>
+                    Understanding Modern Programmatic Advertising
+                </h3>
+
+                <p>
+                    Learn how publishers and advertisers use
+                    programmatic technology.
+                </p>
+
+                <a class="read-more" href="#">
+                    Read Article →
+                </a>
+
+            </div>
+
+        </article>
+
+
+
+        <article class="article">
+
+            <div class="article-image">
+                📈
+            </div>
+
+            <div class="article-content">
+
+                <div class="label">
+                    AdTech
+                </div>
+
+                <h3>
+                    Publisher Revenue Trends
+                </h3>
+
+                <p>
+                    Explore factors influencing digital
+                    advertising revenue for publishers.
+                </p>
+
+                <a class="read-more" href="#">
+                    Read Article →
+                </a>
+
+            </div>
+
+        </article>
+
+
+
+        <article class="article">
+
+            <div class="article-image">
+                🔗
+            </div>
+
+            <div class="article-content">
+
+                <div class="label">
+                    AdTech
+                </div>
+
+                <h3>
+                    Header Bidding Explained
+                </h3>
+
+                <p>
+                    Understand client-side and server-side
+                    header bidding.
+                </p>
+
+                <a class="read-more" href="#">
+                    Read Article →
+                </a>
+
+            </div>
+
+        </article>
+
+
+    </section>
+
+</section>
+
+
+
+<!-- =========================
+     ADVERTISING GUIDES
+========================= -->
+
+<section class="category-section">
+
+    <div class="section-header">
+
+        <h2>
+            📚 Advertising Guides
+        </h2>
+
+        <a class="view-all" href="#">
+            View Guides →
+        </a>
+
+    </div>
+
+
+    <section class="guides">
+
+
+        <div class="guide">
+
+            <h3>
+                What is Google Ad Manager?
+            </h3>
+
+            <p>
+                Learn how Google Ad Manager works and how
+                publishers use it to manage advertising.
+            </p>
+
+            <a href="#">
+                Read Guide →
+            </a>
+
+        </div>
+
+
+
+        <div class="guide">
+
+            <h3>
+                What is Programmatic Advertising?
+            </h3>
+
+            <p>
+                Understand programmatic advertising,
+                DSPs, SSPs and ad exchanges.
+            </p>
+
+            <a href="#">
+                Read Guide →
+            </a>
+
+        </div>
+
+
+
+        <div class="guide">
+
+            <h3>
+                What is Header Bidding?
+            </h3>
+
+            <p>
+                Understand client-side and server-side
+                header bidding.
+            </p>
+
+            <a href="#">
+                Read Guide →
+            </a>
+
+        </div>
+
+
+
+        <div class="guide">
+
+            <h3>
+                What is CTV Advertising?
+            </h3>
+
+            <p>
+                Learn how advertising works across
+                connected TV and streaming platforms.
+            </p>
+
+            <a href="#">
+                Read Guide →
+            </a>
+
+        </div>
+
+
+    </section>
+
+</section>
+
+
+
+<!-- =========================
+     PUBLISHER CTA
+========================= -->
+
+<section class="cta">
+
+    <h2>
+        Explore Publishers
+    </h2>
+
+    <p>
+        Discover publishers across news, entertainment,
+        sports, finance, technology and more.
+    </p>
+
+    <a href="../index.html">
+        Browse Publishers →
+    </a>
+
+</section>
+
+
+</main>
+
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+    © 2026 PubsRate. All rights reserved.
+
+</footer>
+
+
+</body>
+
+</html>
