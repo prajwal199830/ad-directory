@@ -1,1 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AdTech Tag Testing Tools | PubsRate</title>
+
+    <meta name="description"
+          content="Free PubsRate tools for testing and troubleshooting web advertising tags and VAST video advertising tags.">
+
+    <meta name="robots" content="index, follow">
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f5f7fb;
+            color: #1f2937;
+        }
+
+
+        /* =========================
+           HEADER
+        ========================= */
+
+        header {
+            background: #111827;
+            color: white;
+            padding: 18px 20px;
+        }
+
+        .header-container {
+            max-width: 1150px;
+            margin: auto;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 27px;
+            font-weight: bold;
+        }
+
+        .logo span {
+            color: #38bdf8;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+
+            margin-left: 25px;
+
+            font-size: 15px;
+        }
+
+        nav a:hover {
+            color: #38bdf8;
+        }
+
+
+        /* =========================
+           MAIN
+        ========================= */
+
+        .container {
+            max-width: 1100px;
+            margin: auto;
+
+            padding: 50px 20px;
+        }
+
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .hero {
+            background: white;
+
+            padding: 50px 40px;
+
+            border-radius: 18px;
+
+            text-align: center;
+
+            box-shadow:
+                0 4px 15px rgba(0,0,0,0.06);
+
+            margin-bottom: 40px;
+        }
+
+        .hero h1 {
+            font-size: 42px;
+
+            margin:
+                0 0 15px;
+        }
+
+        .hero p {
+            max-width: 760px;
+
+            margin: auto;
+
+            color: #64748b;
+
+            font-size: 18px;
+
+            line-height: 1.7;
+        }
+
+
+        /* =========================
+           TOOLS GRID
+        ========================= */
+
+        .tools-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap: 25px;
+        }
+
+
+        /* =========================
+           TOOL CARD
+        ========================= */
+
+        .tool-card {
+            background: white;
+
+            padding: 35px;
+
+            border-radius: 16px;
+
+            box-shadow:
+                0 4px 15px rgba(0,0,0,0.06);
+
+            border: 1px solid #e5e7eb;
+
+            transition:
+                transform 0.2s,
+                box-shadow 0.2s;
+        }
+
+        .tool-card:hover {
+            transform:
+                translateY(-5px);
+
+            box-shadow:
+                0 8px 22px rgba(0,0,0,0.09);
+        }
+
+
+        /* ICON */
+
+        .tool-icon {
+            width: 65px;
+            height: 65px;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 14px;
+
+            background: #eff6ff;
+
+            font-size: 32px;
+
+            margin-bottom: 20px;
+        }
+
+
+        /* TITLE */
+
+        .tool-card h2 {
+            margin:
+                0 0 12px;
+
+            font-size: 24px;
+        }
+
+
+        /* DESCRIPTION */
+
+        .tool-card p {
+            color: #64748b;
+
+            line-height: 1.7;
+
+            min-height: 105px;
+        }
+
+
+        /* FEATURES */
+
+        .features {
+            list-style: none;
+
+            padding: 0;
+
+            margin: 20px 0;
+        }
+
+        .features li {
+            margin-bottom: 10px;
+
+            font-size: 14px;
+
+            color: #475569;
+        }
+
+
+        /* BUTTON */
+
+        .tool-button {
+            display: inline-block;
+
+            margin-top: 10px;
+
+            background: #2563eb;
+
+            color: white;
+
+            padding: 12px 20px;
+
+            border-radius: 8px;
+
+            text-decoration: none;
+
+            font-weight: bold;
+        }
+
+        .tool-button:hover {
+            background: #1d4ed8;
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            text-align: center;
+
+            padding: 50px 20px;
+
+            color: #64748b;
+        }
+
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 750px) {
+
+            .header-container {
+                flex-direction: column;
+
+                gap: 15px;
+            }
+
+            nav a {
+                margin:
+                    0 8px;
+            }
+
+            .hero {
+                padding: 35px 25px;
+            }
+
+            .hero h1 {
+                font-size: 34px;
+            }
+
+            .tools-grid {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     HEADER
+========================= -->
+
+<header>
+
+    <div class="header-container">
+
+        <div class="logo">
+            Pubs<span>Rate</span>
+        </div>
+
+
+        <nav>
+
+            <a href="../index.html">
+                Home
+            </a>
+
+            <a href="../publishers/">
+                Publishers
+            </a>
+
+            <a href="../advertising/">
+                Advertising
+            </a>
+
+            <a href="index.html">
+                Tools
+            </a>
+
+        </nav>
+
+    </div>
+
+</header>
+
+
+
+<main class="container">
+
+
+<!-- =========================
+     HERO
+========================= -->
+
+<section class="hero">
+
+    <h1>
+        🛠️ AdTech Tag Testing Tools
+    </h1>
+
+    <p>
+        Test and troubleshoot advertising implementations
+        across web and video environments. Built for
+        publishers, AdOps teams, developers and AdTech
+        professionals.
+    </p>
+
+</section>
+
+
+
+<!-- =========================
+     TOOLS
+========================= -->
+
+<section class="tools-grid">
+
+
+    <!-- =====================
+         WEB TAG TESTER
+    ====================== -->
+
+    <article class="tool-card">
+
+        <div class="tool-icon">
+            🌐
+        </div>
+
+
+        <h2>
+            Web Ad Tag Tester
+        </h2>
+
+
+        <p>
+            Analyze Google Publisher Tag (GPT)
+            implementations and identify common
+            configuration issues in web advertising.
+        </p>
+
+
+        <ul class="features">
+
+            <li>
+                ✅ GPT library detection
+            </li>
+
+            <li>
+                ✅ GAM ad-unit detection
+            </li>
+
+            <li>
+                ✅ Ad size detection
+            </li>
+
+            <li>
+                ✅ Slot ID validation
+            </li>
+
+            <li>
+                ✅ Targeting detection
+            </li>
+
+            <li>
+                ✅ GPT configuration checks
+            </li>
+
+        </ul>
+
+
+        <a
+            class="tool-button"
+            href="web-ad-tag-tester.html">
+
+            Test Web Ad Tag →
+
+        </a>
+
+    </article>
+
+
+
+    <!-- =====================
+         VAST TESTER
+    ====================== -->
+
+    <article class="tool-card">
+
+        <div class="tool-icon">
+            🎥
+        </div>
+
+
+        <h2>
+            Video / VAST Tag Tester
+        </h2>
+
+
+        <p>
+            Validate VAST video advertising tags,
+            inspect creatives and test compatible
+            video media files using the PubsRate
+            VAST player.
+        </p>
+
+
+        <ul class="features">
+
+            <li>
+                ✅ VAST version detection
+            </li>
+
+            <li>
+                ✅ Impression validation
+            </li>
+
+            <li>
+                ✅ Creative detection
+            </li>
+
+            <li>
+                ✅ Media file detection
+            </li>
+
+            <li>
+                ✅ Tracking event detection
+            </li>
+
+            <li>
+                ✅ Video playback testing
+            </li>
+
+        </ul>
+
+
+        <a
+            class="tool-button"
+            href="vast-tag-tester.html">
+
+            Test VAST Tag →
+
+        </a>
+
+    </article>
+
+
+</section>
+
+
+</main>
+
+
+
+<footer>
+
+    © 2026 PubsRate. All rights reserved.
+
+</footer>
+
+
+</body>
+
+</html>
