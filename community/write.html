@@ -588,27 +588,147 @@ What did you learn?"
      BASIC FORM SCRIPT
 ========================= -->
 
-<script>
+<script type="module">
 
-const titleInput =
-    document.getElementById("blogTitle");
-
-const contentInput =
-    document.getElementById("blogContent");
-
-const titleCount =
-    document.getElementById("titleCount");
-
-const contentCount =
-    document.getElementById("contentCount");
+    import { publishBlog } from "./firebase.js";
 
 
-titleInput.addEventListener("input", function () {
+    const titleInput =
+        document.getElementById("blogTitle");
 
-    titleCount.textContent =
-        this.value.length;
+    const contentInput =
+        document.getElementById("blogContent");
 
-});
+    const titleCount =
+        document.getElementById("titleCount");
+
+    const contentCount =
+        document.getElementById("contentCount");
+
+
+    titleInput.addEventListener(
+        "input",
+        function () {
+
+            titleCount.textContent =
+                this.value.length;
+
+        }
+    );
+
+
+    contentInput.addEventListener(
+        "input",
+        function () {
+
+            contentCount.textContent =
+                this.value.length;
+
+        }
+    );
+
+
+    document
+        .getElementById("blogForm")
+        .addEventListener(
+            "submit",
+            async function (event) {
+
+                event.preventDefault();
+
+
+                const name =
+                    document
+                    .getElementById("authorName")
+                    .value
+                    .trim();
+
+
+                const title =
+                    titleInput
+                    .value
+                    .trim();
+
+
+                const category =
+                    document
+                    .getElementById("category")
+                    .value;
+
+
+                const content =
+                    contentInput
+                    .value
+                    .trim();
+
+
+                if (
+                    !name ||
+                    !title ||
+                    !category ||
+                    !content
+                ) {
+
+                    alert(
+                        "Please complete all fields before publishing."
+                    );
+
+                    return;
+
+                }
+
+
+                const publishButton =
+                    document.getElementById(
+                        "publishButton"
+                    );
+
+
+                publishButton.disabled = true;
+
+                publishButton.textContent =
+                    "Publishing...";
+
+
+                const success =
+                    await publishBlog(
+                        name,
+                        title,
+                        category,
+                        content
+                    );
+
+
+                if (success) {
+
+                    document
+                        .getElementById("blogForm")
+                        .style.display = "none";
+
+
+                    document
+                        .getElementById("successMessage")
+                        .classList.add("show");
+
+                } else {
+
+                    publishButton.disabled =
+                        false;
+
+                    publishButton.textContent =
+                        "🚀 Publish Blog";
+
+
+                    alert(
+                        "Something went wrong while publishing. Please try again."
+                    );
+
+                }
+
+            }
+        );
+
+</script>
 
 
 contentInput.addEventListener("input", function () {
