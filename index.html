@@ -1,134 +1,1231 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZK40W0H1B0"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
 
-  gtag('config', 'G-ZK40W0H1B0');
-</script>
+<head>
+
+    <!-- =========================
+         GOOGLE ANALYTICS
+    ========================== -->
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZK40W0H1B0"></script>
+
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+
+        gtag('config', 'G-ZK40W0H1B0');
+    </script>
+
+
+    <!-- =========================
+         SEO
+    ========================== -->
+
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>India Publisher CPM Directory & Market Analyzer</title>
-    <link rel="stylesheet" href="main.css">
+
+    <title>
+        PubsRate | Publishers, Advertising & AdTech Tools
+    </title>
+
+    <meta
+        name="description"
+        content="PubsRate is a publisher and advertising resource covering publishers, digital advertising, AdTech, programmatic advertising, VAST testing and web advertising tools."
+    >
+
+    <meta
+        name="robots"
+        content="index, follow"
+    >
+
+    <link
+        rel="canonical"
+        href="https://pubsrate.com/"
+    >
+
+    <link
+        rel="stylesheet"
+        href="main.css"
+    >
+
+
+    <style>
+
+        /* =========================
+           RESET
+        ========================== */
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+
+            font-family:
+                Arial,
+                Helvetica,
+                sans-serif;
+
+            background: #f5f7fb;
+
+            color: #1f2937;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+
+        /* =========================
+           HEADER
+        ========================== */
+
+        .site-header {
+
+            background: #111827;
+
+            color: white;
+
+            padding: 18px 20px;
+        }
+
+        .header-inner {
+
+            max-width: 1150px;
+
+            margin: auto;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            gap: 25px;
+        }
+
+        .logo {
+
+            font-size: 29px;
+
+            font-weight: 800;
+
+            color: white;
+        }
+
+        .logo span {
+
+            color: #38bdf8;
+        }
+
+        .main-nav {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 28px;
+        }
+
+        .main-nav a {
+
+            color: white;
+
+            font-size: 15px;
+
+            font-weight: 600;
+        }
+
+        .main-nav a:hover {
+
+            color: #38bdf8;
+        }
+
+        .nav-tools {
+
+            background: #2563eb;
+
+            padding: 9px 15px;
+
+            border-radius: 7px;
+        }
+
+        .nav-tools:hover {
+
+            color: white !important;
+
+            background: #1d4ed8;
+        }
+
+
+        /* =========================
+           HERO
+        ========================== */
+
+        .hero {
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #0f172a,
+                    #1e3a8a
+                );
+
+            color: white;
+
+            padding: 85px 20px;
+
+            text-align: center;
+        }
+
+        .hero-inner {
+
+            max-width: 900px;
+
+            margin: auto;
+        }
+
+        .hero h1 {
+
+            font-size: 48px;
+
+            line-height: 1.15;
+
+            margin: 0 0 20px;
+        }
+
+        .hero h1 span {
+
+            color: #38bdf8;
+        }
+
+        .hero p {
+
+            max-width: 780px;
+
+            margin: 0 auto 32px;
+
+            color: #dbeafe;
+
+            font-size: 19px;
+
+            line-height: 1.7;
+        }
+
+        .hero-buttons {
+
+            display: flex;
+
+            justify-content: center;
+
+            gap: 15px;
+
+            flex-wrap: wrap;
+        }
+
+        .hero-button {
+
+            display: inline-block;
+
+            padding: 13px 22px;
+
+            border-radius: 8px;
+
+            font-weight: bold;
+
+            background: #38bdf8;
+
+            color: #082f49;
+        }
+
+        .hero-button:hover {
+
+            background: #7dd3fc;
+        }
+
+        .hero-button.secondary {
+
+            background: transparent;
+
+            border: 1px solid #93c5fd;
+
+            color: white;
+        }
+
+        .hero-button.secondary:hover {
+
+            background: rgba(255,255,255,0.1);
+        }
+
+
+        /* =========================
+           MAIN SECTION
+        ========================== */
+
+        .section {
+
+            max-width: 1150px;
+
+            margin: auto;
+
+            padding: 65px 20px;
+        }
+
+        .section-heading {
+
+            text-align: center;
+
+            margin-bottom: 35px;
+        }
+
+        .section-heading h2 {
+
+            font-size: 32px;
+
+            margin: 0 0 12px;
+        }
+
+        .section-heading p {
+
+            max-width: 700px;
+
+            margin: auto;
+
+            color: #64748b;
+
+            line-height: 1.6;
+        }
+
+
+        /* =========================
+           MAIN FEATURE CARDS
+        ========================== */
+
+        .feature-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 22px;
+        }
+
+        .feature-card {
+
+            background: white;
+
+            padding: 32px;
+
+            border-radius: 15px;
+
+            border: 1px solid #e5e7eb;
+
+            box-shadow:
+                0 4px 15px rgba(0,0,0,0.05);
+
+            transition:
+                transform 0.2s,
+                box-shadow 0.2s;
+        }
+
+        .feature-card:hover {
+
+            transform: translateY(-5px);
+
+            box-shadow:
+                0 8px 22px rgba(0,0,0,0.08);
+        }
+
+        .feature-icon {
+
+            font-size: 40px;
+
+            margin-bottom: 15px;
+        }
+
+        .feature-card h3 {
+
+            font-size: 22px;
+
+            margin: 0 0 12px;
+        }
+
+        .feature-card p {
+
+            color: #64748b;
+
+            line-height: 1.6;
+
+            font-size: 15px;
+        }
+
+        .feature-link {
+
+            display: inline-block;
+
+            margin-top: 10px;
+
+            color: #2563eb;
+
+            font-weight: bold;
+        }
+
+        .feature-link:hover {
+
+            color: #1d4ed8;
+        }
+
+
+        /* =========================
+           WHY PUBSRATE
+        ========================== */
+
+        .why-section {
+
+            background: #f8fafc;
+
+            max-width: none;
+        }
+
+        .why-inner {
+
+            max-width: 1150px;
+
+            margin: auto;
+
+            padding: 65px 20px;
+        }
+
+        .why-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(4, 1fr);
+
+            gap: 18px;
+        }
+
+        .why-card {
+
+            background: white;
+
+            padding: 27px;
+
+            border-radius: 13px;
+
+            text-align: center;
+
+            border: 1px solid #e5e7eb;
+        }
+
+        .why-card .icon {
+
+            font-size: 32px;
+
+            margin-bottom: 12px;
+        }
+
+        .why-card h3 {
+
+            margin: 0 0 10px;
+
+            font-size: 18px;
+        }
+
+        .why-card p {
+
+            margin: 0;
+
+            color: #64748b;
+
+            line-height: 1.5;
+
+            font-size: 14px;
+        }
+
+
+        /* =========================
+           WHAT YOU CAN FIND
+        ========================== */
+
+        .topics-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap: 20px;
+        }
+
+        .topic-card {
+
+            background: white;
+
+            padding: 25px;
+
+            border-radius: 12px;
+
+            border: 1px solid #e5e7eb;
+
+            box-shadow:
+                0 3px 12px rgba(0,0,0,0.04);
+        }
+
+        .topic-card h3 {
+
+            margin-top: 0;
+
+            font-size: 20px;
+        }
+
+        .topic-card p {
+
+            color: #64748b;
+
+            line-height: 1.6;
+
+            margin-bottom: 0;
+        }
+
+
+        /* =========================
+           CTA
+        ========================== */
+
+        .cta {
+
+            max-width: 1050px;
+
+            margin: 65px auto;
+
+            padding: 55px 25px;
+
+            border-radius: 18px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #111827,
+                    #1e3a8a
+                );
+
+            text-align: center;
+
+            color: white;
+        }
+
+        .cta h2 {
+
+            font-size: 30px;
+
+            margin: 0 0 12px;
+        }
+
+        .cta p {
+
+            color: #cbd5e1;
+
+            line-height: 1.6;
+
+            max-width: 680px;
+
+            margin: auto;
+        }
+
+        .cta-button {
+
+            display: inline-block;
+
+            margin-top: 22px;
+
+            background: #38bdf8;
+
+            color: #082f49;
+
+            padding: 12px 22px;
+
+            border-radius: 8px;
+
+            font-weight: bold;
+        }
+
+        .cta-button:hover {
+
+            background: #7dd3fc;
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================== */
+
+        footer {
+
+            background: #111827;
+
+            color: #94a3b8;
+
+            text-align: center;
+
+            padding: 42px 20px;
+        }
+
+        .footer-logo {
+
+            color: white;
+
+            font-size: 25px;
+
+            font-weight: bold;
+
+            margin-bottom: 10px;
+        }
+
+        .footer-logo span {
+
+            color: #38bdf8;
+        }
+
+        .footer-links {
+
+            display: flex;
+
+            justify-content: center;
+
+            gap: 25px;
+
+            flex-wrap: wrap;
+
+            margin: 18px 0;
+        }
+
+        .footer-links a {
+
+            color: #cbd5e1;
+
+            font-size: 14px;
+        }
+
+        .footer-links a:hover {
+
+            color: #38bdf8;
+        }
+
+
+        /* =========================
+           MOBILE
+        ========================== */
+
+        @media (max-width: 900px) {
+
+            .feature-grid {
+
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+
+            .why-grid {
+
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+
+        }
+
+
+        @media (max-width: 650px) {
+
+            .header-inner {
+
+                flex-direction: column;
+
+                gap: 15px;
+            }
+
+            .main-nav {
+
+                gap: 15px;
+
+                flex-wrap: wrap;
+
+                justify-content: center;
+            }
+
+            .hero {
+
+                padding: 60px 20px;
+            }
+
+            .hero h1 {
+
+                font-size: 35px;
+            }
+
+            .hero p {
+
+                font-size: 16px;
+            }
+
+            .feature-grid,
+            .why-grid,
+            .topics-grid {
+
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+    </style>
+
 </head>
+
+
 <body>
 
-<div class="container">
-    <header class="page-header" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px;">
-        <div>
-            <h1>Indian & International Publisher Ad Directory</h1>
-            <p class="subtitle">Analyze benchmark CPM rates and ad buying portals across premium publisher networks.</p>
-        </div>
-        
-        <!-- 🆕 NEW: Currency Toggle Switch Header Widget -->
-        <div class="currency-toggle-wrapper">
-            <span class="currency-label">Currency:</span>
-            <button id="currencyToggleBtn" class="toggle-btn active-inr">₹ INR</button>
-        </div>
-    </header>
 
-    <div class="filter-bar">
-        <div class="filter-group" style="flex: 2; min-width: 250px;">
-            <label for="searchBar">Search Publisher</label>
-            <input type="text" id="searchBar" placeholder="Type to search (e.g., Netflix, Spotify, Jio...)">
-        </div>
+<!-- =====================================================
+     HEADER
+====================================================== -->
 
-        <div class="filter-group">
-            <label for="nicheFilter">Content Niche</label>
-            <select id="nicheFilter">
-                <option value="all">All Niches</option>
-                <option value="Sports">Sports</option>
-                <option value="News">News</option>
-                <option value="Finance">Finance</option>
-                <option value="Live Streaming">Live Streaming</option>
-                <option value="Gaming">Gaming</option>
-                <option value="Regional Content">Regional Content</option>
-                <option value="General Entertainment">General Entertainment</option>
-            </select>
-        </div>
+<header class="site-header">
 
-        <div class="filter-group">
-            <label for="platformFilter">Platform</label>
-            <select id="platformFilter">
-                <option value="all">All Platforms</option>
-                <option value="OTT / Connected TV">OTT / Connected TV</option>
-                <option value="Mobile App">Mobile App</option>
-                <option value="Mobile App / Web">Mobile App & Web</option>
-                <option value="Web">Web Only</option>
-                <option value="Web / Desktop">Web & Desktop</option>
-                <option value="Web / App">Web & App</option>
-            </select>
-        </div>
+    <div class="header-inner">
 
-        <!-- 🆕 NEW: Dynamic Ad Format Filter Option -->
-        <div class="filter-group">
-            <label for="formatFilter">Ad Format</label>
-            <select id="formatFilter">
-                <option value="all">All Ad Formats</option>
-                <option value="Video Pre-Roll">Video Pre-Roll</option>
-                <option value="Video Mid-Roll">Video Mid-Roll</option>
-                <option value="Banner Displays">Banner Displays</option>
-                <option value="Native In-Feed">Native In-Feed</option>
-                <option value="Audio Ads">Audio Ads</option>
-                <option value="Connected TV Banner">Connected TV Banner</option>
-            </select>
-        </div>
+        <a
+            href="index.html"
+            class="logo">
 
-        <!-- 🆕 NEW: Premium Media Plan Exporter Trigger Button -->
-        <button id="exportCsvBtn" class="export-btn" style="height: 43px; padding: 0 20px; font-weight: 700; border-radius: 8px;">📥 Export Media Plan</button>
+            Pubs<span>Rate</span>
+
+        </a>
+
+
+        <nav class="main-nav">
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <a href="publishers/">
+                Publishers
+            </a>
+
+            <a href="advertising/">
+                Advertising
+            </a>
+
+            <a
+                href="tools/"
+                class="nav-tools">
+
+                Tools
+
+            </a>
+
+        </nav>
+
     </div>
 
-    <div class="grid" id="directoryGrid"></div>
-</div>
+</header>
 
-<div id="detailsModal" class="modal-overlay">
-    <div class="modal-content">
-        <span class="close-modal" id="closeModalBtn">&times;</span>
-        <h2 id="modalPublisherName">Publisher Name</h2>
-        <div id="modalMetaTags" class="tag-container"></div>
-        
-        <div class="modal-body">
-           <!-- Replace your current <div class="calculator-panel"> block with this: -->
-<div class="calculator-panel">
-    <h3>🧮 Impression Spend Calculator</h3>
-    <div class="calc-row">
-        <div class="calc-input-wrapper">
-            <label for="calcBudgetInput" id="calcBudgetLabel">Enter Campaign Budget (₹)</label>
-            <input type="number" id="calcBudgetInput" placeholder="e.g., 50000" min="0">
+
+
+<!-- =====================================================
+     HERO
+====================================================== -->
+
+<section class="hero">
+
+    <div class="hero-inner">
+
+        <h1>
+
+            Publishers,
+            <span>Advertising & AdTech</span>
+
+        </h1>
+
+
+        <p>
+
+            PubsRate brings together publisher information,
+            digital advertising knowledge and practical
+            AdTech tools in one place.
+
+        </p>
+
+
+        <div class="hero-buttons">
+
+            <a
+                href="publishers/"
+                class="hero-button">
+
+                Explore Publishers →
+
+            </a>
+
+
+            <a
+                href="tools/"
+                class="hero-button secondary">
+
+                Explore AdTech Tools
+
+            </a>
+
         </div>
-        <div class="calc-output-wrapper">
-            <label>Est. Ad Impressions</label>
-            <div id="calcImpressionOutput" class="calc-display-box">0</div>
-        </div>
+
     </div>
-    <p id="calcNoticeText" class="calc-note">Enter an amount to calculate projections based on average pricing.</p>
-    
-    <!-- ⚠️ NEW: Professional Industry Operational Disclaimer Block -->
-    <div class="calc-disclaimer-box">
-        <strong>⚠️ Market Disclaimer:</strong> Rates displayed are historical agency cards and programmatic midpoint estimates. Actual campaign CPMs fluctuate in real-time based on target demographics, geo-targeting, season demand spikes (e.g., IPL/Festivals), and bidding auction dynamics. Projections are directional benchmarks and do not constitute a guaranteed delivery binding contract.
+
+</section>
+
+
+
+<!-- =====================================================
+     EXPLORE PUBSRATE
+====================================================== -->
+
+<section class="section">
+
+    <div class="section-heading">
+
+        <h2>
+            Explore PubsRate
+        </h2>
+
+        <p>
+
+            Find publishers, learn about advertising
+            technology and use practical tools designed
+            for the digital advertising ecosystem.
+
+        </p>
+
     </div>
-</div>
-            <div class="detail-section">
-                <h3>📺 Channels / Sub-Networks Offered</h3>
-                <ul id="modalChannelsList" class="detail-list"></ul>
+
+
+    <div class="feature-grid">
+
+
+        <!-- PUBLISHERS -->
+
+        <article class="feature-card">
+
+            <div class="feature-icon">
+                📰
             </div>
-            <div class="detail-section">
-                <h3>⚽ Sports Coverage / Key Content</h3>
-                <ul id="modalSportsList" class="detail-list"></ul>
-            </div>
-        </div>
-        
-        <div class="modal-footer">
-            <a id="modalPortalBtn" href="#" target="_blank" class="buy-btn">Explore Ad Portal ↗</a>
-        </div>
-    </div>
-</div>
 
-<script src="main.js"></script>
-<script src="app.js"></script>
+            <h3>
+                Publisher Directory
+            </h3>
+
+            <p>
+
+                Discover publishers across news, sports,
+                finance, entertainment, streaming,
+                gaming and regional content.
+
+            </p>
+
+            <a
+                href="publishers/"
+                class="feature-link">
+
+                Explore Publishers →
+
+            </a>
+
+        </article>
+
+
+
+        <!-- ADVERTISING -->
+
+        <article class="feature-card">
+
+            <div class="feature-icon">
+                📢
+            </div>
+
+            <h3>
+                Advertising & AdTech
+            </h3>
+
+            <p>
+
+                Learn about Google Ad Manager,
+                programmatic advertising, header bidding,
+                CTV, VAST, publisher monetization and
+                other advertising technologies.
+
+            </p>
+
+            <a
+                href="advertising/"
+                class="feature-link">
+
+                Explore Advertising →
+
+            </a>
+
+        </article>
+
+
+
+        <!-- TOOLS -->
+
+        <article class="feature-card">
+
+            <div class="feature-icon">
+                🛠️
+            </div>
+
+            <h3>
+                AdTech Tools
+            </h3>
+
+            <p>
+
+                Test VAST video advertising tags,
+                web advertising tags and explore
+                practical tools for AdOps and
+                advertising professionals.
+
+            </p>
+
+            <a
+                href="tools/"
+                class="feature-link">
+
+                Explore Tools →
+
+            </a>
+
+        </article>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     TOPICS
+====================================================== -->
+
+<section class="section">
+
+    <div class="section-heading">
+
+        <h2>
+            What You Can Find on PubsRate
+        </h2>
+
+        <p>
+
+            Resources covering the major areas of
+            the digital publishing and advertising
+            ecosystem.
+
+        </p>
+
+    </div>
+
+
+    <div class="topics-grid">
+
+
+        <article class="topic-card">
+
+            <h3>
+                📊 Digital Advertising
+            </h3>
+
+            <p>
+
+                Understand CPM, eCPM, fill rate,
+                impressions, ad requests, viewability,
+                programmatic advertising and publisher
+                monetization.
+
+            </p>
+
+        </article>
+
+
+
+        <article class="topic-card">
+
+            <h3>
+                ⚙️ AdTech
+            </h3>
+
+            <p>
+
+                Explore Google Ad Manager, ad exchanges,
+                SSPs, DSPs, header bidding, Open Bidding,
+                VAST, VMAP, SSAI, DAI and more.
+
+            </p>
+
+        </article>
+
+
+
+        <article class="topic-card">
+
+            <h3>
+                📺 CTV & OTT
+            </h3>
+
+            <p>
+
+                Learn about advertising across connected
+                TV, streaming platforms, OTT applications,
+                video players and set-top boxes.
+
+            </p>
+
+        </article>
+
+
+
+        <article class="topic-card">
+
+            <h3>
+                🧪 Advertising Tools
+            </h3>
+
+            <p>
+
+                Use practical tools to test advertising
+                tags and understand how web and video
+                advertising requests work.
+
+            </p>
+
+        </article>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     WHY PUBSRATE
+====================================================== -->
+
+<section class="why-section">
+
+    <div class="why-inner">
+
+        <div class="section-heading">
+
+            <h2>
+                Why PubsRate?
+            </h2>
+
+            <p>
+
+                Built as a practical resource for people
+                working with publishers and digital advertising.
+
+            </p>
+
+        </div>
+
+
+        <div class="why-grid">
+
+
+            <div class="why-card">
+
+                <div class="icon">
+                    📰
+                </div>
+
+                <h3>
+                    Publisher Discovery
+                </h3>
+
+                <p>
+
+                    Explore publishers across different
+                    industries, niches and platforms.
+
+                </p>
+
+            </div>
+
+
+
+            <div class="why-card">
+
+                <div class="icon">
+                    📚
+                </div>
+
+                <h3>
+                    AdTech Knowledge
+                </h3>
+
+                <p>
+
+                    Learn important advertising concepts,
+                    terminology and technologies.
+
+                </p>
+
+            </div>
+
+
+
+            <div class="why-card">
+
+                <div class="icon">
+                    🛠️
+                </div>
+
+                <h3>
+                    Practical Tools
+                </h3>
+
+                <p>
+
+                    Test and troubleshoot common
+                    advertising technologies.
+
+                </p>
+
+            </div>
+
+
+
+            <div class="why-card">
+
+                <div class="icon">
+                    🌐
+                </div>
+
+                <h3>
+                    Industry Resources
+                </h3>
+
+                <p>
+
+                    Discover resources covering publishers,
+                    advertising and the wider AdTech ecosystem.
+
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     CTA
+====================================================== -->
+
+<section class="cta">
+
+    <h2>
+        Explore PubsRate AdTech Tools
+    </h2>
+
+
+    <p>
+
+        Test VAST tags, web advertising tags and
+        explore practical tools built for publishers,
+        developers and AdOps professionals.
+
+    </p>
+
+
+    <a
+        href="tools/"
+        class="cta-button">
+
+        Explore Tools →
+
+    </a>
+
+</section>
+
+
+
+<!-- =====================================================
+     FOOTER
+====================================================== -->
+
+<footer>
+
+    <div class="footer-logo">
+
+        Pubs<span>Rate</span>
+
+    </div>
+
+
+    <p>
+
+        Publisher discovery, advertising knowledge
+        and practical AdTech tools.
+
+    </p>
+
+
+    <div class="footer-links">
+
+        <a href="index.html">
+            Home
+        </a>
+
+        <a href="publishers/">
+            Publishers
+        </a>
+
+        <a href="advertising/">
+            Advertising
+        </a>
+
+        <a href="tools/">
+            Tools
+        </a>
+
+    </div>
+
+
+    <p>
+
+        © 2026 PubsRate. All rights reserved.
+
+    </p>
+
+</footer>
+
+
 </body>
+
 </html>
