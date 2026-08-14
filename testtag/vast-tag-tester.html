@@ -1,1 +1,2744 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>VAST Tag Tester & Validator | PubsRate</title>
+
+    <meta name="description"
+          content="Test and inspect VAST video advertising tags. Check VAST responses, media files, impressions, tracking events, duration and ad playback with PubsRate.">
+
+    <meta name="robots" content="index, follow">
+
+
+    <!-- Google IMA HTML5 SDK -->
+
+    <script src="https://imasdk.googleapis.com/js/sdkloader/ima3.js"></script>
+
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+
+        body {
+            margin: 0;
+
+            font-family:
+                Arial,
+                Helvetica,
+                sans-serif;
+
+            background: #f5f7fb;
+
+            color: #1f2937;
+        }
+
+
+        /* =========================
+           HEADER
+        ========================= */
+
+        header {
+
+            background: #111827;
+
+            color: white;
+
+            padding: 18px 20px;
+        }
+
+
+        .header-container {
+
+            max-width: 1150px;
+
+            margin: auto;
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+        }
+
+
+        .logo {
+
+            font-size: 27px;
+
+            font-weight: bold;
+        }
+
+
+        .logo span {
+
+            color: #38bdf8;
+        }
+
+
+        nav a {
+
+            color: white;
+
+            text-decoration: none;
+
+            margin-left: 25px;
+
+            font-size: 15px;
+        }
+
+
+        nav a:hover {
+
+            color: #38bdf8;
+        }
+
+
+        /* =========================
+           MAIN
+        ========================= */
+
+        .container {
+
+            max-width: 1150px;
+
+            margin: auto;
+
+            padding: 40px 20px;
+        }
+
+
+        /* =========================
+           BREADCRUMB
+        ========================= */
+
+        .breadcrumb {
+
+            margin-bottom: 25px;
+
+            font-size: 14px;
+        }
+
+
+        .breadcrumb a {
+
+            color: #2563eb;
+
+            text-decoration: none;
+        }
+
+
+        .breadcrumb span {
+
+            color: #94a3b8;
+
+            margin: 0 7px;
+        }
+
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .hero {
+
+            background: white;
+
+            padding: 40px;
+
+            border-radius: 18px;
+
+            box-shadow:
+                0 4px 15px rgba(0,0,0,0.06);
+
+            margin-bottom: 30px;
+        }
+
+
+        .hero-icon {
+
+            font-size: 45px;
+
+            margin-bottom: 10px;
+        }
+
+
+        .hero h1 {
+
+            margin: 0 0 12px;
+
+            font-size: 40px;
+
+            color: #111827;
+        }
+
+
+        .hero p {
+
+            max-width: 850px;
+
+            color: #64748b;
+
+            line-height: 1.7;
+
+            font-size: 17px;
+        }
+
+
+        /* =========================
+           TEST PANEL
+        ========================= */
+
+        .panel {
+
+            background: white;
+
+            padding: 30px;
+
+            border-radius: 16px;
+
+            box-shadow:
+                0 3px 12px rgba(0,0,0,0.06);
+
+            margin-bottom: 25px;
+        }
+
+
+        .panel h2 {
+
+            margin-top: 0;
+
+            font-size: 25px;
+        }
+
+
+        .panel h3 {
+
+            margin-top: 28px;
+
+            font-size: 19px;
+        }
+
+
+        /* =========================
+           INPUT
+        ========================= */
+
+        label {
+
+            display: block;
+
+            font-weight: bold;
+
+            margin-bottom: 8px;
+        }
+
+
+        .input-description {
+
+            display: block;
+
+            color: #94a3b8;
+
+            font-size: 13px;
+
+            margin-bottom: 8px;
+        }
+
+
+        input[type="text"],
+        textarea {
+
+            width: 100%;
+
+            border: 1px solid #cbd5e1;
+
+            border-radius: 9px;
+
+            padding: 14px;
+
+            font-size: 15px;
+
+            outline: none;
+
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+
+        input[type="text"]:focus,
+        textarea:focus {
+
+            border-color: #2563eb;
+
+            box-shadow:
+                0 0 0 2px #dbeafe;
+        }
+
+
+        textarea {
+
+            min-height: 260px;
+
+            resize: vertical;
+
+            font-family:
+                Consolas,
+                Monaco,
+                monospace;
+
+            font-size: 13px;
+
+            line-height: 1.5;
+        }
+
+
+        /* =========================
+           BUTTONS
+        ========================= */
+
+        .button-row {
+
+            display: flex;
+
+            flex-wrap: wrap;
+
+            gap: 12px;
+
+            margin-top: 15px;
+        }
+
+
+        button {
+
+            border: none;
+
+            border-radius: 8px;
+
+            padding: 12px 18px;
+
+            font-size: 14px;
+
+            font-weight: bold;
+
+            cursor: pointer;
+        }
+
+
+        .primary-button {
+
+            background: #2563eb;
+
+            color: white;
+        }
+
+
+        .primary-button:hover {
+
+            background: #1d4ed8;
+        }
+
+
+        .secondary-button {
+
+            background: #e2e8f0;
+
+            color: #1f2937;
+        }
+
+
+        .secondary-button:hover {
+
+            background: #cbd5e1;
+        }
+
+
+        /* =========================
+           STATUS
+        ========================= */
+
+        .status {
+
+            display: none;
+
+            margin-top: 20px;
+
+            padding: 15px;
+
+            border-radius: 9px;
+
+            font-size: 14px;
+
+            line-height: 1.5;
+        }
+
+
+        .status.success {
+
+            display: block;
+
+            background: #ecfdf5;
+
+            color: #047857;
+        }
+
+
+        .status.warning {
+
+            display: block;
+
+            background: #fffbeb;
+
+            color: #b45309;
+        }
+
+
+        .status.error {
+
+            display: block;
+
+            background: #fef2f2;
+
+            color: #b91c1c;
+        }
+
+
+        /* =========================
+           DASHBOARD
+        ========================= */
+
+        .dashboard {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(4, 1fr);
+
+            gap: 15px;
+
+            margin-bottom: 25px;
+        }
+
+
+        .stat-card {
+
+            background: #f8fafc;
+
+            border: 1px solid #e2e8f0;
+
+            border-radius: 10px;
+
+            padding: 18px;
+        }
+
+
+        .stat-label {
+
+            font-size: 13px;
+
+            color: #64748b;
+
+            margin-bottom: 7px;
+        }
+
+
+        .stat-value {
+
+            font-size: 22px;
+
+            font-weight: bold;
+
+            color: #111827;
+
+            word-break: break-word;
+        }
+
+
+        /* =========================
+           CHECK LIST
+        ========================= */
+
+        .checks {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap: 12px;
+        }
+
+
+        .check {
+
+            padding: 14px;
+
+            border-radius: 9px;
+
+            background: #f8fafc;
+
+            border: 1px solid #e2e8f0;
+        }
+
+
+        .check strong {
+
+            display: block;
+
+            margin-bottom: 5px;
+        }
+
+
+        .check.good {
+
+            border-left: 4px solid #10b981;
+        }
+
+
+        .check.warning {
+
+            border-left: 4px solid #f59e0b;
+        }
+
+
+        .check.bad {
+
+            border-left: 4px solid #ef4444;
+        }
+
+
+        /* =========================
+           TABLE
+        ========================= */
+
+        .table-wrapper {
+
+            overflow-x: auto;
+        }
+
+
+        table {
+
+            width: 100%;
+
+            border-collapse: collapse;
+
+            margin-top: 15px;
+        }
+
+
+        th,
+        td {
+
+            padding: 12px;
+
+            border: 1px solid #e2e8f0;
+
+            text-align: left;
+
+            font-size: 14px;
+
+            vertical-align: top;
+        }
+
+
+        th {
+
+            background: #f8fafc;
+
+            color: #111827;
+        }
+
+
+        td {
+
+            color: #475569;
+
+            word-break: break-word;
+        }
+
+
+        /* =========================
+           PLAYER
+        ========================= */
+
+        .player-container {
+
+            position: relative;
+
+            width: 100%;
+
+            max-width: 800px;
+
+            aspect-ratio: 16 / 9;
+
+            margin: 20px auto;
+
+            background: #000;
+
+            border-radius: 10px;
+
+            overflow: hidden;
+        }
+
+
+        #contentElement {
+
+            width: 100%;
+
+            height: 100%;
+
+            display: block;
+
+            background: #000;
+        }
+
+
+        #adContainer {
+
+            position: absolute;
+
+            top: 0;
+
+            left: 0;
+
+            width: 100%;
+
+            height: 100%;
+        }
+
+
+        .player-message {
+
+            text-align: center;
+
+            color: #64748b;
+
+            padding: 20px;
+        }
+
+
+        /* =========================
+           RAW XML
+        ========================= */
+
+        .raw-xml {
+
+            background: #0f172a;
+
+            color: #e2e8f0;
+
+            padding: 20px;
+
+            border-radius: 10px;
+
+            max-height: 500px;
+
+            overflow: auto;
+
+            white-space: pre-wrap;
+
+            word-break: break-word;
+
+            font-family:
+                Consolas,
+                Monaco,
+                monospace;
+
+            font-size: 13px;
+
+            line-height: 1.6;
+        }
+
+
+        /* =========================
+           EVENT LOG
+        ========================= */
+
+        .event-log {
+
+            background: #0f172a;
+
+            color: #cbd5e1;
+
+            padding: 15px;
+
+            border-radius: 10px;
+
+            min-height: 150px;
+
+            max-height: 350px;
+
+            overflow-y: auto;
+
+            font-family:
+                Consolas,
+                Monaco,
+                monospace;
+
+            font-size: 13px;
+
+            line-height: 1.6;
+        }
+
+
+        .event-line {
+
+            border-bottom:
+                1px solid #1e293b;
+
+            padding: 5px 0;
+        }
+
+
+        /* =========================
+           INFO
+        ========================= */
+
+        .info-box {
+
+            background: #eff6ff;
+
+            border-left: 4px solid #2563eb;
+
+            padding: 18px;
+
+            border-radius: 8px;
+
+            color: #475569;
+
+            line-height: 1.6;
+
+            margin-bottom: 25px;
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+
+            text-align: center;
+
+            padding: 45px 20px;
+
+            color: #64748b;
+
+            font-size: 14px;
+        }
+
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 850px) {
+
+            .dashboard {
+
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+
+            .checks {
+
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+
+        @media (max-width: 650px) {
+
+            .header-container {
+
+                flex-direction: column;
+
+                gap: 15px;
+            }
+
+            nav a {
+
+                margin: 0 7px;
+            }
+
+            .hero {
+
+                padding: 30px 22px;
+            }
+
+            .hero h1 {
+
+                font-size: 31px;
+            }
+
+            .panel {
+
+                padding: 22px;
+            }
+
+            .dashboard {
+
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     HEADER
+========================= -->
+
+<header>
+
+    <div class="header-container">
+
+        <div class="logo">
+            Pubs<span>Rate</span>
+        </div>
+
+
+        <nav>
+
+            <a href="../index.html">
+                Home
+            </a>
+
+            <a href="../publishers/">
+                Publishers
+            </a>
+
+            <a href="../advertising/">
+                Advertising
+            </a>
+
+            <a href="index.html">
+                Tools
+            </a>
+
+        </nav>
+
+    </div>
+
+</header>
+
+
+
+<main class="container">
+
+
+<!-- =========================
+     BREADCRUMB
+========================= -->
+
+<div class="breadcrumb">
+
+    <a href="../index.html">
+        Home
+    </a>
+
+    <span>›</span>
+
+    <a href="index.html">
+        Tools
+    </a>
+
+    <span>›</span>
+
+    VAST Tag Tester
+
+</div>
+
+
+
+<!-- =========================
+     HERO
+========================= -->
+
+<section class="hero">
+
+    <div class="hero-icon">
+        🎬
+    </div>
+
+    <h1>
+        VAST Tag Tester
+    </h1>
+
+    <p>
+
+        Test and inspect VAST video advertising tags.
+        Analyze VAST responses, media files, impressions,
+        tracking events, click-through URLs and ad playback.
+
+    </p>
+
+</section>
+
+
+
+<!-- =========================
+     IMPORTANT NOTE
+========================= -->
+
+<div class="info-box">
+
+    <strong>Important:</strong>
+
+    Browser security policies such as CORS can prevent
+    this page from reading the XML response from some
+    VAST URLs. If a URL cannot be fetched directly,
+    paste the VAST XML response into the XML tester below.
+
+</div>
+
+
+
+<!-- =========================
+     URL TESTER
+========================= -->
+
+<section class="panel">
+
+    <h2>
+        🔗 Test VAST Tag URL
+    </h2>
+
+    <label for="vastUrl">
+        VAST Ad Tag URL
+    </label>
+
+    <span class="input-description">
+
+        Paste your VAST ad tag URL here.
+
+    </span>
+
+
+    <input
+        type="text"
+        id="vastUrl"
+        placeholder="https://example.com/vast.xml"
+    >
+
+
+    <div class="button-row">
+
+        <button
+            class="primary-button"
+            onclick="testVastUrl()">
+
+            Test VAST URL
+
+        </button>
+
+
+        <button
+            class="secondary-button"
+            onclick="loadSampleTag()">
+
+            Load Sample VAST Tag
+
+        </button>
+
+    </div>
+
+
+    <div id="urlStatus"
+         class="status">
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     XML TESTER
+========================= -->
+
+<section class="panel">
+
+    <h2>
+        📄 Test VAST XML
+    </h2>
+
+    <label for="vastXml">
+        VAST XML Response
+    </label>
+
+    <span class="input-description">
+
+        Paste the VAST XML response directly into the box.
+
+    </span>
+
+
+    <textarea
+        id="vastXml"
+        placeholder="Paste VAST XML here..."></textarea>
+
+
+    <div class="button-row">
+
+        <button
+            class="primary-button"
+            onclick="analyzeVastXml()">
+
+            Analyze VAST XML
+
+        </button>
+
+
+        <button
+            class="secondary-button"
+            onclick="clearTester()">
+
+            Clear
+
+        </button>
+
+    </div>
+
+
+    <div id="xmlStatus"
+         class="status">
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     RESULTS
+========================= -->
+
+<section
+    id="resultsSection"
+    class="panel"
+    style="display:none;">
+
+    <h2>
+        📊 VAST Analysis
+    </h2>
+
+
+    <div class="dashboard">
+
+
+        <div class="stat-card">
+
+            <div class="stat-label">
+                VAST Version
+            </div>
+
+            <div
+                id="vastVersion"
+                class="stat-value">
+
+                -
+
+            </div>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <div class="stat-label">
+                Response Type
+            </div>
+
+            <div
+                id="responseType"
+                class="stat-value">
+
+                -
+
+            </div>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <div class="stat-label">
+                Ads
+            </div>
+
+            <div
+                id="adCount"
+                class="stat-value">
+
+                0
+
+            </div>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <div class="stat-label">
+                Media Files
+            </div>
+
+            <div
+                id="mediaCount"
+                class="stat-value">
+
+                0
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- CHECKS -->
+
+    <h3>
+        Diagnostic Checks
+    </h3>
+
+
+    <div
+        id="checks"
+        class="checks">
+
+    </div>
+
+
+    <!-- AD INFORMATION -->
+
+    <h3>
+        Ad Information
+    </h3>
+
+
+    <div class="table-wrapper">
+
+        <table>
+
+            <thead>
+
+                <tr>
+
+                    <th>
+                        Ad
+                    </th>
+
+                    <th>
+                        ID
+                    </th>
+
+                    <th>
+                        Type
+                    </th>
+
+                    <th>
+                        Duration
+                    </th>
+
+                    <th>
+                        Impression
+                    </th>
+
+                    <th>
+                        ClickThrough
+                    </th>
+
+                </tr>
+
+            </thead>
+
+            <tbody id="adTableBody">
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+
+
+    <!-- MEDIA FILES -->
+
+    <h3>
+        🎥 Media Files
+    </h3>
+
+
+    <div class="table-wrapper">
+
+        <table>
+
+            <thead>
+
+                <tr>
+
+                    <th>
+                        Type
+                    </th>
+
+                    <th>
+                        MIME Type
+                    </th>
+
+                    <th>
+                        Width
+                    </th>
+
+                    <th>
+                        Height
+                    </th>
+
+                    <th>
+                        Bitrate
+                    </th>
+
+                    <th>
+                        URL
+                    </th>
+
+                </tr>
+
+            </thead>
+
+            <tbody id="mediaTableBody">
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+
+
+    <!-- TRACKING -->
+
+    <h3>
+        📡 Tracking Events
+    </h3>
+
+
+    <div class="table-wrapper">
+
+        <table>
+
+            <thead>
+
+                <tr>
+
+                    <th>
+                        Event
+                    </th>
+
+                    <th>
+                        Tracking URL
+                    </th>
+
+                </tr>
+
+            </thead>
+
+            <tbody id="trackingTableBody">
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     PLAYER
+========================= -->
+
+<section
+    id="playerSection"
+    class="panel"
+    style="display:none;">
+
+    <h2>
+        🎬 VAST Ad Player
+    </h2>
+
+
+    <p class="player-message">
+
+        Click "Start VAST Playback" to request and play
+        the advertisement using Google IMA.
+
+    </p>
+
+
+    <div class="button-row">
+
+        <button
+            class="primary-button"
+            onclick="startPlayback()">
+
+            ▶ Start VAST Playback
+
+        </button>
+
+    </div>
+
+
+    <div class="player-container">
+
+        <video
+            id="contentElement"
+            controls
+            playsinline>
+
+        </video>
+
+        <div id="adContainer"></div>
+
+    </div>
+
+
+    <h3>
+        IMA Event Log
+    </h3>
+
+
+    <div
+        id="eventLog"
+        class="event-log">
+
+        <div class="event-line">
+            Waiting for playback...
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     RAW XML
+========================= -->
+
+<section
+    id="rawSection"
+    class="panel"
+    style="display:none;">
+
+    <h2>
+        📋 Raw VAST XML
+    </h2>
+
+
+    <div
+        id="rawXml"
+        class="raw-xml">
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     ABOUT
+========================= -->
+
+<section class="panel">
+
+    <h2>
+        What Does This Tool Check?
+    </h2>
+
+    <p>
+
+        PubsRate analyzes the VAST response and looks for
+        common advertising components including the VAST
+        version, ad type, impressions, media files,
+        duration, click-through information and tracking
+        events.
+
+    </p>
+
+    <p>
+
+        The tool is intended for development,
+        troubleshooting and educational purposes.
+        A successful XML response does not necessarily
+        mean that an ad will successfully play in every
+        player, device or advertising environment.
+
+    </p>
+
+</section>
+
+
+</main>
+
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+    © 2026 PubsRate. All rights reserved.
+
+</footer>
+
+
+
+<script>
+
+
+// =====================================================
+// GLOBAL VARIABLES
+// =====================================================
+
+let currentVastUrl = "";
+
+let currentVastXml = "";
+
+let adsLoader = null;
+
+let adsManager = null;
+
+let adDisplayContainer = null;
+
+let imaInitialized = false;
+
+
+
+// =====================================================
+// SAMPLE VAST TAG
+// =====================================================
+
+function loadSampleTag() {
+
+    const sampleUrl =
+        "https://pubads.g.doubleclick.net/gampad/ads?" +
+        "iu=/21775744923/external/single_ad_samples" +
+        "&sz=640x480" +
+        "&cust_params=sample_ct%3Dlinear" +
+        "&ciu_szs=300x250%2C728x90" +
+        "&gdfp_req=1" +
+        "&output=vast" +
+        "&unviewed_position_start=1" +
+        "&env=vp" +
+        "&correlator=" +
+        Date.now();
+
+
+    document.getElementById("vastUrl").value =
+        sampleUrl;
+
+
+    setStatus(
+        "urlStatus",
+        "Sample VAST tag loaded. Click Test VAST URL or Start VAST Playback.",
+        "success"
+    );
+
+}
+
+
+
+// =====================================================
+// URL TEST
+// =====================================================
+
+async function testVastUrl() {
+
+    const input =
+        document.getElementById("vastUrl");
+
+    const url =
+        input.value.trim();
+
+
+    if (!url) {
+
+        setStatus(
+            "urlStatus",
+            "Please enter a VAST URL.",
+            "error"
+        );
+
+        return;
+
+    }
+
+
+    currentVastUrl = url;
+
+
+    setStatus(
+        "urlStatus",
+        "Requesting VAST response...",
+        "warning"
+    );
+
+
+    try {
+
+        const response =
+            await fetch(url, {
+                method: "GET"
+            });
+
+
+        if (!response.ok) {
+
+            throw new Error(
+                "HTTP status " +
+                response.status
+            );
+
+        }
+
+
+        const text =
+            await response.text();
+
+
+        if (!text.trim()) {
+
+            throw new Error(
+                "The response was empty."
+            );
+
+        }
+
+
+        currentVastXml = text;
+
+
+        document.getElementById("vastXml").value =
+            text;
+
+
+        analyzeVastText(text);
+
+
+        setStatus(
+            "urlStatus",
+            "VAST response received successfully. The response has been analyzed below.",
+            "success"
+        );
+
+    }
+
+    catch (error) {
+
+        setStatus(
+            "urlStatus",
+            "The browser could not read this VAST URL. This is commonly caused by CORS or another network policy. You can still use the URL for IMA playback, or paste the returned VAST XML into the XML tester.",
+            "warning"
+        );
+
+
+        showPlayer();
+
+    }
+
+}
+
+
+
+// =====================================================
+// XML ANALYSIS
+// =====================================================
+
+function analyzeVastXml() {
+
+    const text =
+        document
+            .getElementById("vastXml")
+            .value
+            .trim();
+
+
+    if (!text) {
+
+        setStatus(
+            "xmlStatus",
+            "Please paste a VAST XML response.",
+            "error"
+        );
+
+        return;
+
+    }
+
+
+    currentVastXml = text;
+
+    analyzeVastText(text);
+
+
+    setStatus(
+        "xmlStatus",
+        "VAST XML analyzed successfully.",
+        "success"
+    );
+
+}
+
+
+
+// =====================================================
+// MAIN ANALYZER
+// =====================================================
+
+function analyzeVastText(text) {
+
+    const parser =
+        new DOMParser();
+
+
+    const xml =
+        parser.parseFromString(
+            text,
+            "text/xml"
+        );
+
+
+    const parserError =
+        xml.querySelector("parsererror");
+
+
+    if (parserError) {
+
+        setStatus(
+            "xmlStatus",
+            "The supplied content could not be parsed as valid XML.",
+            "error"
+        );
+
+        return;
+
+    }
+
+
+    const vast =
+        xml.documentElement;
+
+
+    if (
+        !vast ||
+        vast.nodeName.toLowerCase() !== "vast"
+    ) {
+
+        setStatus(
+            "xmlStatus",
+            "This does not appear to be a VAST XML document.",
+            "error"
+        );
+
+        return;
+
+    }
+
+
+    // ---------------------------------------------
+    // VERSION
+    // ---------------------------------------------
+
+    const version =
+        vast.getAttribute("version") ||
+        "Not specified";
+
+
+    document.getElementById(
+        "vastVersion"
+    ).textContent = version;
+
+
+    // ---------------------------------------------
+    // ADS
+    // ---------------------------------------------
+
+    const ads =
+        Array.from(
+            xml.querySelectorAll("Ad")
+        );
+
+
+    document.getElementById(
+        "adCount"
+    ).textContent =
+        ads.length;
+
+
+    // ---------------------------------------------
+    // RESPONSE TYPE
+    // ---------------------------------------------
+
+    let hasWrapper = false;
+
+    let hasInline = false;
+
+
+    ads.forEach(ad => {
+
+        if (
+            ad.querySelector(":scope > Wrapper")
+        ) {
+
+            hasWrapper = true;
+
+        }
+
+        if (
+            ad.querySelector(":scope > InLine")
+        ) {
+
+            hasInline = true;
+
+        }
+
+    });
+
+
+    let responseType =
+        "Unknown";
+
+
+    if (hasInline && hasWrapper) {
+
+        responseType =
+            "Inline + Wrapper";
+
+    }
+    else if (hasInline) {
+
+        responseType =
+            "Inline";
+
+    }
+    else if (hasWrapper) {
+
+        responseType =
+            "Wrapper";
+
+    }
+
+
+    document.getElementById(
+        "responseType"
+    ).textContent =
+        responseType;
+
+
+    // ---------------------------------------------
+    // MEDIA FILES
+    // ---------------------------------------------
+
+    const mediaFiles =
+        Array.from(
+            xml.querySelectorAll("MediaFile")
+        );
+
+
+    document.getElementById(
+        "mediaCount"
+    ).textContent =
+        mediaFiles.length;
+
+
+    // ---------------------------------------------
+    // AD TABLE
+    // ---------------------------------------------
+
+    buildAdTable(ads);
+
+
+    // ---------------------------------------------
+    // MEDIA TABLE
+    // ---------------------------------------------
+
+    buildMediaTable(mediaFiles);
+
+
+    // ---------------------------------------------
+    // TRACKING TABLE
+    // ---------------------------------------------
+
+    buildTrackingTable(xml);
+
+
+    // ---------------------------------------------
+    // DIAGNOSTIC CHECKS
+    // ---------------------------------------------
+
+    buildChecks(
+        xml,
+        ads,
+        mediaFiles
+    );
+
+
+    // ---------------------------------------------
+    // RAW XML
+    // ---------------------------------------------
+
+    document.getElementById(
+        "rawXml"
+    ).textContent = text;
+
+
+    document.getElementById(
+        "resultsSection"
+    ).style.display = "block";
+
+
+    document.getElementById(
+        "rawSection"
+    ).style.display = "block";
+
+
+    showPlayer();
+
+}
+
+
+
+// =====================================================
+// AD TABLE
+// =====================================================
+
+function buildAdTable(ads) {
+
+    const tbody =
+        document.getElementById(
+            "adTableBody"
+        );
+
+
+    tbody.innerHTML = "";
+
+
+    ads.forEach((ad, index) => {
+
+        const inline =
+            ad.querySelector(
+                ":scope > InLine"
+            );
+
+
+        const wrapper =
+            ad.querySelector(
+                ":scope > Wrapper"
+            );
+
+
+        const type =
+            inline
+                ? "Inline"
+                : wrapper
+                    ? "Wrapper"
+                    : "Unknown";
+
+
+        const durationNode =
+            ad.querySelector("Duration");
+
+
+        const duration =
+            durationNode
+                ? durationNode.textContent.trim()
+                : "-";
+
+
+        const impressionNode =
+            ad.querySelector("Impression");
+
+
+        const impression =
+            impressionNode
+                ? impressionNode.textContent.trim()
+                : "-";
+
+
+        const clickNode =
+            ad.querySelector("ClickThrough");
+
+
+        const click =
+            clickNode
+                ? clickNode.textContent.trim()
+                : "-";
+
+
+        const row =
+            document.createElement("tr");
+
+
+        row.innerHTML = `
+
+            <td>
+                Ad ${index + 1}
+            </td>
+
+            <td>
+                ${escapeHtml(
+                    ad.getAttribute("id") || "-"
+                )}
+            </td>
+
+            <td>
+                ${type}
+            </td>
+
+            <td>
+                ${escapeHtml(duration)}
+            </td>
+
+            <td>
+                ${escapeHtml(impression)}
+            </td>
+
+            <td>
+                ${escapeHtml(click)}
+            </td>
+
+        `;
+
+
+        tbody.appendChild(row);
+
+    });
+
+}
+
+
+
+// =====================================================
+// MEDIA TABLE
+// =====================================================
+
+function buildMediaTable(mediaFiles) {
+
+    const tbody =
+        document.getElementById(
+            "mediaTableBody"
+        );
+
+
+    tbody.innerHTML = "";
+
+
+    mediaFiles.forEach(file => {
+
+        const type =
+            file.getAttribute(
+                "type"
+            ) || "-";
+
+
+        const width =
+            file.getAttribute(
+                "width"
+            ) || "-";
+
+
+        const height =
+            file.getAttribute(
+                "height"
+            ) || "-";
+
+
+        const bitrate =
+            file.getAttribute(
+                "bitrate"
+            ) || "-";
+
+
+        const url =
+            file.textContent.trim();
+
+
+        const row =
+            document.createElement("tr");
+
+
+        row.innerHTML = `
+
+            <td>
+                ${escapeHtml(
+                    file.getAttribute(
+                        "delivery"
+                    ) || "-"
+                )}
+            </td>
+
+            <td>
+                ${escapeHtml(type)}
+            </td>
+
+            <td>
+                ${escapeHtml(width)}
+            </td>
+
+            <td>
+                ${escapeHtml(height)}
+            </td>
+
+            <td>
+                ${escapeHtml(bitrate)}
+            </td>
+
+            <td>
+                ${escapeHtml(url)}
+            </td>
+
+        `;
+
+
+        tbody.appendChild(row);
+
+    });
+
+}
+
+
+
+// =====================================================
+// TRACKING TABLE
+// =====================================================
+
+function buildTrackingTable(xml) {
+
+    const tbody =
+        document.getElementById(
+            "trackingTableBody"
+        );
+
+
+    tbody.innerHTML = "";
+
+
+    const trackingNodes =
+        Array.from(
+            xml.querySelectorAll(
+                "Tracking"
+            )
+        );
+
+
+    trackingNodes.forEach(node => {
+
+        const event =
+            node.getAttribute(
+                "event"
+            ) || "-";
+
+
+        const url =
+            node.textContent.trim();
+
+
+        const row =
+            document.createElement("tr");
+
+
+        row.innerHTML = `
+
+            <td>
+                ${escapeHtml(event)}
+            </td>
+
+            <td>
+                ${escapeHtml(url)}
+            </td>
+
+        `;
+
+
+        tbody.appendChild(row);
+
+    });
+
+
+    if (trackingNodes.length === 0) {
+
+        const row =
+            document.createElement("tr");
+
+
+        row.innerHTML = `
+
+            <td colspan="2">
+                No Tracking elements found.
+            </td>
+
+        `;
+
+
+        tbody.appendChild(row);
+
+    }
+
+}
+
+
+
+// =====================================================
+// DIAGNOSTIC CHECKS
+// =====================================================
+
+function buildChecks(
+    xml,
+    ads,
+    mediaFiles
+) {
+
+    const checks =
+        document.getElementById(
+            "checks"
+        );
+
+
+    checks.innerHTML = "";
+
+
+    const version =
+        xml.documentElement
+            .getAttribute("version");
+
+
+    addCheck(
+        checks,
+        version
+            ? "good"
+            : "warning",
+        "VAST Version",
+        version
+            ? "VAST version " + version + " detected."
+            : "No VAST version attribute was found."
+    );
+
+
+    addCheck(
+        checks,
+        ads.length > 0
+            ? "good"
+            : "bad",
+        "Ad Element",
+        ads.length > 0
+            ? ads.length + " Ad element(s) detected."
+            : "No Ad elements were found."
+    );
+
+
+    addCheck(
+        checks,
+        mediaFiles.length > 0
+            ? "good"
+            : "warning",
+        "Media Files",
+        mediaFiles.length > 0
+            ? mediaFiles.length + " MediaFile element(s) detected."
+            : "No MediaFile elements were found."
+    );
+
+
+    const impressions =
+        xml.querySelectorAll(
+            "Impression"
+        );
+
+
+    addCheck(
+        checks,
+        impressions.length > 0
+            ? "good"
+            : "warning",
+        "Impression Tracking",
+        impressions.length > 0
+            ? impressions.length + " Impression element(s) detected."
+            : "No Impression element was found."
+    );
+
+
+    const clickThrough =
+        xml.querySelector(
+            "ClickThrough"
+        );
+
+
+    addCheck(
+        checks,
+        clickThrough
+            ? "good"
+            : "warning",
+        "ClickThrough",
+        clickThrough
+            ? "ClickThrough detected."
+            : "No ClickThrough element detected."
+    );
+
+
+    const tracking =
+        xml.querySelectorAll(
+            "Tracking"
+        );
+
+
+    addCheck(
+        checks,
+        tracking.length > 0
+            ? "good"
+            : "warning",
+        "Tracking Events",
+        tracking.length > 0
+            ? tracking.length + " tracking event(s) detected."
+            : "No Tracking elements detected."
+    );
+
+
+    const errors =
+        xml.querySelectorAll(
+            "Error"
+        );
+
+
+    addCheck(
+        checks,
+        errors.length > 0
+            ? "warning"
+            : "good",
+        "VAST Error Element",
+        errors.length > 0
+            ? errors.length + " Error element(s) found."
+            : "No VAST Error element found."
+    );
+
+
+    const secure =
+        Array.from(
+            xml.querySelectorAll(
+                "MediaFile"
+            )
+        ).filter(
+            node =>
+                node.textContent
+                    .trim()
+                    .startsWith("https://")
+        );
+
+
+    addCheck(
+        checks,
+        secure.length === mediaFiles.length &&
+        mediaFiles.length > 0
+            ? "good"
+            : "warning",
+        "HTTPS Media",
+        secure.length > 0
+            ? secure.length +
+              " media file(s) use HTTPS."
+            : "Could not confirm HTTPS media URLs."
+    );
+
+}
+
+
+
+// =====================================================
+// ADD CHECK
+// =====================================================
+
+function addCheck(
+    container,
+    type,
+    title,
+    message
+) {
+
+    const div =
+        document.createElement("div");
+
+
+    div.className =
+        "check " + type;
+
+
+    div.innerHTML = `
+
+        <strong>
+            ${escapeHtml(title)}
+        </strong>
+
+        <span>
+            ${escapeHtml(message)}
+        </span>
+
+    `;
+
+
+    container.appendChild(div);
+
+}
+
+
+
+// =====================================================
+// PLAYER
+// =====================================================
+
+function showPlayer() {
+
+    document.getElementById(
+        "playerSection"
+    ).style.display = "block";
+
+}
+
+
+
+// =====================================================
+// START IMA PLAYBACK
+// =====================================================
+
+function startPlayback() {
+
+    const url =
+        document
+            .getElementById("vastUrl")
+            .value
+            .trim();
+
+
+    if (!url) {
+
+        alert(
+            "Please enter a VAST URL first."
+        );
+
+        return;
+
+    }
+
+
+    currentVastUrl = url;
+
+
+    showPlayer();
+
+
+    initializeIMA();
+
+}
+
+
+
+// =====================================================
+// INITIALIZE IMA
+// =====================================================
+
+function initializeIMA() {
+
+    if (
+        typeof google === "undefined" ||
+        !google.ima
+    ) {
+
+        logEvent(
+            "Google IMA SDK could not be loaded."
+        );
+
+        return;
+
+    }
+
+
+    const videoContent =
+        document.getElementById(
+            "contentElement"
+        );
+
+
+    const adContainer =
+        document.getElementById(
+            "adContainer"
+        );
+
+
+    adDisplayContainer =
+        new google.ima.AdDisplayContainer(
+            adContainer,
+            videoContent
+        );
+
+
+    adDisplayContainer.initialize();
+
+
+    adsLoader =
+        new google.ima.AdsLoader(
+            adDisplayContainer
+        );
+
+
+    adsLoader.addEventListener(
+        google.ima.AdsManagerLoadedEvent.Type.ADS_MANAGER_LOADED,
+        onAdsManagerLoaded,
+        false
+    );
+
+
+    adsLoader.addEventListener(
+        google.ima.AdErrorEvent.Type.AD_ERROR,
+        onAdError,
+        false
+    );
+
+
+    const adsRequest =
+        new google.ima.AdsRequest();
+
+
+    adsRequest.adTagUrl =
+        currentVastUrl;
+
+
+    adsRequest.linearAdSlotWidth =
+        640;
+
+
+    adsRequest.linearAdSlotHeight =
+        360;
+
+
+    adsRequest.nonLinearAdSlotWidth =
+        640;
+
+
+    adsRequest.nonLinearAdSlotHeight =
+        150;
+
+
+    logEvent(
+        "Requesting VAST ad through Google IMA..."
+    );
+
+
+    adsLoader.requestAds(
+        adsRequest
+    );
+
+}
+
+
+
+// =====================================================
+// ADS MANAGER
+// =====================================================
+
+function onAdsManagerLoaded(
+    adsManagerLoadedEvent
+) {
+
+    logEvent(
+        "IMA AdsManager loaded."
+    );
+
+
+    adsManager =
+        adsManagerLoadedEvent.getAdsManager(
+            document.getElementById(
+                "contentElement"
+            )
+        );
+
+
+    const events = [
+
+        "AD_STARTED",
+        "AD_STOPPED",
+        "AD_SKIPPED",
+        "AD_IMPRESSION",
+        "COMPLETE",
+        "FIRST_QUARTILE",
+        "MIDPOINT",
+        "THIRD_QUARTILE",
+        "LOADED",
+        "STARTED",
+        "PAUSED",
+        "RESUMED",
+        "CLICK",
+        "AD_PROGRESS",
+        "ALL_ADS_COMPLETED"
+
+    ];
+
+
+    events.forEach(
+        eventName => {
+
+            try {
+
+                adsManager.addEventListener(
+                    google.ima.AdEvent.Type[eventName],
+                    () => {
+
+                        logEvent(
+                            "IMA event: " +
+                            eventName
+                        );
+
+                    }
+                );
+
+            }
+            catch (e) {
+
+                // Some event names may not exist
+                // in every SDK version.
+
+            }
+
+        }
+    );
+
+
+    try {
+
+        adsManager.init(
+            640,
+            360,
+            google.ima.ViewMode.NORMAL
+        );
+
+
+        adsManager.start();
+
+
+        logEvent(
+            "VAST playback started."
+        );
+
+    }
+
+    catch (error) {
+
+        logEvent(
+            "Playback initialization error: " +
+            error.message
+        );
+
+    }
+
+}
+
+
+
+// =====================================================
+// AD ERROR
+// =====================================================
+
+function onAdError(
+    adErrorEvent
+) {
+
+    let message =
+        "Unknown IMA ad error";
+
+
+    try {
+
+        message =
+            adErrorEvent
+                .getError()
+                .toString();
+
+    }
+
+    catch (e) {
+
+        message =
+            "IMA returned an ad error.";
+
+    }
+
+
+    logEvent(
+        "❌ AD ERROR: " +
+        message
+    );
+
+}
+
+
+
+// =====================================================
+// EVENT LOG
+// =====================================================
+
+function logEvent(message) {
+
+    const log =
+        document.getElementById(
+            "eventLog"
+        );
+
+
+    const line =
+        document.createElement(
+            "div"
+        );
+
+
+    line.className =
+        "event-line";
+
+
+    const time =
+        new Date()
+            .toLocaleTimeString();
+
+
+    line.textContent =
+        "[" +
+        time +
+        "] " +
+        message;
+
+
+    log.appendChild(line);
+
+
+    log.scrollTop =
+        log.scrollHeight;
+
+}
+
+
+
+// =====================================================
+// STATUS MESSAGE
+// =====================================================
+
+function setStatus(
+    id,
+    message,
+    type
+) {
+
+    const element =
+        document.getElementById(id);
+
+
+    element.textContent =
+        message;
+
+
+    element.className =
+        "status " + type;
+
+}
+
+
+
+// =====================================================
+// CLEAR
+// =====================================================
+
+function clearTester() {
+
+    document.getElementById(
+        "vastUrl"
+    ).value = "";
+
+
+    document.getElementById(
+        "vastXml"
+    ).value = "";
+
+
+    document.getElementById(
+        "resultsSection"
+    ).style.display = "none";
+
+
+    document.getElementById(
+        "rawSection"
+    ).style.display = "none";
+
+
+    document.getElementById(
+        "playerSection"
+    ).style.display = "none";
+
+
+    document.getElementById(
+        "urlStatus"
+    ).className = "status";
+
+
+    document.getElementById(
+        "xmlStatus"
+    ).className = "status";
+
+
+    document.getElementById(
+        "eventLog"
+    ).innerHTML =
+
+        '<div class="event-line">' +
+        'Waiting for playback...' +
+        '</div>';
+
+}
+
+
+
+// =====================================================
+// ESCAPE HTML
+// =====================================================
+
+function escapeHtml(value) {
+
+    return String(value)
+
+        .replaceAll("&", "&amp;")
+
+        .replaceAll("<", "&lt;")
+
+        .replaceAll(">", "&gt;")
+
+        .replaceAll('"', "&quot;")
+
+        .replaceAll("'", "&#039;");
+
+}
+
+</script>
+
+
+</body>
+
+</html>
