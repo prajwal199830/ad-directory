@@ -1,1 +1,1069 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>RPM Calculator | Revenue Per 1,000 Page Views | PubsRate</title>
+
+    <meta name="description"
+          content="Calculate publisher RPM using revenue and page views with the free PubsRate RPM Calculator.">
+
+    <meta name="robots" content="index, follow">
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f5f7fb;
+            color: #1f2937;
+        }
+
+        /* =========================
+           HEADER
+        ========================= */
+
+        header {
+            background: #111827;
+            color: white;
+            padding: 18px 20px;
+        }
+
+        .header-container {
+            max-width: 1150px;
+            margin: auto;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 27px;
+            font-weight: bold;
+        }
+
+        .logo span {
+            color: #38bdf8;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 25px;
+            font-size: 15px;
+        }
+
+        nav a:hover {
+            color: #38bdf8;
+        }
+
+
+        /* =========================
+           MAIN
+        ========================= */
+
+        .container {
+            max-width: 900px;
+            margin: auto;
+            padding: 45px 20px;
+        }
+
+
+        /* =========================
+           BREADCRUMB
+        ========================= */
+
+        .breadcrumb {
+            margin-bottom: 25px;
+            font-size: 14px;
+        }
+
+        .breadcrumb a {
+            color: #2563eb;
+            text-decoration: none;
+        }
+
+        .breadcrumb span {
+            color: #94a3b8;
+            margin: 0 7px;
+        }
+
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .hero {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+
+        .hero-icon {
+            width: 70px;
+            height: 70px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            margin: auto;
+
+            background: #eff6ff;
+            border-radius: 16px;
+
+            font-size: 36px;
+        }
+
+        .hero h1 {
+            font-size: 40px;
+            margin: 20px 0 12px;
+            color: #111827;
+        }
+
+        .hero p {
+            max-width: 700px;
+            margin: auto;
+
+            color: #64748b;
+
+            font-size: 17px;
+            line-height: 1.7;
+        }
+
+
+        /* =========================
+           CALCULATOR
+        ========================= */
+
+        .calculator {
+            background: white;
+
+            padding: 35px;
+
+            border-radius: 18px;
+
+            box-shadow:
+                0 5px 20px rgba(0,0,0,0.07);
+
+            margin-bottom: 35px;
+        }
+
+        .calculator h2 {
+            margin-top: 0;
+            font-size: 25px;
+        }
+
+
+        /* =========================
+           FORM
+        ========================= */
+
+        .form-group {
+            margin-bottom: 22px;
+        }
+
+        .form-group label {
+            display: block;
+
+            font-weight: bold;
+
+            margin-bottom: 8px;
+
+            color: #374151;
+        }
+
+        .input-description {
+            display: block;
+
+            font-size: 13px;
+
+            color: #94a3b8;
+
+            margin-bottom: 8px;
+        }
+
+        .input-wrapper {
+            display: flex;
+
+            align-items: center;
+
+            border: 1px solid #cbd5e1;
+
+            border-radius: 9px;
+
+            overflow: hidden;
+
+            background: white;
+        }
+
+        input {
+            width: 100%;
+
+            padding: 14px;
+
+            border: none;
+
+            outline: none;
+
+            font-size: 16px;
+        }
+
+        input:focus {
+            box-shadow: inset 0 0 0 2px #38bdf8;
+        }
+
+
+        /* =========================
+           BUTTON
+        ========================= */
+
+        .calculate-btn {
+            width: 100%;
+
+            padding: 14px;
+
+            border: none;
+
+            border-radius: 9px;
+
+            background: #2563eb;
+
+            color: white;
+
+            font-size: 16px;
+
+            font-weight: bold;
+
+            cursor: pointer;
+        }
+
+        .calculate-btn:hover {
+            background: #1d4ed8;
+        }
+
+
+        /* =========================
+           RESULT
+        ========================= */
+
+        .result {
+            display: none;
+
+            margin-top: 25px;
+
+            padding: 25px;
+
+            border-radius: 12px;
+
+            background: #eff6ff;
+
+            text-align: center;
+        }
+
+        .result-label {
+            color: #475569;
+
+            font-size: 14px;
+
+            margin-bottom: 8px;
+        }
+
+        .result-value {
+            font-size: 38px;
+
+            font-weight: bold;
+
+            color: #1d4ed8;
+        }
+
+
+        /* =========================
+           ERROR
+        ========================= */
+
+        .error {
+            display: none;
+
+            margin-top: 15px;
+
+            padding: 12px;
+
+            border-radius: 8px;
+
+            background: #fef2f2;
+
+            color: #b91c1c;
+
+            font-size: 14px;
+        }
+
+
+        /* =========================
+           CONTENT
+        ========================= */
+
+        .content-section {
+            background: white;
+
+            padding: 30px;
+
+            border-radius: 15px;
+
+            margin-bottom: 25px;
+
+            box-shadow:
+                0 3px 12px rgba(0,0,0,0.05);
+        }
+
+        .content-section h2 {
+            margin-top: 0;
+
+            color: #111827;
+
+            font-size: 25px;
+        }
+
+        .content-section h3 {
+            color: #111827;
+
+            margin-top: 25px;
+        }
+
+        .content-section p {
+            color: #64748b;
+
+            line-height: 1.7;
+        }
+
+
+        /* =========================
+           FORMULA
+        ========================= */
+
+        .formula {
+            background: #f8fafc;
+
+            padding: 20px;
+
+            border-radius: 10px;
+
+            text-align: center;
+
+            font-size: 20px;
+
+            font-weight: bold;
+
+            color: #1e3a8a;
+        }
+
+
+        /* =========================
+           EXAMPLE
+        ========================= */
+
+        .example {
+            background: #f8fafc;
+
+            padding: 20px;
+
+            border-radius: 10px;
+
+            line-height: 1.8;
+
+            color: #475569;
+        }
+
+
+        /* =========================
+           COMPARISON
+        ========================= */
+
+        .comparison-table {
+            width: 100%;
+
+            border-collapse: collapse;
+
+            margin-top: 20px;
+        }
+
+        .comparison-table th,
+        .comparison-table td {
+            padding: 14px;
+
+            border: 1px solid #e2e8f0;
+
+            text-align: left;
+        }
+
+        .comparison-table th {
+            background: #f8fafc;
+
+            color: #111827;
+        }
+
+        .comparison-table td {
+            color: #64748b;
+        }
+
+
+        /* =========================
+           RELATED TOOLS
+        ========================= */
+
+        .related-tools {
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 15px;
+        }
+
+        .related-tool {
+            padding: 20px;
+
+            background: #f8fafc;
+
+            border: 1px solid #e2e8f0;
+
+            border-radius: 10px;
+
+            text-decoration: none;
+
+            color: #1f2937;
+
+            font-weight: bold;
+        }
+
+        .related-tool:hover {
+            border-color: #93c5fd;
+
+            background: #eff6ff;
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            text-align: center;
+
+            padding: 40px 20px;
+
+            color: #64748b;
+
+            font-size: 14px;
+        }
+
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 700px) {
+
+            .header-container {
+                flex-direction: column;
+
+                gap: 15px;
+            }
+
+            nav a {
+                margin: 0 7px;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .calculator,
+            .content-section {
+                padding: 25px 20px;
+            }
+
+            .related-tools {
+                grid-template-columns: 1fr;
+            }
+
+            .comparison-table {
+                font-size: 14px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     HEADER
+========================= -->
+
+<header>
+
+    <div class="header-container">
+
+        <div class="logo">
+            Pubs<span>Rate</span>
+        </div>
+
+        <nav>
+
+            <a href="../index.html">
+                Home
+            </a>
+
+            <a href="../publishers/">
+                Publishers
+            </a>
+
+            <a href="../advertising/">
+                Advertising
+            </a>
+
+            <a href="index.html">
+                Tools
+            </a>
+
+        </nav>
+
+    </div>
+
+</header>
+
+
+
+<main class="container">
+
+
+<!-- =========================
+     BREADCRUMB
+========================= -->
+
+<div class="breadcrumb">
+
+    <a href="../index.html">
+        Home
+    </a>
+
+    <span>›</span>
+
+    <a href="index.html">
+        Tools
+    </a>
+
+    <span>›</span>
+
+    RPM Calculator
+
+</div>
+
+
+
+<!-- =========================
+     HERO
+========================= -->
+
+<section class="hero">
+
+    <div class="hero-icon">
+        📱
+    </div>
+
+    <h1>
+        RPM Calculator
+    </h1>
+
+    <p>
+
+        Calculate revenue per 1,000 page views
+        using your estimated revenue and page views.
+
+    </p>
+
+</section>
+
+
+
+<!-- =========================
+     CALCULATOR
+========================= -->
+
+<section class="calculator">
+
+    <h2>
+        Calculate Your RPM
+    </h2>
+
+
+    <!-- REVENUE -->
+
+    <div class="form-group">
+
+        <label for="revenue">
+            Revenue
+        </label>
+
+        <span class="input-description">
+            Enter your total advertising revenue.
+        </span>
+
+        <div class="input-wrapper">
+
+            <input
+                type="number"
+                id="revenue"
+                placeholder="Example: 500"
+                min="0"
+                step="any"
+            >
+
+        </div>
+
+    </div>
+
+
+
+    <!-- PAGE VIEWS -->
+
+    <div class="form-group">
+
+        <label for="pageViews">
+            Page Views
+        </label>
+
+        <span class="input-description">
+            Enter the total number of page views.
+        </span>
+
+        <div class="input-wrapper">
+
+            <input
+                type="number"
+                id="pageViews"
+                placeholder="Example: 100000"
+                min="0"
+                step="any"
+            >
+
+        </div>
+
+    </div>
+
+
+
+    <button
+        class="calculate-btn"
+        onclick="calculateRPM()">
+
+        Calculate RPM
+
+    </button>
+
+
+
+    <div id="error" class="error">
+
+        Please enter valid values greater than zero.
+
+    </div>
+
+
+
+    <!-- RESULT -->
+
+    <div id="result" class="result">
+
+        <div class="result-label">
+            Your Estimated RPM
+        </div>
+
+        <div
+            id="resultValue"
+            class="result-value">
+
+            $0.00
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     WHAT IS RPM
+========================= -->
+
+<section class="content-section">
+
+    <h2>
+        What is RPM?
+    </h2>
+
+    <p>
+
+        RPM stands for <strong>Revenue Per Mille</strong>,
+        where "mille" means one thousand.
+
+    </p>
+
+    <p>
+
+        In digital publishing, RPM is commonly used to
+        estimate how much revenue a publisher generates
+        for every 1,000 page views.
+
+    </p>
+
+
+    <h3>
+        RPM Formula
+    </h3>
+
+    <div class="formula">
+
+        RPM = (Revenue ÷ Page Views) × 1,000
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     EXAMPLE
+========================= -->
+
+<section class="content-section">
+
+    <h2>
+        RPM Calculation Example
+    </h2>
+
+    <div class="example">
+
+        Suppose a publisher generates:
+
+        <br><br>
+
+        <strong>Revenue:</strong>
+        $500
+
+        <br>
+
+        <strong>Page Views:</strong>
+        100,000
+
+        <br><br>
+
+        RPM = ($500 ÷ 100,000) × 1,000
+
+        <br>
+
+        <strong>RPM = $5.00</strong>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     RPM VS ECPM
+========================= -->
+
+<section class="content-section">
+
+    <h2>
+        RPM vs eCPM
+    </h2>
+
+    <p>
+
+        RPM and eCPM are related advertising metrics,
+        but they are not always calculated from the same
+        underlying unit.
+
+    </p>
+
+
+    <table class="comparison-table">
+
+        <tr>
+
+            <th>
+                Metric
+            </th>
+
+            <th>
+                Common Basis
+            </th>
+
+            <th>
+                What It Helps Measure
+            </th>
+
+        </tr>
+
+
+        <tr>
+
+            <td>
+                RPM
+            </td>
+
+            <td>
+                1,000 page views
+            </td>
+
+            <td>
+                Revenue generated per 1,000 page views
+            </td>
+
+        </tr>
+
+
+        <tr>
+
+            <td>
+                eCPM
+            </td>
+
+            <td>
+                1,000 ad impressions
+            </td>
+
+            <td>
+                Effective revenue per 1,000 ad impressions
+            </td>
+
+        </tr>
+
+    </table>
+
+</section>
+
+
+
+<!-- =========================
+     WHY RPM
+========================= -->
+
+<section class="content-section">
+
+    <h2>
+        Why is RPM Important for Publishers?
+    </h2>
+
+    <p>
+
+        RPM gives publishers a simple way to evaluate
+        how effectively their traffic is being monetized.
+
+    </p>
+
+    <p>
+
+        Publishers can compare RPM across different
+        periods, websites, content categories, devices,
+        geographies and monetization strategies.
+
+    </p>
+
+    <p>
+
+        A higher RPM generally means that more revenue
+        is being generated for the same amount of traffic,
+        although RPM should always be evaluated alongside
+        other business and advertising metrics.
+
+    </p>
+
+</section>
+
+
+
+<!-- =========================
+     RELATED TOOLS
+========================= -->
+
+<section class="content-section">
+
+    <h2>
+        Related PubsRate Tools
+    </h2>
+
+    <div class="related-tools">
+
+        <a
+            href="cpm-calculator.html"
+            class="related-tool">
+
+            💰 CPM Calculator
+
+        </a>
+
+
+        <a
+            href="ecpm-calculator.html"
+            class="related-tool">
+
+            📊 eCPM Calculator
+
+        </a>
+
+
+        <a
+            href="fill-rate-calculator.html"
+            class="related-tool">
+
+            📈 Fill Rate Calculator
+
+        </a>
+
+
+        <a
+            href="ctr-calculator.html"
+            class="related-tool">
+
+            🎯 CTR Calculator
+
+        </a>
+
+
+        <a
+            href="ad-revenue-calculator.html"
+            class="related-tool">
+
+            💵 Ad Revenue Calculator
+
+        </a>
+
+
+        <a
+            href="index.html"
+            class="related-tool">
+
+            🛠️ All PubsRate Tools
+
+        </a>
+
+    </div>
+
+</section>
+
+
+</main>
+
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+    © 2026 PubsRate. All rights reserved.
+
+</footer>
+
+
+
+<script>
+
+function calculateRPM() {
+
+    const revenue =
+        parseFloat(
+            document.getElementById("revenue").value
+        );
+
+    const pageViews =
+        parseFloat(
+            document.getElementById("pageViews").value
+        );
+
+    const error =
+        document.getElementById("error");
+
+    const result =
+        document.getElementById("result");
+
+    const resultValue =
+        document.getElementById("resultValue");
+
+
+    /*
+        Validate input
+    */
+
+    if (
+        isNaN(revenue) ||
+        isNaN(pageViews) ||
+        revenue <= 0 ||
+        pageViews <= 0
+    ) {
+
+        error.style.display = "block";
+
+        result.style.display = "none";
+
+        return;
+
+    }
+
+
+    /*
+        RPM Formula
+
+        RPM =
+        (Revenue / Page Views) × 1000
+    */
+
+    const rpm =
+        (revenue / pageViews) * 1000;
+
+
+    /*
+        Display result
+    */
+
+    resultValue.textContent =
+        "$" +
+        rpm.toLocaleString(
+            "en-US",
+            {
+                minimumFractionDigits: 2,
+                maximumFractionDigits: 2
+            }
+        );
+
+
+    error.style.display = "none";
+
+    result.style.display = "block";
+
+}
+
+</script>
+
+
+</body>
+
+</html>
