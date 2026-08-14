@@ -440,4 +440,27 @@ const publishers = [
     portal: "https://www.esakal.com",
     channels: ["Sakal Marathi", "Pune", "Mumbai", "Nagpur", "Nashik"],
     sports: ["Cricket", "Maharashtra Sports"]
-}]
+},
+  { id: 54, name: "Sun News Tamil", niches: ["News", "Regional Content", "Live Streaming"], platform: "Web / App / TV", minCpmINR: 45, maxCpmINR: 110, trafficTier: "Mass Market (50M+)" },
+  { id: 55, name: "Polimer News", niches: ["News", "Regional Content"], platform: "Web / App", minCpmINR: 35, maxCpmINR: 85, trafficTier: "Mass Market (50M+)" },
+  { id: 56, name: "Thanthi TV", niches: ["News", "Regional Content", "Live Streaming"], platform: "Web / App / TV", minCpmINR: 40, maxCpmINR: 95, trafficTier: "Mass Market (50M+)" },
+  { id: 57, name: "Puthiya Thalaimurai", niches: ["News", "Regional Content"], platform: "Web / App / TV", minCpmINR: 45, maxCpmINR: 105, trafficTier: "Mid-Tier Premium (10M-50M)" },
+  { id: 58, name: "TV9 Telugu", niches: ["News", "Regional Content", "Live Streaming"], platform: "Web / App / TV", minCpmINR: 50, maxCpmINR: 120, trafficTier: "Mass Market (50M+)" },
+  { id: 59, name: "NTV Telugu", niches: ["News", "Regional Content"], platform: "Web / App / TV", minCpmINR: 45, maxCpmINR: 110, trafficTier: "Mass Market (50M+)" },
+  { id: 60, name: "V6 News Telugu", niches: ["News", "Regional Content"], platform: "Web / App", minCpmINR: 35, maxCpmINR: 80, trafficTier: "Mid-Tier Premium (10M-50M)" },
+  { id: 61, name: "TV9 Kannada", niches: ["News", "Regional Content", "Live Streaming"], platform: "Web / App / TV", minCpmINR: 45, maxCpmINR: 110, trafficTier: "Mass Market (50M+)" },
+  { id: 62, name: "Suvarna News", niches: ["News", "Regional Content"], platform: "Web / App", minCpmINR: 40, maxCpmINR: 95, trafficTier: "Mass Market (50M+)" },
+  { id: 63, name: "Public TV Kannada", niches: ["News", "Regional Content"], platform: "Web / App", minCpmINR: 35, maxCpmINR: 85, trafficTier: "Mid-Tier Premium (10M-50M)" },
+  { id: 64, name: "Asianet News Malayalam", niches: ["News", "Regional Content", "Live Streaming"], platform: "Web / App / TV", minCpmINR: 50, maxCpmINR: 125, trafficTier: "Mass Market (50M+)" },
+  { id: 65, name: "24 News Malayalam", niches: ["News", "Regional Content"], platform: "Web / App / TV", minCpmINR: 45, maxCpmINR: 105, trafficTier: "Mass Market (50M+)" },
+  { id: 66, name: "TV9 Bangla", niches: ["News", "Regional Content", "Live Streaming"], platform: "Web / App / TV", minCpmINR: 40, maxCpmINR: 100, trafficTier: "Mass Market (50M+)" },
+  { id: 67, name: "Zee 24 Ghanta", niches: ["News", "Regional Content"], platform: "Web / App / TV", minCpmINR: 45, maxCpmINR: 110, trafficTier: "Mass Market (50M+)" },
+  { id: 68, name: "TV9 Gujarati", niches: ["News", "Regional Content"], platform: "Web / App / TV", minCpmINR: 40, maxCpmINR: 95, trafficTier: "Mass Market (50M+)" },
+  { id: 69, name: "Sandesh News", niches: ["News", "Regional Content"], platform: "Web / App / Print", minCpmINR: 35, maxCpmINR: 85, trafficTier: "Mid-Tier Premium (10M-50M)" },
+  { id: 70, name: "PTC News Punjabi", niches: ["News", "Regional Content", "General Entertainment"], platform: "Web / App / TV", minCpmINR: 40, maxCpmINR: 90, trafficTier: "Mid-Tier Premium (10M-50M)" },
+  { id: 71, name: "Pocket FM", niches: ["Audio", "Regional Content"], platform: "Mobile App", minCpmINR: 60, maxCpmINR: 130, trafficTier: "Mass Market (50M+)" },
+  { id: 72, name: "Aha Tamil", niches: ["Regional Content", "General Entertainment"], platform: "OTT / Connected TV", minCpmINR: 110, maxCpmINR: 250, trafficTier: "Mid-Tier Premium (10M-50M)" },
+  { id: 73, name: "WinZO Ad Network", niches: ["Gaming", "Entertainment"], platform: "Mobile App", minCpmINR: 50, maxCpmINR: 110, trafficTier: "Mass Market (50M+)" },
+  { id: 74, name: "BQ Prime (Bloomberg)", niches: ["Finance", "Business"], platform: "Web / Desktop", minCpmINR: 190, maxCpmINR: 420, trafficTier: "Niche Focused (<10M)" },
+  { id: 75, name: "Inc42 Media", niches: ["Business", "Startups"], platform: "Web / Desktop", minCpmINR: 140, maxCpmINR: 310, trafficTier: "Niche Focused (<10M)" }
+]
