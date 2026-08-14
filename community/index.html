@@ -1,1 +1,1014 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>PubsRate Community | AdTech Discussions & Stories</title>
+
+    <meta name="description"
+        content="Join the PubsRate AdTech community. Share experiences, ask questions, discover AdTech insights and connect with publishers and advertising professionals.">
+
+    <link rel="stylesheet" href="p1.css">
+
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     NAVIGATION
+========================= -->
+
+<nav class="navbar">
+
+    <div class="nav-container">
+
+        <a href="../index.html" class="logo">
+            Pubs<span>Rate</span>
+        </a>
+
+
+        <div class="nav-links">
+
+            <a href="../index.html">
+                Home
+            </a>
+
+            <a href="../publisher/index.html">
+                Publishers
+            </a>
+
+            <a href="../advertising/index.html">
+                Advertising
+            </a>
+
+            <a href="../tools/index.html">
+                AdTech Tools
+            </a>
+
+            <a href="index.html" class="active">
+                Community
+            </a>
+
+        </div>
+
+
+        <a href="write.html" class="nav-button">
+            ✍️ Write
+        </a>
+
+    </div>
+
+</nav>
+
+
+
+<!-- =========================
+     HERO
+========================= -->
+
+<section class="hero">
+
+    <div class="hero-content">
+
+
+        <div class="hero-badge">
+
+            🗣️ PubsRate Community
+
+        </div>
+
+
+        <h1>
+
+            Where AdTech
+            <span>Professionals Share.</span>
+
+        </h1>
+
+
+        <p>
+
+            Real experiences. Real problems. Real solutions.
+            Discover insights from publishers, AdOps professionals,
+            developers and advertising experts.
+
+        </p>
+
+
+        <div class="hero-buttons">
+
+            <a href="#trending" class="primary-button">
+
+                🔥 Explore Discussions
+
+            </a>
+
+
+            <a href="write.html" class="secondary-button">
+
+                ✍️ Share Your Story
+
+            </a>
+
+        </div>
+
+
+        <div class="hero-stats">
+
+            <div>
+
+                <strong id="community-members">
+                    0
+                </strong>
+
+                <span>
+                    Contributors
+                </span>
+
+            </div>
+
+
+            <div>
+
+                <strong id="community-posts">
+                    0
+                </strong>
+
+                <span>
+                    Stories
+                </span>
+
+            </div>
+
+
+            <div>
+
+                <strong id="community-discussions">
+                    0
+                </strong>
+
+                <span>
+                    Discussions
+                </span>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     SEARCH
+========================= -->
+
+<section class="search-section">
+
+    <div class="search-box">
+
+        <span>
+            🔍
+        </span>
+
+
+        <input
+            type="text"
+            id="searchInput"
+            placeholder="Search AdTech discussions, stories and questions..."
+        >
+
+
+        <button onclick="searchPosts()">
+
+            Search
+
+        </button>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     TOPICS
+========================= -->
+
+<section class="section">
+
+
+    <div class="section-heading">
+
+        <div>
+
+            <span class="section-label">
+                EXPLORE
+            </span>
+
+            <h2>
+                Explore by Topic
+            </h2>
+
+        </div>
+
+    </div>
+
+
+
+    <div class="topic-grid">
+
+
+        <a href="#" class="topic-card">
+
+            <div class="topic-icon">
+                📊
+            </div>
+
+            <div>
+
+                <h3>
+                    Monetization
+                </h3>
+
+                <p>
+                    GAM, AdSense, yield & revenue
+                </p>
+
+            </div>
+
+            <span class="arrow">
+                →
+            </span>
+
+        </a>
+
+
+
+        <a href="#" class="topic-card">
+
+            <div class="topic-icon">
+                🎯
+            </div>
+
+            <div>
+
+                <h3>
+                    Programmatic
+                </h3>
+
+                <p>
+                    DSP, SSP & Header Bidding
+                </p>
+
+            </div>
+
+            <span class="arrow">
+                →
+            </span>
+
+        </a>
+
+
+
+        <a href="#" class="topic-card">
+
+            <div class="topic-icon">
+                📺
+            </div>
+
+            <div>
+
+                <h3>
+                    CTV & Video
+                </h3>
+
+                <p>
+                    VAST, SSAI, DAI & streaming
+                </p>
+
+            </div>
+
+            <span class="arrow">
+                →
+            </span>
+
+        </a>
+
+
+
+        <a href="#" class="topic-card">
+
+            <div class="topic-icon">
+                🌐
+            </div>
+
+            <div>
+
+                <h3>
+                    Publishers
+                </h3>
+
+                <p>
+                    SEO, traffic & revenue
+                </p>
+
+            </div>
+
+            <span class="arrow">
+                →
+            </span>
+
+        </a>
+
+
+
+        <a href="#" class="topic-card">
+
+            <div class="topic-icon">
+                🛠️
+            </div>
+
+            <div>
+
+                <h3>
+                    AdTech Engineering
+                </h3>
+
+                <p>
+                    APIs, JavaScript & integrations
+                </p>
+
+            </div>
+
+            <span class="arrow">
+                →
+            </span>
+
+        </a>
+
+
+
+        <a href="#" class="topic-card">
+
+            <div class="topic-icon">
+                💼
+            </div>
+
+            <div>
+
+                <h3>
+                    Career
+                </h3>
+
+                <p>
+                    Jobs, interviews & skills
+                </p>
+
+            </div>
+
+            <span class="arrow">
+                →
+            </span>
+
+        </a>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     TRENDING
+========================= -->
+
+<section
+    class="section trending-section"
+    id="trending"
+>
+
+
+    <div class="section-heading">
+
+        <div>
+
+            <span class="section-label">
+                🔥 COMMUNITY
+            </span>
+
+            <h2>
+                Trending Discussions
+            </h2>
+
+        </div>
+
+
+        <a href="#" class="view-all">
+            View all →
+        </a>
+
+    </div>
+
+
+
+    <div class="trending-grid">
+
+
+        <article class="trending-card">
+
+            <div class="post-type">
+                TRENDING
+            </div>
+
+
+            <h3>
+                Why did my GAM revenue suddenly drop?
+            </h3>
+
+
+            <p>
+                Sharing my experience diagnosing a sudden
+                revenue and fill-rate drop in Google Ad Manager.
+            </p>
+
+
+            <div class="post-author">
+
+                <div class="avatar">
+                    R
+                </div>
+
+
+                <div>
+
+                    <strong>
+                        Rahul
+                    </strong>
+
+                    <span>
+                        Google Ad Manager · 2h ago
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="post-meta">
+
+                <span>
+                    💬 42
+                </span>
+
+                <span>
+                    ❤️ 128
+                </span>
+
+                <span>
+                    🔥 Trending
+                </span>
+
+            </div>
+
+        </article>
+
+
+
+        <article class="trending-card">
+
+            <div class="post-type">
+                TECHNICAL
+            </div>
+
+
+            <h3>
+                How we're testing VAST tags at scale
+            </h3>
+
+
+            <p>
+                A practical look at the tools and methods
+                we use to troubleshoot video advertising.
+            </p>
+
+
+            <div class="post-author">
+
+                <div class="avatar">
+                    A
+                </div>
+
+
+                <div>
+
+                    <strong>
+                        Amit
+                    </strong>
+
+                    <span>
+                        Video AdTech · 5h ago
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="post-meta">
+
+                <span>
+                    💬 27
+                </span>
+
+                <span>
+                    ❤️ 94
+                </span>
+
+                <span>
+                    🛠️ Technical
+                </span>
+
+            </div>
+
+        </article>
+
+
+
+        <article class="trending-card">
+
+            <div class="post-type">
+                DISCUSSION
+            </div>
+
+
+            <h3>
+                Client-side vs Server-side Header Bidding
+            </h3>
+
+
+            <p>
+                Which approach works better for publishers
+                today? Let's discuss the pros and cons.
+            </p>
+
+
+            <div class="post-author">
+
+                <div class="avatar">
+                    S
+                </div>
+
+
+                <div>
+
+                    <strong>
+                        Sarah
+                    </strong>
+
+                    <span>
+                        Programmatic · 8h ago
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="post-meta">
+
+                <span>
+                    💬 19
+                </span>
+
+                <span>
+                    ❤️ 76
+                </span>
+
+                <span>
+                    💡 Discussion
+                </span>
+
+            </div>
+
+        </article>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     WRITE BLOG CTA
+========================= -->
+
+<section class="story-section">
+
+
+    <div class="story-content">
+
+
+        <div class="story-icon">
+            ✍️
+        </div>
+
+
+        <div>
+
+            <span class="section-label">
+                YOUR EXPERIENCE MATTERS
+            </span>
+
+
+            <h2>
+                You know something
+                <br>
+                the community doesn't.
+            </h2>
+
+
+            <p>
+
+                Share your experience, experiment,
+                solution, opinion or AdTech story
+                with the PubsRate community.
+
+            </p>
+
+        </div>
+
+
+        <a href="write.html" class="story-button">
+
+            Write a Blog →
+
+        </a>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     FEATURED STORY
+========================= -->
+
+<section class="section">
+
+
+    <div class="section-heading">
+
+        <div>
+
+            <span class="section-label">
+                ⭐ FEATURED
+            </span>
+
+            <h2>
+                Featured Stories
+            </h2>
+
+        </div>
+
+    </div>
+
+
+
+    <article class="featured-card">
+
+
+        <div class="featured-content">
+
+
+            <span class="featured-tag">
+                GOOGLE AD MANAGER
+            </span>
+
+
+            <h2>
+                How I Improved My Publisher's Fill Rate
+            </h2>
+
+
+            <p>
+
+                A practical breakdown of the changes I made,
+                what worked, what didn't, and the lessons I
+                learned while optimizing publisher inventory.
+
+            </p>
+
+
+            <div class="featured-author">
+
+
+                <div class="large-avatar">
+                    P
+                </div>
+
+
+                <div>
+
+                    <strong>
+                        Prajwal
+                    </strong>
+
+                    <span>
+                        8 min read · Aug 14, 2026
+                    </span>
+
+                </div>
+
+
+            </div>
+
+
+            <a href="#" class="read-button">
+                Read Story →
+            </a>
+
+
+        </div>
+
+
+
+        <div class="featured-visual">
+
+
+            <div class="visual-circle">
+                📈
+            </div>
+
+
+            <div class="floating-card card-one">
+                📊 +32% Revenue
+            </div>
+
+
+            <div class="floating-card card-two">
+                🚀 Fill Rate ↑
+            </div>
+
+
+        </div>
+
+
+    </article>
+
+</section>
+
+
+
+<!-- =========================
+     LATEST POSTS
+========================= -->
+
+<section class="section latest-section">
+
+
+    <div class="section-heading">
+
+
+        <div>
+
+            <span class="section-label">
+                NEW
+            </span>
+
+            <h2>
+                Latest from the Community
+            </h2>
+
+        </div>
+
+
+        <a href="#" class="view-all">
+            See everything →
+        </a>
+
+
+    </div>
+
+
+
+    <div id="latest-posts">
+
+
+        <article class="latest-card">
+
+
+            <div class="latest-category">
+                PROGRAMMATIC
+            </div>
+
+
+            <div>
+
+                <h3>
+                    What publishers should know about header bidding
+                </h3>
+
+                <p>
+                    A beginner-friendly explanation of how
+                    header bidding works and why it matters.
+                </p>
+
+                <div class="latest-meta">
+                    👤 AdTech Enthusiast · 12 min ago
+                </div>
+
+            </div>
+
+
+            <div class="latest-stats">
+                💬 8 · ❤️ 31
+            </div>
+
+
+        </article>
+
+
+
+        <article class="latest-card">
+
+
+            <div class="latest-category">
+                CTV
+            </div>
+
+
+            <div>
+
+                <h3>
+                    Understanding SSAI vs CSAI
+                </h3>
+
+                <p>
+                    Breaking down the differences between
+                    server-side and client-side ad insertion.
+                </p>
+
+                <div class="latest-meta">
+                    👤 Video Engineer · 35 min ago
+                </div>
+
+            </div>
+
+
+            <div class="latest-stats">
+                💬 12 · ❤️ 45
+            </div>
+
+
+        </article>
+
+
+
+        <article class="latest-card">
+
+
+            <div class="latest-category">
+                CAREER
+            </div>
+
+
+            <div>
+
+                <h3>
+                    How to start a career in AdTech
+                </h3>
+
+                <p>
+                    Skills and technologies worth learning
+                    if you want to enter the advertising industry.
+                </p>
+
+                <div class="latest-meta">
+                    👤 Career Explorer · 1h ago
+                </div>
+
+            </div>
+
+
+            <div class="latest-stats">
+                💬 21 · ❤️ 63
+            </div>
+
+
+        </article>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+
+    <div class="footer-content">
+
+
+        <div>
+
+            <div class="footer-logo">
+                Pubs<span>Rate</span>
+            </div>
+
+            <p>
+                The AdTech ecosystem directory and community.
+            </p>
+
+        </div>
+
+
+        <div class="footer-links">
+
+            <a href="../index.html">
+                Home
+            </a>
+
+            <a href="../publisher/index.html">
+                Publishers
+            </a>
+
+            <a href="../advertising/index.html">
+                Advertising
+            </a>
+
+            <a href="../tools/index.html">
+                AdTech Tools
+            </a>
+
+            <a href="index.html">
+                Community
+            </a>
+
+        </div>
+
+
+    </div>
+
+
+    <div class="footer-bottom">
+
+        © 2026 PubsRate. All rights reserved.
+
+    </div>
+
+
+</footer>
+
+
+
+<script>
+
+function searchPosts() {
+
+    const search =
+        document
+        .getElementById("searchInput")
+        .value
+        .trim();
+
+
+    if (!search) {
+
+        alert("Please enter something to search.");
+
+        return;
+
+    }
+
+
+    alert(
+        "Community search will be connected to Firebase soon."
+    );
+
+}
+
+</script>
+
+
+</body>
+
+</html>
