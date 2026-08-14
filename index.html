@@ -17,7 +17,6 @@
         }
 
         gtag('js', new Date());
-
         gtag('config', 'G-ZK40W0H1B0');
     </script>
 
@@ -39,7 +38,7 @@
 
     <meta
         name="description"
-        content="PubsRate provides publisher information, digital advertising knowledge, AdTech resources and practical ad tag testing tools for publishers, developers and advertising professionals."
+        content="PubsRate provides publisher information, digital advertising knowledge, AdTech resources, community insights and practical ad tag testing tools for publishers, developers and advertising professionals."
     >
 
     <meta
@@ -54,643 +53,8 @@
 
     <link
         rel="stylesheet"
-        href="main.css"
+        href="p1.css"
     >
-
-
-    <style>
-
-        /* =========================
-           RESET
-        ========================== */
-
-        * {
-            box-sizing: border-box;
-        }
-
-        body {
-            margin: 0;
-
-            font-family:
-                Arial,
-                Helvetica,
-                sans-serif;
-
-            background: #f5f7fb;
-
-            color: #1f2937;
-        }
-
-        a {
-            text-decoration: none;
-        }
-
-
-        /* =========================
-           HEADER
-        ========================== */
-
-        .site-header {
-
-            background: #111827;
-
-            color: white;
-
-            padding: 18px 20px;
-        }
-
-        .header-inner {
-
-            max-width: 1150px;
-
-            margin: auto;
-
-            display: flex;
-
-            align-items: center;
-
-            justify-content: space-between;
-
-            gap: 25px;
-        }
-
-        .logo {
-
-            font-size: 29px;
-
-            font-weight: 800;
-
-            color: white;
-        }
-
-        .logo span {
-
-            color: #38bdf8;
-        }
-
-        .main-nav {
-
-            display: flex;
-
-            align-items: center;
-
-            gap: 28px;
-        }
-
-        .main-nav a {
-
-            color: white;
-
-            font-size: 15px;
-
-            font-weight: 600;
-        }
-
-        .main-nav a:hover {
-
-            color: #38bdf8;
-        }
-
-        .nav-tools {
-
-            background: #2563eb;
-
-            padding: 9px 15px;
-
-            border-radius: 7px;
-        }
-
-        .nav-tools:hover {
-
-            color: white !important;
-
-            background: #1d4ed8;
-        }
-
-
-        /* =========================
-           HERO
-        ========================== */
-
-        .hero {
-
-            background:
-                linear-gradient(
-                    135deg,
-                    #0f172a,
-                    #1e3a8a
-                );
-
-            color: white;
-
-            padding: 85px 20px;
-
-            text-align: center;
-        }
-
-        .hero-inner {
-
-            max-width: 900px;
-
-            margin: auto;
-        }
-
-        .hero h1 {
-
-            font-size: 48px;
-
-            line-height: 1.15;
-
-            margin: 0 0 20px;
-        }
-
-        .hero h1 span {
-
-            color: #38bdf8;
-        }
-
-        .hero p {
-
-            max-width: 780px;
-
-            margin: 0 auto 32px;
-
-            color: #dbeafe;
-
-            font-size: 19px;
-
-            line-height: 1.7;
-        }
-
-        .hero-buttons {
-
-            display: flex;
-
-            justify-content: center;
-
-            gap: 15px;
-
-            flex-wrap: wrap;
-        }
-
-        .hero-button {
-
-            display: inline-block;
-
-            padding: 13px 22px;
-
-            border-radius: 8px;
-
-            font-weight: bold;
-
-            background: #38bdf8;
-
-            color: #082f49;
-        }
-
-        .hero-button:hover {
-
-            background: #7dd3fc;
-        }
-
-        .hero-button.secondary {
-
-            background: transparent;
-
-            border: 1px solid #93c5fd;
-
-            color: white;
-        }
-
-        .hero-button.secondary:hover {
-
-            background: rgba(255,255,255,0.1);
-        }
-
-
-        /* =========================
-           MAIN SECTION
-        ========================== */
-
-        .section {
-
-            max-width: 1150px;
-
-            margin: auto;
-
-            padding: 65px 20px;
-        }
-
-        .section-heading {
-
-            text-align: center;
-
-            margin-bottom: 35px;
-        }
-
-        .section-heading h2 {
-
-            font-size: 32px;
-
-            margin: 0 0 12px;
-        }
-
-        .section-heading p {
-
-            max-width: 720px;
-
-            margin: auto;
-
-            color: #64748b;
-
-            line-height: 1.6;
-        }
-
-
-        /* =========================
-           FEATURE CARDS
-        ========================== */
-
-        .feature-grid {
-
-            display: grid;
-
-            grid-template-columns:
-                repeat(4, 1fr);
-
-            gap: 20px;
-        }
-
-        .feature-card {
-
-            background: white;
-
-            padding: 28px;
-
-            border-radius: 15px;
-
-            border: 1px solid #e5e7eb;
-
-            box-shadow:
-                0 4px 15px rgba(0,0,0,0.05);
-
-            transition:
-                transform 0.2s,
-                box-shadow 0.2s;
-        }
-
-        .feature-card:hover {
-
-            transform: translateY(-5px);
-
-            box-shadow:
-                0 8px 22px rgba(0,0,0,0.08);
-        }
-
-        .feature-icon {
-
-            font-size: 38px;
-
-            margin-bottom: 15px;
-        }
-
-        .feature-card h3 {
-
-            font-size: 20px;
-
-            line-height: 1.3;
-
-            margin: 0 0 12px;
-        }
-
-        .feature-card p {
-
-            color: #64748b;
-
-            line-height: 1.6;
-
-            font-size: 14px;
-
-            margin-bottom: 18px;
-        }
-
-        .feature-link {
-
-            display: inline-block;
-
-            color: #2563eb;
-
-            font-weight: bold;
-
-            font-size: 14px;
-        }
-
-        .feature-link:hover {
-
-            color: #1d4ed8;
-        }
-
-
-        /* =========================
-           TOPICS
-        ========================== */
-
-        .topics-grid {
-
-            display: grid;
-
-            grid-template-columns:
-                repeat(2, 1fr);
-
-            gap: 20px;
-        }
-
-        .topic-card {
-
-            background: white;
-
-            padding: 25px;
-
-            border-radius: 12px;
-
-            border: 1px solid #e5e7eb;
-
-            box-shadow:
-                0 3px 12px rgba(0,0,0,0.04);
-        }
-
-        .topic-card h3 {
-
-            margin-top: 0;
-
-            font-size: 20px;
-        }
-
-        .topic-card p {
-
-            color: #64748b;
-
-            line-height: 1.6;
-
-            margin-bottom: 0;
-        }
-
-
-        /* =========================
-           WHY PUBSRATE
-        ========================== */
-
-        .why-section {
-
-            background: #f8fafc;
-        }
-
-        .why-inner {
-
-            max-width: 1150px;
-
-            margin: auto;
-
-            padding: 65px 20px;
-        }
-
-        .why-grid {
-
-            display: grid;
-
-            grid-template-columns:
-                repeat(4, 1fr);
-
-            gap: 18px;
-        }
-
-        .why-card {
-
-            background: white;
-
-            padding: 27px;
-
-            border-radius: 13px;
-
-            text-align: center;
-
-            border: 1px solid #e5e7eb;
-        }
-
-        .why-card .icon {
-
-            font-size: 32px;
-
-            margin-bottom: 12px;
-        }
-
-        .why-card h3 {
-
-            margin: 0 0 10px;
-
-            font-size: 18px;
-        }
-
-        .why-card p {
-
-            margin: 0;
-
-            color: #64748b;
-
-            line-height: 1.5;
-
-            font-size: 14px;
-        }
-
-
-        /* =========================
-           CTA
-        ========================== */
-
-        .cta {
-
-            max-width: 1050px;
-
-            margin: 65px auto;
-
-            padding: 55px 25px;
-
-            border-radius: 18px;
-
-            background:
-                linear-gradient(
-                    135deg,
-                    #111827,
-                    #1e3a8a
-                );
-
-            text-align: center;
-
-            color: white;
-        }
-
-        .cta h2 {
-
-            font-size: 30px;
-
-            margin: 0 0 12px;
-        }
-
-        .cta p {
-
-            color: #cbd5e1;
-
-            line-height: 1.6;
-
-            max-width: 680px;
-
-            margin: auto;
-        }
-
-        .cta-button {
-
-            display: inline-block;
-
-            margin-top: 22px;
-
-            background: #38bdf8;
-
-            color: #082f49;
-
-            padding: 12px 22px;
-
-            border-radius: 8px;
-
-            font-weight: bold;
-        }
-
-        .cta-button:hover {
-
-            background: #7dd3fc;
-        }
-
-
-        /* =========================
-           FOOTER
-        ========================== */
-
-        footer {
-
-            background: #111827;
-
-            color: #94a3b8;
-
-            text-align: center;
-
-            padding: 42px 20px;
-        }
-
-        .footer-logo {
-
-            color: white;
-
-            font-size: 25px;
-
-            font-weight: bold;
-
-            margin-bottom: 10px;
-        }
-
-        .footer-logo span {
-
-            color: #38bdf8;
-        }
-
-        .footer-links {
-
-            display: flex;
-
-            justify-content: center;
-
-            gap: 25px;
-
-            flex-wrap: wrap;
-
-            margin: 18px 0;
-        }
-
-        .footer-links a {
-
-            color: #cbd5e1;
-
-            font-size: 14px;
-        }
-
-        .footer-links a:hover {
-
-            color: #38bdf8;
-        }
-
-
-        /* =========================
-           RESPONSIVE
-        ========================== */
-
-        @media (max-width: 1000px) {
-
-            .feature-grid {
-
-                grid-template-columns:
-                    repeat(2, 1fr);
-            }
-
-            .why-grid {
-
-                grid-template-columns:
-                    repeat(2, 1fr);
-            }
-
-        }
-
-
-        @media (max-width: 650px) {
-
-            .header-inner {
-
-                flex-direction: column;
-
-                gap: 15px;
-            }
-
-            .main-nav {
-
-                gap: 15px;
-
-                flex-wrap: wrap;
-
-                justify-content: center;
-            }
-
-            .hero {
-
-                padding: 60px 20px;
-            }
-
-            .hero h1 {
-
-                font-size: 35px;
-            }
-
-            .hero p {
-
-                font-size: 16px;
-            }
-
-            .feature-grid,
-            .why-grid,
-            .topics-grid {
-
-                grid-template-columns: 1fr;
-            }
-
-        }
-
-    </style>
 
 </head>
 
@@ -729,6 +93,10 @@
                 Advertising
             </a>
 
+            <a href="community/">
+                Community
+            </a>
+
             <a
                 href="testtag/"
                 class="nav-tools">
@@ -753,6 +121,10 @@
 
     <div class="hero-inner">
 
+        <div class="hero-badge">
+            🌐 THE ADTECH RESOURCE HUB
+        </div>
+
         <h1>
 
             Publishers,
@@ -764,8 +136,9 @@
         <p>
 
             PubsRate brings together publisher information,
-            digital advertising knowledge and practical
-            AdTech resources and testing tools in one place.
+            digital advertising knowledge, practical AdTech
+            resources, testing tools and community insights
+            in one place.
 
         </p>
 
@@ -805,6 +178,10 @@
 
     <div class="section-heading">
 
+        <span class="section-label">
+            DISCOVER PUBSRATE
+        </span>
+
         <h2>
             Explore PubsRate
         </h2>
@@ -812,8 +189,9 @@
         <p>
 
             Discover publishers, learn about digital
-            advertising and use practical tools for
-            testing advertising technologies.
+            advertising, connect with the community and
+            use practical tools for testing advertising
+            technologies.
 
         </p>
 
@@ -823,9 +201,7 @@
     <div class="feature-grid">
 
 
-        <!-- =========================
-             PUBLISHER DIRECTORY
-        ========================== -->
+        <!-- PUBLISHERS -->
 
         <article class="feature-card">
 
@@ -857,9 +233,7 @@
 
 
 
-        <!-- =========================
-             ADVERTISING
-        ========================== -->
+        <!-- ADVERTISING -->
 
         <article class="feature-card">
 
@@ -892,9 +266,7 @@
 
 
 
-        <!-- =========================
-             AD TAG TESTING
-        ========================== -->
+        <!-- AD TAG TESTING -->
 
         <article class="feature-card">
 
@@ -927,38 +299,136 @@
 
 
 
-        <!-- =========================
-             ADTECH RESOURCES
-        ========================== -->
+        <!-- COMMUNITY -->
 
         <article class="feature-card">
 
             <div class="feature-icon">
-                🛠️
+                🗣️
             </div>
 
             <h3>
-                AdTech Resources
+                PubsRate Community
             </h3>
 
             <p>
 
-                Explore advertising concepts,
-                terminology, measurement, programmatic
-                technology and publisher monetization.
+                Read AdTech experiences, ideas,
+                technical solutions and industry
+                discussions shared by the community.
 
             </p>
 
             <a
-                href="advertising/"
+                href="community/"
                 class="feature-link">
 
-                Explore Resources →
+                Explore Community →
 
             </a>
 
         </article>
 
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     COMMUNITY
+====================================================== -->
+
+<section class="community-section">
+
+    <div class="community-inner">
+
+
+        <div class="community-heading">
+
+            <div>
+
+                <span class="community-label">
+                    🗣️ PUBSRATE COMMUNITY
+                </span>
+
+                <h2>
+                    What's happening in AdTech?
+                </h2>
+
+                <p>
+
+                    Discover experiences, ideas, questions
+                    and practical insights shared by the
+                    PubsRate community.
+
+                </p>
+
+            </div>
+
+
+            <a
+                href="community/"
+                class="community-view-all">
+
+                Explore Community →
+
+            </a>
+
+        </div>
+
+
+
+        <!-- COMMUNITY POSTS -->
+
+        <div
+            id="homepage-community-posts"
+            class="community-posts">
+
+            <div class="community-loading">
+
+                <div class="loading-icon">
+                    💬
+                </div>
+
+                <p>
+                    Loading community posts...
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- WRITE BLOG -->
+
+        <div class="community-bottom">
+
+            <div>
+
+                <strong>
+                    Have an AdTech experience to share?
+                </strong>
+
+                <span>
+                    Write a blog and share your knowledge
+                    with the PubsRate community.
+                </span>
+
+            </div>
+
+
+            <a
+                href="community/write.html"
+                class="community-write-button">
+
+                ✍️ Write a Blog
+
+            </a>
+
+        </div>
 
     </div>
 
@@ -973,6 +443,10 @@
 <section class="section">
 
     <div class="section-heading">
+
+        <span class="section-label">
+            KNOWLEDGE
+        </span>
 
         <h2>
             What You Can Find on PubsRate
@@ -994,8 +468,12 @@
 
         <article class="topic-card">
 
+            <div class="topic-icon">
+                📊
+            </div>
+
             <h3>
-                📊 Digital Advertising
+                Digital Advertising
             </h3>
 
             <p>
@@ -1013,8 +491,12 @@
 
         <article class="topic-card">
 
+            <div class="topic-icon">
+                ⚙️
+            </div>
+
             <h3>
-                ⚙️ AdTech
+                AdTech
             </h3>
 
             <p>
@@ -1031,8 +513,12 @@
 
         <article class="topic-card">
 
+            <div class="topic-icon">
+                📺
+            </div>
+
             <h3>
-                📺 CTV & OTT
+                CTV & OTT
             </h3>
 
             <p>
@@ -1049,8 +535,12 @@
 
         <article class="topic-card">
 
+            <div class="topic-icon">
+                🧪
+            </div>
+
             <h3>
-                🧪 Ad Tag Testing
+                Ad Tag Testing
             </h3>
 
             <p>
@@ -1081,14 +571,19 @@
 
         <div class="section-heading">
 
+            <span class="section-label">
+                WHY PUBSRATE
+            </span>
+
             <h2>
-                Why PubsRate?
+                Built for the AdTech Ecosystem
             </h2>
 
             <p>
 
-                Built as a practical resource for people
-                working with publishers and digital advertising.
+                A practical resource for publishers,
+                developers, AdOps professionals and
+                advertising teams.
 
             </p>
 
@@ -1235,8 +730,8 @@
 
     <p>
 
-        Publisher discovery, advertising knowledge
-        and practical AdTech resources.
+        Publisher discovery, advertising knowledge,
+        community insights and practical AdTech resources.
 
     </p>
 
@@ -1255,6 +750,10 @@
             Advertising
         </a>
 
+        <a href="community/">
+            Community
+        </a>
+
         <a href="testtag/">
             Ad Tag Testing
         </a>
@@ -1263,12 +762,281 @@
 
 
     <p>
-
         © 2026 PubsRate. All rights reserved.
-
     </p>
 
 </footer>
+
+
+
+<!-- =====================================================
+     FIREBASE COMMUNITY
+====================================================== -->
+
+<script type="module">
+
+    import {
+        initializeApp
+    } from "https://www.gstatic.com/firebasejs/12.17.1/firebase-app.js";
+
+
+    import {
+        getFirestore,
+        collection,
+        query,
+        where,
+        orderBy,
+        limit,
+        getDocs
+    } from "https://www.gstatic.com/firebasejs/12.17.1/firebase-firestore.js";
+
+
+    const firebaseConfig = {
+
+        apiKey: "AIzaSyDNjWPkpLsnlCZ4sSTvXebyHqGCWNe7sTI",
+
+        authDomain: "pubsrate-community.firebaseapp.com",
+
+        projectId: "pubsrate-community",
+
+        storageBucket: "pubsrate-community.firebasestorage.app",
+
+        messagingSenderId: "1049440527338",
+
+        appId: "1:1049440527338:web:87d4bd939218f912774893",
+
+        measurementId: "G-Z4LX4VW3BV"
+
+    };
+
+
+    const app =
+        initializeApp(firebaseConfig);
+
+
+    const db =
+        getFirestore(app);
+
+
+    async function loadCommunityPosts() {
+
+        const container =
+            document.getElementById(
+                "homepage-community-posts"
+            );
+
+
+        try {
+
+            const postsQuery = query(
+
+                collection(db, "blogs"),
+
+                where(
+                    "status",
+                    "==",
+                    "published"
+                ),
+
+                orderBy(
+                    "createdAt",
+                    "desc"
+                ),
+
+                limit(3)
+
+            );
+
+
+            const snapshot =
+                await getDocs(postsQuery);
+
+
+            if (snapshot.empty) {
+
+                container.innerHTML = `
+
+                    <div class="community-loading">
+
+                        <div class="loading-icon">
+                            🗣️
+                        </div>
+
+                        <p>
+                            The community is just getting started.
+                            Be the first to share your story!
+                        </p>
+
+                    </div>
+
+                `;
+
+                return;
+
+            }
+
+
+            container.innerHTML = "";
+
+
+            snapshot.forEach((doc) => {
+
+                const post =
+                    doc.data();
+
+
+                const initial =
+                    post.authorName
+                        ? post.authorName
+                            .charAt(0)
+                            .toUpperCase()
+                        : "?";
+
+
+                let excerpt =
+                    post.content || "";
+
+
+                if (excerpt.length > 120) {
+
+                    excerpt =
+                        excerpt.substring(0, 120)
+                        .trim() + "...";
+
+                }
+
+
+                const article =
+                    document.createElement(
+                        "article"
+                    );
+
+
+                article.className =
+                    "community-post";
+
+
+                article.innerHTML = `
+
+                    <span class="community-category">
+
+                        ${escapeHTML(
+                            post.category ||
+                            "COMMUNITY"
+                        )}
+
+                    </span>
+
+
+                    <h3>
+
+                        ${escapeHTML(
+                            post.title ||
+                            "Untitled"
+                        )}
+
+                    </h3>
+
+
+                    <p class="community-excerpt">
+
+                        ${escapeHTML(
+                            excerpt
+                        )}
+
+                    </p>
+
+
+                    <div class="community-author">
+
+                        <div class="community-avatar">
+
+                            ${escapeHTML(
+                                initial
+                            )}
+
+                        </div>
+
+
+                        <div class="community-author-info">
+
+                            <strong>
+
+                                ${escapeHTML(
+                                    post.authorName ||
+                                    "Anonymous"
+                                )}
+
+                            </strong>
+
+                            <span>
+                                PubsRate Community
+                            </span>
+
+                        </div>
+
+
+                        <span class="community-read">
+                            Read →
+                        </span>
+
+                    </div>
+
+                `;
+
+
+                container.appendChild(
+                    article
+                );
+
+            });
+
+
+        } catch (error) {
+
+            console.error(
+                "Error loading community posts:",
+                error
+            );
+
+
+            container.innerHTML = `
+
+                <div class="community-loading">
+
+                    <div class="loading-icon">
+                        💬
+                    </div>
+
+                    <p>
+                        Community posts will appear here soon.
+                    </p>
+
+                </div>
+
+            `;
+
+        }
+
+    }
+
+
+    function escapeHTML(value) {
+
+        return String(value)
+
+            .replace(/&/g, "&amp;")
+            .replace(/</g, "&lt;")
+            .replace(/>/g, "&gt;")
+            .replace(/"/g, "&quot;")
+            .replace(/'/g, "&#039;");
+
+    }
+
+
+    loadCommunityPosts();
+
+</script>
 
 
 </body>
