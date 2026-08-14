@@ -7,10 +7,10 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Publisher & AdTech Tools | PubsRate</title>
+    <title>AdTech Tools & Calculators | PubsRate</title>
 
     <meta name="description"
-          content="Free advertising, publisher and AdTech calculators including CPM, eCPM, fill rate, CTR, RPM and ad revenue calculators.">
+          content="Free AdTech tools and advertising calculators for publishers. Calculate CPM, eCPM, RPM, CTR, fill rate, ad revenue and more with PubsRate.">
 
     <meta name="robots" content="index, follow">
 
@@ -18,10 +18,6 @@
 
         * {
             box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
         }
 
         body {
@@ -73,7 +69,7 @@
 
 
         /* =========================
-           MAIN CONTAINER
+           MAIN
         ========================= */
 
         .container {
@@ -89,79 +85,68 @@
 
         .hero {
             background: white;
-            padding: 50px 45px;
+            padding: 50px 35px;
+
             border-radius: 18px;
 
-            box-shadow: 0 4px 18px rgba(0,0,0,0.06);
+            text-align: center;
+
+            box-shadow:
+                0 4px 15px rgba(0,0,0,0.06);
 
             margin-bottom: 45px;
         }
 
-        .label {
-            display: inline-block;
-
-            background: #e0f2fe;
-            color: #0369a1;
-
-            padding: 7px 13px;
-
-            border-radius: 20px;
-
-            font-size: 12px;
-            font-weight: bold;
-
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
+        .hero-icon {
+            font-size: 50px;
         }
 
         .hero h1 {
             font-size: 42px;
-            line-height: 1.2;
-
-            margin: 18px 0 15px;
-
+            margin: 15px 0;
             color: #111827;
         }
 
         .hero p {
-            max-width: 800px;
+            max-width: 750px;
+            margin: auto;
+
+            color: #64748b;
 
             font-size: 18px;
 
             line-height: 1.7;
-
-            color: #64748b;
         }
 
 
         /* =========================
-           SECTION HEADER
+           SECTION
         ========================= */
 
+        .section {
+            margin-bottom: 55px;
+        }
+
         .section-header {
-            display: flex;
-
-            justify-content: space-between;
-            align-items: center;
-
             margin-bottom: 22px;
         }
 
         .section-header h2 {
-            margin: 0;
-
             font-size: 28px;
+            margin: 0;
+        }
 
-            color: #111827;
+        .section-header p {
+            color: #64748b;
+            line-height: 1.6;
         }
 
 
         /* =========================
-           TOOLS GRID
+           TOOL GRID
         ========================= */
 
         .tools-grid {
-
             display: grid;
 
             grid-template-columns:
@@ -176,49 +161,32 @@
         ========================= */
 
         .tool-card {
-
             background: white;
 
-            border-radius: 15px;
+            padding: 25px;
 
-            padding: 28px;
-
-            border: 1px solid #e5e7eb;
+            border-radius: 14px;
 
             box-shadow:
-                0 3px 12px rgba(0,0,0,0.05);
+                0 3px 12px rgba(0,0,0,0.06);
 
             transition:
                 transform 0.2s,
                 box-shadow 0.2s;
-
-            display: flex;
-
-            flex-direction: column;
-
-            min-height: 250px;
         }
 
         .tool-card:hover {
-
             transform: translateY(-5px);
 
             box-shadow:
-                0 8px 25px rgba(0,0,0,0.09);
+                0 8px 22px rgba(0,0,0,0.09);
         }
 
-
-        /* =========================
-           TOOL ICON
-        ========================= */
-
         .tool-icon {
-
             width: 55px;
             height: 55px;
 
             display: flex;
-
             align-items: center;
             justify-content: center;
 
@@ -231,13 +199,7 @@
             margin-bottom: 18px;
         }
 
-
-        /* =========================
-           TOOL CONTENT
-        ========================= */
-
         .tool-card h3 {
-
             margin: 0 0 10px;
 
             font-size: 20px;
@@ -246,28 +208,19 @@
         }
 
         .tool-card p {
-
-            margin: 0;
-
             color: #64748b;
 
             line-height: 1.6;
 
-            font-size: 15px;
+            font-size: 14px;
 
-            flex-grow: 1;
+            min-height: 65px;
         }
 
-
-        /* =========================
-           TOOL BUTTON
-        ========================= */
-
         .tool-link {
-
             display: inline-block;
 
-            margin-top: 20px;
+            margin-top: 12px;
 
             color: #2563eb;
 
@@ -279,138 +232,72 @@
         }
 
         .tool-link:hover {
-
             color: #1d4ed8;
         }
 
 
         /* =========================
-           COMING SOON
+           FEATURED TOOL
         ========================= */
 
-        .coming-soon {
-
-            display: inline-block;
-
-            margin-top: 20px;
-
-            color: #94a3b8;
-
-            font-size: 14px;
-
-            font-weight: bold;
-        }
-
-
-        /* =========================
-           INFO SECTION
-        ========================= */
-
-        .info-section {
-
-            margin-top: 55px;
-
-            background: #111827;
+        .featured-tool {
+            background: linear-gradient(
+                135deg,
+                #1e3a8a,
+                #0284c7
+            );
 
             color: white;
 
-            padding: 40px;
+            padding: 35px;
 
             border-radius: 16px;
+
+            margin-bottom: 25px;
         }
 
-        .info-section h2 {
-
-            margin-top: 0;
-
-            font-size: 28px;
+        .featured-tool .tool-icon {
+            background: rgba(255,255,255,0.15);
         }
 
-        .info-section p {
+        .featured-tool h3 {
+            font-size: 26px;
+            margin: 10px 0;
+        }
 
-            color: #cbd5e1;
-
+        .featured-tool p {
+            color: #dbeafe;
             line-height: 1.7;
+            max-width: 700px;
+        }
 
-            max-width: 850px;
+        .featured-tool .tool-link {
+            color: white;
         }
 
 
         /* =========================
-           TOOL CATEGORIES
+           INFO BOX
         ========================= */
 
-        .categories {
-
-            display: grid;
-
-            grid-template-columns:
-                repeat(3, 1fr);
-
-            gap: 18px;
-
-            margin-top: 25px;
-        }
-
-        .category-box {
-
-            background: #1f2937;
-
-            border: 1px solid #374151;
-
-            padding: 20px;
-
-            border-radius: 10px;
-        }
-
-        .category-box h3 {
-
-            margin-top: 0;
-
-            font-size: 18px;
-        }
-
-        .category-box p {
-
-            margin: 0;
-
-            font-size: 14px;
-
-            color: #cbd5e1;
-        }
-
-
-        /* =========================
-           CTA
-        ========================= */
-
-        .cta {
-
-            margin-top: 45px;
-
-            text-align: center;
-
+        .info-box {
             background: white;
 
-            padding: 35px;
+            padding: 30px;
 
             border-radius: 15px;
 
-            border: 1px solid #e5e7eb;
-        }
+            box-shadow:
+                0 3px 12px rgba(0,0,0,0.05);
 
-        .cta h2 {
-
-            margin-top: 0;
-
-            font-size: 26px;
-        }
-
-        .cta p {
+            line-height: 1.7;
 
             color: #64748b;
+        }
 
-            line-height: 1.6;
+        .info-box h2 {
+            color: #111827;
+            margin-top: 0;
         }
 
 
@@ -419,7 +306,6 @@
         ========================= */
 
         footer {
-
             text-align: center;
 
             padding: 45px 20px;
@@ -434,60 +320,38 @@
            MOBILE
         ========================= */
 
-        @media (max-width: 900px) {
+        @media (max-width: 850px) {
 
             .tools-grid {
-
-                grid-template-columns:
-                    repeat(2, 1fr);
+                grid-template-columns: repeat(2, 1fr);
             }
 
-            .categories {
-
-                grid-template-columns:
-                    repeat(2, 1fr);
-            }
         }
 
 
-        @media (max-width: 650px) {
+        @media (max-width: 600px) {
 
             .header-container {
-
                 flex-direction: column;
-
                 gap: 15px;
             }
 
             nav a {
-
-                margin: 0 8px;
+                margin: 0 7px;
             }
 
             .hero {
-
-                padding: 32px 25px;
+                padding: 35px 20px;
             }
 
             .hero h1 {
-
                 font-size: 32px;
             }
 
             .tools-grid {
-
                 grid-template-columns: 1fr;
             }
 
-            .categories {
-
-                grid-template-columns: 1fr;
-            }
-
-            .info-section {
-
-                padding: 30px 25px;
-            }
         }
 
     </style>
@@ -509,7 +373,6 @@
         <div class="logo">
             Pubs<span>Rate</span>
         </div>
-
 
         <nav>
 
@@ -546,22 +409,19 @@
 
 <section class="hero">
 
-    <span class="label">
-        PubsRate Tools
-    </span>
-
+    <div class="hero-icon">
+        🛠️
+    </div>
 
     <h1>
-        Publisher & AdTech Tools
+        AdTech Tools & Calculators
     </h1>
-
 
     <p>
 
-        Free calculators and tools designed for publishers,
-        advertisers, AdTech professionals and digital media teams.
-        Quickly calculate advertising metrics and understand
-        your monetization performance.
+        Free tools and calculators designed for
+        publishers, advertisers, AdTech professionals
+        and digital media businesses.
 
     </p>
 
@@ -570,16 +430,21 @@
 
 
 <!-- =========================
-     CALCULATORS
+     REVENUE & METRICS
 ========================= -->
 
-<section>
+<section class="section">
 
     <div class="section-header">
 
         <h2>
-            🧮 Advertising Calculators
+            💰 Revenue & Advertising Calculators
         </h2>
+
+        <p>
+            Calculate key advertising and publisher
+            monetization metrics.
+        </p>
 
     </div>
 
@@ -592,7 +457,7 @@
         <div class="tool-card">
 
             <div class="tool-icon">
-                💰
+                💵
             </div>
 
             <h3>
@@ -600,15 +465,17 @@
             </h3>
 
             <p>
-
-                Calculate the cost or revenue generated
-                for every 1,000 ad impressions.
-
+                Calculate cost per thousand advertising
+                impressions.
             </p>
 
-            <span class="coming-soon">
-                Coming Soon
-            </span>
+            <a
+                href="cpm-calculator.html"
+                class="tool-link">
+
+                Use Calculator →
+
+            </a>
 
         </div>
 
@@ -627,97 +494,17 @@
             </h3>
 
             <p>
-
-                Calculate effective cost per thousand
-                impressions and compare advertising
-                performance.
-
+                Calculate effective revenue generated
+                per 1,000 ad impressions.
             </p>
 
-            <span class="coming-soon">
-                Coming Soon
-            </span>
+            <a
+                href="ecpm-calculator.html"
+                class="tool-link">
 
-        </div>
+                Use Calculator →
 
-
-
-        <!-- Fill Rate -->
-
-        <div class="tool-card">
-
-            <div class="tool-icon">
-                📈
-            </div>
-
-            <h3>
-                Fill Rate Calculator
-            </h3>
-
-            <p>
-
-                Calculate the percentage of ad requests
-                that successfully result in an ad impression.
-
-            </p>
-
-            <span class="coming-soon">
-                Coming Soon
-            </span>
-
-        </div>
-
-
-
-        <!-- CTR -->
-
-        <div class="tool-card">
-
-            <div class="tool-icon">
-                🎯
-            </div>
-
-            <h3>
-                CTR Calculator
-            </h3>
-
-            <p>
-
-                Calculate click-through rate using
-                impressions and clicks.
-
-            </p>
-
-            <span class="coming-soon">
-                Coming Soon
-            </span>
-
-        </div>
-
-
-
-        <!-- Ad Revenue -->
-
-        <div class="tool-card">
-
-            <div class="tool-icon">
-                💵
-            </div>
-
-            <h3>
-                Ad Revenue Calculator
-            </h3>
-
-            <p>
-
-                Estimate advertising revenue using
-                impressions, CPM and other metrics.
-
-            </p>
-
-            <span class="coming-soon">
-                Coming Soon
-            </span>
+            </a>
 
         </div>
 
@@ -736,42 +523,46 @@
             </h3>
 
             <p>
-
-                Calculate revenue per thousand page views
-                or sessions.
-
+                Calculate revenue generated per
+                1,000 page views.
             </p>
 
-            <span class="coming-soon">
-                Coming Soon
-            </span>
+            <a
+                href="rpm-calculator.html"
+                class="tool-link">
+
+                Use Calculator →
+
+            </a>
 
         </div>
 
 
 
-        <!-- Impression Calculator -->
+        <!-- Ad Revenue -->
 
         <div class="tool-card">
 
             <div class="tool-icon">
-                👁️
+                💰
             </div>
 
             <h3>
-                Impression Calculator
+                Ad Revenue Calculator
             </h3>
 
             <p>
-
-                Estimate impressions based on traffic,
-                ad placements and page views.
-
+                Estimate advertising revenue using
+                impressions and eCPM.
             </p>
 
-            <span class="coming-soon">
-                Coming Soon
-            </span>
+            <a
+                href="ad-revenue-calculator.html"
+                class="tool-link">
+
+                Use Calculator →
+
+            </a>
 
         </div>
 
@@ -782,23 +573,83 @@
         <div class="tool-card">
 
             <div class="tool-icon">
-                📅
+                📈
             </div>
 
             <h3>
-                Revenue Forecast Calculator
+                Ad Revenue Forecast
             </h3>
 
             <p>
-
-                Estimate potential advertising revenue
-                based on traffic and advertising metrics.
-
+                Forecast daily, monthly and yearly
+                advertising revenue.
             </p>
 
-            <span class="coming-soon">
-                Coming Soon
-            </span>
+            <a
+                href="ad-revenue-forecast-calculator.html"
+                class="tool-link">
+
+                Coming Soon →
+
+            </a>
+
+        </div>
+
+
+
+        <!-- CTR -->
+
+        <div class="tool-card">
+
+            <div class="tool-icon">
+                🎯
+            </div>
+
+            <h3>
+                CTR Calculator
+            </h3>
+
+            <p>
+                Calculate click-through rate from
+                impressions and clicks.
+            </p>
+
+            <a
+                href="ctr-calculator.html"
+                class="tool-link">
+
+                Use Calculator →
+
+            </a>
+
+        </div>
+
+
+
+        <!-- Fill Rate -->
+
+        <div class="tool-card">
+
+            <div class="tool-icon">
+                📈
+            </div>
+
+            <h3>
+                Fill Rate Calculator
+            </h3>
+
+            <p>
+                Calculate the percentage of ad requests
+                that resulted in an ad impression.
+            </p>
+
+            <a
+                href="fill-rate-calculator.html"
+                class="tool-link">
+
+                Use Calculator →
+
+            </a>
 
         </div>
 
@@ -817,15 +668,207 @@
             </h3>
 
             <p>
-
-                Calculate advertising viewability using
-                measurable and viewable impressions.
-
+                Calculate the percentage of measured
+                impressions that were viewable.
             </p>
 
-            <span class="coming-soon">
-                Coming Soon
-            </span>
+            <a
+                href="viewability-calculator.html"
+                class="tool-link">
+
+                Coming Soon →
+
+            </a>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     PROGRAMMATIC TOOLS
+========================= -->
+
+<section class="section">
+
+    <div class="section-header">
+
+        <h2>
+            ⚡ Programmatic & AdTech Tools
+        </h2>
+
+        <p>
+            Tools designed around common publisher
+            and programmatic advertising workflows.
+        </p>
+
+    </div>
+
+
+    <div class="tools-grid">
+
+
+        <div class="tool-card">
+
+            <div class="tool-icon">
+                🔗
+            </div>
+
+            <h3>
+                Header Bidding Revenue Estimator
+            </h3>
+
+            <p>
+                Estimate potential revenue based on
+                impressions, bids and win rates.
+            </p>
+
+            <a
+                href="header-bidding-revenue-estimator.html"
+                class="tool-link">
+
+                Coming Soon →
+
+            </a>
+
+        </div>
+
+
+
+        <div class="tool-card">
+
+            <div class="tool-icon">
+                📢
+            </div>
+
+            <h3>
+                Ad Impression Calculator
+            </h3>
+
+            <p>
+                Estimate potential ad impressions
+                from page views and ads per page.
+            </p>
+
+            <a
+                href="ad-impression-calculator.html"
+                class="tool-link">
+
+                Coming Soon →
+
+            </a>
+
+        </div>
+
+
+
+        <div class="tool-card">
+
+            <div class="tool-icon">
+                🔄
+            </div>
+
+            <h3>
+                CPM & eCPM Converter
+            </h3>
+
+            <p>
+                Compare CPM, eCPM, impressions
+                and advertising revenue.
+            </p>
+
+            <a
+                href="cpm-ecpm-converter.html"
+                class="tool-link">
+
+                Coming Soon →
+
+            </a>
+
+        </div>
+
+
+
+        <div class="tool-card">
+
+            <div class="tool-icon">
+                📺
+            </div>
+
+            <h3>
+                Video Ad Revenue Calculator
+            </h3>
+
+            <p>
+                Estimate revenue from video
+                impressions and eCPM.
+            </p>
+
+            <a
+                href="video-ad-revenue-calculator.html"
+                class="tool-link">
+
+                Coming Soon →
+
+            </a>
+
+        </div>
+
+
+
+        <div class="tool-card">
+
+            <div class="tool-icon">
+                ⏱️
+            </div>
+
+            <h3>
+                Header Bidding Timeout Calculator
+            </h3>
+
+            <p>
+                Understand how auction timeout
+                settings affect header bidding.
+            </p>
+
+            <a
+                href="header-bidding-timeout-calculator.html"
+                class="tool-link">
+
+                Coming Soon →
+
+            </a>
+
+        </div>
+
+
+
+        <div class="tool-card">
+
+            <div class="tool-icon">
+                📊
+            </div>
+
+            <h3>
+                Publisher Revenue Comparison
+            </h3>
+
+            <p>
+                Compare revenue, impressions,
+                eCPM and fill rate across demand sources.
+            </p>
+
+            <a
+                href="publisher-revenue-comparison.html"
+                class="tool-link">
+
+                Coming Soon →
+
+            </a>
 
         </div>
 
@@ -840,13 +883,18 @@
      PUBLISHER TOOLS
 ========================= -->
 
-<section style="margin-top: 60px;">
+<section class="section">
 
     <div class="section-header">
 
         <h2>
-            🛠️ Publisher Tools
+            🏢 Publisher Tools
         </h2>
+
+        <p>
+            Practical tools for publishers and
+            digital media businesses.
+        </p>
 
     </div>
 
@@ -857,72 +905,24 @@
         <div class="tool-card">
 
             <div class="tool-icon">
-                🔎
+                📝
             </div>
 
             <h3>
-                Ads.txt Checker
+                Ad Unit Naming Generator
             </h3>
 
             <p>
-
-                Check and analyze a publisher's
-                ads.txt file.
-
+                Generate consistent ad unit names
+                for websites and applications.
             </p>
 
-            <span class="coming-soon">
-                Coming Soon
-            </span>
+            <a
+                href="ad-unit-naming-generator.html"
+                class="tool-link">
 
-        </div>
+                Coming Soon →
 
-
-
-        <div class="tool-card">
-
-            <div class="tool-icon">
-                📋
-            </div>
-
-            <h3>
-                Sellers.json Lookup
-            </h3>
-
-            <p>
-
-                Explore seller information available
-                through sellers.json.
-
-            </p>
-
-            <span class="coming-soon">
-                Coming Soon
-            </span>
-
-        </div>
-
-
-
-        <div class="tool-card">
-
-            <div class="tool-icon">
-                🧩
-            </div>
-
-            <h3>
-                AdTech Glossary
-            </h3>
-
-            <p>
-
-                Explore important advertising and
-                programmatic terminology.
-
-            </p>
-
-            <a class="tool-link" href="../advertising/">
-                Explore Glossary →
             </a>
 
         </div>
@@ -932,23 +932,25 @@
         <div class="tool-card">
 
             <div class="tool-icon">
-                📊
+                📄
             </div>
 
             <h3>
-                Publisher Revenue Estimator
+                ads.txt Validator
             </h3>
 
             <p>
-
-                Estimate potential publisher revenue
-                based on traffic and advertising metrics.
-
+                Check ads.txt entries and identify
+                common formatting issues.
             </p>
 
-            <span class="coming-soon">
-                Coming Soon
-            </span>
+            <a
+                href="ads-txt-validator.html"
+                class="tool-link">
+
+                Coming Soon →
+
+            </a>
 
         </div>
 
@@ -957,23 +959,25 @@
         <div class="tool-card">
 
             <div class="tool-icon">
-                ⚡
+                🔍
             </div>
 
             <h3>
-                Ad Request Calculator
+                Sellers.json Lookup
             </h3>
 
             <p>
-
-                Estimate ad requests based on page views,
-                ad placements and traffic.
-
+                Explore seller information used
+                across the programmatic ecosystem.
             </p>
 
-            <span class="coming-soon">
-                Coming Soon
-            </span>
+            <a
+                href="sellers-json-lookup.html"
+                class="tool-link">
+
+                Coming Soon →
+
+            </a>
 
         </div>
 
@@ -982,23 +986,79 @@
         <div class="tool-card">
 
             <div class="tool-icon">
-                📈
+                🎬
             </div>
 
             <h3>
-                Yield Calculator
+                VAST Validator
             </h3>
 
             <p>
-
-                Compare potential revenue and yield
-                across different demand scenarios.
-
+                Validate VAST XML and identify
+                common video advertising issues.
             </p>
 
-            <span class="coming-soon">
-                Coming Soon
-            </span>
+            <a
+                href="vast-validator.html"
+                class="tool-link">
+
+                Coming Soon →
+
+            </a>
+
+        </div>
+
+
+
+        <div class="tool-card">
+
+            <div class="tool-icon">
+                🔗
+            </div>
+
+            <h3>
+                SupplyChain Object Checker
+            </h3>
+
+            <p>
+                Inspect SupplyChain information
+                used in programmatic advertising.
+            </p>
+
+            <a
+                href="schain-checker.html"
+                class="tool-link">
+
+                Coming Soon →
+
+            </a>
+
+        </div>
+
+
+
+        <div class="tool-card">
+
+            <div class="tool-icon">
+                🔐
+            </div>
+
+            <h3>
+                Consent & Privacy Guide
+            </h3>
+
+            <p>
+                Explore common advertising privacy
+                and consent terminology.
+            </p>
+
+            <a
+                href="consent-privacy-guide.html"
+                class="tool-link">
+
+                Coming Soon →
+
+            </a>
 
         </div>
 
@@ -1010,101 +1070,33 @@
 
 
 <!-- =========================
-     CATEGORIES
+     INFORMATION
 ========================= -->
 
-<section class="info-section">
+<section class="info-box">
 
     <h2>
-        Tools for the Digital Advertising Ecosystem
+        About PubsRate Tools
     </h2>
-
 
     <p>
 
-        PubsRate tools are designed to help publishers,
-        advertisers, AdTech professionals and digital media
-        teams understand advertising metrics, estimate revenue
-        and explore the technology behind digital advertising.
+        PubsRate Tools provides free calculators,
+        utilities and educational resources for
+        publishers, advertisers and AdTech professionals.
 
     </p>
-
-
-    <div class="categories">
-
-
-        <div class="category-box">
-
-            <h3>
-                📊 Advertising Metrics
-            </h3>
-
-            <p>
-                CPM, eCPM, CTR, fill rate, RPM and
-                viewability calculations.
-            </p>
-
-        </div>
-
-
-
-        <div class="category-box">
-
-            <h3>
-                💰 Revenue & Yield
-            </h3>
-
-            <p>
-                Estimate advertising revenue and
-                compare monetization scenarios.
-            </p>
-
-        </div>
-
-
-
-        <div class="category-box">
-
-            <h3>
-                🏢 Publisher Tools
-            </h3>
-
-            <p>
-                Tools for publishers to understand
-                advertising inventory and supply.
-            </p>
-
-        </div>
-
-
-    </div>
-
-</section>
-
-
-
-<!-- =========================
-     CTA
-========================= -->
-
-<section class="cta">
-
-    <h2>
-        Explore PubsRate Advertising
-    </h2>
-
 
     <p>
 
-        Learn about Google Ad Manager, programmatic advertising,
-        header bidding, CTV, publisher monetization and more.
+        These tools are intended for informational
+        and estimation purposes. Actual advertising
+        performance and revenue may vary depending
+        on demand sources, geography, inventory,
+        auction dynamics, fees, viewability and
+        other factors.
 
     </p>
-
-
-    <a class="tool-link" href="../advertising/">
-        Explore Advertising Guides →
-    </a>
 
 </section>
 
