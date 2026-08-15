@@ -1,0 +1,1107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <!-- =========================
+         SEO
+    ========================== -->
+
+    <title>
+        Sellers.json Lookup | Seller ID Lookup Tool | PubsRate
+    </title>
+
+    <meta
+        name="description"
+        content="Free sellers.json lookup tool for publishers, advertisers and AdTech professionals. Search sellers.json data by seller ID, name, domain or seller type."
+    >
+
+    <meta
+        name="robots"
+        content="index, follow"
+    >
+
+    <link
+        rel="canonical"
+        href="https://pubsrate.com/tools/sellers-json-lookup.html"
+    >
+
+
+    <!-- =========================
+         OPEN GRAPH
+    ========================== -->
+
+    <meta
+        property="og:type"
+        content="website"
+    >
+
+    <meta
+        property="og:title"
+        content="Sellers.json Lookup | PubsRate"
+    >
+
+    <meta
+        property="og:description"
+        content="Search and inspect sellers.json records using seller ID, seller name, domain or seller type."
+    >
+
+    <meta
+        property="og:url"
+        content="https://pubsrate.com/tools/sellers-json-lookup.html"
+    >
+
+    <meta
+        property="og:site_name"
+        content="PubsRate"
+    >
+
+
+    <!-- =========================
+         TWITTER / X
+    ========================== -->
+
+    <meta
+        name="twitter:card"
+        content="summary"
+    >
+
+    <meta
+        name="twitter:title"
+        content="Sellers.json Lookup | PubsRate"
+    >
+
+    <meta
+        name="twitter:description"
+        content="Free sellers.json lookup tool for AdTech professionals."
+    >
+
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+
+        body {
+            margin: 0;
+
+            font-family:
+                Arial,
+                Helvetica,
+                sans-serif;
+
+            background: #f5f7fb;
+
+            color: #1f2937;
+        }
+
+
+        /* =========================
+           HEADER
+        ========================== */
+
+        header {
+            background: #111827;
+
+            color: white;
+
+            padding: 18px 20px;
+        }
+
+
+        .header-container {
+            max-width: 1150px;
+
+            margin: auto;
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+        }
+
+
+        .logo {
+            font-size: 27px;
+
+            font-weight: bold;
+        }
+
+
+        .logo span {
+            color: #38bdf8;
+        }
+
+
+        nav a {
+            color: white;
+
+            text-decoration: none;
+
+            margin-left: 25px;
+
+            font-size: 15px;
+        }
+
+
+        nav a:hover {
+            color: #38bdf8;
+        }
+
+
+        /* =========================
+           MAIN
+        ========================== */
+
+        .container {
+            max-width: 1000px;
+
+            margin: auto;
+
+            padding: 50px 20px;
+        }
+
+
+        /* =========================
+           HERO
+        ========================== */
+
+        .hero {
+            background: white;
+
+            padding: 45px;
+
+            border-radius: 18px;
+
+            text-align: center;
+
+            box-shadow:
+                0 4px 15px rgba(0,0,0,0.06);
+
+            margin-bottom: 30px;
+        }
+
+
+        .hero h1 {
+            font-size: 40px;
+
+            margin:
+                0 0 15px;
+        }
+
+
+        .hero p {
+            max-width: 760px;
+
+            margin: auto;
+
+            color: #64748b;
+
+            font-size: 17px;
+
+            line-height: 1.7;
+        }
+
+
+        /* =========================
+           LOOKUP
+        ========================== */
+
+        .lookup-box {
+            background: white;
+
+            padding: 35px;
+
+            border-radius: 16px;
+
+            border: 1px solid #e5e7eb;
+
+            box-shadow:
+                0 4px 15px rgba(0,0,0,0.06);
+        }
+
+
+        .input-group {
+            margin-bottom: 22px;
+        }
+
+
+        .input-group label {
+            display: block;
+
+            font-weight: bold;
+
+            margin-bottom: 8px;
+        }
+
+
+        .input-group small {
+            display: block;
+
+            color: #64748b;
+
+            margin-top: 6px;
+        }
+
+
+        textarea {
+            width: 100%;
+
+            min-height: 300px;
+
+            resize: vertical;
+
+            padding: 15px;
+
+            border:
+                1px solid #cbd5e1;
+
+            border-radius: 8px;
+
+            font-family:
+                Consolas,
+                monospace;
+
+            font-size: 14px;
+
+            outline: none;
+        }
+
+
+        textarea:focus {
+            border-color: #2563eb;
+
+            box-shadow:
+                0 0 0 3px rgba(37,99,235,0.1);
+        }
+
+
+        input {
+            width: 100%;
+
+            padding: 14px;
+
+            border:
+                1px solid #cbd5e1;
+
+            border-radius: 8px;
+
+            font-size: 16px;
+
+            outline: none;
+        }
+
+
+        input:focus {
+            border-color: #2563eb;
+
+            box-shadow:
+                0 0 0 3px rgba(37,99,235,0.1);
+        }
+
+
+        .lookup-button {
+            width: 100%;
+
+            padding: 14px;
+
+            background: #2563eb;
+
+            color: white;
+
+            border: none;
+
+            border-radius: 8px;
+
+            font-size: 16px;
+
+            font-weight: bold;
+
+            cursor: pointer;
+        }
+
+
+        .lookup-button:hover {
+            background: #1d4ed8;
+        }
+
+
+        /* =========================
+           RESULT
+        ========================== */
+
+        .result {
+            display: none;
+
+            margin-top: 30px;
+        }
+
+
+        .result-header {
+            background: #eff6ff;
+
+            padding: 20px;
+
+            border-radius:
+                10px 10px 0 0;
+
+            font-weight: bold;
+
+            color: #1e40af;
+        }
+
+
+        .result-table {
+            width: 100%;
+
+            border-collapse: collapse;
+
+            background: white;
+
+            border:
+                1px solid #e5e7eb;
+        }
+
+
+        .result-table th,
+        .result-table td {
+            padding: 14px;
+
+            text-align: left;
+
+            border-bottom:
+                1px solid #e5e7eb;
+        }
+
+
+        .result-table th {
+            width: 35%;
+
+            background: #f8fafc;
+        }
+
+
+        .not-found {
+            background: #fef2f2;
+
+            color: #991b1b;
+
+            padding: 20px;
+
+            border-radius: 10px;
+
+            margin-top: 25px;
+
+            display: none;
+        }
+
+
+        .record-count {
+            margin-top: 20px;
+
+            color: #64748b;
+
+            font-size: 14px;
+        }
+
+
+        /* =========================
+           SEO CONTENT
+        ========================== */
+
+        .seo-content {
+            background: white;
+
+            margin-top: 30px;
+
+            padding: 35px;
+
+            border-radius: 16px;
+
+            border: 1px solid #e5e7eb;
+
+            box-shadow:
+                0 4px 15px rgba(0,0,0,0.05);
+        }
+
+
+        .seo-content h2 {
+            font-size: 25px;
+
+            margin:
+                0 0 12px;
+        }
+
+
+        .seo-content h2:not(:first-child) {
+            margin-top: 35px;
+        }
+
+
+        .seo-content p {
+            color: #64748b;
+
+            line-height: 1.8;
+
+            font-size: 16px;
+        }
+
+
+        .seo-content a {
+            color: #2563eb;
+
+            font-weight: bold;
+
+            text-decoration: none;
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================== */
+
+        footer {
+            text-align: center;
+
+            padding: 45px 20px;
+
+            color: #64748b;
+        }
+
+
+        /* =========================
+           MOBILE
+        ========================== */
+
+        @media (max-width: 750px) {
+
+            .header-container {
+                flex-direction: column;
+
+                gap: 15px;
+            }
+
+
+            nav a {
+                margin:
+                    0 8px;
+            }
+
+
+            .hero {
+                padding: 35px 25px;
+            }
+
+
+            .hero h1 {
+                font-size: 32px;
+            }
+
+
+            .lookup-box {
+                padding: 25px;
+            }
+
+
+            .result-table th,
+            .result-table td {
+                padding: 10px;
+
+                font-size: 14px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<header>
+
+    <div class="header-container">
+
+        <div class="logo">
+            Pubs<span>Rate</span>
+        </div>
+
+
+        <nav>
+
+            <a href="../index.html">
+                Home
+            </a>
+
+            <a href="../publishers/">
+                Publishers
+            </a>
+
+            <a href="../advertising/">
+                Advertising
+            </a>
+
+            <a href="index.html">
+                Tools
+            </a>
+
+        </nav>
+
+    </div>
+
+</header>
+
+
+<main class="container">
+
+
+<section class="hero">
+
+    <h1>
+        🔎 Sellers.json Lookup
+    </h1>
+
+    <p>
+        Search a sellers.json file to find seller records
+        using a seller ID, seller name, domain or seller type.
+        Useful for publishers, advertisers and AdTech teams.
+    </p>
+
+</section>
+
+
+<section class="lookup-box">
+
+
+    <div class="input-group">
+
+        <label for="search">
+
+            Seller ID, Name or Domain
+
+        </label>
+
+
+        <input
+            type="text"
+            id="search"
+            placeholder="Example: pub-1234567890 or example.com"
+        >
+
+
+        <small>
+            Enter any part of the seller ID, name or domain.
+        </small>
+
+    </div>
+
+
+    <div class="input-group">
+
+        <label for="sellerType">
+
+            Seller Type
+
+        </label>
+
+
+        <select
+            id="sellerType"
+            style="
+                width:100%;
+                padding:14px;
+                border:1px solid #cbd5e1;
+                border-radius:8px;
+                font-size:16px;
+            "
+        >
+
+            <option value="">
+                All Seller Types
+            </option>
+
+            <option value="PUBLISHER">
+                PUBLISHER
+            </option>
+
+            <option value="INTERMEDIARY">
+                INTERMEDIARY
+            </option>
+
+            <option value="BOTH">
+                BOTH
+            </option>
+
+        </select>
+
+    </div>
+
+
+    <div class="input-group">
+
+        <label for="json">
+
+            Paste sellers.json
+
+        </label>
+
+
+        <textarea
+            id="json"
+            placeholder='Paste the contents of a sellers.json file here...
+
+Example:
+
+{
+  "seller_id": "12345",
+  "name": "Example Publisher",
+  "domain": "example.com",
+  "seller_type": "PUBLISHER"
+}'
+        ></textarea>
+
+
+        <small>
+            Paste valid sellers.json JSON data. The tool works locally in your browser.
+        </small>
+
+    </div>
+
+
+    <button
+        class="lookup-button"
+        onclick="lookupSeller()">
+
+        Lookup Seller
+
+    </button>
+
+
+    <div
+        class="not-found"
+        id="notFound">
+
+        No matching seller was found.
+
+    </div>
+
+
+    <div
+        class="result"
+        id="result">
+
+        <div class="result-header">
+
+            Seller Lookup Results
+
+        </div>
+
+
+        <table class="result-table">
+
+            <thead>
+
+                <tr>
+
+                    <th>
+                        Seller ID
+                    </th>
+
+                    <th>
+                        Name
+                    </th>
+
+                    <th>
+                        Domain
+                    </th>
+
+                    <th>
+                        Seller Type
+                    </th>
+
+                    <th>
+                        Confidential
+                    </th>
+
+                </tr>
+
+            </thead>
+
+
+            <tbody id="resultsBody">
+
+            </tbody>
+
+        </table>
+
+
+        <div
+            class="record-count"
+            id="recordCount">
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="seo-content">
+
+    <h2>
+        What Is sellers.json?
+    </h2>
+
+    <p>
+        sellers.json is a standardized file used in the
+        digital advertising ecosystem to provide information
+        about entities that participate in the selling of
+        advertising inventory.
+    </p>
+
+
+    <h2>
+        What Can You Find With This Tool?
+    </h2>
+
+    <p>
+        The PubsRate Sellers.json Lookup lets you search
+        seller records using seller IDs, names and domains.
+        You can also filter results by seller type.
+    </p>
+
+
+    <h2>
+        Seller Types
+    </h2>
+
+    <p>
+        Sellers.json records can identify entities as
+        publishers, intermediaries or both. This information
+        can help AdTech professionals understand the role
+        of an entity within the advertising supply chain.
+    </p>
+
+
+    <h2>
+        Privacy
+    </h2>
+
+    <p>
+        The lookup is performed directly in your browser.
+        The pasted sellers.json data is not sent to a
+        PubsRate server by this page.
+    </p>
+
+
+    <h2>
+        More AdTech Tools
+    </h2>
+
+    <p>
+        Explore the
+        <a href="index.html">
+            PubsRate AdTech Tools
+        </a>
+        for additional advertising testing, validation,
+        measurement and troubleshooting tools.
+    </p>
+
+</section>
+
+
+</main>
+
+
+<footer>
+
+    © 2026 PubsRate. All rights reserved.
+
+</footer>
+
+
+<script>
+
+function lookupSeller() {
+
+    const search =
+        document
+            .getElementById("search")
+            .value
+            .trim()
+            .toLowerCase();
+
+
+    const sellerType =
+        document
+            .getElementById("sellerType")
+            .value
+            .toUpperCase();
+
+
+    const jsonText =
+        document
+            .getElementById("json")
+            .value
+            .trim();
+
+
+    const result =
+        document.getElementById("result");
+
+
+    const notFound =
+        document.getElementById("notFound");
+
+
+    const resultsBody =
+        document.getElementById("resultsBody");
+
+
+    const recordCount =
+        document.getElementById("recordCount");
+
+
+    result.style.display = "none";
+
+    notFound.style.display = "none";
+
+    resultsBody.innerHTML = "";
+
+
+    if (!jsonText) {
+
+        alert(
+            "Please paste a sellers.json file first."
+        );
+
+        return;
+
+    }
+
+
+    let data;
+
+
+    try {
+
+        data = JSON.parse(jsonText);
+
+    }
+
+    catch (error) {
+
+        alert(
+            "The sellers.json data is not valid JSON."
+        );
+
+        return;
+
+    }
+
+
+    let sellers = [];
+
+
+    /*
+       sellers.json normally contains
+       an object with a "sellers" array.
+    */
+
+    if (
+        data &&
+        Array.isArray(data.sellers)
+    ) {
+
+        sellers = data.sellers;
+
+    }
+
+    /*
+       Also support a direct array
+       for easier testing.
+    */
+
+    else if (
+        Array.isArray(data)
+    ) {
+
+        sellers = data;
+
+    }
+
+    else if (
+        data &&
+        data.seller_id
+    ) {
+
+        sellers = [data];
+
+    }
+
+
+    const matches =
+        sellers.filter(function(seller) {
+
+            const id =
+                String(
+                    seller.seller_id || ""
+                ).toLowerCase();
+
+
+            const name =
+                String(
+                    seller.name || ""
+                ).toLowerCase();
+
+
+            const domain =
+                String(
+                    seller.domain || ""
+                ).toLowerCase();
+
+
+            const type =
+                String(
+                    seller.seller_type || ""
+                ).toUpperCase();
+
+
+            const matchesSearch =
+                !search ||
+                id.includes(search) ||
+                name.includes(search) ||
+                domain.includes(search);
+
+
+            const matchesType =
+                !sellerType ||
+                type === sellerType;
+
+
+            return (
+                matchesSearch &&
+                matchesType
+            );
+
+        });
+
+
+    if (matches.length === 0) {
+
+        notFound.style.display = "block";
+
+        return;
+
+    }
+
+
+    matches.forEach(function(seller) {
+
+        const row =
+            document.createElement("tr");
+
+
+        row.innerHTML = `
+
+            <td>
+                ${escapeHTML(
+                    seller.seller_id || "-"
+                )}
+            </td>
+
+            <td>
+                ${escapeHTML(
+                    seller.name || "-"
+                )}
+            </td>
+
+            <td>
+                ${escapeHTML(
+                    seller.domain || "-"
+                )}
+            </td>
+
+            <td>
+                ${escapeHTML(
+                    seller.seller_type || "-"
+                )}
+            </td>
+
+            <td>
+                ${escapeHTML(
+                    seller.is_confidential !== undefined
+                        ? String(seller.is_confidential)
+                        : "-"
+                )}
+            </td>
+
+        `;
+
+
+        resultsBody.appendChild(row);
+
+    });
+
+
+    recordCount.textContent =
+        matches.length +
+        (
+            matches.length === 1
+                ? " seller found."
+                : " sellers found."
+        );
+
+
+    result.style.display = "block";
+
+}
+
+
+function escapeHTML(value) {
+
+    return String(value)
+
+        .replace(
+            /&/g,
+            "&amp;"
+        )
+
+        .replace(
+            /</g,
+            "&lt;"
+        )
+
+        .replace(
+            />/g,
+            "&gt;"
+        )
+
+        .replace(
+            /"/g,
+            "&quot;"
+        )
+
+        .replace(
+            /'/g,
+            "&#039;"
+        );
+
+}
+
+</script>
+
+
+</body>
+
+</html>
