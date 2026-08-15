@@ -7,7 +7,6 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-
     <!-- =========================
          SEO
     ========================== -->
@@ -18,7 +17,12 @@
 
     <meta
         name="description"
-        content="Free ad viewability calculator for publishers and AdOps professionals. Calculate viewability percentage from measurable and viewable ad impressions."
+        content="Free ad viewability calculator for publishers, advertisers and AdOps professionals. Calculate viewability percentage from measurable and viewable ad impressions."
+    >
+
+    <meta
+        name="keywords"
+        content="viewability calculator, ad viewability calculator, advertising viewability calculator, viewability percentage calculator, ad viewability"
     >
 
     <meta
@@ -43,12 +47,12 @@
 
     <meta
         property="og:title"
-        content="Viewability Calculator | PubsRate"
+        content="Viewability Calculator | Calculate Ad Viewability % | PubsRate"
     >
 
     <meta
         property="og:description"
-        content="Calculate ad viewability percentage using measurable and viewable impressions."
+        content="Calculate digital advertising viewability percentage using measurable and viewable impressions."
     >
 
     <meta
@@ -78,8 +82,146 @@
 
     <meta
         name="twitter:description"
-        content="Free calculator for measuring digital advertising viewability."
+        content="Free ad viewability calculator for publishers and AdOps professionals."
     >
+
+
+    <!-- =====================================================
+         STRUCTURED DATA
+    ====================================================== -->
+
+    <script type="application/ld+json">
+
+    {
+        "@context": "https://schema.org",
+        "@graph": [
+
+            {
+                "@type": "WebSite",
+                "@id": "https://pubsrate.com/#website",
+                "url": "https://pubsrate.com/",
+                "name": "PubsRate",
+                "description": "Publisher, advertising and AdTech resources, tools and community.",
+                "publisher": {
+                    "@type": "Organization",
+                    "name": "PubsRate",
+                    "url": "https://pubsrate.com/"
+                }
+            },
+
+            {
+                "@type": "WebPage",
+                "@id": "https://pubsrate.com/tools/viewability-calculator.html#webpage",
+                "url": "https://pubsrate.com/tools/viewability-calculator.html",
+                "name": "Viewability Calculator",
+                "description": "Free ad viewability calculator for calculating digital advertising viewability percentage from measurable and viewable impressions.",
+                "isPartOf": {
+                    "@id": "https://pubsrate.com/#website"
+                },
+                "about": {
+                    "@type": "Thing",
+                    "name": "Advertising Viewability"
+                }
+            },
+
+            {
+                "@type": "WebApplication",
+                "name": "PubsRate Viewability Calculator",
+                "url": "https://pubsrate.com/tools/viewability-calculator.html",
+                "applicationCategory": "BusinessApplication",
+                "operatingSystem": "All",
+                "description": "Calculate digital advertising viewability percentage using measurable and viewable impressions.",
+                "offers": {
+                    "@type": "Offer",
+                    "price": "0",
+                    "priceCurrency": "USD"
+                }
+            },
+
+            {
+                "@type": "BreadcrumbList",
+                "itemListElement": [
+
+                    {
+                        "@type": "ListItem",
+                        "position": 1,
+                        "name": "PubsRate",
+                        "item": "https://pubsrate.com/"
+                    },
+
+                    {
+                        "@type": "ListItem",
+                        "position": 2,
+                        "name": "AdTech Tools",
+                        "item": "https://pubsrate.com/tools/"
+                    },
+
+                    {
+                        "@type": "ListItem",
+                        "position": 3,
+                        "name": "Viewability Calculator",
+                        "item": "https://pubsrate.com/tools/viewability-calculator.html"
+                    }
+
+                ]
+            },
+
+            {
+                "@type": "FAQPage",
+                "mainEntity": [
+
+                    {
+                        "@type": "Question",
+                        "name": "What is ad viewability?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Ad viewability measures whether an advertisement had an opportunity to be seen by a user. It is an important metric used by publishers, advertisers and AdOps teams to evaluate digital advertising performance."
+                        }
+                    },
+
+                    {
+                        "@type": "Question",
+                        "name": "How is viewability calculated?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Viewability percentage is calculated by dividing viewable impressions by measurable impressions and multiplying the result by 100."
+                        }
+                    },
+
+                    {
+                        "@type": "Question",
+                        "name": "What is the viewability formula?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "The viewability formula is: Viewability % = (Viewable Impressions ÷ Measurable Impressions) × 100."
+                        }
+                    },
+
+                    {
+                        "@type": "Question",
+                        "name": "Why is ad viewability important?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Ad viewability helps publishers and advertising teams understand how often ads have an opportunity to be seen and can be useful when evaluating ad placement and inventory performance."
+                        }
+                    },
+
+                    {
+                        "@type": "Question",
+                        "name": "Can I use this viewability calculator for digital advertising?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Yes. The calculator can be used to calculate viewability percentage from measurable and viewable digital advertising impressions."
+                        }
+                    }
+
+                ]
+            }
+
+        ]
+    }
+
+    </script>
 
 
     <style>
@@ -421,6 +563,13 @@
         }
 
 
+        .seo-content h3 {
+            font-size: 20px;
+
+            margin-top: 28px;
+        }
+
+
         .seo-content p {
             color: #64748b;
 
@@ -430,12 +579,140 @@
         }
 
 
+        .seo-content ul {
+            color: #64748b;
+
+            line-height: 1.8;
+
+            padding-left: 22px;
+        }
+
+
+        .seo-content li {
+            margin-bottom: 8px;
+        }
+
+
         .seo-content a {
             color: #2563eb;
 
             font-weight: bold;
 
             text-decoration: none;
+        }
+
+
+        .seo-content a:hover {
+            text-decoration: underline;
+        }
+
+
+        /* =========================
+           FORMULA BOX
+        ========================== */
+
+        .formula-box {
+            background: #f8fafc;
+
+            border: 1px solid #e2e8f0;
+
+            padding: 20px;
+
+            border-radius: 10px;
+
+            margin:
+                20px 0;
+        }
+
+
+        .formula-box strong {
+            font-size: 18px;
+        }
+
+
+        /* =========================
+           FAQ
+        ========================== */
+
+        .faq-item {
+            border-top: 1px solid #e5e7eb;
+
+            padding:
+                20px 0;
+        }
+
+
+        .faq-item:first-child {
+            border-top: none;
+        }
+
+
+        .faq-item h3 {
+            margin:
+                0 0 8px;
+
+            font-size: 18px;
+        }
+
+
+        .faq-item p {
+            margin: 0;
+        }
+
+
+        /* =========================
+           RELATED TOOLS
+        ========================== */
+
+        .related-tools {
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap: 15px;
+
+            margin-top: 20px;
+        }
+
+
+        .related-tool {
+            display: block;
+
+            padding: 18px;
+
+            background: #f8fafc;
+
+            border: 1px solid #e2e8f0;
+
+            border-radius: 10px;
+
+            text-decoration: none;
+        }
+
+
+        .related-tool strong {
+            display: block;
+
+            color: #1f2937;
+
+            margin-bottom: 5px;
+        }
+
+
+        .related-tool span {
+            color: #64748b;
+
+            font-size: 14px;
+
+            line-height: 1.5;
+        }
+
+
+        .related-tool:hover {
+            border-color: #93c5fd;
+
+            background: #eff6ff;
         }
 
 
@@ -490,6 +767,21 @@
                 grid-template-columns: 1fr;
             }
 
+
+            .related-tools {
+                grid-template-columns: 1fr;
+            }
+
+
+            .seo-content {
+                padding: 25px;
+            }
+
+
+            .seo-content h2 {
+                font-size: 22px;
+            }
+
         }
 
     </style>
@@ -499,6 +791,10 @@
 
 <body>
 
+
+<!-- =========================
+     HEADER
+========================= -->
 
 <header>
 
@@ -534,8 +830,13 @@
 </header>
 
 
+
 <main class="container">
 
+
+<!-- =========================
+     HERO
+========================= -->
 
 <section class="hero">
 
@@ -546,11 +847,18 @@
     <p>
         Calculate your digital advertising viewability
         percentage using measurable impressions and
-        viewable impressions.
+        viewable impressions. This free viewability
+        calculator is designed for publishers, advertisers,
+        AdOps teams and digital advertising professionals.
     </p>
 
 </section>
 
+
+
+<!-- =========================
+     CALCULATOR
+========================= -->
 
 <section class="calculator">
 
@@ -665,6 +973,11 @@
 </section>
 
 
+
+<!-- =========================
+     SEO CONTENT
+========================= -->
+
 <section class="seo-content">
 
     <h2>
@@ -674,9 +987,9 @@
     <p>
         Ad viewability measures whether an advertisement
         had an opportunity to be seen by a user. It is an
-        important metric for publishers, advertisers and
-        AdOps teams when evaluating digital advertising
-        performance.
+        important digital advertising metric for publishers,
+        advertisers and AdOps teams when evaluating
+        advertising inventory and ad placement performance.
     </p>
 
 
@@ -691,23 +1004,94 @@
     </p>
 
 
-    <p>
+    <div class="formula-box">
+
         <strong>
             Viewability % = (Viewable Impressions ÷
             Measurable Impressions) × 100
         </strong>
+
+    </div>
+
+
+    <h3>
+        Example
+    </h3>
+
+    <p>
+        If a website records 100,000 measurable impressions
+        and 70,000 of those impressions are viewable, the
+        viewability rate is:
+    </p>
+
+    <div class="formula-box">
+
+        <strong>
+            (70,000 ÷ 100,000) × 100 = 70%
+        </strong>
+
+    </div>
+
+
+    <h2>
+        How to Use the Viewability Calculator
+    </h2>
+
+    <p>
+        Enter your measurable impressions and viewable
+        impressions into the calculator above and select
+        <strong>Calculate Viewability</strong>. The calculator
+        will display your viewability percentage along with
+        the number of viewable and non-viewable impressions.
     </p>
 
 
     <h2>
-        Why Is Viewability Important?
+        Why Is Ad Viewability Important?
     </h2>
 
     <p>
-        Higher viewability can indicate that advertisements
-        are receiving more opportunities to be seen. Publishers
-        and advertising teams can use viewability data to
-        understand ad placement and inventory performance.
+        Viewability can help publishers and advertising teams
+        understand how often ads have an opportunity to be seen.
+        It can also provide useful information when evaluating
+        page layouts, ad placements and advertising inventory.
+    </p>
+
+
+    <h2>
+        What Are Measurable Impressions?
+    </h2>
+
+    <p>
+        Measurable impressions are impressions for which
+        viewability measurement is possible. The measurable
+        impression count is used as the denominator when
+        calculating the viewability rate.
+    </p>
+
+
+    <h2>
+        What Are Viewable Impressions?
+    </h2>
+
+    <p>
+        Viewable impressions are measurable impressions that
+        meet the applicable criteria for being considered
+        viewable. The number of viewable impressions is used
+        as the numerator in the viewability calculation.
+    </p>
+
+
+    <h2>
+        Viewability and Publisher Monetization
+    </h2>
+
+    <p>
+        Publishers use advertising metrics such as viewability,
+        impressions, CPM, eCPM and fill rate to understand
+        advertising inventory performance. Viewability can be
+        particularly useful when evaluating different ad
+        placements and page layouts.
     </p>
 
 
@@ -716,13 +1100,159 @@
     </h2>
 
     <p>
-        Explore more
+        Explore the
         <a href="index.html">
             PubsRate AdTech Tools
         </a>
-        for advertising testing, validation and
-        measurement.
+        for additional advertising calculators, validators,
+        testing tools and measurement resources.
     </p>
+
+
+    <div class="related-tools">
+
+        <a
+            class="related-tool"
+            href="cpm-calculator.html">
+
+            <strong>
+                CPM Calculator →
+            </strong>
+
+            <span>
+                Calculate advertising CPM from cost and impressions.
+            </span>
+
+        </a>
+
+
+        <a
+            class="related-tool"
+            href="ecpm-calculator.html">
+
+            <strong>
+                eCPM Calculator →
+            </strong>
+
+            <span>
+                Calculate effective cost per thousand impressions.
+            </span>
+
+        </a>
+
+
+        <a
+            class="related-tool"
+            href="ad-impression-calculator.html">
+
+            <strong>
+                Ad Impression Calculator →
+            </strong>
+
+            <span>
+                Calculate advertising impressions and related metrics.
+            </span>
+
+        </a>
+
+
+        <a
+            class="related-tool"
+            href="publisher-revenue-comparison.html">
+
+            <strong>
+                Publisher Revenue Comparison →
+            </strong>
+
+            <span>
+                Compare publisher advertising revenue scenarios.
+            </span>
+
+        </a>
+
+    </div>
+
+
+    <h2>
+        Frequently Asked Questions
+    </h2>
+
+
+    <div class="faq-item">
+
+        <h3>
+            What is ad viewability?
+        </h3>
+
+        <p>
+            Ad viewability measures whether an advertisement
+            had an opportunity to be seen by a user. It is an
+            important metric for publishers, advertisers and
+            AdOps teams evaluating digital advertising performance.
+        </p>
+
+    </div>
+
+
+    <div class="faq-item">
+
+        <h3>
+            How is viewability calculated?
+        </h3>
+
+        <p>
+            Viewability is calculated by dividing viewable
+            impressions by measurable impressions and
+            multiplying the result by 100.
+        </p>
+
+    </div>
+
+
+    <div class="faq-item">
+
+        <h3>
+            What is the viewability formula?
+        </h3>
+
+        <p>
+            The formula is:
+            Viewability % = (Viewable Impressions ÷
+            Measurable Impressions) × 100.
+        </p>
+
+    </div>
+
+
+    <div class="faq-item">
+
+        <h3>
+            Why is ad viewability important?
+        </h3>
+
+        <p>
+            Viewability helps publishers and advertising
+            teams understand how often advertisements have
+            an opportunity to be seen and can help evaluate
+            ad placement and inventory performance.
+        </p>
+
+    </div>
+
+
+    <div class="faq-item">
+
+        <h3>
+            Can I use this for digital advertising?
+        </h3>
+
+        <p>
+            Yes. This calculator can be used to calculate
+            viewability percentage from measurable and
+            viewable digital advertising impressions.
+        </p>
+
+    </div>
 
 </section>
 
@@ -730,11 +1260,17 @@
 </main>
 
 
+
+<!-- =========================
+     FOOTER
+========================= -->
+
 <footer>
 
     © 2026 PubsRate. All rights reserved.
 
 </footer>
+
 
 
 <script>
@@ -745,6 +1281,7 @@ function calculateViewability() {
         parseFloat(
             document.getElementById("measurable").value
         );
+
 
     const viewable =
         parseFloat(
@@ -855,6 +1392,7 @@ function calculateViewability() {
 }
 
 </script>
+
 
 
 </body>
