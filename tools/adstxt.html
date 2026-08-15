@@ -1,0 +1,1954 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <!-- =========================
+         SEO
+    ========================== -->
+
+    <title>
+        ads.txt Validator | Free Ads.txt Testing Tool | PubsRate
+    </title>
+
+    <meta
+        name="description"
+        content="Free ads.txt validator for publishers. Check ads.txt entries, DIRECT and RESELLER records, duplicate entries, formatting errors and required fields."
+    >
+
+    <meta
+        name="robots"
+        content="index, follow"
+    >
+
+    <link
+        rel="canonical"
+        href="https://pubsrate.com/tools/ads-txt-validator.html"
+    >
+
+    <!-- =========================
+         OPEN GRAPH
+    ========================== -->
+
+    <meta
+        property="og:type"
+        content="website"
+    >
+
+    <meta
+        property="og:title"
+        content="ads.txt Validator | PubsRate"
+    >
+
+    <meta
+        property="og:description"
+        content="Validate ads.txt entries, detect duplicate records and identify formatting problems with the free PubsRate ads.txt validator."
+    >
+
+    <meta
+        property="og:url"
+        content="https://pubsrate.com/tools/ads-txt-validator.html"
+    >
+
+    <meta
+        property="og:site_name"
+        content="PubsRate"
+    >
+
+    <!-- =========================
+         TWITTER / X
+    ========================== -->
+
+    <meta
+        name="twitter:card"
+        content="summary"
+    >
+
+    <meta
+        name="twitter:title"
+        content="ads.txt Validator | PubsRate"
+    >
+
+    <meta
+        name="twitter:description"
+        content="Free ads.txt validation and troubleshooting tool for publishers and AdOps professionals."
+    >
+
+    <!-- =========================
+         STRUCTURED DATA
+    ========================== -->
+
+    <script type="application/ld+json">
+
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "PubsRate ads.txt Validator",
+        "url": "https://pubsrate.com/tools/ads-txt-validator.html",
+        "description": "Free browser-based ads.txt validator for publishers and AdOps professionals.",
+        "applicationCategory": "DeveloperApplication",
+        "operatingSystem": "Any",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "PubsRate",
+            "url": "https://pubsrate.com/"
+        }
+    }
+
+    </script>
+
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+
+        body {
+            margin: 0;
+
+            font-family:
+                Arial,
+                Helvetica,
+                sans-serif;
+
+            background: #f5f7fb;
+
+            color: #1f2937;
+        }
+
+
+        /* =========================
+           HEADER
+        ========================== */
+
+        header {
+            background: #111827;
+
+            color: white;
+
+            padding: 18px 20px;
+        }
+
+
+        .header-container {
+            max-width: 1150px;
+
+            margin: auto;
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+        }
+
+
+        .logo {
+            font-size: 27px;
+
+            font-weight: bold;
+
+            color: white;
+
+            text-decoration: none;
+        }
+
+
+        .logo span {
+            color: #38bdf8;
+        }
+
+
+        nav {
+            display: flex;
+
+            align-items: center;
+
+            flex-wrap: wrap;
+        }
+
+
+        nav a {
+            color: white;
+
+            text-decoration: none;
+
+            margin-left: 25px;
+
+            font-size: 15px;
+        }
+
+
+        nav a:hover {
+            color: #38bdf8;
+        }
+
+
+        /* =========================
+           MAIN
+        ========================== */
+
+        .container {
+            max-width: 1150px;
+
+            margin: auto;
+
+            padding: 40px 20px 70px;
+        }
+
+
+        /* =========================
+           HERO
+        ========================== */
+
+        .hero {
+            background: white;
+
+            padding: 40px;
+
+            border-radius: 18px;
+
+            box-shadow:
+                0 4px 15px rgba(0,0,0,0.07);
+
+            margin-bottom: 25px;
+        }
+
+
+        .badge {
+            display: inline-block;
+
+            background: #e0f2fe;
+
+            color: #0369a1;
+
+            padding: 7px 12px;
+
+            border-radius: 20px;
+
+            font-size: 13px;
+
+            font-weight: bold;
+
+            margin-bottom: 12px;
+        }
+
+
+        h1 {
+            margin: 0 0 12px;
+
+            font-size: 40px;
+
+            color: #111827;
+        }
+
+
+        .hero p {
+            margin: 0;
+
+            max-width: 850px;
+
+            color: #64748b;
+
+            line-height: 1.7;
+
+            font-size: 17px;
+        }
+
+
+        /* =========================
+           TOOL CARD
+        ========================== */
+
+        .tool-card {
+            background: white;
+
+            border-radius: 16px;
+
+            padding: 30px;
+
+            box-shadow:
+                0 4px 15px rgba(0,0,0,0.06);
+
+            margin-bottom: 25px;
+        }
+
+
+        .tool-card h2 {
+            margin-top: 0;
+
+            font-size: 24px;
+        }
+
+
+        .tool-card p {
+            color: #64748b;
+
+            line-height: 1.6;
+        }
+
+
+        /* =========================
+           TEXTAREA
+        ========================== */
+
+        textarea {
+            width: 100%;
+
+            min-height: 300px;
+
+            resize: vertical;
+
+            padding: 16px;
+
+            border: 1px solid #cbd5e1;
+
+            border-radius: 10px;
+
+            font-family:
+                Consolas,
+                Monaco,
+                monospace;
+
+            font-size: 14px;
+
+            line-height: 1.6;
+
+            outline: none;
+
+            background: #f8fafc;
+        }
+
+
+        textarea:focus {
+            border-color: #2563eb;
+
+            box-shadow:
+                0 0 0 3px rgba(37,99,235,0.1);
+        }
+
+
+        /* =========================
+           BUTTONS
+        ========================== */
+
+        .buttons {
+            display: flex;
+
+            gap: 12px;
+
+            flex-wrap: wrap;
+
+            margin-top: 15px;
+        }
+
+
+        button {
+            border: none;
+
+            cursor: pointer;
+
+            padding: 12px 20px;
+
+            border-radius: 8px;
+
+            font-size: 15px;
+
+            font-weight: bold;
+        }
+
+
+        .validate-button {
+            background: #2563eb;
+
+            color: white;
+        }
+
+
+        .validate-button:hover {
+            background: #1d4ed8;
+        }
+
+
+        .sample-button {
+            background: #e2e8f0;
+
+            color: #1e293b;
+        }
+
+
+        .sample-button:hover {
+            background: #cbd5e1;
+        }
+
+
+        .clear-button {
+            background: #fee2e2;
+
+            color: #991b1b;
+        }
+
+
+        .clear-button:hover {
+            background: #fecaca;
+        }
+
+
+        /* =========================
+           RESULTS
+        ========================== */
+
+        .results {
+            display: none;
+
+            margin-top: 25px;
+        }
+
+
+        .results.visible {
+            display: block;
+        }
+
+
+        .summary-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(5, 1fr);
+
+            gap: 12px;
+
+            margin-bottom: 25px;
+        }
+
+
+        .summary-card {
+            background: #f8fafc;
+
+            border: 1px solid #e2e8f0;
+
+            border-radius: 10px;
+
+            padding: 18px;
+
+            text-align: center;
+        }
+
+
+        .summary-number {
+            display: block;
+
+            font-size: 28px;
+
+            font-weight: bold;
+
+            color: #111827;
+
+            margin-bottom: 5px;
+        }
+
+
+        .summary-label {
+            font-size: 13px;
+
+            color: #64748b;
+        }
+
+
+        /* =========================
+           STATUS
+        ========================== */
+
+        .status-box {
+            padding: 16px;
+
+            border-radius: 10px;
+
+            margin-bottom: 20px;
+
+            font-weight: bold;
+        }
+
+
+        .status-good {
+            background: #dcfce7;
+
+            color: #166534;
+
+            border: 1px solid #bbf7d0;
+        }
+
+
+        .status-warning {
+            background: #fef3c7;
+
+            color: #92400e;
+
+            border: 1px solid #fde68a;
+        }
+
+
+        .status-error {
+            background: #fee2e2;
+
+            color: #991b1b;
+
+            border: 1px solid #fecaca;
+        }
+
+
+        /* =========================
+           RESULT TABLE
+        ========================== */
+
+        .table-wrapper {
+            overflow-x: auto;
+
+            border: 1px solid #e2e8f0;
+
+            border-radius: 10px;
+        }
+
+
+        table {
+            width: 100%;
+
+            border-collapse: collapse;
+
+            min-width: 850px;
+        }
+
+
+        th {
+            background: #111827;
+
+            color: white;
+
+            padding: 13px;
+
+            text-align: left;
+
+            font-size: 13px;
+        }
+
+
+        td {
+            padding: 13px;
+
+            border-bottom: 1px solid #e2e8f0;
+
+            font-size: 13px;
+
+            vertical-align: top;
+        }
+
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+
+        .valid-row {
+            background: #f0fdf4;
+        }
+
+
+        .invalid-row {
+            background: #fff7f7;
+        }
+
+
+        .duplicate-row {
+            background: #fffbeb;
+        }
+
+
+        .status-valid {
+            color: #15803d;
+
+            font-weight: bold;
+        }
+
+
+        .status-invalid {
+            color: #dc2626;
+
+            font-weight: bold;
+        }
+
+
+        .status-duplicate {
+            color: #d97706;
+
+            font-weight: bold;
+        }
+
+
+        .line-content {
+            font-family:
+                Consolas,
+                Monaco,
+                monospace;
+
+            white-space: pre-wrap;
+
+            word-break: break-word;
+        }
+
+
+        /* =========================
+           ERROR DETAILS
+        ========================== */
+
+        .error-list {
+            margin: 0;
+
+            padding-left: 18px;
+        }
+
+
+        .error-list li {
+            margin-bottom: 5px;
+
+            color: #991b1b;
+        }
+
+
+        /* =========================
+           INFO
+        ========================== */
+
+        .info-box {
+            background: #eff6ff;
+
+            border: 1px solid #bfdbfe;
+
+            border-radius: 10px;
+
+            padding: 20px;
+
+            margin-top: 25px;
+        }
+
+
+        .info-box h3 {
+            margin-top: 0;
+
+            color: #1e40af;
+        }
+
+
+        .info-box p {
+            margin-bottom: 0;
+        }
+
+
+        code {
+            background: #e2e8f0;
+
+            padding: 2px 5px;
+
+            border-radius: 4px;
+
+            font-family: monospace;
+        }
+
+
+        /* =========================
+           SEO CONTENT
+        ========================== */
+
+        .seo-content {
+            background: white;
+
+            padding: 35px;
+
+            border-radius: 16px;
+
+            box-shadow:
+                0 4px 15px rgba(0,0,0,0.05);
+
+            margin-top: 30px;
+        }
+
+
+        .seo-content h2 {
+            color: #111827;
+
+            margin-top: 0;
+
+            margin-bottom: 12px;
+        }
+
+
+        .seo-content h2:not(:first-child) {
+            margin-top: 30px;
+        }
+
+
+        .seo-content p {
+            color: #64748b;
+
+            line-height: 1.8;
+        }
+
+
+        .seo-content a {
+            color: #2563eb;
+
+            text-decoration: none;
+
+            font-weight: bold;
+        }
+
+
+        .seo-content a:hover {
+            text-decoration: underline;
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================== */
+
+        footer {
+            text-align: center;
+
+            padding: 40px 20px;
+
+            color: #64748b;
+        }
+
+
+        footer a {
+            color: #2563eb;
+
+            text-decoration: none;
+
+            margin: 0 8px;
+        }
+
+
+        /* =========================
+           MOBILE
+        ========================== */
+
+        @media (max-width: 850px) {
+
+            .header-container {
+                flex-direction: column;
+
+                gap: 15px;
+            }
+
+
+            nav {
+                justify-content: center;
+            }
+
+
+            nav a {
+                margin:
+                    5px 8px;
+            }
+
+
+            h1 {
+                font-size: 32px;
+            }
+
+
+            .hero {
+                padding: 28px;
+            }
+
+
+            .tool-card {
+                padding: 22px;
+            }
+
+
+            .summary-grid {
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+
+        }
+
+
+        @media (max-width: 500px) {
+
+            .summary-grid {
+                grid-template-columns: 1fr;
+            }
+
+
+            .hero p {
+                font-size: 15px;
+            }
+
+
+            .seo-content {
+                padding: 25px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     HEADER
+========================= -->
+
+<header>
+
+    <div class="header-container">
+
+        <a
+            href="../index.html"
+            class="logo">
+
+            Pubs<span>Rate</span>
+
+        </a>
+
+
+        <nav>
+
+            <a href="../index.html">
+                Home
+            </a>
+
+            <a href="../publishers/">
+                Publishers
+            </a>
+
+            <a href="../advertising/">
+                Advertising
+            </a>
+
+            <a href="../community/">
+                Community
+            </a>
+
+            <a href="../testtag/">
+                Ad Tag Testing
+            </a>
+
+            <a href="index.html">
+                Tools
+            </a>
+
+        </nav>
+
+    </div>
+
+</header>
+
+
+
+<main class="container">
+
+
+<!-- =========================
+     HERO
+========================= -->
+
+<section class="hero">
+
+    <div class="badge">
+        🧪 PUBSRATE ADTECH TOOL
+    </div>
+
+    <h1>
+        ads.txt Validator
+    </h1>
+
+    <p>
+        Validate your ads.txt file and identify formatting
+        problems, duplicate entries, invalid records,
+        DIRECT and RESELLER issues and missing fields.
+    </p>
+
+</section>
+
+
+
+<!-- =========================
+     VALIDATOR
+========================= -->
+
+<section class="tool-card">
+
+    <h2>
+        Validate Your ads.txt
+    </h2>
+
+    <p>
+        Paste the contents of your publisher's
+        <code>ads.txt</code> file below and click
+        <strong>Validate ads.txt</strong>.
+    </p>
+
+
+    <textarea
+        id="adsTxtInput"
+        placeholder="Example:
+
+google.com, pub-1234567890123456, DIRECT, f08c47fec0942fa0
+appnexus.com, 12345, RESELLER, f5ab79cb980f11d1
+rubiconproject.com, 12345, DIRECT, 0bfd66d529a55807
+
+# This is a comment
+"
+    ></textarea>
+
+
+    <div class="buttons">
+
+        <button
+            type="button"
+            class="validate-button"
+            onclick="validateAdsTxt()">
+
+            Validate ads.txt
+
+        </button>
+
+
+        <button
+            type="button"
+            class="sample-button"
+            onclick="loadSample()">
+
+            Load Sample
+
+        </button>
+
+
+        <button
+            type="button"
+            class="clear-button"
+            onclick="clearInput()">
+
+            Clear
+
+        </button>
+
+    </div>
+
+
+    <!-- =========================
+         RESULTS
+    ========================== -->
+
+    <div
+        id="results"
+        class="results"
+    >
+
+        <div id="overallStatus"></div>
+
+
+        <div class="summary-grid">
+
+            <div class="summary-card">
+
+                <span
+                    id="totalCount"
+                    class="summary-number">
+                    0
+                </span>
+
+                <span class="summary-label">
+                    Total Entries
+                </span>
+
+            </div>
+
+
+            <div class="summary-card">
+
+                <span
+                    id="validCount"
+                    class="summary-number">
+                    0
+                </span>
+
+                <span class="summary-label">
+                    Valid
+                </span>
+
+            </div>
+
+
+            <div class="summary-card">
+
+                <span
+                    id="invalidCount"
+                    class="summary-number">
+                    0
+                </span>
+
+                <span class="summary-label">
+                    Invalid
+                </span>
+
+            </div>
+
+
+            <div class="summary-card">
+
+                <span
+                    id="directCount"
+                    class="summary-number">
+                    0
+                </span>
+
+                <span class="summary-label">
+                    DIRECT
+                </span>
+
+            </div>
+
+
+            <div class="summary-card">
+
+                <span
+                    id="resellerCount"
+                    class="summary-number">
+                    0
+                </span>
+
+                <span class="summary-label">
+                    RESELLER
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <h2>
+            Validation Results
+        </h2>
+
+
+        <div class="table-wrapper">
+
+            <table>
+
+                <thead>
+
+                    <tr>
+
+                        <th>
+                            Line
+                        </th>
+
+                        <th>
+                            Entry
+                        </th>
+
+                        <th>
+                            Type
+                        </th>
+
+                        <th>
+                            Advertising System
+                        </th>
+
+                        <th>
+                            Seller ID
+                        </th>
+
+                        <th>
+                            Certification ID
+                        </th>
+
+                        <th>
+                            Status
+                        </th>
+
+                        <th>
+                            Details
+                        </th>
+
+                    </tr>
+
+                </thead>
+
+
+                <tbody id="resultsBody">
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     ADS.TXT INFORMATION
+========================= -->
+
+<section class="tool-card">
+
+    <div class="info-box">
+
+        <h3>
+            What is ads.txt?
+        </h3>
+
+        <p>
+            Ads.txt is an industry standard that allows
+            publishers to publicly declare which advertising
+            systems are authorized to sell their digital
+            advertising inventory.
+        </p>
+
+        <p>
+            A typical ads.txt entry contains an advertising
+            system domain, publisher or seller account ID,
+            relationship type such as DIRECT or RESELLER,
+            and optionally a certification authority ID.
+        </p>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     SEO CONTENT
+========================= -->
+
+<section class="seo-content">
+
+    <h2>
+        Free ads.txt Validator
+    </h2>
+
+    <p>
+        The PubsRate ads.txt Validator helps publishers,
+        AdOps professionals and developers check ads.txt
+        records before publishing them on their websites.
+        The tool runs directly in your browser and does not
+        require you to upload your file to a server.
+    </p>
+
+
+    <h2>
+        What Does the ads.txt Validator Check?
+    </h2>
+
+    <p>
+        The validator checks the basic structure of ads.txt
+        records, including the advertising system domain,
+        seller account ID, relationship type and optional
+        certification authority ID. It also identifies
+        duplicate records and common formatting problems.
+    </p>
+
+
+    <h2>
+        DIRECT and RESELLER
+    </h2>
+
+    <p>
+        The third field of an ads.txt record normally identifies
+        whether the relationship is DIRECT or RESELLER.
+        DIRECT indicates that the publisher directly controls
+        the seller account, while RESELLER indicates that the
+        account is being represented by another authorized entity.
+    </p>
+
+
+    <h2>
+        Example ads.txt Entry
+    </h2>
+
+    <p>
+        A commonly structured record looks like:
+    </p>
+
+    <p>
+        <code>
+            google.com, pub-1234567890123456, DIRECT, f08c47fec0942fa0
+        </code>
+    </p>
+
+
+    <h2>
+        More PubsRate AdTech Tools
+    </h2>
+
+    <p>
+        Explore more practical tools for publishers and
+        advertising professionals in the
+        <a href="index.html">
+            PubsRate Tools
+        </a>
+        section, including advertising measurement and
+        AdTech testing tools.
+    </p>
+
+</section>
+
+
+</main>
+
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+    <p>
+        <strong>PubsRate</strong>
+    </p>
+
+    <p>
+        AdTech resources, publisher tools and advertising
+        technology solutions.
+    </p>
+
+    <p>
+
+        <a href="../index.html">
+            Home
+        </a>
+
+        <a href="../publishers/">
+            Publishers
+        </a>
+
+        <a href="../advertising/">
+            Advertising
+        </a>
+
+        <a href="../testtag/">
+            Ad Tag Testing
+        </a>
+
+        <a href="index.html">
+            Tools
+        </a>
+
+    </p>
+
+    <p>
+        © 2026 PubsRate. All rights reserved.
+    </p>
+
+</footer>
+
+
+
+<script>
+
+    /* =========================
+       LOAD SAMPLE
+    ========================== */
+
+    function loadSample() {
+
+        const sample = `# Google Ad Manager
+google.com, pub-1234567890123456, DIRECT, f08c47fec0942fa0
+
+# AppNexus
+appnexus.com, 12345, RESELLER, f5ab79cb980f11d1
+
+# Rubicon
+rubiconproject.com, 12345, DIRECT, 0bfd66d529a55807
+
+# Another seller
+example.com, 98765, RESELLER
+
+# Duplicate example
+google.com, pub-1234567890123456, DIRECT, f08c47fec0942fa0
+
+# Invalid example
+invalid-line`;
+
+        document.getElementById(
+            "adsTxtInput"
+        ).value = sample;
+
+    }
+
+
+
+    /* =========================
+       CLEAR
+    ========================== */
+
+    function clearInput() {
+
+        document.getElementById(
+            "adsTxtInput"
+        ).value = "";
+
+        document.getElementById(
+            "results"
+        ).classList.remove("visible");
+
+        document.getElementById(
+            "resultsBody"
+        ).innerHTML = "";
+
+    }
+
+
+
+    /* =========================
+       VALIDATE
+    ========================== */
+
+    function validateAdsTxt() {
+
+        const input =
+            document.getElementById(
+                "adsTxtInput"
+            ).value;
+
+
+        const results =
+            document.getElementById(
+                "results"
+            );
+
+
+        const resultsBody =
+            document.getElementById(
+                "resultsBody"
+            );
+
+
+        resultsBody.innerHTML = "";
+
+
+        if (!input.trim()) {
+
+            alert(
+                "Please paste your ads.txt content first."
+            );
+
+            return;
+
+        }
+
+
+        const lines =
+            input.split(/\r?\n/);
+
+
+        const entries = [];
+
+
+        const seenEntries =
+            new Map();
+
+
+        let validCount = 0;
+
+        let invalidCount = 0;
+
+        let directCount = 0;
+
+        let resellerCount = 0;
+
+        let duplicateCount = 0;
+
+
+
+        /* =========================
+           PARSE LINES
+        ========================== */
+
+        lines.forEach(
+            (rawLine, index) => {
+
+                const lineNumber =
+                    index + 1;
+
+
+                const trimmed =
+                    rawLine.trim();
+
+
+                /* Ignore blank lines */
+
+                if (!trimmed) {
+                    return;
+                }
+
+
+                /* Ignore comments */
+
+                if (
+                    trimmed.startsWith("#")
+                ) {
+                    return;
+                }
+
+
+                const fields =
+                    trimmed
+                        .split(",")
+                        .map(
+                            field =>
+                                field.trim()
+                        );
+
+
+                const errors = [];
+
+
+                /* =========================
+                   FIELD COUNT
+                ========================== */
+
+                if (
+                    fields.length < 3
+                ) {
+
+                    errors.push(
+                        "Expected at least 3 comma-separated fields."
+                    );
+
+                }
+
+
+                if (
+                    fields.length > 4
+                ) {
+
+                    errors.push(
+                        "Too many fields. An ads.txt record normally contains 3 or 4 fields."
+                    );
+
+                }
+
+
+                const adSystem =
+                    fields[0] || "";
+
+
+                const sellerId =
+                    fields[1] || "";
+
+
+                const relationship =
+                    fields[2] || "";
+
+
+                const certification =
+                    fields[3] || "";
+
+
+                /* =========================
+                   AD SYSTEM
+                ========================== */
+
+                if (!adSystem) {
+
+                    errors.push(
+                        "Advertising system domain is missing."
+                    );
+
+                }
+                else {
+
+                    if (
+                        /\s/.test(
+                            adSystem
+                        )
+                    ) {
+
+                        errors.push(
+                            "Advertising system contains spaces."
+                        );
+
+                    }
+
+
+                    if (
+                        !adSystem.includes(".")
+                    ) {
+
+                        errors.push(
+                            "Advertising system does not appear to be a valid domain."
+                        );
+
+                    }
+
+                }
+
+
+                /* =========================
+                   SELLER ID
+                ========================== */
+
+                if (!sellerId) {
+
+                    errors.push(
+                        "Seller account ID is missing."
+                    );
+
+                }
+
+
+                /* =========================
+                   RELATIONSHIP
+                ========================== */
+
+                let normalizedRelationship =
+                    relationship.toUpperCase();
+
+
+                if (
+                    relationship &&
+                    normalizedRelationship !== "DIRECT" &&
+                    normalizedRelationship !== "RESELLER"
+                ) {
+
+                    errors.push(
+                        "Relationship must be DIRECT or RESELLER."
+                    );
+
+                }
+
+
+                /* =========================
+                   CERTIFICATION
+                ========================== */
+
+                if (
+                    certification &&
+                    !/^[a-zA-Z0-9]+$/.test(
+                        certification
+                    )
+                ) {
+
+                    errors.push(
+                        "Certification authority ID contains unexpected characters."
+                    );
+
+                }
+
+
+                /* =========================
+                   DUPLICATE
+                ========================== */
+
+                const normalizedEntry =
+                    fields
+                        .map(
+                            field =>
+                                field.toLowerCase()
+                        )
+                        .join(",");
+
+
+                let isDuplicate = false;
+
+
+                if (
+                    seenEntries.has(
+                        normalizedEntry
+                    ))
+                {
+
+                    isDuplicate = true;
+
+                    duplicateCount++;
+
+                }
+                else {
+
+                    seenEntries.set(
+                        normalizedEntry,
+                        lineNumber
+                    );
+
+                }
+
+
+                /* =========================
+                   STATUS
+                ========================== */
+
+                const isValid =
+                    errors.length === 0;
+
+
+                if (isValid) {
+
+                    validCount++;
+
+                }
+                else {
+
+                    invalidCount++;
+
+                }
+
+
+                if (
+                    normalizedRelationship ===
+                    "DIRECT"
+                ) {
+
+                    directCount++;
+
+                }
+
+
+                if (
+                    normalizedRelationship ===
+                    "RESELLER"
+                ) {
+
+                    resellerCount++;
+
+                }
+
+
+                entries.push({
+
+                    lineNumber,
+
+                    rawLine: trimmed,
+
+                    adSystem,
+
+                    sellerId,
+
+                    relationship:
+                        normalizedRelationship,
+
+                    certification,
+
+                    errors,
+
+                    isValid,
+
+                    isDuplicate
+
+                });
+
+            }
+        );
+
+
+
+        /* =========================
+           SUMMARY
+        ========================== */
+
+        document.getElementById(
+            "totalCount"
+        ).textContent =
+            entries.length;
+
+
+        document.getElementById(
+            "validCount"
+        ).textContent =
+            validCount;
+
+
+        document.getElementById(
+            "invalidCount"
+        ).textContent =
+            invalidCount;
+
+
+        document.getElementById(
+            "directCount"
+        ).textContent =
+            directCount;
+
+
+        document.getElementById(
+            "resellerCount"
+        ).textContent =
+            resellerCount;
+
+
+
+        /* =========================
+           OVERALL STATUS
+        ========================== */
+
+        const overallStatus =
+            document.getElementById(
+                "overallStatus"
+            );
+
+
+        if (
+            invalidCount === 0 &&
+            duplicateCount === 0
+        ) {
+
+            overallStatus.className =
+                "status-box status-good";
+
+            overallStatus.innerHTML =
+                "✓ No formatting errors or duplicate entries were detected.";
+
+        }
+        else if (
+            invalidCount === 0
+        ) {
+
+            overallStatus.className =
+                "status-box status-warning";
+
+            overallStatus.innerHTML =
+                "⚠ Your ads.txt contains no formatting errors, but duplicate entries were detected.";
+
+        }
+        else {
+
+            overallStatus.className =
+                "status-box status-error";
+
+            overallStatus.innerHTML =
+                "✕ Your ads.txt contains entries that should be reviewed.";
+
+        }
+
+
+
+        /* =========================
+           TABLE
+        ========================== */
+
+        entries.forEach(
+            entry => {
+
+                const row =
+                    document.createElement(
+                        "tr"
+                    );
+
+
+                if (
+                    !entry.isValid
+                ) {
+
+                    row.className =
+                        "invalid-row";
+
+                }
+                else if (
+                    entry.isDuplicate
+                ) {
+
+                    row.className =
+                        "duplicate-row";
+
+                }
+                else {
+
+                    row.className =
+                        "valid-row";
+
+                }
+
+
+                let statusHTML = "";
+
+                let detailsHTML = "";
+
+
+                if (
+                    !entry.isValid
+                ) {
+
+                    statusHTML =
+                        `<span class="status-invalid">✕ Invalid</span>`;
+
+
+                    detailsHTML =
+                        `<ul class="error-list">
+                            ${entry.errors
+                                .map(
+                                    error =>
+                                        `<li>${escapeHTML(error)}</li>`
+                                )
+                                .join("")}
+                        </ul>`;
+
+                }
+                else if (
+                    entry.isDuplicate
+                ) {
+
+                    statusHTML =
+                        `<span class="status-duplicate">⚠ Duplicate</span>`;
+
+
+                    detailsHTML =
+                        "Duplicate entry detected.";
+
+                }
+                else {
+
+                    statusHTML =
+                        `<span class="status-valid">✓ Valid</span>`;
+
+
+                    detailsHTML =
+                        "No formatting issues detected.";
+
+                }
+
+
+                row.innerHTML = `
+
+                    <td>
+                        ${entry.lineNumber}
+                    </td>
+
+                    <td>
+                        <div class="line-content">
+                            ${escapeHTML(
+                                entry.rawLine
+                            )}
+                        </div>
+                    </td>
+
+                    <td>
+                        ${escapeHTML(
+                            entry.relationship ||
+                            "-"
+                        )}
+                    </td>
+
+                    <td>
+                        ${escapeHTML(
+                            entry.adSystem ||
+                            "-"
+                        )}
+                    </td>
+
+                    <td>
+                        ${escapeHTML(
+                            entry.sellerId ||
+                            "-"
+                        )}
+                    </td>
+
+                    <td>
+                        ${escapeHTML(
+                            entry.certification ||
+                            "-"
+                        )}
+                    </td>
+
+                    <td>
+                        ${statusHTML}
+                    </td>
+
+                    <td>
+                        ${detailsHTML}
+                    </td>
+
+                `;
+
+
+                resultsBody.appendChild(
+                    row
+                );
+
+            }
+        );
+
+
+
+        results.classList.add(
+            "visible"
+        );
+
+
+        results.scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+        });
+
+    }
+
+
+
+    /* =========================
+       HTML SECURITY
+    ========================== */
+
+    function escapeHTML(value) {
+
+        return String(value)
+
+            .replace(
+                /&/g,
+                "&amp;"
+            )
+
+            .replace(
+                /</g,
+                "&lt;"
+            )
+
+            .replace(
+                />/g,
+                "&gt;"
+            )
+
+            .replace(
+                /"/g,
+                "&quot;"
+            )
+
+            .replace(
+                /'/g,
+                "&#039;"
+            );
+
+    }
+
+</script>
+
+
+</body>
+
+</html>
