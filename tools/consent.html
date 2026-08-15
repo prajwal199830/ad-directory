@@ -1,0 +1,1869 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- =========================
+         SEO
+    ========================== -->
+
+    <title>
+        Consent & Privacy Guide | GDPR, CCPA, CMP & AdTech | PubsRate
+    </title>
+
+    <meta
+        name="description"
+        content="Learn about GDPR, CCPA, consent management platforms, privacy strings, cookies and privacy requirements for digital advertising and AdTech."
+    >
+
+    <meta
+        name="robots"
+        content="index, follow"
+    >
+
+    <link
+        rel="canonical"
+        href="https://pubsrate.com/tools/consent-privacy-guide.html"
+    >
+
+    <!-- =========================
+         OPEN GRAPH
+    ========================== -->
+
+    <meta
+        property="og:type"
+        content="website"
+    >
+
+    <meta
+        property="og:title"
+        content="Consent & Privacy Guide | PubsRate"
+    >
+
+    <meta
+        property="og:description"
+        content="Practical guide to GDPR, CCPA, CMPs, consent strings, cookies and privacy in digital advertising."
+    >
+
+    <meta
+        property="og:url"
+        content="https://pubsrate.com/tools/consent-privacy-guide.html"
+    >
+
+    <meta
+        property="og:site_name"
+        content="PubsRate"
+    >
+
+    <!-- =========================
+         GOOGLE ANALYTICS
+    ========================== -->
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZK40W0H1B0"></script>
+
+    <script>
+
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+
+        gtag('config', 'G-ZK40W0H1B0');
+
+    </script>
+
+
+    <!-- =========================
+         STRUCTURED DATA
+    ========================== -->
+
+    <script type="application/ld+json">
+
+    {
+        "@context": "https://schema.org",
+        "@type": "TechArticle",
+        "headline": "Consent & Privacy Guide",
+        "description": "A practical guide covering GDPR, CCPA, CMPs, consent strings, cookies and privacy in digital advertising.",
+        "url": "https://pubsrate.com/tools/consent-privacy-guide.html",
+        "publisher": {
+            "@type": "Organization",
+            "name": "PubsRate",
+            "url": "https://pubsrate.com/"
+        }
+    }
+
+    </script>
+
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+
+            margin: 0;
+
+            font-family:
+                Arial,
+                Helvetica,
+                sans-serif;
+
+            background: #f5f7fb;
+
+            color: #1f2937;
+
+            line-height: 1.6;
+
+        }
+
+
+        /* =========================
+           HEADER
+        ========================== */
+
+        header {
+
+            background: #111827;
+
+            color: white;
+
+            padding: 18px 20px;
+
+        }
+
+
+        .header-container {
+
+            max-width: 1150px;
+
+            margin: auto;
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+        }
+
+
+        .logo {
+
+            font-size: 27px;
+
+            font-weight: bold;
+
+            text-decoration: none;
+
+            color: white;
+
+        }
+
+
+        .logo span {
+
+            color: #38bdf8;
+
+        }
+
+
+        nav a {
+
+            color: white;
+
+            text-decoration: none;
+
+            margin-left: 22px;
+
+            font-size: 15px;
+
+        }
+
+
+        nav a:hover {
+
+            color: #38bdf8;
+
+        }
+
+
+        /* =========================
+           MAIN
+        ========================== */
+
+        .container {
+
+            max-width: 1100px;
+
+            margin: auto;
+
+            padding: 40px 20px 70px;
+
+        }
+
+
+        /* =========================
+           HERO
+        ========================== */
+
+        .hero {
+
+            background: white;
+
+            padding: 45px;
+
+            border-radius: 18px;
+
+            box-shadow:
+                0 4px 18px rgba(0,0,0,0.06);
+
+            margin-bottom: 30px;
+
+        }
+
+
+        .badge {
+
+            display: inline-block;
+
+            background: #e0f2fe;
+
+            color: #0369a1;
+
+            padding: 7px 13px;
+
+            border-radius: 20px;
+
+            font-size: 13px;
+
+            font-weight: bold;
+
+            margin-bottom: 15px;
+
+        }
+
+
+        .hero h1 {
+
+            font-size: 40px;
+
+            margin: 0 0 15px;
+
+            color: #111827;
+
+        }
+
+
+        .hero p {
+
+            max-width: 850px;
+
+            color: #64748b;
+
+            font-size: 18px;
+
+            line-height: 1.7;
+
+            margin-bottom: 0;
+
+        }
+
+
+        /* =========================
+           QUICK NAV
+        ========================== */
+
+        .quick-nav {
+
+            background: white;
+
+            border-radius: 14px;
+
+            padding: 22px;
+
+            margin-bottom: 30px;
+
+            box-shadow:
+                0 3px 12px rgba(0,0,0,0.05);
+
+        }
+
+
+        .quick-nav strong {
+
+            display: block;
+
+            margin-bottom: 12px;
+
+        }
+
+
+        .quick-links {
+
+            display: flex;
+
+            flex-wrap: wrap;
+
+            gap: 10px;
+
+        }
+
+
+        .quick-links a {
+
+            background: #f1f5f9;
+
+            color: #2563eb;
+
+            text-decoration: none;
+
+            padding: 8px 13px;
+
+            border-radius: 8px;
+
+            font-size: 14px;
+
+            font-weight: bold;
+
+        }
+
+
+        .quick-links a:hover {
+
+            background: #dbeafe;
+
+        }
+
+
+        /* =========================
+           GUIDE SECTIONS
+        ========================== */
+
+        .guide-section {
+
+            background: white;
+
+            padding: 32px;
+
+            border-radius: 16px;
+
+            margin-bottom: 25px;
+
+            box-shadow:
+                0 3px 12px rgba(0,0,0,0.05);
+
+        }
+
+
+        .guide-section h2 {
+
+            margin-top: 0;
+
+            font-size: 27px;
+
+            color: #111827;
+
+        }
+
+
+        .guide-section h3 {
+
+            font-size: 20px;
+
+            margin-top: 28px;
+
+            color: #1e3a8a;
+
+        }
+
+
+        .guide-section p {
+
+            color: #475569;
+
+        }
+
+
+        .guide-section ul {
+
+            color: #475569;
+
+            padding-left: 22px;
+
+        }
+
+
+        .guide-section li {
+
+            margin-bottom: 8px;
+
+        }
+
+
+        /* =========================
+           CARDS
+        ========================== */
+
+        .cards {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 18px;
+
+            margin-top: 20px;
+
+        }
+
+
+        .card {
+
+            background: #f8fafc;
+
+            border: 1px solid #e2e8f0;
+
+            padding: 22px;
+
+            border-radius: 12px;
+
+        }
+
+
+        .card-icon {
+
+            font-size: 32px;
+
+            margin-bottom: 10px;
+
+        }
+
+
+        .card h3 {
+
+            margin: 0 0 8px;
+
+            color: #111827;
+
+        }
+
+
+        .card p {
+
+            font-size: 14px;
+
+            margin: 0;
+
+        }
+
+
+        /* =========================
+           COMPARISON
+        ========================== */
+
+        .comparison {
+
+            overflow-x: auto;
+
+            margin-top: 20px;
+
+        }
+
+
+        table {
+
+            width: 100%;
+
+            border-collapse: collapse;
+
+            min-width: 650px;
+
+        }
+
+
+        th,
+        td {
+
+            padding: 14px;
+
+            border: 1px solid #e2e8f0;
+
+            text-align: left;
+
+        }
+
+
+        th {
+
+            background: #f1f5f9;
+
+            color: #111827;
+
+        }
+
+
+        td {
+
+            color: #475569;
+
+        }
+
+
+        /* =========================
+           CHECKLIST
+        ========================== */
+
+        .checklist {
+
+            display: grid;
+
+            gap: 12px;
+
+            margin-top: 20px;
+
+        }
+
+
+        .check {
+
+            background: #f8fafc;
+
+            border: 1px solid #e2e8f0;
+
+            padding: 15px 18px;
+
+            border-radius: 10px;
+
+            display: flex;
+
+            gap: 12px;
+
+            align-items: flex-start;
+
+        }
+
+
+        .check-icon {
+
+            font-size: 20px;
+
+        }
+
+
+        /* =========================
+           FLOW
+        ========================== */
+
+        .flow {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(5, 1fr);
+
+            gap: 10px;
+
+            margin-top: 25px;
+
+        }
+
+
+        .flow-step {
+
+            background: #eff6ff;
+
+            border: 1px solid #dbeafe;
+
+            padding: 18px 12px;
+
+            border-radius: 10px;
+
+            text-align: center;
+
+            font-size: 14px;
+
+            font-weight: bold;
+
+        }
+
+
+        .flow-number {
+
+            display: block;
+
+            font-size: 22px;
+
+            color: #2563eb;
+
+            margin-bottom: 5px;
+
+        }
+
+
+        /* =========================
+           IMPORTANT NOTE
+        ========================== */
+
+        .notice {
+
+            background: #fff7ed;
+
+            border-left: 5px solid #f97316;
+
+            padding: 18px 20px;
+
+            border-radius: 8px;
+
+            margin-top: 20px;
+
+            color: #7c2d12;
+
+        }
+
+
+        /* =========================
+           CTA
+        ========================== */
+
+        .cta {
+
+            background: #111827;
+
+            color: white;
+
+            padding: 40px;
+
+            border-radius: 16px;
+
+            text-align: center;
+
+            margin-top: 35px;
+
+        }
+
+
+        .cta h2 {
+
+            margin-top: 0;
+
+            font-size: 28px;
+
+        }
+
+
+        .cta p {
+
+            color: #cbd5e1;
+
+            max-width: 700px;
+
+            margin: auto;
+
+        }
+
+
+        .cta-buttons {
+
+            margin-top: 22px;
+
+            display: flex;
+
+            justify-content: center;
+
+            flex-wrap: wrap;
+
+            gap: 12px;
+
+        }
+
+
+        .cta a {
+
+            display: inline-block;
+
+            background: #38bdf8;
+
+            color: #082f49;
+
+            padding: 11px 18px;
+
+            border-radius: 8px;
+
+            text-decoration: none;
+
+            font-weight: bold;
+
+        }
+
+
+        .cta a.secondary {
+
+            background: #334155;
+
+            color: white;
+
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================== */
+
+        footer {
+
+            text-align: center;
+
+            padding: 40px 20px;
+
+            color: #64748b;
+
+        }
+
+
+        /* =========================
+           MOBILE
+        ========================== */
+
+        @media (max-width: 800px) {
+
+            .header-container {
+
+                flex-direction: column;
+
+                gap: 15px;
+
+            }
+
+
+            nav {
+
+                text-align: center;
+
+            }
+
+
+            nav a {
+
+                margin:
+                    0 6px;
+
+            }
+
+
+            .hero {
+
+                padding: 30px;
+
+            }
+
+
+            .hero h1 {
+
+                font-size: 31px;
+
+            }
+
+
+            .cards {
+
+                grid-template-columns: 1fr;
+
+            }
+
+
+            .flow {
+
+                grid-template-columns: 1fr;
+
+            }
+
+
+            .guide-section {
+
+                padding: 25px;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     HEADER
+========================= -->
+
+<header>
+
+    <div class="header-container">
+
+        <a
+            href="../index.html"
+            class="logo"
+        >
+            Pubs<span>Rate</span>
+        </a>
+
+
+        <nav>
+
+            <a href="../index.html">
+                Home
+            </a>
+
+            <a href="../publishers/">
+                Publishers
+            </a>
+
+            <a href="../advertising/">
+                Advertising
+            </a>
+
+            <a href="index.html">
+                Tools
+            </a>
+
+        </nav>
+
+    </div>
+
+</header>
+
+
+<main class="container">
+
+
+<!-- =========================
+     HERO
+========================= -->
+
+<section class="hero">
+
+    <span class="badge">
+        🔐 CONSENT & PRIVACY
+    </span>
+
+
+    <h1>
+        Consent & Privacy Guide
+    </h1>
+
+
+    <p>
+        Understand the fundamentals of privacy and user consent
+        in digital advertising, including GDPR, CCPA, consent
+        management platforms, consent strings, cookies and
+        privacy-related AdTech workflows.
+    </p>
+
+</section>
+
+
+<!-- =========================
+     QUICK NAVIGATION
+========================= -->
+
+<section class="quick-nav">
+
+    <strong>
+        Jump to a section
+    </strong>
+
+
+    <div class="quick-links">
+
+        <a href="#privacy">
+            Privacy Basics
+        </a>
+
+        <a href="#gdpr">
+            GDPR
+        </a>
+
+        <a href="#ccpa">
+            CCPA / CPRA
+        </a>
+
+        <a href="#cmp">
+            CMP
+        </a>
+
+        <a href="#consent">
+            Consent Strings
+        </a>
+
+        <a href="#cookies">
+            Cookies
+        </a>
+
+        <a href="#workflow">
+            AdTech Workflow
+        </a>
+
+        <a href="#checklist">
+            Checklist
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     PRIVACY BASICS
+========================= -->
+
+<section
+    class="guide-section"
+    id="privacy"
+>
+
+    <h2>
+        What Is Privacy in Digital Advertising?
+    </h2>
+
+
+    <p>
+        Privacy in digital advertising refers to how websites,
+        applications and advertising technologies collect, use,
+        share and protect information relating to users.
+    </p>
+
+
+    <p>
+        Modern advertising ecosystems may involve publishers,
+        advertisers, DSPs, SSPs, ad exchanges, analytics platforms,
+        identity providers and other technology vendors.
+    </p>
+
+
+    <div class="cards">
+
+
+        <div class="card">
+
+            <div class="card-icon">
+                👤
+            </div>
+
+            <h3>
+                User Data
+            </h3>
+
+            <p>
+                Information that may be associated with a user,
+                browser, device or online activity.
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="card-icon">
+                🍪
+            </div>
+
+            <h3>
+                Cookies & Storage
+            </h3>
+
+            <p>
+                Browser technologies used for functionality,
+                measurement, personalization and advertising.
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="card-icon">
+                🔐
+            </div>
+
+            <h3>
+                Consent
+            </h3>
+
+            <p>
+                User choices that can determine whether certain
+                data processing or advertising activities occur.
+            </p>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     GDPR
+========================= -->
+
+<section
+    class="guide-section"
+    id="gdpr"
+>
+
+    <h2>
+        GDPR & Digital Advertising
+    </h2>
+
+
+    <p>
+        The General Data Protection Regulation (GDPR) is a European
+        Union privacy regulation that governs the processing of
+        personal data in situations covered by the regulation.
+    </p>
+
+
+    <h3>
+        Why GDPR Matters to Publishers
+    </h3>
+
+
+    <p>
+        Publishers serving users in applicable jurisdictions may
+        need to consider how personal data is collected and used
+        for analytics, personalization, advertising and other
+        purposes.
+    </p>
+
+
+    <h3>
+        Common AdTech Considerations
+    </h3>
+
+
+    <ul>
+
+        <li>
+            Providing appropriate privacy information to users.
+        </li>
+
+        <li>
+            Obtaining consent where required.
+        </li>
+
+        <li>
+            Respecting user choices.
+        </li>
+
+        <li>
+            Managing third-party vendors and purposes.
+        </li>
+
+        <li>
+            Passing relevant consent information to advertising
+            technology partners.
+        </li>
+
+    </ul>
+
+
+    <div class="notice">
+
+        <strong>
+            Important:
+        </strong>
+
+        Privacy requirements depend on factors such as the user's
+        location, applicable laws, processing activities and the
+        organization's role. This guide is educational and is not
+        legal advice.
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     CCPA
+========================= -->
+
+<section
+    class="guide-section"
+    id="ccpa"
+>
+
+    <h2>
+        CCPA & CPRA
+    </h2>
+
+
+    <p>
+        The California Consumer Privacy Act (CCPA), as amended by
+        the California Privacy Rights Act (CPRA), provides privacy
+        rights to eligible California residents.
+    </p>
+
+
+    <h3>
+        Advertising Considerations
+    </h3>
+
+
+    <ul>
+
+        <li>
+            Understand applicable consumer privacy rights.
+        </li>
+
+        <li>
+            Provide required privacy disclosures.
+        </li>
+
+        <li>
+            Handle applicable opt-out requests.
+        </li>
+
+        <li>
+            Consider how data is shared with advertising partners.
+        </li>
+
+        <li>
+            Ensure applicable signals and user choices are respected.
+        </li>
+
+    </ul>
+
+
+    <p>
+        CCPA/CPRA requirements are different from GDPR. A publisher
+        should not assume that implementing one privacy framework
+        automatically satisfies another.
+    </p>
+
+</section>
+
+
+<!-- =========================
+     CMP
+========================= -->
+
+<section
+    class="guide-section"
+    id="cmp"
+>
+
+    <h2>
+        What Is a Consent Management Platform?
+    </h2>
+
+
+    <p>
+        A Consent Management Platform (CMP) helps websites and
+        applications present privacy choices to users and manage
+        the resulting consent or preference signals.
+    </p>
+
+
+    <div class="cards">
+
+
+        <div class="card">
+
+            <div class="card-icon">
+                📋
+            </div>
+
+            <h3>
+                Consent Collection
+            </h3>
+
+            <p>
+                Presents users with information and choices relating
+                to applicable processing activities.
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="card-icon">
+                🔄
+            </div>
+
+            <h3>
+                Consent Signals
+            </h3>
+
+            <p>
+                Helps communicate user choices to participating
+                advertising and technology platforms.
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="card-icon">
+                ⚙️
+            </div>
+
+            <h3>
+                Vendor Management
+            </h3>
+
+            <p>
+                Can help publishers manage purposes, vendors and
+                privacy-related configurations.
+            </p>
+
+        </div>
+
+
+    </div>
+
+
+    <h3>
+        Typical CMP Flow
+    </h3>
+
+
+    <div class="flow">
+
+        <div class="flow-step">
+
+            <span class="flow-number">
+                1
+            </span>
+
+            User Visits Site
+
+        </div>
+
+
+        <div class="flow-step">
+
+            <span class="flow-number">
+                2
+            </span>
+
+            Privacy Notice
+
+        </div>
+
+
+        <div class="flow-step">
+
+            <span class="flow-number">
+                3
+            </span>
+
+            User Choice
+
+        </div>
+
+
+        <div class="flow-step">
+
+            <span class="flow-number">
+                4
+            </span>
+
+            Consent Signal
+
+        </div>
+
+
+        <div class="flow-step">
+
+            <span class="flow-number">
+                5
+            </span>
+
+            Ad Request
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     CONSENT STRINGS
+========================= -->
+
+<section
+    class="guide-section"
+    id="consent"
+>
+
+    <h2>
+        Consent Strings in AdTech
+    </h2>
+
+
+    <p>
+        Consent strings are machine-readable signals used to
+        communicate privacy and consent choices between components
+        of an advertising ecosystem.
+    </p>
+
+
+    <h3>
+        Why Consent Strings Matter
+    </h3>
+
+
+    <p>
+        An ad request may pass privacy-related information to
+        downstream advertising partners. Those partners can use
+        the applicable signals to determine how they should process
+        the request.
+    </p>
+
+
+    <h3>
+        Common Concepts
+    </h3>
+
+
+    <ul>
+
+        <li>
+            User consent
+        </li>
+
+        <li>
+            Legitimate interest
+        </li>
+
+        <li>
+            Vendor permissions
+        </li>
+
+        <li>
+            Advertising purposes
+        </li>
+
+        <li>
+            Measurement purposes
+        </li>
+
+        <li>
+            Privacy and jurisdiction signals
+        </li>
+
+    </ul>
+
+
+    <div class="notice">
+
+        <strong>
+            AdTech tip:
+        </strong>
+
+        When troubleshooting monetization problems, privacy
+        signals should be considered alongside ad requests,
+        demand sources, consent configuration and geographic
+        traffic.
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     COOKIES
+========================= -->
+
+<section
+    class="guide-section"
+    id="cookies"
+>
+
+    <h2>
+        Cookies & Browser Storage
+    </h2>
+
+
+    <p>
+        Cookies and other browser storage technologies can be used
+        for different purposes. Not every cookie has the same
+        privacy implications or legal requirements.
+    </p>
+
+
+    <div class="comparison">
+
+        <table>
+
+            <thead>
+
+                <tr>
+
+                    <th>
+                        Type
+                    </th>
+
+                    <th>
+                        Common Purpose
+                    </th>
+
+                    <th>
+                        Advertising Relevance
+                    </th>
+
+                </tr>
+
+            </thead>
+
+
+            <tbody>
+
+                <tr>
+
+                    <td>
+                        Essential
+                    </td>
+
+                    <td>
+                        Website functionality
+                    </td>
+
+                    <td>
+                        Usually focused on site operation
+                    </td>
+
+                </tr>
+
+
+                <tr>
+
+                    <td>
+                        Analytics
+                    </td>
+
+                    <td>
+                        Measurement and performance
+                    </td>
+
+                    <td>
+                        Can provide traffic and engagement data
+                    </td>
+
+                </tr>
+
+
+                <tr>
+
+                    <td>
+                        Advertising
+                    </td>
+
+                    <td>
+                        Advertising and personalization
+                    </td>
+
+                    <td>
+                        Directly relevant to ad monetization
+                    </td>
+
+                </tr>
+
+
+                <tr>
+
+                    <td>
+                        Preference
+                    </td>
+
+                    <td>
+                        Remembering user settings
+                    </td>
+
+                    <td>
+                        Depends on implementation
+                    </td>
+
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     WORKFLOW
+========================= -->
+
+<section
+    class="guide-section"
+    id="workflow"
+>
+
+    <h2>
+        Privacy in the Advertising Request Flow
+    </h2>
+
+
+    <p>
+        Privacy information can influence how an advertising
+        request is processed. A simplified publisher advertising
+        flow can look like this:
+    </p>
+
+
+    <div class="flow">
+
+        <div class="flow-step">
+
+            <span class="flow-number">
+                1
+            </span>
+
+            User
+
+        </div>
+
+
+        <div class="flow-step">
+
+            <span class="flow-number">
+                2
+            </span>
+
+            Publisher Site
+
+        </div>
+
+
+        <div class="flow-step">
+
+            <span class="flow-number">
+                3
+            </span>
+
+            CMP
+
+        </div>
+
+
+        <div class="flow-step">
+
+            <span class="flow-number">
+                4
+            </span>
+
+            Ad Request
+
+        </div>
+
+
+        <div class="flow-step">
+
+            <span class="flow-number">
+                5
+            </span>
+
+            Demand Partners
+
+        </div>
+
+    </div>
+
+
+    <p>
+        If a user does not provide a particular permission, the
+        publisher and its technology partners may need to adjust
+        how the request is handled depending on the applicable
+        privacy framework and configuration.
+    </p>
+
+</section>
+
+
+<!-- =========================
+     PUBLISHER CHECKLIST
+========================= -->
+
+<section
+    class="guide-section"
+    id="checklist"
+>
+
+    <h2>
+        Publisher Privacy Checklist
+    </h2>
+
+
+    <p>
+        Use this checklist as a starting point when reviewing
+        privacy and consent implementation.
+    </p>
+
+
+    <div class="checklist">
+
+
+        <div class="check">
+
+            <span class="check-icon">
+                ✅
+            </span>
+
+            <span>
+                Privacy policy is available and appropriate for
+                the website or application.
+            </span>
+
+        </div>
+
+
+        <div class="check">
+
+            <span class="check-icon">
+                ✅
+            </span>
+
+            <span>
+                Applicable privacy requirements have been
+                identified for target audiences and jurisdictions.
+            </span>
+
+        </div>
+
+
+        <div class="check">
+
+            <span class="check-icon">
+                ✅
+            </span>
+
+            <span>
+                CMP configuration has been reviewed.
+            </span>
+
+        </div>
+
+
+        <div class="check">
+
+            <span class="check-icon">
+                ✅
+            </span>
+
+            <span>
+                Consent and privacy signals are being passed
+                correctly where required.
+            </span>
+
+        </div>
+
+
+        <div class="check">
+
+            <span class="check-icon">
+                ✅
+            </span>
+
+            <span>
+                Advertising partners and vendors are reviewed
+                periodically.
+            </span>
+
+        </div>
+
+
+        <div class="check">
+
+            <span class="check-icon">
+                ✅
+            </span>
+
+            <span>
+                Privacy-related changes are tested before
+                production deployment.
+            </span>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     COMMON TROUBLESHOOTING
+========================= -->
+
+<section class="guide-section">
+
+    <h2>
+        Common AdTech Privacy Problems
+    </h2>
+
+
+    <div class="cards">
+
+
+        <div class="card">
+
+            <div class="card-icon">
+                ⚠️
+            </div>
+
+            <h3>
+                Low Fill Rate
+            </h3>
+
+            <p>
+                Incorrect or missing privacy signals can sometimes
+                affect demand eligibility and monetization.
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="card-icon">
+                🔍
+            </div>
+
+            <h3>
+                Missing Consent Signal
+            </h3>
+
+            <p>
+                Inspect the consent-management implementation and
+                advertising request to determine whether relevant
+                signals are being transmitted.
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="card-icon">
+                🧪
+            </div>
+
+            <h3>
+                Testing Issues
+            </h3>
+
+            <p>
+                Test different geographic locations, consent
+                choices and browser environments when troubleshooting.
+            </p>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     DISCLAIMER
+========================= -->
+
+<section class="guide-section">
+
+    <h2>
+        Privacy & Legal Disclaimer
+    </h2>
+
+
+    <p>
+        The information on this page is provided for educational
+        and technical reference purposes only. It is not legal
+        advice and should not be treated as a substitute for advice
+        from a qualified privacy or legal professional.
+    </p>
+
+
+    <p>
+        Privacy laws and industry requirements can change. Always
+        verify the requirements that apply to your organization,
+        users, partners and jurisdictions before implementing a
+        privacy or consent solution.
+    </p>
+
+</section>
+
+
+<!-- =========================
+     CTA
+========================= -->
+
+<section class="cta">
+
+    <h2>
+        Explore More PubsRate AdTech Tools
+    </h2>
+
+
+    <p>
+        Continue exploring practical tools for publishers,
+        developers, AdOps professionals and advertising teams.
+    </p>
+
+
+    <div class="cta-buttons">
+
+        <a href="index.html">
+            Explore AdTech Tools →
+        </a>
+
+
+        <a
+            href="../advertising/"
+            class="secondary"
+        >
+            Advertising Resources →
+        </a>
+
+    </div>
+
+</section>
+
+
+</main>
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+    © 2026 PubsRate. All rights reserved.
+
+</footer>
+
+
+</body>
+
+</html>
