@@ -1,0 +1,1999 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        Sellers.json Validator | PubsRate
+    </title>
+
+    <meta
+        name="description"
+        content="Free sellers.json validator for checking JSON syntax, seller IDs, seller types, duplicate records and missing seller information."
+    >
+
+    <meta
+        name="robots"
+        content="index, follow"
+    >
+
+    <link
+        rel="canonical"
+        href="https://pubsrate.com/tools/sellers-json-validator.html"
+    >
+
+    <!-- =========================
+         GOOGLE ANALYTICS
+    ========================== -->
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZK40W0H1B0"></script>
+
+    <script>
+
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+
+        gtag('config', 'G-ZK40W0H1B0');
+
+    </script>
+
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+
+            font-family:
+                Arial,
+                Helvetica,
+                sans-serif;
+
+            background: #f5f7fb;
+
+            color: #1f2937;
+        }
+
+
+        /* =========================
+           HEADER
+        ========================== */
+
+        header {
+            background: #111827;
+
+            color: white;
+
+            padding: 18px 20px;
+        }
+
+        .header-container {
+            max-width: 1150px;
+
+            margin: auto;
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 27px;
+
+            font-weight: bold;
+
+            text-decoration: none;
+
+            color: white;
+        }
+
+        .logo span {
+            color: #38bdf8;
+        }
+
+        nav a {
+            color: white;
+
+            text-decoration: none;
+
+            margin-left: 25px;
+
+            font-size: 15px;
+        }
+
+        nav a:hover {
+            color: #38bdf8;
+        }
+
+
+        /* =========================
+           MAIN
+        ========================== */
+
+        .container {
+            max-width: 1150px;
+
+            margin: auto;
+
+            padding: 40px 20px;
+        }
+
+
+        /* =========================
+           HERO
+        ========================== */
+
+        .hero {
+            background: white;
+
+            padding: 40px;
+
+            border-radius: 18px;
+
+            box-shadow:
+                0 4px 15px rgba(0,0,0,0.06);
+
+            margin-bottom: 25px;
+        }
+
+        .badge {
+            display: inline-block;
+
+            background: #e0f2fe;
+
+            color: #0369a1;
+
+            padding: 7px 12px;
+
+            border-radius: 20px;
+
+            font-size: 13px;
+
+            font-weight: bold;
+
+            margin-bottom: 15px;
+        }
+
+        h1 {
+            margin: 0 0 15px;
+
+            font-size: 38px;
+
+            color: #111827;
+        }
+
+        .hero p {
+            max-width: 850px;
+
+            color: #64748b;
+
+            line-height: 1.7;
+
+            font-size: 17px;
+        }
+
+
+        /* =========================
+           TOOL CARD
+        ========================== */
+
+        .tool-card {
+            background: white;
+
+            border-radius: 16px;
+
+            padding: 30px;
+
+            box-shadow:
+                0 4px 15px rgba(0,0,0,0.06);
+
+            margin-bottom: 25px;
+        }
+
+        .tool-card h2 {
+            margin-top: 0;
+
+            font-size: 24px;
+        }
+
+
+        /* =========================
+           INPUT
+        ========================== */
+
+        textarea {
+            width: 100%;
+
+            min-height: 350px;
+
+            resize: vertical;
+
+            border: 1px solid #cbd5e1;
+
+            border-radius: 10px;
+
+            padding: 16px;
+
+            font-family:
+                Consolas,
+                Monaco,
+                monospace;
+
+            font-size: 14px;
+
+            line-height: 1.6;
+
+            outline: none;
+        }
+
+        textarea:focus {
+            border-color: #2563eb;
+
+            box-shadow:
+                0 0 0 3px rgba(37,99,235,0.12);
+        }
+
+
+        /* =========================
+           BUTTONS
+        ========================== */
+
+        .buttons {
+            display: flex;
+
+            flex-wrap: wrap;
+
+            gap: 10px;
+
+            margin-top: 15px;
+        }
+
+        button,
+        .file-label {
+            border: none;
+
+            cursor: pointer;
+
+            padding: 11px 18px;
+
+            border-radius: 8px;
+
+            font-weight: bold;
+
+            font-size: 14px;
+        }
+
+        .validate-btn {
+            background: #2563eb;
+
+            color: white;
+        }
+
+        .validate-btn:hover {
+            background: #1d4ed8;
+        }
+
+        .sample-btn {
+            background: #e0f2fe;
+
+            color: #0369a1;
+        }
+
+        .clear-btn {
+            background: #fee2e2;
+
+            color: #991b1b;
+        }
+
+        .file-label {
+            background: #f1f5f9;
+
+            color: #334155;
+
+            display: inline-block;
+        }
+
+        #fileInput {
+            display: none;
+        }
+
+
+        /* =========================
+           STATUS
+        ========================== */
+
+        .status {
+            display: none;
+
+            padding: 15px 18px;
+
+            border-radius: 10px;
+
+            margin-top: 20px;
+
+            font-weight: bold;
+        }
+
+        .status.success {
+            display: block;
+
+            background: #dcfce7;
+
+            color: #166534;
+        }
+
+        .status.error {
+            display: block;
+
+            background: #fee2e2;
+
+            color: #991b1b;
+        }
+
+        .status.warning {
+            display: block;
+
+            background: #fef3c7;
+
+            color: #92400e;
+        }
+
+
+        /* =========================
+           SUMMARY
+        ========================== */
+
+        .summary-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(4, 1fr);
+
+            gap: 15px;
+
+            margin-top: 25px;
+        }
+
+        .summary-card {
+            background: #f8fafc;
+
+            border: 1px solid #e2e8f0;
+
+            border-radius: 12px;
+
+            padding: 20px;
+
+            text-align: center;
+        }
+
+        .summary-number {
+            font-size: 30px;
+
+            font-weight: bold;
+
+            color: #2563eb;
+
+            display: block;
+
+            margin-bottom: 5px;
+        }
+
+        .summary-label {
+            font-size: 13px;
+
+            color: #64748b;
+        }
+
+
+        /* =========================
+           ISSUES
+        ========================== */
+
+        .issues {
+            margin-top: 25px;
+        }
+
+        .issues h3 {
+            margin-bottom: 10px;
+        }
+
+        .issue {
+            padding: 12px 15px;
+
+            border-radius: 8px;
+
+            margin-bottom: 8px;
+
+            font-size: 14px;
+
+            line-height: 1.5;
+        }
+
+        .issue.error {
+            background: #fee2e2;
+
+            color: #991b1b;
+        }
+
+        .issue.warning {
+            background: #fef3c7;
+
+            color: #92400e;
+        }
+
+        .issue.success {
+            background: #dcfce7;
+
+            color: #166534;
+        }
+
+
+        /* =========================
+           FILTER
+        ========================== */
+
+        .search-box {
+            margin-top: 25px;
+
+            margin-bottom: 15px;
+        }
+
+        .search-box input {
+            width: 100%;
+
+            padding: 12px 14px;
+
+            border: 1px solid #cbd5e1;
+
+            border-radius: 8px;
+
+            font-size: 15px;
+
+            outline: none;
+        }
+
+        .search-box input:focus {
+            border-color: #2563eb;
+        }
+
+
+        /* =========================
+           TABLE
+        ========================== */
+
+        .table-wrapper {
+            overflow-x: auto;
+
+            border: 1px solid #e2e8f0;
+
+            border-radius: 10px;
+
+            margin-top: 15px;
+        }
+
+        table {
+            width: 100%;
+
+            border-collapse: collapse;
+
+            min-width: 850px;
+        }
+
+        th {
+            background: #f1f5f9;
+
+            color: #334155;
+
+            text-align: left;
+
+            padding: 13px;
+
+            font-size: 13px;
+        }
+
+        td {
+            padding: 13px;
+
+            border-top: 1px solid #e2e8f0;
+
+            font-size: 13px;
+
+            vertical-align: top;
+        }
+
+        tr:hover td {
+            background: #f8fafc;
+        }
+
+        .valid {
+            color: #15803d;
+
+            font-weight: bold;
+        }
+
+        .invalid {
+            color: #dc2626;
+
+            font-weight: bold;
+        }
+
+        .seller-type {
+            font-weight: bold;
+        }
+
+
+        /* =========================
+           INFORMATION
+        ========================== */
+
+        .info-section {
+            background: white;
+
+            padding: 35px;
+
+            border-radius: 16px;
+
+            box-shadow:
+                0 4px 15px rgba(0,0,0,0.05);
+
+            margin-top: 30px;
+        }
+
+        .info-section h2 {
+            margin-top: 0;
+
+            font-size: 26px;
+        }
+
+        .info-section h3 {
+            margin-top: 28px;
+        }
+
+        .info-section p,
+        .info-section li {
+            color: #64748b;
+
+            line-height: 1.7;
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================== */
+
+        footer {
+            text-align: center;
+
+            padding: 40px 20px;
+
+            color: #64748b;
+        }
+
+
+        /* =========================
+           MOBILE
+        ========================== */
+
+        @media (max-width: 800px) {
+
+            .header-container {
+                flex-direction: column;
+
+                gap: 15px;
+            }
+
+            nav {
+                text-align: center;
+            }
+
+            nav a {
+                margin:
+                    0 7px;
+            }
+
+            .container {
+                padding:
+                    25px 15px;
+            }
+
+            .hero {
+                padding: 28px 22px;
+            }
+
+            h1 {
+                font-size: 30px;
+            }
+
+            .tool-card {
+                padding: 22px;
+            }
+
+            .summary-grid {
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     HEADER
+========================= -->
+
+<header>
+
+    <div class="header-container">
+
+        <a
+            href="../index.html"
+            class="logo"
+        >
+            Pubs<span>Rate</span>
+        </a>
+
+        <nav>
+
+            <a href="../index.html">
+                Home
+            </a>
+
+            <a href="../publishers/">
+                Publishers
+            </a>
+
+            <a href="../advertising/">
+                Advertising
+            </a>
+
+            <a href="index.html">
+                Tools
+            </a>
+
+        </nav>
+
+    </div>
+
+</header>
+
+
+<main class="container">
+
+
+<!-- =========================
+     HERO
+========================= -->
+
+<section class="hero">
+
+    <span class="badge">
+        🧾 ADS.TXT / SELLERS.JSON TOOLS
+    </span>
+
+    <h1>
+        Sellers.json Validator
+    </h1>
+
+    <p>
+        Validate your sellers.json file and identify JSON
+        syntax problems, missing fields, duplicate seller IDs,
+        invalid seller types and other common issues.
+    </p>
+
+</section>
+
+
+<!-- =========================
+     VALIDATOR
+========================= -->
+
+<section class="tool-card">
+
+    <h2>
+        Validate Sellers.json
+    </h2>
+
+    <p>
+        Paste your sellers.json content below or upload a
+        sellers.json file.
+    </p>
+
+
+    <textarea
+        id="jsonInput"
+        placeholder='Paste your sellers.json content here...
+
+Example:
+
+{
+  "contact_email": "support@example.com",
+  "version": "1.0",
+  "sellers": [
+    {
+      "seller_id": "12345",
+      "name": "Example Publisher",
+      "domain": "example.com",
+      "seller_type": "PUBLISHER"
+    }
+  ]
+}'
+    ></textarea>
+
+
+    <div class="buttons">
+
+        <button
+            class="validate-btn"
+            onclick="validateSellersJson()"
+        >
+            ✓ Validate Sellers.json
+        </button>
+
+
+        <button
+            class="sample-btn"
+            onclick="loadSample()"
+        >
+            Load Sample
+        </button>
+
+
+        <label
+            class="file-label"
+            for="fileInput"
+        >
+            📁 Upload sellers.json
+        </label>
+
+        <input
+            type="file"
+            id="fileInput"
+            accept=".json,.txt"
+        >
+
+
+        <button
+            class="clear-btn"
+            onclick="clearTool()"
+        >
+            Clear
+        </button>
+
+    </div>
+
+
+    <div
+        id="status"
+        class="status"
+    ></div>
+
+</section>
+
+
+<!-- =========================
+     RESULTS
+========================= -->
+
+<section
+    class="tool-card"
+    id="results"
+    style="display:none;"
+>
+
+    <h2>
+        Validation Results
+    </h2>
+
+
+    <div
+        class="summary-grid"
+        id="summary"
+    >
+    </div>
+
+
+    <div
+        class="issues"
+        id="issues"
+    >
+    </div>
+
+
+    <div class="search-box">
+
+        <input
+            type="text"
+            id="sellerSearch"
+            placeholder="Search seller ID, name, domain or seller type..."
+            oninput="filterSellers()"
+        >
+
+    </div>
+
+
+    <div class="table-wrapper">
+
+        <table>
+
+            <thead>
+
+                <tr>
+
+                    <th>
+                        #
+                    </th>
+
+                    <th>
+                        Seller ID
+                    </th>
+
+                    <th>
+                        Name
+                    </th>
+
+                    <th>
+                        Domain
+                    </th>
+
+                    <th>
+                        Seller Type
+                    </th>
+
+                    <th>
+                        Status
+                    </th>
+
+                </tr>
+
+            </thead>
+
+            <tbody
+                id="sellerTable"
+            >
+            </tbody>
+
+        </table>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     INFORMATION
+========================= -->
+
+<section class="info-section">
+
+    <h2>
+        What is sellers.json?
+    </h2>
+
+    <p>
+        sellers.json is an industry standard used in digital
+        advertising to provide information about sellers and
+        intermediaries involved in the programmatic advertising
+        supply chain.
+    </p>
+
+    <p>
+        The file helps buyers understand who is authorized to
+        sell advertising inventory and provides transparency
+        into the entities involved in the supply chain.
+    </p>
+
+
+    <h3>
+        What does this validator check?
+    </h3>
+
+    <ul>
+
+        <li>
+            JSON syntax and structure
+        </li>
+
+        <li>
+            Presence of the sellers array
+        </li>
+
+        <li>
+            Seller ID availability
+        </li>
+
+        <li>
+            Seller ID duplicates
+        </li>
+
+        <li>
+            Seller type validity
+        </li>
+
+        <li>
+            Missing seller names
+        </li>
+
+        <li>
+            Missing seller domains
+        </li>
+
+        <li>
+            Invalid seller records
+        </li>
+
+    </ul>
+
+
+    <h3>
+        Valid Seller Types
+    </h3>
+
+    <p>
+        The commonly used seller types are:
+    </p>
+
+    <ul>
+
+        <li>
+            <strong>PUBLISHER</strong> — An entity that
+            directly owns or monetizes advertising inventory.
+        </li>
+
+        <li>
+            <strong>INTERMEDIARY</strong> — An entity that
+            facilitates the sale of advertising inventory.
+        </li>
+
+        <li>
+            <strong>BOTH</strong> — An entity that can act as
+            both a publisher and an intermediary.
+        </li>
+
+    </ul>
+
+
+    <h3>
+        Important
+    </h3>
+
+    <p>
+        This validator checks the structure and common
+        formatting requirements of the supplied file. A
+        successful validation does not necessarily confirm
+        that every seller or company listed in the file is
+        legitimately authorized to sell inventory.
+    </p>
+
+</section>
+
+
+</main>
+
+
+<footer>
+
+    © 2026 PubsRate. All rights reserved.
+
+</footer>
+
+
+<script>
+
+    let sellersData = [];
+
+
+    /* =========================
+       FILE UPLOAD
+    ========================== */
+
+    document
+        .getElementById("fileInput")
+        .addEventListener("change", function(event) {
+
+            const file =
+                event.target.files[0];
+
+            if (!file) {
+                return;
+            }
+
+            const reader =
+                new FileReader();
+
+            reader.onload = function(e) {
+
+                document
+                    .getElementById("jsonInput")
+                    .value = e.target.result;
+
+            };
+
+            reader.readAsText(file);
+
+        });
+
+
+    /* =========================
+       VALIDATE
+    ========================== */
+
+    function validateSellersJson() {
+
+        const input =
+            document
+                .getElementById("jsonInput")
+                .value
+                .trim();
+
+        const status =
+            document.getElementById("status");
+
+        const results =
+            document.getElementById("results");
+
+
+        status.className = "status";
+
+        results.style.display = "none";
+
+
+        if (!input) {
+
+            showStatus(
+                "Please paste or upload a sellers.json file.",
+                "error"
+            );
+
+            return;
+
+        }
+
+
+        let data;
+
+
+        /* =========================
+           JSON PARSE
+        ========================== */
+
+        try {
+
+            data =
+                JSON.parse(input);
+
+        }
+
+        catch(error) {
+
+            showStatus(
+                "Invalid JSON: " + error.message,
+                "error"
+            );
+
+            return;
+
+        }
+
+
+        const issues = [];
+
+        const warnings = [];
+
+
+        /* =========================
+           ROOT CHECK
+        ========================== */
+
+        if (
+            typeof data !== "object" ||
+            data === null ||
+            Array.isArray(data)
+        ) {
+
+            issues.push(
+                "The root of sellers.json must be a JSON object."
+            );
+
+            displayResults(
+                data,
+                [],
+                issues,
+                warnings
+            );
+
+            return;
+
+        }
+
+
+        /* =========================
+           SELLERS ARRAY
+        ========================== */
+
+        if (!Array.isArray(data.sellers)) {
+
+            issues.push(
+                'Missing required "sellers" array.'
+            );
+
+            displayResults(
+                data,
+                [],
+                issues,
+                warnings
+            );
+
+            return;
+
+        }
+
+
+        sellersData =
+            data.sellers;
+
+
+        if (
+            sellersData.length === 0
+        ) {
+
+            warnings.push(
+                "The sellers array is empty."
+            );
+
+        }
+
+
+        /* =========================
+           VERSION
+        ========================== */
+
+        if (!data.version) {
+
+            warnings.push(
+                'The "version" field is missing.'
+            );
+
+        }
+
+
+        /* =========================
+           CONTACT EMAIL
+        ========================== */
+
+        if (!data.contact_email) {
+
+            warnings.push(
+                'The "contact_email" field is missing.'
+            );
+
+        }
+
+
+        /* =========================
+           DUPLICATE IDS
+        ========================== */
+
+        const sellerIds =
+            new Map();
+
+
+        sellersData.forEach(
+            (seller, index) => {
+
+                if (
+                    !seller ||
+                    typeof seller !== "object" ||
+                    Array.isArray(seller)
+                ) {
+
+                    issues.push(
+                        `Seller record #${index + 1} is not a valid object.`
+                    );
+
+                    return;
+
+                }
+
+
+                /* Seller ID */
+
+                if (!seller.seller_id) {
+
+                    issues.push(
+                        `Seller #${index + 1}: missing seller_id.`
+                    );
+
+                }
+
+                else {
+
+                    const id =
+                        String(
+                            seller.seller_id
+                        ).trim();
+
+
+                    if (
+                        sellerIds.has(id)
+                    ) {
+
+                        issues.push(
+                            `Duplicate seller_id "${id}" found at seller #${index + 1}.`
+                        );
+
+                    }
+
+                    else {
+
+                        sellerIds.set(
+                            id,
+                            index
+                        );
+
+                    }
+
+
+                    if (
+                        !/^[a-zA-Z0-9._-]+$/.test(id)
+                    ) {
+
+                        warnings.push(
+                            `Seller #${index + 1}: seller_id "${id}" contains unusual characters.`
+                        );
+
+                    }
+
+                }
+
+
+                /* Name */
+
+                if (
+                    !seller.name ||
+                    !String(
+                        seller.name
+                    ).trim()
+                ) {
+
+                    warnings.push(
+                        `Seller #${index + 1}: missing name.`
+                    );
+
+                }
+
+
+                /* Domain */
+
+                if (
+                    !seller.domain ||
+                    !String(
+                        seller.domain
+                    ).trim()
+                ) {
+
+                    warnings.push(
+                        `Seller #${index + 1}: missing domain.`
+                    );
+
+                }
+
+
+                /* Seller Type */
+
+                if (
+                    !seller.seller_type
+                ) {
+
+                    issues.push(
+                        `Seller #${index + 1}: missing seller_type.`
+                    );
+
+                }
+
+                else {
+
+                    const type =
+                        String(
+                            seller.seller_type
+                        )
+                        .trim()
+                        .toUpperCase();
+
+
+                    const validTypes = [
+                        "PUBLISHER",
+                        "INTERMEDIARY",
+                        "BOTH"
+                    ];
+
+
+                    if (
+                        !validTypes.includes(type)
+                    ) {
+
+                        issues.push(
+                            `Seller #${index + 1}: invalid seller_type "${seller.seller_type}".`
+                        );
+
+                    }
+
+                }
+
+
+                /* Domain format */
+
+                if (
+                    seller.domain
+                ) {
+
+                    const domain =
+                        String(
+                            seller.domain
+                        )
+                        .trim()
+                        .toLowerCase();
+
+
+                    if (
+                        domain.includes(" ")
+                    ) {
+
+                        warnings.push(
+                            `Seller #${index + 1}: domain contains spaces.`
+                        );
+
+                    }
+
+                }
+
+            }
+        );
+
+
+        displayResults(
+            data,
+            sellersData,
+            issues,
+            warnings
+        );
+
+    }
+
+
+    /* =========================
+       DISPLAY RESULTS
+    ========================== */
+
+    function displayResults(
+        data,
+        sellers,
+        issues,
+        warnings
+    ) {
+
+        const results =
+            document.getElementById(
+                "results"
+            );
+
+        results.style.display = "block";
+
+
+        const validCount =
+            sellers.filter(
+                seller =>
+                    seller &&
+                    seller.seller_id &&
+                    seller.seller_type &&
+                    [
+                        "PUBLISHER",
+                        "INTERMEDIARY",
+                        "BOTH"
+                    ].includes(
+                        String(
+                            seller.seller_type
+                        )
+                        .toUpperCase()
+                    )
+            ).length;
+
+
+        const invalidCount =
+            sellers.length -
+            validCount;
+
+
+        const publisherCount =
+            sellers.filter(
+                seller =>
+                    seller &&
+                    String(
+                        seller.seller_type ||
+                        ""
+                    ).toUpperCase() ===
+                    "PUBLISHER"
+            ).length;
+
+
+        const intermediaryCount =
+            sellers.filter(
+                seller =>
+                    seller &&
+                    String(
+                        seller.seller_type ||
+                        ""
+                    ).toUpperCase() ===
+                    "INTERMEDIARY"
+            ).length;
+
+
+        const bothCount =
+            sellers.filter(
+                seller =>
+                    seller &&
+                    String(
+                        seller.seller_type ||
+                        ""
+                    ).toUpperCase() ===
+                    "BOTH"
+            ).length;
+
+
+        const summary =
+            document.getElementById(
+                "summary"
+            );
+
+
+        summary.innerHTML = `
+
+            <div class="summary-card">
+
+                <span class="summary-number">
+                    ${sellers.length}
+                </span>
+
+                <span class="summary-label">
+                    Total Sellers
+                </span>
+
+            </div>
+
+
+            <div class="summary-card">
+
+                <span class="summary-number">
+                    ${validCount}
+                </span>
+
+                <span class="summary-label">
+                    Valid Sellers
+                </span>
+
+            </div>
+
+
+            <div class="summary-card">
+
+                <span class="summary-number">
+                    ${publisherCount}
+                </span>
+
+                <span class="summary-label">
+                    Publishers
+                </span>
+
+            </div>
+
+
+            <div class="summary-card">
+
+                <span class="summary-number">
+                    ${intermediaryCount}
+                </span>
+
+                <span class="summary-label">
+                    Intermediaries
+                </span>
+
+            </div>
+
+        `;
+
+
+        /* =========================
+           ISSUES
+        ========================== */
+
+        const issuesContainer =
+            document.getElementById(
+                "issues"
+            );
+
+
+        let html = "";
+
+
+        if (
+            issues.length === 0 &&
+            warnings.length === 0
+        ) {
+
+            html += `
+                <div class="issue success">
+                    ✓ No structural validation issues were found.
+                </div>
+            `;
+
+        }
+
+
+        issues.forEach(
+            issue => {
+
+                html += `
+                    <div class="issue error">
+                        ❌ ${escapeHTML(issue)}
+                    </div>
+                `;
+
+            }
+        );
+
+
+        warnings.forEach(
+            warning => {
+
+                html += `
+                    <div class="issue warning">
+                        ⚠️ ${escapeHTML(warning)}
+                    </div>
+                `;
+
+            }
+        );
+
+
+        issuesContainer.innerHTML =
+            html;
+
+
+        /* =========================
+           TABLE
+        ========================== */
+
+        renderTable(
+            sellers
+        );
+
+
+        /* =========================
+           STATUS
+        ========================== */
+
+        if (
+            issues.length === 0
+        ) {
+
+            showStatus(
+                warnings.length > 0
+                    ? "Sellers.json is structurally valid, but some warnings were found."
+                    : "Sellers.json validation completed successfully.",
+                warnings.length > 0
+                    ? "warning"
+                    : "success"
+            );
+
+        }
+
+        else {
+
+            showStatus(
+                `Validation completed with ${issues.length} issue(s).`,
+                "error"
+            );
+
+        }
+
+    }
+
+
+    /* =========================
+       TABLE
+    ========================== */
+
+    function renderTable(
+        sellers
+    ) {
+
+        const table =
+            document.getElementById(
+                "sellerTable"
+            );
+
+
+        table.innerHTML = "";
+
+
+        sellers.forEach(
+            (seller, index) => {
+
+                if (
+                    !seller ||
+                    typeof seller !== "object"
+                ) {
+
+                    return;
+
+                }
+
+
+                const sellerId =
+                    seller.seller_id ||
+                    "—";
+
+
+                const name =
+                    seller.name ||
+                    "—";
+
+
+                const domain =
+                    seller.domain ||
+                    "—";
+
+
+                const type =
+                    seller.seller_type ||
+                    "—";
+
+
+                const valid =
+                    seller.seller_id &&
+                    seller.seller_type &&
+                    [
+                        "PUBLISHER",
+                        "INTERMEDIARY",
+                        "BOTH"
+                    ].includes(
+                        String(
+                            seller.seller_type
+                        ).toUpperCase()
+                    );
+
+
+                const row =
+                    document.createElement(
+                        "tr"
+                    );
+
+
+                row.innerHTML = `
+
+                    <td>
+                        ${index + 1}
+                    </td>
+
+                    <td>
+                        ${escapeHTML(
+                            sellerId
+                        )}
+                    </td>
+
+                    <td>
+                        ${escapeHTML(
+                            name
+                        )}
+                    </td>
+
+                    <td>
+                        ${escapeHTML(
+                            domain
+                        )}
+                    </td>
+
+                    <td class="seller-type">
+                        ${escapeHTML(
+                            type
+                        )}
+                    </td>
+
+                    <td class="${
+                        valid
+                            ? "valid"
+                            : "invalid"
+                    }">
+
+                        ${
+                            valid
+                                ? "✓ Valid"
+                                : "✕ Check"
+                        }
+
+                    </td>
+
+                `;
+
+
+                table.appendChild(
+                    row
+                );
+
+            }
+        );
+
+    }
+
+
+    /* =========================
+       SEARCH
+    ========================== */
+
+    function filterSellers() {
+
+        const search =
+            document
+                .getElementById(
+                    "sellerSearch"
+                )
+                .value
+                .toLowerCase()
+                .trim();
+
+
+        const filtered =
+            sellersData.filter(
+                seller => {
+
+                    if (
+                        !seller ||
+                        typeof seller !== "object"
+                    ) {
+
+                        return false;
+
+                    }
+
+
+                    return [
+
+                        seller.seller_id,
+
+                        seller.name,
+
+                        seller.domain,
+
+                        seller.seller_type
+
+                    ]
+                    .join(" ")
+                    .toLowerCase()
+                    .includes(search);
+
+                }
+            );
+
+
+        renderTable(
+            filtered
+        );
+
+    }
+
+
+    /* =========================
+       SAMPLE
+    ========================== */
+
+    function loadSample() {
+
+        const sample = {
+
+            contact_email:
+                "support@example.com",
+
+            version:
+                "1.0",
+
+            sellers: [
+
+                {
+                    seller_id:
+                        "10001",
+
+                    name:
+                        "Example Publisher",
+
+                    domain:
+                        "example.com",
+
+                    seller_type:
+                        "PUBLISHER"
+                },
+
+                {
+                    seller_id:
+                        "10002",
+
+                    name:
+                        "Example Ad Exchange",
+
+                    domain:
+                        "adexchange.example",
+
+                    seller_type:
+                        "INTERMEDIARY"
+                },
+
+                {
+                    seller_id:
+                        "10003",
+
+                    name:
+                        "Example Media Network",
+
+                    domain:
+                        "medianetwork.example",
+
+                    seller_type:
+                        "BOTH"
+                }
+
+            ]
+
+        };
+
+
+        document
+            .getElementById(
+                "jsonInput"
+            )
+            .value =
+            JSON.stringify(
+                sample,
+                null,
+                2
+            );
+
+    }
+
+
+    /* =========================
+       CLEAR
+    ========================== */
+
+    function clearTool() {
+
+        document
+            .getElementById(
+                "jsonInput"
+            )
+            .value = "";
+
+
+        document
+            .getElementById(
+                "sellerSearch"
+            )
+            .value = "";
+
+
+        document
+            .getElementById(
+                "results"
+            )
+            .style.display = "none";
+
+
+        document
+            .getElementById(
+                "status"
+            )
+            .className =
+            "status";
+
+
+        document
+            .getElementById(
+                "fileInput"
+            )
+            .value = "";
+
+
+        sellersData = [];
+
+    }
+
+
+    /* =========================
+       STATUS
+    ========================== */
+
+    function showStatus(
+        message,
+        type
+    ) {
+
+        const status =
+            document.getElementById(
+                "status"
+            );
+
+
+        status.textContent =
+            message;
+
+
+        status.className =
+            "status " +
+            type;
+
+    }
+
+
+    /* =========================
+       HTML SECURITY
+    ========================== */
+
+    function escapeHTML(
+        value
+    ) {
+
+        return String(value)
+
+            .replace(
+                /&/g,
+                "&amp;"
+            )
+
+            .replace(
+                /</g,
+                "&lt;"
+            )
+
+            .replace(
+                />/g,
+                "&gt;"
+            )
+
+            .replace(
+                /"/g,
+                "&quot;"
+            )
+
+            .replace(
+                /'/g,
+                "&#039;"
+            );
+
+    }
+
+</script>
+
+
+</body>
+
+</html>
