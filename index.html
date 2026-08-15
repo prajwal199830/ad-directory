@@ -772,6 +772,9 @@
 <!-- =====================================================
      FIREBASE COMMUNITY
 ====================================================== -->
+<!-- =====================================================
+     FIREBASE COMMUNITY
+====================================================== -->
 
 <script type="module">
 
@@ -779,17 +782,16 @@
         initializeApp
     } from "https://www.gstatic.com/firebasejs/12.17.1/firebase-app.js";
 
-
     import {
         getFirestore,
         collection,
-        query,
-        where,
-        orderBy,
-        limit,
         getDocs
     } from "https://www.gstatic.com/firebasejs/12.17.1/firebase-firestore.js";
 
+
+    /* =========================
+       FIREBASE CONFIG
+    ========================== */
 
     const firebaseConfig = {
 
@@ -810,6 +812,10 @@
     };
 
 
+    /* =========================
+       INITIALIZE FIREBASE
+    ========================== */
+
     const app =
         initializeApp(firebaseConfig);
 
@@ -817,6 +823,10 @@
     const db =
         getFirestore(app);
 
+
+    /* =========================
+       LOAD COMMUNITY POSTS
+    ========================== */
 
     async function loadCommunityPosts() {
 
@@ -828,31 +838,89 @@
 
         try {
 
-            const postsQuery = query(
+            /*
 
-                collection(db, "blogs"),
+                Get all blog documents.
 
-                where(
-                    "status",
-                    "==",
-                    "published"
-                ),
+                We intentionally do NOT use
+                where() + orderBy() here.
 
-                orderBy(
-                    "createdAt",
-                    "desc"
-                ),
+                This avoids requiring a
+                Firestore composite index.
 
-                limit(3)
-
-            );
-
+            */
 
             const snapshot =
-                await getDocs(postsQuery);
+                await getDocs(
+                    collection(db, "blogs")
+                );
 
 
-            if (snapshot.empty) {
+            const posts = [];
+
+
+            snapshot.forEach((doc) => {
+
+                const post =
+                    doc.data();
+
+
+                /* Only show published posts */
+
+                if (
+                    post.status === "published"
+                ) {
+
+                    posts.push({
+                        id: doc.id,
+                        ...post
+                    });
+
+                }
+
+            });
+
+
+            /* =========================
+               SORT NEWEST FIRST
+            ========================== */
+
+            posts.sort((a, b) => {
+
+                const dateA =
+                    a.createdAt &&
+                    a.createdAt.toMillis
+                        ? a.createdAt.toMillis()
+                        : 0;
+
+
+                const dateB =
+                    b.createdAt &&
+                    b.createdAt.toMillis
+                        ? b.createdAt.toMillis()
+                        : 0;
+
+
+                return dateB - dateA;
+
+            });
+
+
+            /* =========================
+               TAKE LATEST 3
+            ========================== */
+
+            const latestPosts =
+                posts.slice(0, 3);
+
+
+            /* =========================
+               NO POSTS
+            ========================== */
+
+            if (
+                latestPosts.length === 0
+            ) {
 
                 container.innerHTML = `
 
@@ -863,8 +931,13 @@
                         </div>
 
                         <p>
-                            The community is just getting started.
-                            Be the first to share your story!
+
+                            The community is just
+                            getting started.
+
+                            Be the first to share
+                            your story!
+
                         </p>
 
                     </div>
@@ -876,32 +949,41 @@
             }
 
 
+            /* =========================
+               DISPLAY POSTS
+            ========================== */
+
             container.innerHTML = "";
 
 
-            snapshot.forEach((doc) => {
+            latestPosts.forEach((post) => {
 
-                const post =
-                    doc.data();
+
+                const author =
+                    post.authorName ||
+                    "Anonymous";
 
 
                 const initial =
-                    post.authorName
-                        ? post.authorName
-                            .charAt(0)
-                            .toUpperCase()
-                        : "?";
+                    author
+                        .charAt(0)
+                        .toUpperCase();
 
 
                 let excerpt =
-                    post.content || "";
+                    post.content ||
+                    "";
 
 
-                if (excerpt.length > 120) {
+                if (
+                    excerpt.length > 120
+                ) {
 
                     excerpt =
-                        excerpt.substring(0, 120)
-                        .trim() + "...";
+                        excerpt
+                            .substring(0, 120)
+                            .trim() +
+                        "...";
 
                 }
 
@@ -949,6 +1031,7 @@
 
                     <div class="community-author">
 
+
                         <div class="community-avatar">
 
                             ${escapeHTML(
@@ -963,22 +1046,29 @@
                             <strong>
 
                                 ${escapeHTML(
-                                    post.authorName ||
-                                    "Anonymous"
+                                    author
                                 )}
 
                             </strong>
 
+
                             <span>
+
                                 PubsRate Community
+
                             </span>
 
                         </div>
 
 
-                        <span class="community-read">
+                        <a
+                            href="community/"
+                            class="community-read">
+
                             Read →
-                        </span>
+
+                        </a>
+
 
                     </div>
 
@@ -991,8 +1081,10 @@
 
             });
 
+        }
 
-        } catch (error) {
+
+        catch (error) {
 
             console.error(
                 "Error loading community posts:",
@@ -1005,11 +1097,14 @@
                 <div class="community-loading">
 
                     <div class="loading-icon">
-                        💬
+                        ⚠️
                     </div>
 
                     <p>
-                        Community posts will appear here soon.
+
+                        Unable to load
+                        community posts.
+
                     </p>
 
                 </div>
@@ -1021,18 +1116,45 @@
     }
 
 
+    /* =========================
+       HTML SECURITY
+    ========================== */
+
     function escapeHTML(value) {
 
         return String(value)
 
-            .replace(/&/g, "&amp;")
-            .replace(/</g, "&lt;")
-            .replace(/>/g, "&gt;")
-            .replace(/"/g, "&quot;")
-            .replace(/'/g, "&#039;");
+            .replace(
+                /&/g,
+                "&amp;"
+            )
+
+            .replace(
+                /</g,
+                "&lt;"
+            )
+
+            .replace(
+                />/g,
+                "&gt;"
+            )
+
+            .replace(
+                /"/g,
+                "&quot;"
+            )
+
+            .replace(
+                /'/g,
+                "&#039;"
+            );
 
     }
 
+
+    /* =========================
+       START
+    ========================== */
 
     loadCommunityPosts();
 
