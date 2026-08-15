@@ -1,0 +1,1915 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- =========================
+         GOOGLE ANALYTICS
+    ========================== -->
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZK40W0H1B0"></script>
+
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+
+        gtag('config', 'G-ZK40W0H1B0');
+    </script>
+
+
+    <!-- =========================
+         SEO
+    ========================== -->
+
+    <title>SupplyChain Object Checker | PubsRate</title>
+
+    <meta
+        name="description"
+        content="Free SupplyChain Object Checker for validating schain objects used in programmatic advertising and OpenRTB. Check SupplyChain nodes, required fields and common implementation issues."
+    >
+
+    <meta
+        name="robots"
+        content="index, follow"
+    >
+
+    <link
+        rel="canonical"
+        href="https://pubsrate.com/tools/supplychain-object-checker.html"
+    >
+
+
+    <!-- =========================
+         OPEN GRAPH
+    ========================== -->
+
+    <meta
+        property="og:type"
+        content="website"
+    >
+
+    <meta
+        property="og:title"
+        content="SupplyChain Object Checker | PubsRate"
+    >
+
+    <meta
+        property="og:description"
+        content="Validate SupplyChain Objects used in programmatic advertising with PubsRate's free schain checker."
+    >
+
+    <meta
+        property="og:url"
+        content="https://pubsrate.com/tools/supplychain-object-checker.html"
+    >
+
+    <meta
+        property="og:site_name"
+        content="PubsRate"
+    >
+
+
+    <!-- =========================
+         TWITTER
+    ========================== -->
+
+    <meta
+        name="twitter:card"
+        content="summary"
+    >
+
+    <meta
+        name="twitter:title"
+        content="SupplyChain Object Checker | PubsRate"
+    >
+
+    <meta
+        name="twitter:description"
+        content="Check and validate schain SupplyChain Objects for programmatic advertising."
+    >
+
+
+    <!-- =========================
+         STRUCTURED DATA
+    ========================== -->
+
+    <script type="application/ld+json">
+
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "SupplyChain Object Checker",
+        "url": "https://pubsrate.com/tools/supplychain-object-checker.html",
+        "description": "Free tool for checking SupplyChain Objects used in programmatic advertising.",
+        "applicationCategory": "DeveloperApplication",
+        "operatingSystem": "Web Browser",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "PubsRate",
+            "url": "https://pubsrate.com/"
+        }
+    }
+
+    </script>
+
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+
+        body {
+            margin: 0;
+
+            font-family:
+                Arial,
+                Helvetica,
+                sans-serif;
+
+            background: #f5f7fb;
+
+            color: #1f2937;
+        }
+
+
+        /* =========================
+           HEADER
+        ========================== */
+
+        header {
+            background: #111827;
+
+            color: white;
+
+            padding: 18px 20px;
+        }
+
+
+        .header-container {
+            max-width: 1150px;
+
+            margin: auto;
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+        }
+
+
+        .logo {
+            font-size: 27px;
+
+            font-weight: bold;
+
+            color: white;
+
+            text-decoration: none;
+        }
+
+
+        .logo span {
+            color: #38bdf8;
+        }
+
+
+        nav a {
+            color: white;
+
+            text-decoration: none;
+
+            margin-left: 25px;
+
+            font-size: 15px;
+        }
+
+
+        nav a:hover {
+            color: #38bdf8;
+        }
+
+
+        /* =========================
+           MAIN
+        ========================== */
+
+        .container {
+            max-width: 1100px;
+
+            margin: auto;
+
+            padding: 40px 20px;
+        }
+
+
+        /* =========================
+           HERO
+        ========================== */
+
+        .hero {
+            background: white;
+
+            padding: 40px;
+
+            border-radius: 18px;
+
+            box-shadow:
+                0 4px 15px rgba(0,0,0,0.07);
+
+            margin-bottom: 25px;
+        }
+
+
+        .badge {
+            display: inline-block;
+
+            background: #e0f2fe;
+
+            color: #0369a1;
+
+            padding: 7px 12px;
+
+            border-radius: 20px;
+
+            font-size: 13px;
+
+            font-weight: bold;
+
+            margin-bottom: 12px;
+        }
+
+
+        h1 {
+            margin:
+                0 0 15px;
+
+            font-size: 38px;
+        }
+
+
+        .hero p {
+            color: #64748b;
+
+            font-size: 17px;
+
+            line-height: 1.7;
+
+            max-width: 850px;
+        }
+
+
+        /* =========================
+           TOOL CARD
+        ========================== */
+
+        .tool-card {
+            background: white;
+
+            padding: 30px;
+
+            border-radius: 16px;
+
+            box-shadow:
+                0 4px 15px rgba(0,0,0,0.06);
+
+            margin-bottom: 25px;
+        }
+
+
+        .tool-card h2 {
+            margin-top: 0;
+
+            font-size: 24px;
+        }
+
+
+        label {
+            display: block;
+
+            font-weight: bold;
+
+            margin-bottom: 8px;
+        }
+
+
+        textarea {
+            width: 100%;
+
+            min-height: 300px;
+
+            padding: 15px;
+
+            border:
+                1px solid #cbd5e1;
+
+            border-radius: 10px;
+
+            font-family:
+                Consolas,
+                Monaco,
+                monospace;
+
+            font-size: 14px;
+
+            line-height: 1.5;
+
+            resize: vertical;
+
+            outline: none;
+        }
+
+
+        textarea:focus {
+            border-color: #2563eb;
+
+            box-shadow:
+                0 0 0 3px rgba(37,99,235,0.12);
+        }
+
+
+        .button-row {
+            display: flex;
+
+            gap: 10px;
+
+            flex-wrap: wrap;
+
+            margin-top: 15px;
+        }
+
+
+        button {
+            border: none;
+
+            cursor: pointer;
+
+            padding:
+                12px 20px;
+
+            border-radius: 8px;
+
+            font-size: 15px;
+
+            font-weight: bold;
+        }
+
+
+        .validate-btn {
+            background: #2563eb;
+
+            color: white;
+        }
+
+
+        .validate-btn:hover {
+            background: #1d4ed8;
+        }
+
+
+        .example-btn {
+            background: #e2e8f0;
+
+            color: #1e293b;
+        }
+
+
+        .clear-btn {
+            background: #fee2e2;
+
+            color: #991b1b;
+        }
+
+
+        /* =========================
+           RESULT
+        ========================== */
+
+        .result {
+            display: none;
+
+            margin-top: 25px;
+
+            padding: 20px;
+
+            border-radius: 12px;
+        }
+
+
+        .result.success {
+            display: block;
+
+            background: #ecfdf5;
+
+            border:
+                1px solid #a7f3d0;
+        }
+
+
+        .result.warning {
+            display: block;
+
+            background: #fffbeb;
+
+            border:
+                1px solid #fde68a;
+        }
+
+
+        .result.error {
+            display: block;
+
+            background: #fef2f2;
+
+            border:
+                1px solid #fecaca;
+        }
+
+
+        .result h3 {
+            margin-top: 0;
+        }
+
+
+        .status {
+            font-weight: bold;
+
+            font-size: 18px;
+
+            margin-bottom: 12px;
+        }
+
+
+        .check-list {
+            margin: 0;
+
+            padding-left: 22px;
+        }
+
+
+        .check-list li {
+            margin-bottom: 8px;
+
+            line-height: 1.5;
+        }
+
+
+        .valid {
+            color: #047857;
+        }
+
+
+        .invalid {
+            color: #b91c1c;
+        }
+
+
+        .warning-text {
+            color: #92400e;
+        }
+
+
+        /* =========================
+           NODE TABLE
+        ========================== */
+
+        .node-section {
+            display: none;
+
+            margin-top: 25px;
+        }
+
+
+        .node-section h3 {
+            margin-bottom: 15px;
+        }
+
+
+        .table-wrapper {
+            overflow-x: auto;
+        }
+
+
+        table {
+            width: 100%;
+
+            border-collapse: collapse;
+
+            background: white;
+        }
+
+
+        th,
+        td {
+            padding: 12px;
+
+            border:
+                1px solid #e2e8f0;
+
+            text-align: left;
+
+            font-size: 14px;
+        }
+
+
+        th {
+            background: #f1f5f9;
+
+            font-weight: bold;
+        }
+
+
+        td {
+            vertical-align: top;
+        }
+
+
+        .node-valid {
+            color: #047857;
+
+            font-weight: bold;
+        }
+
+
+        .node-invalid {
+            color: #b91c1c;
+
+            font-weight: bold;
+        }
+
+
+        /* =========================
+           INFORMATION
+        ========================== */
+
+        .info-card {
+            background: white;
+
+            padding: 30px;
+
+            border-radius: 16px;
+
+            box-shadow:
+                0 3px 12px rgba(0,0,0,0.05);
+
+            margin-top: 25px;
+        }
+
+
+        .info-card h2 {
+            margin-top: 0;
+
+            font-size: 25px;
+        }
+
+
+        .info-card h3 {
+            margin-top: 25px;
+        }
+
+
+        .info-card p {
+            color: #64748b;
+
+            line-height: 1.7;
+        }
+
+
+        .info-card ul {
+            color: #64748b;
+
+            line-height: 1.8;
+        }
+
+
+        code {
+            background: #f1f5f9;
+
+            padding:
+                2px 6px;
+
+            border-radius: 4px;
+
+            font-family:
+                Consolas,
+                Monaco,
+                monospace;
+
+            color: #0f172a;
+        }
+
+
+        /* =========================
+           SEO
+        ========================== */
+
+        .seo-content {
+            background: white;
+
+            padding: 35px;
+
+            border-radius: 16px;
+
+            margin-top: 25px;
+
+            border:
+                1px solid #e5e7eb;
+        }
+
+
+        .seo-content h2 {
+            margin-top: 0;
+
+            font-size: 25px;
+        }
+
+
+        .seo-content h3 {
+            margin-top: 25px;
+        }
+
+
+        .seo-content p {
+            color: #64748b;
+
+            line-height: 1.8;
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================== */
+
+        footer {
+            text-align: center;
+
+            padding: 40px 20px;
+
+            color: #64748b;
+        }
+
+
+        footer a {
+            color: #2563eb;
+
+            text-decoration: none;
+        }
+
+
+        /* =========================
+           MOBILE
+        ========================== */
+
+        @media (max-width: 800px) {
+
+            .header-container {
+                flex-direction: column;
+
+                gap: 15px;
+            }
+
+
+            nav {
+                text-align: center;
+            }
+
+
+            nav a {
+                margin:
+                    0 7px;
+
+                font-size: 14px;
+            }
+
+
+            .hero {
+                padding: 28px;
+            }
+
+
+            h1 {
+                font-size: 31px;
+            }
+
+
+            .tool-card {
+                padding: 22px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     HEADER
+========================= -->
+
+<header>
+
+    <div class="header-container">
+
+        <a
+            href="../index.html"
+            class="logo">
+
+            Pubs<span>Rate</span>
+
+        </a>
+
+
+        <nav>
+
+            <a href="../index.html">
+                Home
+            </a>
+
+            <a href="../publishers/">
+                Publishers
+            </a>
+
+            <a href="../advertising/">
+                Advertising
+            </a>
+
+            <a href="index.html">
+                Tools
+            </a>
+
+        </nav>
+
+    </div>
+
+</header>
+
+
+<main class="container">
+
+
+<!-- =========================
+     HERO
+========================= -->
+
+<section class="hero">
+
+    <div class="badge">
+        🔗 ADTECH TOOL
+    </div>
+
+    <h1>
+        SupplyChain Object Checker
+    </h1>
+
+    <p>
+        Validate your SupplyChain Object (<strong>schain</strong>)
+        used in programmatic advertising. Check the structure,
+        required fields, node information and common implementation
+        issues.
+    </p>
+
+</section>
+
+
+<!-- =========================
+     TOOL
+========================= -->
+
+<section class="tool-card">
+
+    <h2>
+        Check Your SupplyChain Object
+    </h2>
+
+    <p>
+        Paste your <code>schain</code> JSON below.
+    </p>
+
+
+    <label for="schainInput">
+        SupplyChain Object
+    </label>
+
+
+    <textarea
+        id="schainInput"
+        placeholder='Paste your schain JSON here...
+
+Example:
+{
+  "ver": "1.0",
+  "complete": 1,
+  "nodes": [
+    {
+      "asi": "example-ssp.com",
+      "sid": "12345",
+      "hp": 1
+    }
+  ]
+}'></textarea>
+
+
+    <div class="button-row">
+
+        <button
+            class="validate-btn"
+            onclick="validateSchain()">
+
+            ✓ Validate schain
+
+        </button>
+
+
+        <button
+            class="example-btn"
+            onclick="loadExample()">
+
+            Load Example
+
+        </button>
+
+
+        <button
+            class="clear-btn"
+            onclick="clearTool()">
+
+            Clear
+
+        </button>
+
+    </div>
+
+
+    <!-- =========================
+         RESULT
+    ========================== -->
+
+    <div
+        id="result"
+        class="result">
+
+        <div
+            id="status"
+            class="status">
+        </div>
+
+
+        <ul
+            id="checkList"
+            class="check-list">
+        </ul>
+
+    </div>
+
+
+    <!-- =========================
+         NODE DETAILS
+    ========================== -->
+
+    <div
+        id="nodeSection"
+        class="node-section">
+
+        <h3>
+            SupplyChain Nodes
+        </h3>
+
+
+        <div class="table-wrapper">
+
+            <table>
+
+                <thead>
+
+                    <tr>
+
+                        <th>
+                            #
+                        </th>
+
+                        <th>
+                            asi
+                        </th>
+
+                        <th>
+                            sid
+                        </th>
+
+                        <th>
+                            hp
+                        </th>
+
+                        <th>
+                            Validation
+                        </th>
+
+                    </tr>
+
+                </thead>
+
+
+                <tbody
+                    id="nodeTable">
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     INFORMATION
+========================= -->
+
+<section class="info-card">
+
+    <h2>
+        What is a SupplyChain Object?
+    </h2>
+
+
+    <p>
+        A SupplyChain Object, commonly called <code>schain</code>,
+        provides information about the companies involved in the
+        sale or resale of digital advertising inventory.
+    </p>
+
+
+    <p>
+        It helps buyers understand the path an impression takes
+        through the programmatic advertising ecosystem.
+    </p>
+
+
+    <h3>
+        Common schain Fields
+    </h3>
+
+
+    <ul>
+
+        <li>
+            <strong>ver</strong> — SupplyChain specification version.
+        </li>
+
+        <li>
+            <strong>complete</strong> — Indicates whether the supply
+            chain is complete.
+        </li>
+
+        <li>
+            <strong>nodes</strong> — Contains the companies involved
+            in the transaction path.
+        </li>
+
+        <li>
+            <strong>asi</strong> — Advertising system identifier,
+            normally representing the domain of the advertising
+            system.
+        </li>
+
+        <li>
+            <strong>sid</strong> — Seller identifier associated
+            with the advertising system.
+        </li>
+
+        <li>
+            <strong>hp</strong> — Indicates whether the node is
+            involved in payment handling.
+        </li>
+
+    </ul>
+
+
+    <h3>
+        Why is schain important?
+    </h3>
+
+
+    <p>
+        SupplyChain information can improve transparency in the
+        programmatic advertising ecosystem by helping buyers
+        understand the entities involved in selling advertising
+        inventory.
+    </p>
+
+
+    <p>
+        Publishers, SSPs, exchanges, DSPs and AdOps teams may
+        encounter SupplyChain Objects when troubleshooting
+        programmatic advertising requests.
+    </p>
+
+</section>
+
+
+<!-- =========================
+     SEO CONTENT
+========================= -->
+
+<section class="seo-content">
+
+    <h2>
+        SupplyChain Object Checker for Programmatic Advertising
+    </h2>
+
+
+    <p>
+        PubsRate's SupplyChain Object Checker helps publishers,
+        AdOps professionals, developers and advertising teams
+        inspect SupplyChain Objects used in programmatic
+        advertising.
+    </p>
+
+
+    <h3>
+        Validate schain Structure
+    </h3>
+
+
+    <p>
+        A SupplyChain Object generally contains a version,
+        completion indicator and one or more nodes. Each node
+        represents an entity involved in the advertising supply
+        path.
+    </p>
+
+
+    <h3>
+        Check SupplyChain Nodes
+    </h3>
+
+
+    <p>
+        The checker reviews node information such as
+        <code>asi</code>, <code>sid</code> and <code>hp</code>
+        and highlights missing or invalid values.
+    </p>
+
+
+    <h3>
+        Free AdTech Tool
+    </h3>
+
+
+    <p>
+        This tool runs entirely in your browser. The supplied
+        SupplyChain Object is processed locally by the page and
+        is not uploaded to a PubsRate server.
+    </p>
+
+</section>
+
+
+</main>
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+    © 2026 PubsRate. All rights reserved.
+
+    <br><br>
+
+    <a href="../index.html">
+        PubsRate
+    </a>
+
+    &nbsp;|&nbsp;
+
+    <a href="index.html">
+        AdTech Tools
+    </a>
+
+</footer>
+
+
+<script>
+
+    /* =========================
+       VALIDATE SCHAIN
+    ========================== */
+
+    function validateSchain() {
+
+        const input =
+            document
+                .getElementById("schainInput")
+                .value
+                .trim();
+
+
+        const result =
+            document.getElementById("result");
+
+
+        const status =
+            document.getElementById("status");
+
+
+        const checkList =
+            document.getElementById("checkList");
+
+
+        const nodeSection =
+            document.getElementById("nodeSection");
+
+
+        const nodeTable =
+            document.getElementById("nodeTable");
+
+
+        result.className = "result";
+
+        checkList.innerHTML = "";
+
+        nodeTable.innerHTML = "";
+
+        nodeSection.style.display = "none";
+
+
+        if (!input) {
+
+            showError(
+                "Please paste a SupplyChain Object first."
+            );
+
+            return;
+        }
+
+
+        let schain;
+
+
+        /* =========================
+           JSON PARSE
+        ========================== */
+
+        try {
+
+            schain =
+                JSON.parse(input);
+
+        }
+
+        catch (error) {
+
+            showError(
+                "Invalid JSON. Please check the syntax of your SupplyChain Object."
+            );
+
+            return;
+        }
+
+
+        const errors = [];
+
+        const warnings = [];
+
+        const successes = [];
+
+
+        /* =========================
+           ROOT OBJECT
+        ========================== */
+
+        if (
+            typeof schain !== "object" ||
+            schain === null ||
+            Array.isArray(schain)
+        ) {
+
+            errors.push(
+                "The SupplyChain Object must be a JSON object."
+            );
+
+        }
+
+
+        if (errors.length > 0) {
+
+            displayResults(
+                errors,
+                warnings,
+                successes
+            );
+
+            return;
+        }
+
+
+        /* =========================
+           VERSION
+        ========================== */
+
+        if (!schain.ver) {
+
+            errors.push(
+                "Missing required field: ver."
+            );
+
+        }
+
+        else if (
+            typeof schain.ver !== "string"
+        ) {
+
+            errors.push(
+                "The ver field should be a string."
+            );
+
+        }
+
+        else {
+
+            successes.push(
+                "SupplyChain version is present: " +
+                schain.ver
+            );
+
+        }
+
+
+        /* =========================
+           COMPLETE
+        ========================== */
+
+        if (
+            typeof schain.complete === "undefined"
+        ) {
+
+            errors.push(
+                "Missing required field: complete."
+            );
+
+        }
+
+        else if (
+            schain.complete !== 0 &&
+            schain.complete !== 1
+        ) {
+
+            errors.push(
+                "The complete field should normally be 0 or 1."
+            );
+
+        }
+
+        else {
+
+            successes.push(
+                "Complete field is valid: " +
+                schain.complete
+            );
+
+        }
+
+
+        /* =========================
+           NODES
+        ========================== */
+
+        if (
+            !Array.isArray(schain.nodes)
+        ) {
+
+            errors.push(
+                "The nodes field must be an array."
+            );
+
+        }
+
+        else if (
+            schain.nodes.length === 0
+        ) {
+
+            errors.push(
+                "The nodes array is empty."
+            );
+
+        }
+
+        else {
+
+            successes.push(
+                schain.nodes.length +
+                " SupplyChain node(s) found."
+            );
+
+
+            validateNodes(
+                schain.nodes,
+                errors,
+                warnings
+            );
+
+        }
+
+
+        /* =========================
+           EXTRA ROOT FIELDS
+        ========================== */
+
+        const allowedFields = [
+            "ver",
+            "complete",
+            "nodes"
+        ];
+
+
+        Object.keys(schain).forEach(
+            function(key) {
+
+                if (
+                    !allowedFields.includes(key)
+                ) {
+
+                    warnings.push(
+                        "Unexpected root-level field found: " +
+                        key
+                    );
+
+                }
+
+            }
+        );
+
+
+        /* =========================
+           DISPLAY
+        ========================== */
+
+        displayResults(
+            errors,
+            warnings,
+            successes
+        );
+
+
+        /* =========================
+           NODE TABLE
+        ========================== */
+
+        if (
+            Array.isArray(schain.nodes) &&
+            schain.nodes.length > 0
+        ) {
+
+            renderNodes(
+                schain.nodes
+            );
+
+        }
+
+    }
+
+
+    /* =========================
+       VALIDATE NODES
+    ========================== */
+
+    function validateNodes(
+        nodes,
+        errors,
+        warnings
+    ) {
+
+        nodes.forEach(
+            function(node, index) {
+
+                const number =
+                    index + 1;
+
+
+                if (
+                    typeof node !== "object" ||
+                    node === null ||
+                    Array.isArray(node)
+                ) {
+
+                    errors.push(
+                        "Node " +
+                        number +
+                        " must be a JSON object."
+                    );
+
+                    return;
+                }
+
+
+                /* asi */
+
+                if (
+                    !node.asi
+                ) {
+
+                    errors.push(
+                        "Node " +
+                        number +
+                        " is missing asi."
+                    );
+
+                }
+
+                else if (
+                    typeof node.asi !== "string"
+                ) {
+
+                    errors.push(
+                        "Node " +
+                        number +
+                        " asi should be a string."
+                    );
+
+                }
+
+
+                /* sid */
+
+                if (
+                    !node.sid
+                ) {
+
+                    errors.push(
+                        "Node " +
+                        number +
+                        " is missing sid."
+                    );
+
+                }
+
+                else if (
+                    typeof node.sid !== "string"
+                ) {
+
+                    errors.push(
+                        "Node " +
+                        number +
+                        " sid should be a string."
+                    );
+
+                }
+
+
+                /* hp */
+
+                if (
+                    typeof node.hp === "undefined"
+                ) {
+
+                    warnings.push(
+                        "Node " +
+                        number +
+                        " does not contain hp."
+                    );
+
+                }
+
+                else if (
+                    node.hp !== 0 &&
+                    node.hp !== 1
+                ) {
+
+                    errors.push(
+                        "Node " +
+                        number +
+                        " hp should normally be 0 or 1."
+                    );
+
+                }
+
+
+                /* Optional rid */
+
+                if (
+                    typeof node.rid !== "undefined" &&
+                    typeof node.rid !== "string"
+                ) {
+
+                    warnings.push(
+                        "Node " +
+                        number +
+                        " rid should be a string."
+                    );
+
+                }
+
+            }
+        );
+
+    }
+
+
+    /* =========================
+       DISPLAY RESULTS
+    ========================== */
+
+    function displayResults(
+        errors,
+        warnings,
+        successes
+    ) {
+
+        const result =
+            document.getElementById("result");
+
+
+        const status =
+            document.getElementById("status");
+
+
+        const checkList =
+            document.getElementById("checkList");
+
+
+        checkList.innerHTML = "";
+
+
+        /* =========================
+           ERRORS
+        ========================== */
+
+        errors.forEach(
+            function(error) {
+
+                const li =
+                    document.createElement("li");
+
+                li.className =
+                    "invalid";
+
+                li.textContent =
+                    "✗ " + error;
+
+                checkList.appendChild(li);
+
+            }
+        );
+
+
+        /* =========================
+           WARNINGS
+        ========================== */
+
+        warnings.forEach(
+            function(warning) {
+
+                const li =
+                    document.createElement("li");
+
+                li.className =
+                    "warning-text";
+
+                li.textContent =
+                    "⚠ " + warning;
+
+                checkList.appendChild(li);
+
+            }
+        );
+
+
+        /* =========================
+           SUCCESS
+        ========================== */
+
+        successes.forEach(
+            function(success) {
+
+                const li =
+                    document.createElement("li");
+
+                li.className =
+                    "valid";
+
+                li.textContent =
+                    "✓ " + success;
+
+                checkList.appendChild(li);
+
+            }
+        );
+
+
+        /* =========================
+           STATUS
+        ========================== */
+
+        if (
+            errors.length === 0 &&
+            warnings.length === 0
+        ) {
+
+            result.className =
+                "result success";
+
+            status.textContent =
+                "✓ SupplyChain Object looks valid";
+
+        }
+
+        else if (
+            errors.length === 0
+        ) {
+
+            result.className =
+                "result warning";
+
+            status.textContent =
+                "⚠ SupplyChain Object is structurally valid with warnings";
+
+        }
+
+        else {
+
+            result.className =
+                "result error";
+
+            status.textContent =
+                "✗ SupplyChain Object has validation errors";
+
+        }
+
+    }
+
+
+    /* =========================
+       SHOW ERROR
+    ========================== */
+
+    function showError(message) {
+
+        const result =
+            document.getElementById("result");
+
+
+        const status =
+            document.getElementById("status");
+
+
+        const checkList =
+            document.getElementById("checkList");
+
+
+        result.className =
+            "result error";
+
+
+        status.textContent =
+            "✗ Validation Error";
+
+
+        checkList.innerHTML =
+            "<li class='invalid'>✗ " +
+            escapeHTML(message) +
+            "</li>";
+
+    }
+
+
+    /* =========================
+       RENDER NODES
+    ========================== */
+
+    function renderNodes(nodes) {
+
+        const section =
+            document.getElementById(
+                "nodeSection"
+            );
+
+
+        const table =
+            document.getElementById(
+                "nodeTable"
+            );
+
+
+        section.style.display =
+            "block";
+
+
+        table.innerHTML = "";
+
+
+        nodes.forEach(
+            function(node, index) {
+
+                const tr =
+                    document.createElement("tr");
+
+
+                const valid =
+                    node &&
+                    typeof node === "object" &&
+                    typeof node.asi === "string" &&
+                    node.asi.trim() !== "" &&
+                    typeof node.sid === "string" &&
+                    node.sid.trim() !== "" &&
+                    (
+                        typeof node.hp === "undefined" ||
+                        node.hp === 0 ||
+                        node.hp === 1
+                    );
+
+
+                tr.innerHTML = `
+
+                    <td>
+                        ${index + 1}
+                    </td>
+
+                    <td>
+                        ${escapeHTML(
+                            node.asi || "—"
+                        )}
+                    </td>
+
+                    <td>
+                        ${escapeHTML(
+                            node.sid || "—"
+                        )}
+                    </td>
+
+                    <td>
+                        ${
+                            typeof node.hp === "undefined"
+                                ? "—"
+                                : escapeHTML(
+                                    String(node.hp)
+                                  )
+                        }
+                    </td>
+
+                    <td class="${
+                        valid
+                            ? "node-valid"
+                            : "node-invalid"
+                    }">
+
+                        ${
+                            valid
+                                ? "✓ Valid"
+                                : "✗ Check Node"
+                        }
+
+                    </td>
+
+                `;
+
+
+                table.appendChild(tr);
+
+            }
+        );
+
+    }
+
+
+    /* =========================
+       EXAMPLE
+    ========================== */
+
+    function loadExample() {
+
+        const example = {
+
+            ver: "1.0",
+
+            complete: 1,
+
+            nodes: [
+
+                {
+                    asi: "example-ssp.com",
+                    sid: "12345",
+                    hp: 1
+                },
+
+                {
+                    asi: "example-exchange.com",
+                    sid: "67890",
+                    hp: 1
+                }
+
+            ]
+
+        };
+
+
+        document.getElementById(
+            "schainInput"
+        ).value =
+            JSON.stringify(
+                example,
+                null,
+                2
+            );
+
+
+        validateSchain();
+
+    }
+
+
+    /* =========================
+       CLEAR
+    ========================== */
+
+    function clearTool() {
+
+        document.getElementById(
+            "schainInput"
+        ).value = "";
+
+
+        document.getElementById(
+            "result"
+        ).className = "result";
+
+
+        document.getElementById(
+            "checkList"
+        ).innerHTML = "";
+
+
+        document.getElementById(
+            "nodeTable"
+        ).innerHTML = "";
+
+
+        document.getElementById(
+            "nodeSection"
+        ).style.display = "none";
+
+    }
+
+
+    /* =========================
+       HTML SECURITY
+    ========================== */
+
+    function escapeHTML(value) {
+
+        return String(value)
+
+            .replace(
+                /&/g,
+                "&amp;"
+            )
+
+            .replace(
+                /</g,
+                "&lt;"
+            )
+
+            .replace(
+                />/g,
+                "&gt;"
+            )
+
+            .replace(
+                /"/g,
+                "&quot;"
+            )
+
+            .replace(
+                /'/g,
+                "&#039;"
+            );
+
+    }
+
+</script>
+
+
+</body>
+
+</html>
