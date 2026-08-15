@@ -1,0 +1,1502 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>
+        Header Bidding Revenue Estimator | PubsRate
+    </title>
+
+    <meta
+        name="description"
+        content="Free Header Bidding Revenue Estimator to estimate publisher revenue, header bidding uplift, monthly revenue and incremental advertising earnings."
+    >
+
+    <meta
+        name="robots"
+        content="index, follow"
+    >
+
+    <link
+        rel="canonical"
+        href="https://pubsrate.com/tools/header-bidding-revenue-estimator.html"
+    >
+
+    <!-- =========================
+         GOOGLE ANALYTICS
+    ========================== -->
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZK40W0H1B0"></script>
+
+    <script>
+
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+
+        gtag('config', 'G-ZK40W0H1B0');
+
+    </script>
+
+
+    <!-- =========================
+         OPEN GRAPH
+    ========================== -->
+
+    <meta
+        property="og:type"
+        content="website"
+    >
+
+    <meta
+        property="og:title"
+        content="Header Bidding Revenue Estimator | PubsRate"
+    >
+
+    <meta
+        property="og:description"
+        content="Estimate publisher revenue and header bidding uplift using the free PubsRate Header Bidding Revenue Estimator."
+    >
+
+    <meta
+        property="og:url"
+        content="https://pubsrate.com/tools/header-bidding-revenue-estimator.html"
+    >
+
+    <meta
+        property="og:site_name"
+        content="PubsRate"
+    >
+
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+
+        body {
+
+            margin: 0;
+
+            font-family:
+                Arial,
+                Helvetica,
+                sans-serif;
+
+            background: #f5f7fb;
+
+            color: #1f2937;
+
+        }
+
+
+        /* =========================
+           HEADER
+        ========================== */
+
+        header {
+
+            background: #111827;
+
+            color: white;
+
+            padding: 18px 20px;
+
+        }
+
+
+        .header-container {
+
+            max-width: 1150px;
+
+            margin: auto;
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+        }
+
+
+        .logo {
+
+            font-size: 27px;
+
+            font-weight: bold;
+
+            text-decoration: none;
+
+            color: white;
+
+        }
+
+
+        .logo span {
+
+            color: #38bdf8;
+
+        }
+
+
+        nav a {
+
+            color: white;
+
+            text-decoration: none;
+
+            margin-left: 25px;
+
+            font-size: 15px;
+
+        }
+
+
+        nav a:hover {
+
+            color: #38bdf8;
+
+        }
+
+
+        /* =========================
+           MAIN
+        ========================== */
+
+        .container {
+
+            max-width: 1000px;
+
+            margin: auto;
+
+            padding: 40px 20px;
+
+        }
+
+
+        /* =========================
+           HERO
+        ========================== */
+
+        .hero {
+
+            text-align: center;
+
+            margin-bottom: 30px;
+
+        }
+
+
+        .hero h1 {
+
+            font-size: 40px;
+
+            margin-bottom: 12px;
+
+            color: #111827;
+
+        }
+
+
+        .hero p {
+
+            max-width: 760px;
+
+            margin: auto;
+
+            color: #64748b;
+
+            line-height: 1.7;
+
+            font-size: 17px;
+
+        }
+
+
+        .badge {
+
+            display: inline-block;
+
+            background: #e0f2fe;
+
+            color: #0369a1;
+
+            padding: 8px 14px;
+
+            border-radius: 20px;
+
+            font-size: 13px;
+
+            font-weight: bold;
+
+            margin-bottom: 15px;
+
+        }
+
+
+        /* =========================
+           TOOL CARD
+        ========================== */
+
+        .tool-card {
+
+            background: white;
+
+            border-radius: 18px;
+
+            padding: 35px;
+
+            box-shadow:
+                0 5px 20px rgba(0,0,0,0.07);
+
+        }
+
+
+        .tool-card h2 {
+
+            margin-top: 0;
+
+            font-size: 25px;
+
+        }
+
+
+        .tool-description {
+
+            color: #64748b;
+
+            line-height: 1.6;
+
+            margin-bottom: 30px;
+
+        }
+
+
+        /* =========================
+           FORM
+        ========================== */
+
+        .form-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap: 20px;
+
+        }
+
+
+        .form-group {
+
+            display: flex;
+
+            flex-direction: column;
+
+        }
+
+
+        .form-group.full {
+
+            grid-column: 1 / -1;
+
+        }
+
+
+        label {
+
+            font-weight: bold;
+
+            margin-bottom: 8px;
+
+            font-size: 14px;
+
+        }
+
+
+        input {
+
+            width: 100%;
+
+            padding: 13px;
+
+            border: 1px solid #cbd5e1;
+
+            border-radius: 8px;
+
+            font-size: 16px;
+
+            outline: none;
+
+        }
+
+
+        input:focus {
+
+            border-color: #2563eb;
+
+        }
+
+
+        .input-help {
+
+            color: #94a3b8;
+
+            font-size: 12px;
+
+            margin-top: 5px;
+
+        }
+
+
+        /* =========================
+           BUTTON
+        ========================== */
+
+        .calculate-button {
+
+            width: 100%;
+
+            margin-top: 25px;
+
+            padding: 15px;
+
+            border: none;
+
+            border-radius: 9px;
+
+            background: #2563eb;
+
+            color: white;
+
+            font-size: 17px;
+
+            font-weight: bold;
+
+            cursor: pointer;
+
+        }
+
+
+        .calculate-button:hover {
+
+            background: #1d4ed8;
+
+        }
+
+
+        /* =========================
+           RESULTS
+        ========================== */
+
+        .results {
+
+            display: none;
+
+            margin-top: 35px;
+
+        }
+
+
+        .results h2 {
+
+            font-size: 25px;
+
+            margin-bottom: 20px;
+
+        }
+
+
+        .result-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 15px;
+
+        }
+
+
+        .result-card {
+
+            background: #f8fafc;
+
+            border: 1px solid #e2e8f0;
+
+            border-radius: 12px;
+
+            padding: 20px;
+
+        }
+
+
+        .result-card span {
+
+            display: block;
+
+            color: #64748b;
+
+            font-size: 13px;
+
+            margin-bottom: 8px;
+
+        }
+
+
+        .result-card strong {
+
+            font-size: 23px;
+
+            color: #111827;
+
+        }
+
+
+        /* =========================
+           REVENUE COMPARISON
+        ========================== */
+
+        .comparison {
+
+            margin-top: 25px;
+
+            background: #f8fafc;
+
+            border-radius: 12px;
+
+            padding: 25px;
+
+            border: 1px solid #e2e8f0;
+
+        }
+
+
+        .comparison h3 {
+
+            margin-top: 0;
+
+        }
+
+
+        .comparison-row {
+
+            display: flex;
+
+            justify-content: space-between;
+
+            padding: 12px 0;
+
+            border-bottom: 1px solid #e2e8f0;
+
+        }
+
+
+        .comparison-row:last-child {
+
+            border-bottom: none;
+
+        }
+
+
+        .comparison-row strong {
+
+            font-size: 17px;
+
+        }
+
+
+        .highlight {
+
+            margin-top: 20px;
+
+            padding: 18px;
+
+            border-radius: 10px;
+
+            background: #ecfdf5;
+
+            border: 1px solid #a7f3d0;
+
+            color: #065f46;
+
+            font-weight: bold;
+
+            line-height: 1.5;
+
+        }
+
+
+        /* =========================
+           SEO CONTENT
+        ========================== */
+
+        .seo-content {
+
+            margin-top: 45px;
+
+            background: white;
+
+            padding: 35px;
+
+            border-radius: 16px;
+
+            box-shadow:
+                0 4px 15px rgba(0,0,0,0.05);
+
+        }
+
+
+        .seo-content h2 {
+
+            margin-top: 0;
+
+            color: #111827;
+
+        }
+
+
+        .seo-content h2:not(:first-child) {
+
+            margin-top: 30px;
+
+        }
+
+
+        .seo-content p {
+
+            color: #64748b;
+
+            line-height: 1.8;
+
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================== */
+
+        footer {
+
+            text-align: center;
+
+            padding: 40px 20px;
+
+            color: #64748b;
+
+        }
+
+
+        footer a {
+
+            color: #2563eb;
+
+            text-decoration: none;
+
+        }
+
+
+        /* =========================
+           MOBILE
+        ========================== */
+
+        @media (max-width: 750px) {
+
+            .header-container {
+
+                flex-direction: column;
+
+                gap: 15px;
+
+            }
+
+
+            nav a {
+
+                margin:
+                    0 7px;
+
+            }
+
+
+            .hero h1 {
+
+                font-size: 31px;
+
+            }
+
+
+            .tool-card {
+
+                padding: 25px;
+
+            }
+
+
+            .form-grid {
+
+                grid-template-columns: 1fr;
+
+            }
+
+
+            .form-group.full {
+
+                grid-column: auto;
+
+            }
+
+
+            .result-grid {
+
+                grid-template-columns: 1fr;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     HEADER
+========================= -->
+
+<header>
+
+    <div class="header-container">
+
+        <a
+            href="../index.html"
+            class="logo">
+
+            Pubs<span>Rate</span>
+
+        </a>
+
+
+        <nav>
+
+            <a href="../index.html">
+                Home
+            </a>
+
+            <a href="../publishers/">
+                Publishers
+            </a>
+
+            <a href="../advertising/">
+                Advertising
+            </a>
+
+            <a href="index.html">
+                Tools
+            </a>
+
+        </nav>
+
+    </div>
+
+</header>
+
+
+
+<main class="container">
+
+
+<!-- =========================
+     HERO
+========================= -->
+
+<section class="hero">
+
+    <div class="badge">
+        📊 PubsRate AdTech Tool
+    </div>
+
+
+    <h1>
+        Header Bidding Revenue Estimator
+    </h1>
+
+
+    <p>
+        Estimate how much additional advertising revenue
+        header bidding could generate for your website based
+        on impressions, CPM, fill rate and expected uplift.
+    </p>
+
+</section>
+
+
+
+<!-- =========================
+     TOOL
+========================= -->
+
+<section class="tool-card">
+
+    <h2>
+        Calculate Your Estimated Revenue
+    </h2>
+
+
+    <p class="tool-description">
+
+        Enter your current advertising performance.
+        The calculator estimates revenue before and after
+        header bidding and shows the potential incremental
+        revenue.
+
+    </p>
+
+
+    <div class="form-grid">
+
+
+        <!-- MONTHLY IMPRESSIONS -->
+
+        <div class="form-group">
+
+            <label for="impressions">
+                Monthly Ad Impressions
+            </label>
+
+            <input
+                type="number"
+                id="impressions"
+                value="1000000"
+                min="0"
+                placeholder="Example: 1000000"
+            >
+
+            <div class="input-help">
+                Total ad impressions per month.
+            </div>
+
+        </div>
+
+
+
+        <!-- CPM -->
+
+        <div class="form-group">
+
+            <label for="cpm">
+                Current Average CPM ($)
+            </label>
+
+            <input
+                type="number"
+                id="cpm"
+                value="2.50"
+                min="0"
+                step="0.01"
+                placeholder="Example: 2.50"
+            >
+
+            <div class="input-help">
+                Average revenue earned per 1,000 impressions.
+            </div>
+
+        </div>
+
+
+
+        <!-- FILL RATE -->
+
+        <div class="form-group">
+
+            <label for="fillRate">
+                Current Fill Rate (%)
+            </label>
+
+            <input
+                type="number"
+                id="fillRate"
+                value="80"
+                min="0"
+                max="100"
+                step="0.1"
+                placeholder="Example: 80"
+            >
+
+            <div class="input-help">
+                Percentage of impressions successfully monetized.
+            </div>
+
+        </div>
+
+
+
+        <!-- HEADER BIDDING UPLIFT -->
+
+        <div class="form-group">
+
+            <label for="uplift">
+                Expected Header Bidding Uplift (%)
+            </label>
+
+            <input
+                type="number"
+                id="uplift"
+                value="20"
+                min="0"
+                step="0.1"
+                placeholder="Example: 20"
+            >
+
+            <div class="input-help">
+                Estimated revenue increase from header bidding.
+            </div>
+
+        </div>
+
+
+
+        <!-- DEMAND PARTNERS -->
+
+        <div class="form-group full">
+
+            <label for="partners">
+                Number of Header Bidding Demand Partners
+            </label>
+
+            <input
+                type="number"
+                id="partners"
+                value="5"
+                min="1"
+                step="1"
+                placeholder="Example: 5"
+            >
+
+            <div class="input-help">
+                Number of SSPs, exchanges or demand partners
+                participating in the header auction.
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+    <button
+        class="calculate-button"
+        onclick="calculateRevenue()">
+
+        Calculate Revenue
+
+    </button>
+
+
+
+    <!-- =========================
+         RESULTS
+    ========================== -->
+
+    <div
+        class="results"
+        id="results">
+
+        <h2>
+            Estimated Results
+        </h2>
+
+
+        <div class="result-grid">
+
+
+            <div class="result-card">
+
+                <span>
+                    Current Monthly Revenue
+                </span>
+
+                <strong id="currentRevenue">
+                    $0
+                </strong>
+
+            </div>
+
+
+
+            <div class="result-card">
+
+                <span>
+                    Estimated Monthly Revenue
+                </span>
+
+                <strong id="newRevenue">
+                    $0
+                </strong>
+
+            </div>
+
+
+
+            <div class="result-card">
+
+                <span>
+                    Incremental Monthly Revenue
+                </span>
+
+                <strong id="additionalRevenue">
+                    $0
+                </strong>
+
+            </div>
+
+
+
+            <div class="result-card">
+
+                <span>
+                    Estimated Annual Revenue
+                </span>
+
+                <strong id="annualRevenue">
+                    $0
+                </strong>
+
+            </div>
+
+
+
+            <div class="result-card">
+
+                <span>
+                    Revenue Uplift
+                </span>
+
+                <strong id="revenueUplift">
+                    0%
+                </strong>
+
+            </div>
+
+
+
+            <div class="result-card">
+
+                <span>
+                    Demand Partners
+                </span>
+
+                <strong id="partnerResult">
+                    0
+                </strong>
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- =========================
+             COMPARISON
+        ========================== -->
+
+        <div class="comparison">
+
+            <h3>
+                Revenue Comparison
+            </h3>
+
+
+            <div class="comparison-row">
+
+                <span>
+                    Monthly Impressions
+                </span>
+
+                <strong id="comparisonImpressions">
+                    0
+                </strong>
+
+            </div>
+
+
+            <div class="comparison-row">
+
+                <span>
+                    Fill Rate
+                </span>
+
+                <strong id="comparisonFill">
+                    0%
+                </strong>
+
+            </div>
+
+
+            <div class="comparison-row">
+
+                <span>
+                    Current CPM
+                </span>
+
+                <strong id="comparisonCPM">
+                    $0
+                </strong>
+
+            </div>
+
+
+            <div class="comparison-row">
+
+                <span>
+                    Header Bidding Uplift
+                </span>
+
+                <strong id="comparisonUplift">
+                    0%
+                </strong>
+
+            </div>
+
+
+            <div class="comparison-row">
+
+                <span>
+                    Estimated New CPM
+                </span>
+
+                <strong id="newCPM">
+                    $0
+                </strong>
+
+            </div>
+
+
+            <div class="highlight">
+
+                Estimated incremental revenue from header
+                bidding:
+
+                <span id="highlightRevenue">
+                    $0
+                </span>
+
+                per month.
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     SEO CONTENT
+========================= -->
+
+<section class="seo-content">
+
+    <h2>
+        What is Header Bidding?
+    </h2>
+
+    <p>
+
+        Header bidding is a programmatic advertising
+        technology that allows publishers to offer
+        advertising inventory to multiple demand partners
+        simultaneously before sending an ad request to
+        the primary ad server.
+
+    </p>
+
+
+    <h2>
+        How Does Header Bidding Affect Publisher Revenue?
+    </h2>
+
+    <p>
+
+        Header bidding can increase competition for
+        publisher inventory by allowing multiple SSPs,
+        exchanges and demand partners to compete for an
+        impression. Greater competition can potentially
+        increase the price paid for advertising inventory.
+
+    </p>
+
+
+    <h2>
+        How the Header Bidding Revenue Estimator Works
+    </h2>
+
+    <p>
+
+        This calculator uses monthly impressions, fill rate,
+        average CPM and an estimated header bidding uplift
+        to calculate current advertising revenue and a
+        potential revenue scenario after header bidding.
+
+    </p>
+
+
+    <h2>
+        Example
+
+    </h2>
+
+    <p>
+
+        If a website receives 1 million monthly impressions,
+        has an average CPM of $2.50 and monetizes 80% of
+        those impressions, the calculator estimates the
+        current monthly advertising revenue. You can then
+        apply an estimated header bidding uplift to see
+        the potential additional revenue.
+
+    </p>
+
+
+    <h2>
+        Important Note
+
+    </h2>
+
+    <p>
+
+        This calculator provides an estimate only. Actual
+        header bidding revenue depends on factors including
+        traffic geography, ad formats, viewability, device
+        mix, demand partner quality, auction dynamics,
+        floor prices, latency, seasonality and advertiser
+        demand.
+
+    </p>
+
+</section>
+
+
+</main>
+
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+    © 2026 PubsRate.
+    All rights reserved.
+
+    <br><br>
+
+    <a href="../index.html">
+        PubsRate
+    </a>
+
+</footer>
+
+
+
+<script>
+
+    function formatCurrency(value) {
+
+        return "$" + value.toLocaleString(
+            "en-US",
+            {
+                minimumFractionDigits: 2,
+                maximumFractionDigits: 2
+            }
+        );
+
+    }
+
+
+    function formatNumber(value) {
+
+        return value.toLocaleString(
+            "en-US"
+        );
+
+    }
+
+
+    function calculateRevenue() {
+
+        const impressions =
+            parseFloat(
+                document.getElementById(
+                    "impressions"
+                ).value
+            ) || 0;
+
+
+        const cpm =
+            parseFloat(
+                document.getElementById(
+                    "cpm"
+                ).value
+            ) || 0;
+
+
+        const fillRate =
+            parseFloat(
+                document.getElementById(
+                    "fillRate"
+                ).value
+            ) || 0;
+
+
+        const uplift =
+            parseFloat(
+                document.getElementById(
+                    "uplift"
+                ).value
+            ) || 0;
+
+
+        const partners =
+            parseInt(
+                document.getElementById(
+                    "partners"
+                ).value
+            ) || 0;
+
+
+        if (fillRate > 100) {
+
+            alert(
+                "Fill rate cannot be greater than 100%."
+            );
+
+            return;
+
+        }
+
+
+        if (
+            impressions <= 0 ||
+            cpm < 0 ||
+            fillRate < 0 ||
+            uplift < 0 ||
+            partners < 1
+        ) {
+
+            alert(
+                "Please enter valid values."
+            );
+
+            return;
+
+        }
+
+
+        /*
+         * Current monetized impressions
+         */
+
+        const monetizedImpressions =
+            impressions *
+            (fillRate / 100);
+
+
+        /*
+         * Current monthly revenue
+         */
+
+        const currentRevenue =
+            (
+                monetizedImpressions / 1000
+            ) * cpm;
+
+
+        /*
+         * New CPM after uplift
+         */
+
+        const newCPM =
+            cpm *
+            (1 + uplift / 100);
+
+
+        /*
+         * Estimated new revenue
+         */
+
+        const newRevenue =
+            (
+                monetizedImpressions / 1000
+            ) * newCPM;
+
+
+        /*
+         * Additional revenue
+         */
+
+        const additionalRevenue =
+            newRevenue -
+            currentRevenue;
+
+
+        /*
+         * Annual revenue
+         */
+
+        const annualRevenue =
+            newRevenue * 12;
+
+
+        /*
+         * Revenue uplift
+         */
+
+        const actualUplift =
+            currentRevenue > 0
+                ? (
+                    additionalRevenue /
+                    currentRevenue
+                ) * 100
+                : 0;
+
+
+        /*
+         * Display results
+         */
+
+        document.getElementById(
+            "currentRevenue"
+        ).textContent =
+            formatCurrency(
+                currentRevenue
+            );
+
+
+        document.getElementById(
+            "newRevenue"
+        ).textContent =
+            formatCurrency(
+                newRevenue
+            );
+
+
+        document.getElementById(
+            "additionalRevenue"
+        ).textContent =
+            formatCurrency(
+                additionalRevenue
+            );
+
+
+        document.getElementById(
+            "annualRevenue"
+        ).textContent =
+            formatCurrency(
+                annualRevenue
+            );
+
+
+        document.getElementById(
+            "revenueUplift"
+        ).textContent =
+            actualUplift.toFixed(1) +
+            "%";
+
+
+        document.getElementById(
+            "partnerResult"
+        ).textContent =
+            partners;
+
+
+        document.getElementById(
+            "comparisonImpressions"
+        ).textContent =
+            formatNumber(
+                impressions
+            );
+
+
+        document.getElementById(
+            "comparisonFill"
+        ).textContent =
+            fillRate.toFixed(1) +
+            "%";
+
+
+        document.getElementById(
+            "comparisonCPM"
+        ).textContent =
+            formatCurrency(
+                cpm
+            );
+
+
+        document.getElementById(
+            "comparisonUplift"
+        ).textContent =
+            uplift.toFixed(1) +
+            "%";
+
+
+        document.getElementById(
+            "newCPM"
+        ).textContent =
+            formatCurrency(
+                newCPM
+            );
+
+
+        document.getElementById(
+            "highlightRevenue"
+        ).textContent =
+            formatCurrency(
+                additionalRevenue
+            );
+
+
+        document.getElementById(
+            "results"
+        ).style.display =
+            "block";
+
+    }
+
+
+    /*
+     * Calculate default values
+     * when the page loads.
+     */
+
+    window.addEventListener(
+        "load",
+        calculateRevenue
+    );
+
+</script>
+
+
+</body>
+
+</html>
