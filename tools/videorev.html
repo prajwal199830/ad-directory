@@ -1,0 +1,1373 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- =========================
+         SEO
+    ========================== -->
+
+    <title>Video Ad Revenue Calculator | PubsRate</title>
+
+    <meta
+        name="description"
+        content="Free Video Ad Revenue Calculator to estimate video advertising revenue using impressions, fill rate and CPM. Useful for publishers, AdOps professionals and video monetization teams."
+    >
+
+    <meta
+        name="robots"
+        content="index, follow"
+    >
+
+    <link
+        rel="canonical"
+        href="https://pubsrate.com/tools/video-ad-revenue-calculator.html"
+    >
+
+
+    <!-- =========================
+         OPEN GRAPH
+    ========================== -->
+
+    <meta
+        property="og:type"
+        content="website"
+    >
+
+    <meta
+        property="og:title"
+        content="Video Ad Revenue Calculator | PubsRate"
+    >
+
+    <meta
+        property="og:description"
+        content="Estimate video advertising revenue using video impressions, fill rate and CPM."
+    >
+
+    <meta
+        property="og:url"
+        content="https://pubsrate.com/tools/video-ad-revenue-calculator.html"
+    >
+
+    <meta
+        property="og:site_name"
+        content="PubsRate"
+    >
+
+
+    <!-- =========================
+         TWITTER / X
+    ========================== -->
+
+    <meta
+        name="twitter:card"
+        content="summary"
+    >
+
+    <meta
+        name="twitter:title"
+        content="Video Ad Revenue Calculator | PubsRate"
+    >
+
+    <meta
+        name="twitter:description"
+        content="Calculate estimated video advertising revenue using impressions, fill rate and CPM."
+    >
+
+
+    <!-- =========================
+         STRUCTURED DATA
+    ========================== -->
+
+    <script type="application/ld+json">
+
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Video Ad Revenue Calculator",
+        "url": "https://pubsrate.com/tools/video-ad-revenue-calculator.html",
+        "description": "Free calculator for estimating video advertising revenue using impressions, fill rate and CPM.",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Web"
+    }
+
+    </script>
+
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+
+        body {
+
+            margin: 0;
+
+            font-family:
+                Arial,
+                Helvetica,
+                sans-serif;
+
+            background: #f5f7fb;
+
+            color: #1f2937;
+
+        }
+
+
+        /* =========================
+           HEADER
+        ========================== */
+
+        header {
+
+            background: #111827;
+
+            color: white;
+
+            padding: 18px 20px;
+
+        }
+
+
+        .header-container {
+
+            max-width: 1150px;
+
+            margin: auto;
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+        }
+
+
+        .logo {
+
+            font-size: 27px;
+
+            font-weight: bold;
+
+        }
+
+
+        .logo span {
+
+            color: #38bdf8;
+
+        }
+
+
+        nav a {
+
+            color: white;
+
+            text-decoration: none;
+
+            margin-left: 25px;
+
+            font-size: 15px;
+
+        }
+
+
+        nav a:hover {
+
+            color: #38bdf8;
+
+        }
+
+
+        /* =========================
+           MAIN
+        ========================== */
+
+        .container {
+
+            max-width: 1000px;
+
+            margin: auto;
+
+            padding: 40px 20px;
+
+        }
+
+
+        /* =========================
+           HERO
+        ========================== */
+
+        .hero {
+
+            background: white;
+
+            padding: 40px;
+
+            border-radius: 18px;
+
+            box-shadow:
+                0 4px 15px rgba(0,0,0,0.07);
+
+            margin-bottom: 25px;
+
+        }
+
+
+        .hero h1 {
+
+            margin:
+                0 0 15px;
+
+            font-size: 38px;
+
+            color: #111827;
+
+        }
+
+
+        .hero p {
+
+            margin: 0;
+
+            color: #64748b;
+
+            font-size: 17px;
+
+            line-height: 1.7;
+
+        }
+
+
+        .tool-label {
+
+            display: inline-block;
+
+            background: #e0f2fe;
+
+            color: #0369a1;
+
+            padding:
+                7px 12px;
+
+            border-radius: 20px;
+
+            font-size: 13px;
+
+            font-weight: bold;
+
+            margin-bottom: 15px;
+
+        }
+
+
+        /* =========================
+           CALCULATOR
+        ========================== */
+
+        .calculator {
+
+            background: white;
+
+            padding: 35px;
+
+            border-radius: 16px;
+
+            box-shadow:
+                0 4px 15px rgba(0,0,0,0.06);
+
+        }
+
+
+        .calculator h2 {
+
+            margin-top: 0;
+
+            font-size: 25px;
+
+        }
+
+
+        .form-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap: 20px;
+
+        }
+
+
+        .form-group {
+
+            display: flex;
+
+            flex-direction: column;
+
+        }
+
+
+        .form-group label {
+
+            font-weight: bold;
+
+            margin-bottom: 8px;
+
+            font-size: 14px;
+
+        }
+
+
+        .form-group input,
+        .form-group select {
+
+            width: 100%;
+
+            padding: 13px;
+
+            border:
+                1px solid #cbd5e1;
+
+            border-radius: 8px;
+
+            font-size: 16px;
+
+            outline: none;
+
+        }
+
+
+        .form-group input:focus,
+        .form-group select:focus {
+
+            border-color: #2563eb;
+
+        }
+
+
+        .help-text {
+
+            margin-top: 6px;
+
+            color: #94a3b8;
+
+            font-size: 12px;
+
+        }
+
+
+        .calculate-button {
+
+            width: 100%;
+
+            margin-top: 25px;
+
+            padding: 14px;
+
+            border: none;
+
+            border-radius: 8px;
+
+            background: #2563eb;
+
+            color: white;
+
+            font-size: 17px;
+
+            font-weight: bold;
+
+            cursor: pointer;
+
+        }
+
+
+        .calculate-button:hover {
+
+            background: #1d4ed8;
+
+        }
+
+
+        /* =========================
+           RESULTS
+        ========================== */
+
+        .results {
+
+            display: none;
+
+            margin-top: 30px;
+
+        }
+
+
+        .results h2 {
+
+            font-size: 25px;
+
+            margin-bottom: 18px;
+
+        }
+
+
+        .result-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap: 15px;
+
+        }
+
+
+        .result-card {
+
+            background: #f8fafc;
+
+            border:
+                1px solid #e2e8f0;
+
+            padding: 22px;
+
+            border-radius: 12px;
+
+        }
+
+
+        .result-card span {
+
+            display: block;
+
+            color: #64748b;
+
+            font-size: 13px;
+
+            margin-bottom: 8px;
+
+        }
+
+
+        .result-card strong {
+
+            display: block;
+
+            font-size: 25px;
+
+            color: #111827;
+
+        }
+
+
+        .revenue-card {
+
+            grid-column:
+                1 / -1;
+
+            background: #eff6ff;
+
+            border:
+                1px solid #bfdbfe;
+
+        }
+
+
+        .revenue-card strong {
+
+            font-size: 34px;
+
+            color: #1d4ed8;
+
+        }
+
+
+        .formula {
+
+            margin-top: 25px;
+
+            background: #f8fafc;
+
+            padding: 20px;
+
+            border-radius: 10px;
+
+            color: #475569;
+
+            line-height: 1.7;
+
+        }
+
+
+        /* =========================
+           SEO CONTENT
+        ========================== */
+
+        .content {
+
+            background: white;
+
+            margin-top: 30px;
+
+            padding: 35px;
+
+            border-radius: 16px;
+
+            box-shadow:
+                0 3px 12px rgba(0,0,0,0.05);
+
+        }
+
+
+        .content h2 {
+
+            color: #111827;
+
+            margin-top: 0;
+
+        }
+
+
+        .content h2:not(:first-child) {
+
+            margin-top: 32px;
+
+        }
+
+
+        .content p {
+
+            color: #64748b;
+
+            line-height: 1.8;
+
+        }
+
+
+        .content ul {
+
+            color: #64748b;
+
+            line-height: 1.8;
+
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================== */
+
+        footer {
+
+            text-align: center;
+
+            padding: 40px 20px;
+
+            color: #64748b;
+
+        }
+
+
+        /* =========================
+           MOBILE
+        ========================== */
+
+        @media (max-width: 700px) {
+
+            .header-container {
+
+                flex-direction: column;
+
+                gap: 15px;
+
+            }
+
+
+            nav a {
+
+                margin:
+                    0 7px;
+
+            }
+
+
+            .hero {
+
+                padding: 28px;
+
+            }
+
+
+            .hero h1 {
+
+                font-size: 30px;
+
+            }
+
+
+            .calculator {
+
+                padding: 25px;
+
+            }
+
+
+            .form-grid {
+
+                grid-template-columns: 1fr;
+
+            }
+
+
+            .result-grid {
+
+                grid-template-columns: 1fr;
+
+            }
+
+
+            .revenue-card {
+
+                grid-column: auto;
+
+            }
+
+
+            .content {
+
+                padding: 25px;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     HEADER
+========================= -->
+
+<header>
+
+    <div class="header-container">
+
+        <div class="logo">
+            Pubs<span>Rate</span>
+        </div>
+
+
+        <nav>
+
+            <a href="../index.html">
+                Home
+            </a>
+
+            <a href="../publishers/">
+                Publishers
+            </a>
+
+            <a href="../advertising/">
+                Advertising
+            </a>
+
+            <a href="index.html">
+                Tools
+            </a>
+
+        </nav>
+
+    </div>
+
+</header>
+
+
+
+<main class="container">
+
+
+<!-- =========================
+     HERO
+========================= -->
+
+<section class="hero">
+
+    <div class="tool-label">
+        VIDEO ADVERTISING TOOL
+    </div>
+
+
+    <h1>
+        Video Ad Revenue Calculator
+    </h1>
+
+
+    <p>
+        Estimate your potential video advertising revenue
+        using video impressions, fill rate and CPM. This
+        calculator can help publishers and AdOps teams
+        estimate revenue from video advertising inventory.
+    </p>
+
+</section>
+
+
+
+<!-- =========================
+     CALCULATOR
+========================= -->
+
+<section class="calculator">
+
+    <h2>
+        Calculate Video Ad Revenue
+    </h2>
+
+
+    <div class="form-grid">
+
+
+        <!-- IMPRESSIONS -->
+
+        <div class="form-group">
+
+            <label for="impressions">
+                Video Ad Impressions
+            </label>
+
+            <input
+                type="number"
+                id="impressions"
+                min="0"
+                step="1"
+                placeholder="1000000"
+            >
+
+            <div class="help-text">
+                Enter the total number of video ad opportunities.
+            </div>
+
+        </div>
+
+
+
+        <!-- FILL RATE -->
+
+        <div class="form-group">
+
+            <label for="fillRate">
+                Fill Rate (%)
+            </label>
+
+            <input
+                type="number"
+                id="fillRate"
+                min="0"
+                max="100"
+                step="0.01"
+                placeholder="80"
+            >
+
+            <div class="help-text">
+                Percentage of ad opportunities successfully filled.
+            </div>
+
+        </div>
+
+
+
+        <!-- CPM -->
+
+        <div class="form-group">
+
+            <label for="cpm">
+                Video CPM
+            </label>
+
+            <input
+                type="number"
+                id="cpm"
+                min="0"
+                step="0.01"
+                placeholder="10"
+            >
+
+            <div class="help-text">
+                Revenue earned per 1,000 filled video impressions.
+            </div>
+
+        </div>
+
+
+
+        <!-- CURRENCY -->
+
+        <div class="form-group">
+
+            <label for="currency">
+                Currency
+            </label>
+
+            <select id="currency">
+
+                <option value="$">
+                    USD ($)
+                </option>
+
+                <option value="₹">
+                    INR (₹)
+                </option>
+
+                <option value="€">
+                    EUR (€)
+                </option>
+
+                <option value="£">
+                    GBP (£)
+                </option>
+
+            </select>
+
+        </div>
+
+
+    </div>
+
+
+    <button
+        class="calculate-button"
+        onclick="calculateRevenue()"
+    >
+        Calculate Video Ad Revenue
+    </button>
+
+
+
+    <!-- =========================
+         RESULTS
+    ========================== -->
+
+    <div
+        class="results"
+        id="results"
+    >
+
+        <h2>
+            Estimated Revenue
+        </h2>
+
+
+        <div class="result-grid">
+
+
+            <div class="result-card">
+
+                <span>
+                    Total Ad Opportunities
+                </span>
+
+                <strong id="resultImpressions">
+                    0
+                </strong>
+
+            </div>
+
+
+
+            <div class="result-card">
+
+                <span>
+                    Fill Rate
+                </span>
+
+                <strong id="resultFillRate">
+                    0%
+                </strong>
+
+            </div>
+
+
+
+            <div class="result-card">
+
+                <span>
+                    Filled Video Impressions
+                </span>
+
+                <strong id="resultFilled">
+                    0
+                </strong>
+
+            </div>
+
+
+
+            <div class="result-card">
+
+                <span>
+                    Unfilled Opportunities
+                </span>
+
+                <strong id="resultUnfilled">
+                    0
+                </strong>
+
+            </div>
+
+
+
+            <div class="result-card">
+
+                <span>
+                    CPM
+                </span>
+
+                <strong id="resultCPM">
+                    0
+                </strong>
+
+            </div>
+
+
+
+            <div class="result-card">
+
+                <span>
+                    Revenue Per Impression
+                </span>
+
+                <strong id="resultRPI">
+                    0
+                </strong>
+
+            </div>
+
+
+
+            <div class="result-card revenue-card">
+
+                <span>
+                    Estimated Video Ad Revenue
+                </span>
+
+                <strong id="resultRevenue">
+                    $0.00
+                </strong>
+
+            </div>
+
+
+        </div>
+
+
+
+        <div class="formula">
+
+            <strong>
+                Calculation:
+            </strong>
+
+            <br><br>
+
+            Filled Impressions =
+            Total Impressions × Fill Rate
+
+            <br>
+
+            Estimated Revenue =
+            Filled Impressions ÷ 1,000 × CPM
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     SEO CONTENT
+========================= -->
+
+<section class="content">
+
+    <h2>
+        What is a Video Ad Revenue Calculator?
+    </h2>
+
+    <p>
+        A Video Ad Revenue Calculator helps publishers estimate
+        potential revenue from video advertising inventory.
+        The calculation typically uses the number of video ad
+        impressions, the percentage of inventory filled and the
+        CPM earned from those impressions.
+    </p>
+
+
+    <h2>
+        How Video Ad Revenue is Calculated
+    </h2>
+
+    <p>
+        The estimated revenue can be calculated by first
+        determining the number of filled video ad impressions.
+        Filled impressions are calculated by multiplying total
+        ad opportunities by the fill rate.
+    </p>
+
+    <p>
+        Revenue is then estimated by dividing the filled
+        impressions by 1,000 and multiplying the result by
+        the video advertising CPM.
+    </p>
+
+
+    <h2>
+        Example
+    </h2>
+
+    <p>
+        Suppose a publisher has 1,000,000 video ad opportunities,
+        an 80% fill rate and a $10 CPM.
+    </p>
+
+    <p>
+        The publisher would have approximately 800,000 filled
+        video impressions. At a $10 CPM, the estimated revenue
+        would be approximately $8,000.
+    </p>
+
+
+    <h2>
+        Factors That Affect Video Ad Revenue
+    </h2>
+
+    <ul>
+
+        <li>
+            Video ad impressions
+        </li>
+
+        <li>
+            Fill rate
+        </li>
+
+        <li>
+            Video CPM
+        </li>
+
+        <li>
+            Geographic location of viewers
+        </li>
+
+        <li>
+            Audience quality
+        </li>
+
+        <li>
+            Video completion rate
+        </li>
+
+        <li>
+            Viewability
+        </li>
+
+        <li>
+            Ad format and video placement
+        </li>
+
+        <li>
+            Programmatic demand
+        </li>
+
+        <li>
+            Seasonality and advertiser demand
+        </li>
+
+    </ul>
+
+
+    <h2>
+        Video Advertising and AdTech
+    </h2>
+
+    <p>
+        Video advertising can involve technologies such as VAST,
+        VMAP, video players, programmatic advertising, SSPs,
+        DSPs, ad exchanges and server-side ad insertion.
+        Publishers can use these technologies to deliver and
+        monetize video advertising across websites, mobile
+        applications, connected TV and streaming platforms.
+    </p>
+
+
+    <h2>
+        Important Note
+    </h2>
+
+    <p>
+        This calculator provides an estimate rather than a
+        guaranteed revenue figure. Actual revenue can differ
+        depending on demand, auction dynamics, fees, invalid
+        traffic, viewability, geographic mix, advertiser demand
+        and other monetization factors.
+    </p>
+
+</section>
+
+
+</main>
+
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+    © 2026 PubsRate. All rights reserved.
+
+</footer>
+
+
+
+<!-- =========================
+     JAVASCRIPT
+========================= -->
+
+<script>
+
+function formatNumber(number) {
+
+    return number.toLocaleString(
+        "en-US",
+        {
+            maximumFractionDigits: 2
+        }
+    );
+
+}
+
+
+
+function calculateRevenue() {
+
+    const impressions =
+        parseFloat(
+            document.getElementById(
+                "impressions"
+            ).value
+        );
+
+
+    const fillRate =
+        parseFloat(
+            document.getElementById(
+                "fillRate"
+            ).value
+        );
+
+
+    const cpm =
+        parseFloat(
+            document.getElementById(
+                "cpm"
+            ).value
+        );
+
+
+    const currency =
+        document.getElementById(
+            "currency"
+        ).value;
+
+
+
+    /* =========================
+       VALIDATION
+    ========================== */
+
+    if (
+        isNaN(impressions) ||
+        isNaN(fillRate) ||
+        isNaN(cpm)
+    ) {
+
+        alert(
+            "Please enter impressions, fill rate and CPM."
+        );
+
+        return;
+
+    }
+
+
+    if (impressions < 0) {
+
+        alert(
+            "Impressions cannot be negative."
+        );
+
+        return;
+
+    }
+
+
+    if (
+        fillRate < 0 ||
+        fillRate > 100
+    ) {
+
+        alert(
+            "Fill rate must be between 0 and 100."
+        );
+
+        return;
+
+    }
+
+
+    if (cpm < 0) {
+
+        alert(
+            "CPM cannot be negative."
+        );
+
+        return;
+
+    }
+
+
+
+    /* =========================
+       CALCULATIONS
+    ========================== */
+
+    const filledImpressions =
+        impressions *
+        (fillRate / 100);
+
+
+    const unfilledImpressions =
+        impressions -
+        filledImpressions;
+
+
+    const revenue =
+        (
+            filledImpressions /
+            1000
+        ) *
+        cpm;
+
+
+    const revenuePerImpression =
+        cpm / 1000;
+
+
+
+    /* =========================
+       DISPLAY RESULTS
+    ========================== */
+
+    document.getElementById(
+        "resultImpressions"
+    ).textContent =
+        formatNumber(
+            impressions
+        );
+
+
+    document.getElementById(
+        "resultFillRate"
+    ).textContent =
+        fillRate.toFixed(2) +
+        "%";
+
+
+    document.getElementById(
+        "resultFilled"
+    ).textContent =
+        formatNumber(
+            filledImpressions
+        );
+
+
+    document.getElementById(
+        "resultUnfilled"
+    ).textContent =
+        formatNumber(
+            unfilledImpressions
+        );
+
+
+    document.getElementById(
+        "resultCPM"
+    ).textContent =
+        currency +
+        cpm.toFixed(2);
+
+
+    document.getElementById(
+        "resultRPI"
+    ).textContent =
+        currency +
+        revenuePerImpression.toFixed(4);
+
+
+    document.getElementById(
+        "resultRevenue"
+    ).textContent =
+        currency +
+        revenue.toLocaleString(
+            "en-US",
+            {
+                minimumFractionDigits: 2,
+                maximumFractionDigits: 2
+            }
+        );
+
+
+
+    document.getElementById(
+        "results"
+    ).style.display =
+        "block";
+
+
+
+    /* =========================
+       SCROLL TO RESULTS
+    ========================== */
+
+    document.getElementById(
+        "results"
+    ).scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+    });
+
+}
+
+</script>
+
+
+</body>
+
+</html>
