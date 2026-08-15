@@ -581,114 +581,123 @@ What did you learn?"
     </div>
 
 </footer>
-
-
-
 <!-- =========================
-     BASIC FORM SCRIPT
+     FIREBASE BLOG SCRIPT
 ========================= -->
 
 <script type="module">
 
-    import { publishBlog } from "./firebase.js";
+import { publishBlog } from "./firebase.js";
 
 
-    const titleInput =
-        document.getElementById("blogTitle");
+const titleInput =
+    document.getElementById("blogTitle");
 
-    const contentInput =
-        document.getElementById("blogContent");
+const contentInput =
+    document.getElementById("blogContent");
 
-    const titleCount =
-        document.getElementById("titleCount");
+const titleCount =
+    document.getElementById("titleCount");
 
-    const contentCount =
-        document.getElementById("contentCount");
-
-
-    titleInput.addEventListener(
-        "input",
-        function () {
-
-            titleCount.textContent =
-                this.value.length;
-
-        }
-    );
+const contentCount =
+    document.getElementById("contentCount");
 
 
-    contentInput.addEventListener(
-        "input",
-        function () {
 
-            contentCount.textContent =
-                this.value.length;
+/* =========================
+   CHARACTER COUNTERS
+========================= */
 
-        }
-    );
+titleInput.addEventListener(
+    "input",
+    function () {
 
+        titleCount.textContent =
+            this.value.length;
 
-    document
-        .getElementById("blogForm")
-        .addEventListener(
-            "submit",
-            async function (event) {
-
-                event.preventDefault();
+    }
+);
 
 
-                const name =
-                    document
+contentInput.addEventListener(
+    "input",
+    function () {
+
+        contentCount.textContent =
+            this.value.length;
+
+    }
+);
+
+
+
+/* =========================
+   BLOG SUBMISSION
+========================= */
+
+document
+    .getElementById("blogForm")
+    .addEventListener(
+        "submit",
+        async function (event) {
+
+            event.preventDefault();
+
+
+            const name =
+                document
                     .getElementById("authorName")
                     .value
                     .trim();
 
 
-                const title =
-                    titleInput
+            const title =
+                titleInput
                     .value
                     .trim();
 
 
-                const category =
-                    document
+            const category =
+                document
                     .getElementById("category")
                     .value;
 
 
-                const content =
-                    contentInput
+            const content =
+                contentInput
                     .value
                     .trim();
 
 
-                if (
-                    !name ||
-                    !title ||
-                    !category ||
-                    !content
-                ) {
+            if (
+                !name ||
+                !title ||
+                !category ||
+                !content
+            ) {
 
-                    alert(
-                        "Please complete all fields before publishing."
-                    );
+                alert(
+                    "Please complete all fields before publishing."
+                );
 
-                    return;
+                return;
 
-                }
-
-
-                const publishButton =
-                    document.getElementById(
-                        "publishButton"
-                    );
+            }
 
 
-                publishButton.disabled = true;
+            const publishButton =
+                document.getElementById(
+                    "publishButton"
+                );
 
-                publishButton.textContent =
-                    "Publishing...";
 
+            publishButton.disabled = true;
+
+            publishButton.textContent =
+                "Publishing...";
+
+
+            try {
 
                 const success =
                     await publishBlog(
@@ -699,40 +708,53 @@ What did you learn?"
                     );
 
 
-                if (success) {
+                if (!success) {
 
-                    document
-                        .getElementById("blogForm")
-                        .style.display = "none";
-
-
-                    document
-                        .getElementById("successMessage")
-                        .classList.add("show");
-
-                } else {
-
-                    publishButton.disabled =
-                        false;
-
-                    publishButton.textContent =
-                        "🚀 Publish Blog";
-
-
-                    alert(
-                        "Something went wrong while publishing. Please try again."
+                    throw new Error(
+                        "Firebase did not save the blog."
                     );
 
                 }
 
+
+                document
+                    .getElementById("blogForm")
+                    .style.display = "none";
+
+
+                document
+                    .getElementById("successMessage")
+                    .classList.add("show");
+
+
+            } catch (error) {
+
+                console.error(
+                    "Blog submission error:",
+                    error
+                );
+
+
+                alert(
+                    "Something went wrong while publishing.\n\n" +
+                    error.message
+                );
+
+
+                publishButton.disabled =
+                    false;
+
+
+                publishButton.textContent =
+                    "🚀 Publish Blog";
+
             }
-        );
-contentInput.addEventListener("input", function () {
 
-    contentCount.textContent =
-        this.value.length;
+        }
+    );
 
-});
+</script>
+
 
 </body>
 
