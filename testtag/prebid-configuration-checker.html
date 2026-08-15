@@ -1,0 +1,2212 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>
+        Prebid.js Configuration Checker | PubsRate
+    </title>
+
+    <meta
+        name="description"
+        content="Free Prebid.js Configuration Checker for publishers and AdOps professionals. Validate Prebid.js ad units, bidders, media types, bids and common configuration issues."
+    >
+
+    <meta
+        name="robots"
+        content="index, follow"
+    >
+
+    <link
+        rel="canonical"
+        href="https://pubsrate.com/tools/prebid-configuration-checker.html"
+    >
+
+    <meta
+        property="og:title"
+        content="Prebid.js Configuration Checker | PubsRate"
+    >
+
+    <meta
+        property="og:description"
+        content="Validate Prebid.js configuration, ad units, bidders, media types and common configuration issues."
+    >
+
+    <meta
+        property="og:type"
+        content="website"
+    >
+
+    <meta
+        property="og:url"
+        content="https://pubsrate.com/tools/prebid-configuration-checker.html"
+    >
+
+    <meta
+        property="og:site_name"
+        content="PubsRate"
+    >
+
+    <meta
+        name="twitter:card"
+        content="summary"
+    >
+
+    <meta
+        name="twitter:title"
+        content="Prebid.js Configuration Checker | PubsRate"
+    >
+
+    <meta
+        name="twitter:description"
+        content="Free tool to check Prebid.js configurations, ad units, bidders and media types."
+    >
+
+    <!-- =========================
+         STRUCTURED DATA
+    ========================== -->
+
+    <script type="application/ld+json">
+
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Prebid.js Configuration Checker",
+        "url": "https://pubsrate.com/tools/prebid-configuration-checker.html",
+        "description": "Free Prebid.js configuration checker for validating ad units, bidders, media types and common configuration issues.",
+        "applicationCategory": "DeveloperApplication",
+        "operatingSystem": "Web",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "PubsRate",
+            "url": "https://pubsrate.com/"
+        }
+    }
+
+    </script>
+
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+
+        body {
+            margin: 0;
+
+            font-family:
+                Arial,
+                Helvetica,
+                sans-serif;
+
+            background: #f5f7fb;
+
+            color: #1f2937;
+        }
+
+
+        /* =========================
+           HEADER
+        ========================== */
+
+        header {
+            background: #111827;
+
+            color: white;
+
+            padding: 18px 20px;
+        }
+
+
+        .header-container {
+            max-width: 1150px;
+
+            margin: auto;
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+        }
+
+
+        .logo {
+            color: white;
+
+            text-decoration: none;
+
+            font-size: 27px;
+
+            font-weight: bold;
+        }
+
+
+        .logo span {
+            color: #38bdf8;
+        }
+
+
+        nav a {
+            color: white;
+
+            text-decoration: none;
+
+            margin-left: 25px;
+
+            font-size: 15px;
+        }
+
+
+        nav a:hover {
+            color: #38bdf8;
+        }
+
+
+        /* =========================
+           MAIN
+        ========================== */
+
+        .container {
+            max-width: 1100px;
+
+            margin: auto;
+
+            padding: 40px 20px;
+        }
+
+
+        /* =========================
+           HERO
+        ========================== */
+
+        .hero {
+            background: white;
+
+            padding: 40px;
+
+            border-radius: 18px;
+
+            box-shadow:
+                0 4px 15px rgba(0,0,0,0.07);
+
+            margin-bottom: 25px;
+        }
+
+
+        .hero h1 {
+            margin:
+                0 0 15px;
+
+            font-size: 38px;
+
+            color: #111827;
+        }
+
+
+        .hero p {
+            margin: 0;
+
+            max-width: 850px;
+
+            color: #64748b;
+
+            line-height: 1.7;
+
+            font-size: 17px;
+        }
+
+
+        .badge {
+            display: inline-block;
+
+            background: #e0f2fe;
+
+            color: #0369a1;
+
+            padding: 7px 12px;
+
+            border-radius: 20px;
+
+            font-size: 13px;
+
+            font-weight: bold;
+
+            margin-bottom: 15px;
+        }
+
+
+        /* =========================
+           TOOL CARD
+        ========================== */
+
+        .tool-card {
+            background: white;
+
+            padding: 30px;
+
+            border-radius: 16px;
+
+            box-shadow:
+                0 4px 15px rgba(0,0,0,0.06);
+        }
+
+
+        .tool-card h2 {
+            margin-top: 0;
+
+            font-size: 24px;
+        }
+
+
+        .tool-card p {
+            color: #64748b;
+
+            line-height: 1.6;
+        }
+
+
+        /* =========================
+           TEXTAREA
+        ========================== */
+
+        textarea {
+            width: 100%;
+
+            min-height: 330px;
+
+            resize: vertical;
+
+            border: 1px solid #cbd5e1;
+
+            border-radius: 10px;
+
+            padding: 16px;
+
+            font-family:
+                Consolas,
+                Monaco,
+                monospace;
+
+            font-size: 14px;
+
+            line-height: 1.6;
+
+            outline: none;
+
+            background: #f8fafc;
+        }
+
+
+        textarea:focus {
+            border-color: #2563eb;
+
+            box-shadow:
+                0 0 0 3px rgba(37,99,235,0.1);
+        }
+
+
+        /* =========================
+           BUTTONS
+        ========================== */
+
+        .buttons {
+            display: flex;
+
+            gap: 12px;
+
+            margin-top: 18px;
+
+            flex-wrap: wrap;
+        }
+
+
+        button {
+            border: none;
+
+            cursor: pointer;
+
+            padding:
+                12px 20px;
+
+            border-radius: 8px;
+
+            font-size: 15px;
+
+            font-weight: bold;
+        }
+
+
+        .check-button {
+            background: #2563eb;
+
+            color: white;
+        }
+
+
+        .check-button:hover {
+            background: #1d4ed8;
+        }
+
+
+        .sample-button {
+            background: #e2e8f0;
+
+            color: #1e293b;
+        }
+
+
+        .sample-button:hover {
+            background: #cbd5e1;
+        }
+
+
+        .clear-button {
+            background: #fee2e2;
+
+            color: #991b1b;
+        }
+
+
+        .clear-button:hover {
+            background: #fecaca;
+        }
+
+
+        /* =========================
+           RESULTS
+        ========================== */
+
+        .results {
+            margin-top: 30px;
+
+            display: none;
+        }
+
+
+        .results h2 {
+            font-size: 25px;
+
+            margin-bottom: 18px;
+        }
+
+
+        .summary {
+            display: grid;
+
+            grid-template-columns:
+                repeat(4, 1fr);
+
+            gap: 15px;
+
+            margin-bottom: 25px;
+        }
+
+
+        .summary-card {
+            background: #f8fafc;
+
+            border: 1px solid #e2e8f0;
+
+            border-radius: 10px;
+
+            padding: 18px;
+
+            text-align: center;
+        }
+
+
+        .summary-number {
+            font-size: 28px;
+
+            font-weight: bold;
+
+            color: #111827;
+
+            display: block;
+
+            margin-bottom: 5px;
+        }
+
+
+        .summary-label {
+            font-size: 13px;
+
+            color: #64748b;
+        }
+
+
+        /* =========================
+           STATUS
+        ========================== */
+
+        .status-box {
+            padding: 18px;
+
+            border-radius: 10px;
+
+            margin-bottom: 20px;
+
+            font-weight: bold;
+        }
+
+
+        .status-valid {
+            background: #dcfce7;
+
+            color: #166534;
+
+            border: 1px solid #bbf7d0;
+        }
+
+
+        .status-warning {
+            background: #fef3c7;
+
+            color: #92400e;
+
+            border: 1px solid #fde68a;
+        }
+
+
+        .status-error {
+            background: #fee2e2;
+
+            color: #991b1b;
+
+            border: 1px solid #fecaca;
+        }
+
+
+        /* =========================
+           ISSUE CARDS
+        ========================== */
+
+        .issue {
+            padding: 16px;
+
+            border-radius: 10px;
+
+            margin-bottom: 12px;
+
+            border: 1px solid #e2e8f0;
+
+            background: #ffffff;
+        }
+
+
+        .issue-title {
+            font-weight: bold;
+
+            margin-bottom: 6px;
+        }
+
+
+        .issue-description {
+            color: #64748b;
+
+            line-height: 1.5;
+
+            font-size: 14px;
+        }
+
+
+        .issue.error {
+            border-left:
+                5px solid #ef4444;
+        }
+
+
+        .issue.warning {
+            border-left:
+                5px solid #f59e0b;
+        }
+
+
+        .issue.success {
+            border-left:
+                5px solid #22c55e;
+        }
+
+
+        /* =========================
+           AD UNIT TABLE
+        ========================== */
+
+        .table-wrapper {
+            overflow-x: auto;
+
+            margin-top: 25px;
+        }
+
+
+        table {
+            width: 100%;
+
+            border-collapse: collapse;
+
+            min-width: 700px;
+        }
+
+
+        th,
+        td {
+            padding: 12px;
+
+            border-bottom:
+                1px solid #e2e8f0;
+
+            text-align: left;
+
+            font-size: 14px;
+        }
+
+
+        th {
+            background: #f8fafc;
+
+            color: #334155;
+        }
+
+
+        td {
+            color: #475569;
+        }
+
+
+        .good {
+            color: #15803d;
+
+            font-weight: bold;
+        }
+
+
+        .bad {
+            color: #dc2626;
+
+            font-weight: bold;
+        }
+
+
+        /* =========================
+           INFO
+        ========================== */
+
+        .info-section {
+            margin-top: 25px;
+
+            background: white;
+
+            padding: 30px;
+
+            border-radius: 16px;
+
+            box-shadow:
+                0 3px 12px rgba(0,0,0,0.05);
+        }
+
+
+        .info-section h2 {
+            margin-top: 0;
+
+            font-size: 25px;
+        }
+
+
+        .info-section h3 {
+            margin-top: 25px;
+
+            font-size: 19px;
+        }
+
+
+        .info-section p,
+        .info-section li {
+            color: #64748b;
+
+            line-height: 1.7;
+        }
+
+
+        .info-section code {
+            background: #f1f5f9;
+
+            padding: 3px 6px;
+
+            border-radius: 4px;
+
+            font-family: monospace;
+
+            color: #0f172a;
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================== */
+
+        footer {
+            text-align: center;
+
+            padding: 45px 20px;
+
+            color: #64748b;
+        }
+
+
+        /* =========================
+           MOBILE
+        ========================== */
+
+        @media (max-width: 800px) {
+
+            .header-container {
+                flex-direction: column;
+
+                gap: 15px;
+            }
+
+
+            nav {
+                text-align: center;
+            }
+
+
+            nav a {
+                margin:
+                    0 7px;
+            }
+
+
+            .hero {
+                padding: 28px;
+            }
+
+
+            .hero h1 {
+                font-size: 30px;
+            }
+
+
+            .tool-card {
+                padding: 22px;
+            }
+
+
+            .summary {
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+
+        }
+
+
+        @media (max-width: 500px) {
+
+            .summary {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     HEADER
+========================= -->
+
+<header>
+
+    <div class="header-container">
+
+        <a
+            href="../index.html"
+            class="logo"
+        >
+            Pubs<span>Rate</span>
+        </a>
+
+
+        <nav>
+
+            <a href="../index.html">
+                Home
+            </a>
+
+            <a href="../publishers/">
+                Publishers
+            </a>
+
+            <a href="../advertising/">
+                Advertising
+            </a>
+
+            <a href="index.html">
+                Tools
+            </a>
+
+        </nav>
+
+    </div>
+
+</header>
+
+
+<main class="container">
+
+
+<!-- =========================
+     HERO
+========================= -->
+
+<section class="hero">
+
+    <div class="badge">
+        🧪 PREBID.JS TOOL
+    </div>
+
+
+    <h1>
+        Prebid.js Configuration Checker
+    </h1>
+
+
+    <p>
+        Validate your Prebid.js configuration and identify
+        common issues with ad units, bidders, media types,
+        bid configurations and required fields.
+    </p>
+
+</section>
+
+
+
+<!-- =========================
+     TOOL
+========================= -->
+
+<section class="tool-card">
+
+    <h2>
+        Paste Your Prebid.js Configuration
+    </h2>
+
+
+    <p>
+        Paste the JavaScript configuration or JSON object
+        containing your Prebid.js ad units below.
+        The checker runs entirely in your browser.
+    </p>
+
+
+    <textarea
+        id="configInput"
+        placeholder="Example:
+
+pbjs.addAdUnits([
+    {
+        code: 'div-gpt-ad-123',
+        mediaTypes: {
+            banner: {
+                sizes: [[300, 250], [728, 90]]
+            }
+        },
+        bids: [
+            {
+                bidder: 'appnexus',
+                params: {
+                    placementId: 123456
+                }
+            }
+        ]
+    }
+]);
+
+or paste a JSON configuration object."
+    ></textarea>
+
+
+    <div class="buttons">
+
+        <button
+            class="check-button"
+            onclick="checkConfiguration()"
+        >
+            Check Configuration
+        </button>
+
+
+        <button
+            class="sample-button"
+            onclick="loadSample()"
+        >
+            Load Sample
+        </button>
+
+
+        <button
+            class="clear-button"
+            onclick="clearTool()"
+        >
+            Clear
+        </button>
+
+    </div>
+
+
+
+    <!-- =========================
+         RESULTS
+    ========================== -->
+
+    <div
+        id="results"
+        class="results"
+    >
+
+        <h2>
+            Configuration Results
+        </h2>
+
+
+        <div
+            id="status"
+            class="status-box"
+        ></div>
+
+
+        <div class="summary">
+
+            <div class="summary-card">
+
+                <span
+                    id="adUnitCount"
+                    class="summary-number"
+                >
+                    0
+                </span>
+
+                <span class="summary-label">
+                    Ad Units
+                </span>
+
+            </div>
+
+
+            <div class="summary-card">
+
+                <span
+                    id="bidCount"
+                    class="summary-number"
+                >
+                    0
+                </span>
+
+                <span class="summary-label">
+                    Bids
+                </span>
+
+            </div>
+
+
+            <div class="summary-card">
+
+                <span
+                    id="bidderCount"
+                    class="summary-number"
+                >
+                    0
+                </span>
+
+                <span class="summary-label">
+                    Unique Bidders
+                </span>
+
+            </div>
+
+
+            <div class="summary-card">
+
+                <span
+                    id="issueCount"
+                    class="summary-number"
+                >
+                    0
+                </span>
+
+                <span class="summary-label">
+                    Issues
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div id="issues"></div>
+
+
+        <div
+            id="adUnitTable"
+            class="table-wrapper"
+        ></div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     INFORMATION
+========================= -->
+
+<section class="info-section">
+
+    <h2>
+        About the Prebid.js Configuration Checker
+    </h2>
+
+
+    <p>
+        Prebid.js is an open-source header bidding framework
+        commonly used by publishers to connect multiple demand
+        partners before sending an advertising request to an
+        ad server such as Google Ad Manager.
+    </p>
+
+
+    <h3>
+        What Does This Tool Check?
+    </h3>
+
+
+    <ul>
+
+        <li>
+            Prebid.js ad unit structure
+        </li>
+
+        <li>
+            Ad unit codes
+        </li>
+
+        <li>
+            Media types such as banner, video and native
+        </li>
+
+        <li>
+            Bidder configuration
+        </li>
+
+        <li>
+            Bidder parameters
+        </li>
+
+        <li>
+            Banner sizes
+        </li>
+
+        <li>
+            Duplicate ad unit codes
+        </li>
+
+        <li>
+            Missing bid configurations
+        </li>
+
+        <li>
+            Common configuration mistakes
+        </li>
+
+    </ul>
+
+
+    <h3>
+        Example Prebid.js Ad Unit
+    </h3>
+
+
+    <p>
+        A basic Prebid.js ad unit commonly contains an
+        identifier, media types and one or more bidder
+        configurations.
+    </p>
+
+
+    <p>
+        For example, an ad unit can contain
+        <code>code</code>,
+        <code>mediaTypes</code> and
+        <code>bids</code> properties.
+    </p>
+
+
+    <h3>
+        Important Note
+    </h3>
+
+
+    <p>
+        This tool performs static configuration checks.
+        It does not execute Prebid.js, contact bidder
+        endpoints, verify bidder account credentials or
+        guarantee that an auction will work correctly in
+        production.
+    </p>
+
+
+    <p>
+        A configuration can pass these checks and still
+        experience problems caused by bidder parameters,
+        consent requirements, browser restrictions,
+        network requests, timeout settings or publisher
+        implementation issues.
+    </p>
+
+</section>
+
+
+
+</main>
+
+
+<footer>
+
+    © 2026 PubsRate. All rights reserved.
+
+</footer>
+
+
+
+<script>
+
+/* =========================
+   GLOBAL SAMPLE
+========================= */
+
+function loadSample() {
+
+    const sample = `pbjs.addAdUnits([
+    {
+        code: 'div-gpt-ad-123456789',
+        mediaTypes: {
+            banner: {
+                sizes: [
+                    [300, 250],
+                    [728, 90]
+                ]
+            }
+        },
+        bids: [
+            {
+                bidder: 'appnexus',
+                params: {
+                    placementId: 123456
+                }
+            },
+            {
+                bidder: 'rubicon',
+                params: {
+                    accountId: 12345,
+                    siteId: 67890,
+                    zoneId: 11111
+                }
+            }
+        ]
+    },
+    {
+        code: 'div-gpt-ad-video-123',
+        mediaTypes: {
+            video: {
+                context: 'instream',
+                playerSize: [
+                    [640, 480]
+                ],
+                mimes: [
+                    'video/mp4'
+                ]
+            }
+        },
+        bids: [
+            {
+                bidder: 'appnexus',
+                params: {
+                    placementId: 987654
+                }
+            }
+        ]
+    }
+]);`;
+
+    document.getElementById("configInput").value = sample;
+
+    checkConfiguration();
+
+}
+
+
+/* =========================
+   CLEAR
+========================= */
+
+function clearTool() {
+
+    document.getElementById("configInput").value = "";
+
+    document.getElementById("results").style.display = "none";
+
+    document.getElementById("issues").innerHTML = "";
+
+    document.getElementById("adUnitTable").innerHTML = "";
+
+}
+
+
+/* =========================
+   EXTRACT CONFIGURATION
+========================= */
+
+function extractConfiguration(input) {
+
+    let text = input.trim();
+
+    if (!text) {
+        throw new Error(
+            "Please paste a Prebid.js configuration."
+        );
+    }
+
+
+    /*
+       First try to find a JSON array.
+    */
+
+    const arrayMatch =
+        text.match(
+            /\[\s*\{[\s\S]*\}\s*\]/
+        );
+
+
+    if (arrayMatch) {
+
+        try {
+
+            const parsed =
+                JSON.parse(arrayMatch[0]);
+
+            if (Array.isArray(parsed)) {
+                return parsed;
+            }
+
+        } catch (e) {}
+
+    }
+
+
+    /*
+       Try JSON directly.
+    */
+
+    try {
+
+        const parsed =
+            JSON.parse(text);
+
+        if (Array.isArray(parsed)) {
+            return parsed;
+        }
+
+
+        if (
+            parsed &&
+            Array.isArray(parsed.adUnits)
+        ) {
+            return parsed.adUnits;
+        }
+
+
+        if (
+            parsed &&
+            Array.isArray(parsed.adUnits)
+        ) {
+            return parsed.adUnits;
+        }
+
+    } catch (e) {}
+
+
+    /*
+       Convert common JavaScript
+       configuration into JSON-like
+       syntax.
+    */
+
+    let normalized = text;
+
+
+    normalized =
+        normalized
+            .replace(
+                /\/\*[\s\S]*?\*\//g,
+                ""
+            )
+            .replace(
+                /\/\/.*$/gm,
+                ""
+            );
+
+
+    /*
+       Extract content inside
+       pbjs.addAdUnits(...)
+    */
+
+    const addUnitsMatch =
+        normalized.match(
+            /pbjs\.addAdUnits\s*\(\s*([\s\S]*?)\s*\)\s*;?\s*$/
+        );
+
+
+    if (addUnitsMatch) {
+
+        normalized =
+            addUnitsMatch[1].trim();
+
+    }
+
+
+    /*
+       Try JSON5-like conversion.
+    */
+
+    let converted =
+        normalized
+            .replace(
+                /([{,]\s*)([A-Za-z_$][\w$]*)\s*:/g,
+                '$1"$2":'
+            )
+            .replace(
+                /'/g,
+                '"'
+            )
+            .replace(
+                /,\s*([}\]])/g,
+                '$1'
+            );
+
+
+    try {
+
+        const parsed =
+            JSON.parse(converted);
+
+        if (Array.isArray(parsed)) {
+            return parsed;
+        }
+
+    } catch (e) {}
+
+
+    /*
+       Last attempt:
+       Extract individual ad unit objects.
+    */
+
+    const objects = [];
+
+    const objectRegex =
+        /\{[\s\S]*?\}(?=\s*,|\s*\])/g;
+
+    const matches =
+        normalized.match(objectRegex);
+
+
+    if (matches) {
+
+        matches.forEach((item) => {
+
+            let obj =
+                item
+                    .replace(
+                        /([{,]\s*)([A-Za-z_$][\w$]*)\s*:/g,
+                        '$1"$2":'
+                    )
+                    .replace(
+                        /'/g,
+                        '"'
+                    )
+                    .replace(
+                        /,\s*([}\]])/g,
+                        '$1'
+                    );
+
+            try {
+
+                objects.push(
+                    JSON.parse(obj)
+                );
+
+            } catch (e) {}
+
+        });
+
+    }
+
+
+    if (objects.length > 0) {
+        return objects;
+    }
+
+
+    throw new Error(
+        "The configuration could not be parsed. Try using JSON or a standard pbjs.addAdUnits([...]) configuration."
+    );
+
+}
+
+
+/* =========================
+   MAIN CHECKER
+========================= */
+
+function checkConfiguration() {
+
+    const input =
+        document.getElementById(
+            "configInput"
+        ).value;
+
+
+    const results =
+        document.getElementById(
+            "results"
+        );
+
+
+    results.style.display =
+        "block";
+
+
+    const issuesContainer =
+        document.getElementById(
+            "issues"
+        );
+
+
+    issuesContainer.innerHTML = "";
+
+
+    let adUnits;
+
+
+    try {
+
+        adUnits =
+            extractConfiguration(input);
+
+    } catch (error) {
+
+        document.getElementById(
+            "status"
+        ).className =
+            "status-box status-error";
+
+
+        document.getElementById(
+            "status"
+        ).textContent =
+            "❌ Configuration Error: " +
+            error.message;
+
+
+        document.getElementById(
+            "adUnitCount"
+        ).textContent = "0";
+
+
+        document.getElementById(
+            "bidCount"
+        ).textContent = "0";
+
+
+        document.getElementById(
+            "bidderCount"
+        ).textContent = "0";
+
+
+        document.getElementById(
+            "issueCount"
+        ).textContent = "1";
+
+
+        return;
+
+    }
+
+
+    const issues = [];
+
+    const bidders = new Set();
+
+    let bidCount = 0;
+
+
+    /*
+       No ad units
+    */
+
+    if (
+        !Array.isArray(adUnits) ||
+        adUnits.length === 0
+    ) {
+
+        issues.push({
+            type: "error",
+            title: "No ad units found",
+            description:
+                "The configuration does not contain any recognizable Prebid.js ad units."
+        });
+
+    }
+
+
+    const codes = new Set();
+
+
+    /*
+       Validate each ad unit
+    */
+
+    adUnits.forEach(
+        (adUnit, index) => {
+
+            if (
+                !adUnit ||
+                typeof adUnit !== "object"
+            ) {
+
+                issues.push({
+                    type: "error",
+                    title:
+                        "Invalid ad unit #" +
+                        (index + 1),
+
+                    description:
+                        "The ad unit must be a JavaScript object."
+                });
+
+                return;
+
+            }
+
+
+            /*
+               CODE
+            */
+
+            if (!adUnit.code) {
+
+                issues.push({
+                    type: "error",
+                    title:
+                        "Missing ad unit code",
+
+                    description:
+                        "Ad unit #" +
+                        (index + 1) +
+                        " does not contain a code property."
+                });
+
+            } else {
+
+                if (
+                    codes.has(
+                        String(adUnit.code)
+                    )
+                ) {
+
+                    issues.push({
+                        type: "warning",
+                        title:
+                            "Duplicate ad unit code",
+
+                        description:
+                            "The code '" +
+                            adUnit.code +
+                            "' appears more than once."
+                    });
+
+                }
+
+                codes.add(
+                    String(adUnit.code)
+                );
+
+            }
+
+
+            /*
+               MEDIA TYPES
+            */
+
+            if (
+                !adUnit.mediaTypes ||
+                typeof adUnit.mediaTypes !== "object"
+            ) {
+
+                issues.push({
+                    type: "error",
+                    title:
+                        "Missing mediaTypes",
+
+                    description:
+                        "Ad unit " +
+                        (adUnit.code ||
+                            "#" + (index + 1)) +
+                        " does not contain a mediaTypes object."
+                });
+
+            } else {
+
+                const mediaTypes =
+                    Object.keys(
+                        adUnit.mediaTypes
+                    );
+
+
+                if (
+                    mediaTypes.length === 0
+                ) {
+
+                    issues.push({
+                        type: "warning",
+                        title:
+                            "Empty mediaTypes",
+
+                        description:
+                            "No banner, video or native media type was found."
+                    });
+
+                }
+
+
+                /*
+                   BANNER
+                */
+
+                if (
+                    adUnit.mediaTypes.banner
+                ) {
+
+                    const banner =
+                        adUnit.mediaTypes.banner;
+
+
+                    if (
+                        !banner.sizes ||
+                        !Array.isArray(
+                            banner.sizes
+                        ) ||
+                        banner.sizes.length === 0
+                    ) {
+
+                        issues.push({
+                            type: "warning",
+                            title:
+                                "Banner sizes missing",
+
+                            description:
+                                "The banner media type does not contain a sizes array."
+                        });
+
+                    }
+
+                }
+
+
+                /*
+                   VIDEO
+                */
+
+                if (
+                    adUnit.mediaTypes.video
+                ) {
+
+                    const video =
+                        adUnit.mediaTypes.video;
+
+
+                    if (
+                        !video.context
+                    ) {
+
+                        issues.push({
+                            type: "warning",
+                            title:
+                                "Video context missing",
+
+                            description:
+                                "Video media type does not specify a context such as instream or outstream."
+                        });
+
+                    }
+
+                }
+
+
+                /*
+                   NATIVE
+                */
+
+                if (
+                    adUnit.mediaTypes.native
+                ) {
+
+                    if (
+                        typeof
+                        adUnit.mediaTypes.native
+                        !== "object"
+                    ) {
+
+                        issues.push({
+                            type: "warning",
+                            title:
+                                "Native configuration",
+
+                            description:
+                                "Native media type should contain a valid configuration object."
+                        });
+
+                    }
+
+                }
+
+            }
+
+
+            /*
+               BIDS
+            */
+
+            if (
+                !Array.isArray(
+                    adUnit.bids
+                )
+            ) {
+
+                issues.push({
+                    type: "error",
+                    title:
+                        "Missing bids",
+
+                    description:
+                        "Ad unit " +
+                        (adUnit.code ||
+                            "#" + (index + 1)) +
+                        " does not contain a bids array."
+                });
+
+            } else if (
+                adUnit.bids.length === 0
+            ) {
+
+                issues.push({
+                    type: "warning",
+                    title:
+                        "No bidders configured",
+
+                    description:
+                        "This ad unit contains an empty bids array."
+                });
+
+            } else {
+
+                adUnit.bids.forEach(
+                    (bid, bidIndex) => {
+
+                        bidCount++;
+
+
+                        if (
+                            !bid ||
+                            typeof bid !== "object"
+                        ) {
+
+                            issues.push({
+                                type: "error",
+                                title:
+                                    "Invalid bid",
+
+                                description:
+                                    "Ad unit " +
+                                    (adUnit.code ||
+                                        "#" + (index + 1)) +
+                                    " contains an invalid bid at position " +
+                                    (bidIndex + 1) +
+                                    "."
+                            });
+
+                            return;
+
+                        }
+
+
+                        if (
+                            !bid.bidder
+                        ) {
+
+                            issues.push({
+                                type: "error",
+                                title:
+                                    "Bidder name missing",
+
+                                description:
+                                    "A bid configuration does not specify a bidder."
+                            });
+
+                        } else {
+
+                            bidders.add(
+                                String(
+                                    bid.bidder
+                                )
+                            );
+
+                        }
+
+
+                        if (
+                            !bid.params ||
+                            typeof bid.params !== "object"
+                        ) {
+
+                            issues.push({
+                                type: "warning",
+                                title:
+                                    "Bidder parameters missing",
+
+                                description:
+                                    "Bidder '" +
+                                    (
+                                        bid.bidder ||
+                                        "unknown"
+                                    ) +
+                                    "' does not contain a params object."
+                            });
+
+                        }
+
+                    }
+                );
+
+            }
+
+        }
+    );
+
+
+    /*
+       Display summary
+    */
+
+    document.getElementById(
+        "adUnitCount"
+    ).textContent =
+        adUnits.length;
+
+
+    document.getElementById(
+        "bidCount"
+    ).textContent =
+        bidCount;
+
+
+    document.getElementById(
+        "bidderCount"
+    ).textContent =
+        bidders.size;
+
+
+    document.getElementById(
+        "issueCount"
+    ).textContent =
+        issues.length;
+
+
+    /*
+       Overall status
+    */
+
+    const status =
+        document.getElementById(
+            "status"
+        );
+
+
+    const errors =
+        issues.filter(
+            issue =>
+                issue.type === "error"
+        ).length;
+
+
+    const warnings =
+        issues.filter(
+            issue =>
+                issue.type === "warning"
+        ).length;
+
+
+    if (
+        errors > 0
+    ) {
+
+        status.className =
+            "status-box status-error";
+
+
+        status.textContent =
+            "❌ Configuration has " +
+            errors +
+            " error(s) and " +
+            warnings +
+            " warning(s).";
+
+    } else if (
+        warnings > 0
+    ) {
+
+        status.className =
+            "status-box status-warning";
+
+
+        status.textContent =
+            "⚠️ Configuration structure looks valid, but " +
+            warnings +
+            " warning(s) should be reviewed.";
+
+    } else {
+
+        status.className =
+            "status-box status-valid";
+
+
+        status.textContent =
+            "✅ No common configuration issues were detected.";
+
+    }
+
+
+    /*
+       Display issues
+    */
+
+    if (
+        issues.length === 0
+    ) {
+
+        issuesContainer.innerHTML = `
+
+            <div class="issue success">
+
+                <div class="issue-title">
+                    Configuration looks good
+                </div>
+
+                <div class="issue-description">
+                    No common structural problems were detected
+                    in the supplied Prebid.js configuration.
+                </div>
+
+            </div>
+
+        `;
+
+    } else {
+
+        issues.forEach(
+            issue => {
+
+                const div =
+                    document.createElement(
+                        "div"
+                    );
+
+
+                div.className =
+                    "issue " +
+                    issue.type;
+
+
+                div.innerHTML = `
+
+                    <div class="issue-title">
+                        ${
+                            issue.type === "error"
+                                ? "❌"
+                                : "⚠️"
+                        }
+                        ${escapeHTML(
+                            issue.title
+                        )}
+                    </div>
+
+                    <div class="issue-description">
+                        ${escapeHTML(
+                            issue.description
+                        )}
+                    </div>
+
+                `;
+
+
+                issuesContainer.appendChild(
+                    div
+                );
+
+            }
+        );
+
+    }
+
+
+    /*
+       Build ad unit table
+    */
+
+    buildAdUnitTable(
+        adUnits
+    );
+
+}
+
+
+/* =========================
+   AD UNIT TABLE
+========================= */
+
+function buildAdUnitTable(
+    adUnits
+) {
+
+    const container =
+        document.getElementById(
+            "adUnitTable"
+        );
+
+
+    if (
+        !adUnits ||
+        adUnits.length === 0
+    ) {
+
+        container.innerHTML = "";
+
+        return;
+
+    }
+
+
+    let html = `
+
+        <h3>
+            Ad Unit Details
+        </h3>
+
+        <table>
+
+            <thead>
+
+                <tr>
+
+                    <th>
+                        Ad Unit
+                    </th>
+
+                    <th>
+                        Media Types
+                    </th>
+
+                    <th>
+                        Bidders
+                    </th>
+
+                    <th>
+                        Status
+                    </th>
+
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+    `;
+
+
+    adUnits.forEach(
+        (adUnit) => {
+
+            const mediaTypes =
+                adUnit.mediaTypes
+                    ? Object.keys(
+                        adUnit.mediaTypes
+                    )
+                    : [];
+
+
+            const bids =
+                Array.isArray(
+                    adUnit.bids
+                )
+                    ? adUnit.bids
+                    : [];
+
+
+            const bidderNames =
+                bids
+                    .map(
+                        bid =>
+                            bid &&
+                            bid.bidder
+                                ? bid.bidder
+                                : "Unknown"
+                    );
+
+
+            const valid =
+                adUnit.code &&
+                mediaTypes.length > 0 &&
+                bids.length > 0 &&
+                bids.every(
+                    bid =>
+                        bid &&
+                        bid.bidder
+                );
+
+
+            html += `
+
+                <tr>
+
+                    <td>
+                        ${escapeHTML(
+                            adUnit.code ||
+                            "Missing"
+                        )}
+                    </td>
+
+                    <td>
+                        ${escapeHTML(
+                            mediaTypes.join(
+                                ", "
+                            ) ||
+                            "None"
+                        )}
+                    </td>
+
+                    <td>
+                        ${escapeHTML(
+                            bidderNames.join(
+                                ", "
+                            ) ||
+                            "None"
+                        )}
+                    </td>
+
+                    <td class="${
+                        valid
+                            ? "good"
+                            : "bad"
+                    }">
+
+                        ${
+                            valid
+                                ? "✓ Looks OK"
+                                : "⚠ Review"
+                        }
+
+                    </td>
+
+                </tr>
+
+            `;
+
+        }
+    );
+
+
+    html += `
+
+            </tbody>
+
+        </table>
+
+    `;
+
+
+    container.innerHTML =
+        html;
+
+}
+
+
+/* =========================
+   HTML SECURITY
+========================= */
+
+function escapeHTML(value) {
+
+    return String(value)
+
+        .replace(
+            /&/g,
+            "&amp;"
+        )
+
+        .replace(
+            /</g,
+            "&lt;"
+        )
+
+        .replace(
+            />/g,
+            "&gt;"
+        )
+
+        .replace(
+            /"/g,
+            "&quot;"
+        )
+
+        .replace(
+            /'/g,
+            "&#039;"
+        );
+
+}
+
+</script>
+
+
+</body>
+
+</html>
