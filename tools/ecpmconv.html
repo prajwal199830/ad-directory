@@ -1,0 +1,1572 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <!-- =========================
+         SEO
+    ========================== -->
+
+    <title>
+        CPM & eCPM Calculator | PubsRate
+    </title>
+
+    <meta
+        name="description"
+        content="Free CPM and eCPM calculator for publishers, AdOps professionals and advertisers. Calculate CPM, eCPM, advertising revenue and impressions."
+    >
+
+    <meta
+        name="robots"
+        content="index, follow"
+    >
+
+    <link
+        rel="canonical"
+        href="https://pubsrate.com/tools/cpm-ecpm-converter.html"
+    >
+
+
+    <!-- =========================
+         OPEN GRAPH
+    ========================== -->
+
+    <meta
+        property="og:type"
+        content="website"
+    >
+
+    <meta
+        property="og:title"
+        content="CPM & eCPM Calculator | PubsRate"
+    >
+
+    <meta
+        property="og:description"
+        content="Calculate CPM, eCPM, advertising revenue and impressions with the PubsRate CPM & eCPM calculator."
+    >
+
+    <meta
+        property="og:url"
+        content="https://pubsrate.com/tools/cpm-ecpm-converter.html"
+    >
+
+    <meta
+        property="og:site_name"
+        content="PubsRate"
+    >
+
+
+    <!-- =========================
+         TWITTER / X
+    ========================== -->
+
+    <meta
+        name="twitter:card"
+        content="summary"
+    >
+
+    <meta
+        name="twitter:title"
+        content="CPM & eCPM Calculator | PubsRate"
+    >
+
+    <meta
+        name="twitter:description"
+        content="Calculate CPM, eCPM, advertising revenue and impressions for digital advertising."
+    >
+
+
+    <!-- =========================
+         STRUCTURED DATA
+    ========================== -->
+
+    <script type="application/ld+json">
+
+    {
+        "@context": "https://schema.org",
+
+        "@type": "WebApplication",
+
+        "name": "CPM & eCPM Calculator",
+
+        "url": "https://pubsrate.com/tools/cpm-ecpm-converter.html",
+
+        "description": "Free CPM and eCPM calculator for digital advertising.",
+
+        "applicationCategory": "BusinessApplication",
+
+        "operatingSystem": "Web"
+
+    }
+
+    </script>
+
+
+    <!-- =========================
+         STYLES
+    ========================== -->
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+
+        body {
+            margin: 0;
+
+            font-family:
+                Arial,
+                Helvetica,
+                sans-serif;
+
+            background: #f5f7fb;
+
+            color: #1f2937;
+        }
+
+
+        /* =========================
+           HEADER
+        ========================== */
+
+        header {
+            background: #111827;
+
+            color: white;
+
+            padding: 18px 20px;
+        }
+
+
+        .header-container {
+            max-width: 1150px;
+
+            margin: auto;
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+        }
+
+
+        .logo {
+            font-size: 27px;
+
+            font-weight: bold;
+
+            text-decoration: none;
+
+            color: white;
+        }
+
+
+        .logo span {
+            color: #38bdf8;
+        }
+
+
+        nav a {
+            color: white;
+
+            text-decoration: none;
+
+            margin-left: 25px;
+
+            font-size: 15px;
+        }
+
+
+        nav a:hover {
+            color: #38bdf8;
+        }
+
+
+        /* =========================
+           MAIN
+        ========================== */
+
+        .container {
+            max-width: 1050px;
+
+            margin: auto;
+
+            padding: 40px 20px;
+        }
+
+
+        /* =========================
+           HERO
+        ========================== */
+
+        .hero {
+            text-align: center;
+
+            margin-bottom: 35px;
+        }
+
+
+        .badge {
+            display: inline-block;
+
+            background: #e0f2fe;
+
+            color: #0369a1;
+
+            padding:
+                7px 13px;
+
+            border-radius: 20px;
+
+            font-size: 13px;
+
+            font-weight: bold;
+
+            margin-bottom: 15px;
+        }
+
+
+        .hero h1 {
+            font-size: 40px;
+
+            margin:
+                0 0 15px;
+        }
+
+
+        .hero p {
+            max-width: 760px;
+
+            margin: auto;
+
+            color: #64748b;
+
+            line-height: 1.7;
+
+            font-size: 17px;
+        }
+
+
+        /* =========================
+           CALCULATOR
+        ========================== */
+
+        .calculator-card {
+            background: white;
+
+            border-radius: 16px;
+
+            padding: 35px;
+
+            box-shadow:
+                0 4px 18px rgba(0,0,0,0.07);
+        }
+
+
+        .calculator-card h2 {
+            margin-top: 0;
+
+            font-size: 25px;
+        }
+
+
+        .description {
+            color: #64748b;
+
+            line-height: 1.6;
+
+            margin-bottom: 30px;
+        }
+
+
+        /* =========================
+           MODE SELECTOR
+        ========================== */
+
+        .mode-selector {
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 10px;
+
+            margin-bottom: 30px;
+        }
+
+
+        .mode-button {
+            background: #f1f5f9;
+
+            border:
+                1px solid #e2e8f0;
+
+            color: #475569;
+
+            padding: 13px 10px;
+
+            border-radius: 8px;
+
+            cursor: pointer;
+
+            font-weight: bold;
+
+            font-size: 14px;
+        }
+
+
+        .mode-button:hover {
+            background: #e2e8f0;
+        }
+
+
+        .mode-button.active {
+            background: #2563eb;
+
+            color: white;
+
+            border-color: #2563eb;
+        }
+
+
+        /* =========================
+           FORM
+        ========================== */
+
+        .form-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap: 20px;
+        }
+
+
+        .form-group {
+            display: flex;
+
+            flex-direction: column;
+        }
+
+
+        label {
+            font-size: 14px;
+
+            font-weight: bold;
+
+            margin-bottom: 8px;
+
+            color: #374151;
+        }
+
+
+        input,
+        select {
+            width: 100%;
+
+            padding: 12px;
+
+            border:
+                1px solid #d1d5db;
+
+            border-radius: 8px;
+
+            font-size: 15px;
+
+            outline: none;
+        }
+
+
+        input:focus,
+        select:focus {
+            border-color: #2563eb;
+
+            box-shadow:
+                0 0 0 3px rgba(37,99,235,0.1);
+        }
+
+
+        .input-help {
+            font-size: 12px;
+
+            color: #94a3b8;
+
+            margin-top: 5px;
+        }
+
+
+        /* =========================
+           BUTTON
+        ========================== */
+
+        .calculate-button {
+            margin-top: 28px;
+
+            background: #2563eb;
+
+            color: white;
+
+            border: none;
+
+            padding:
+                13px 22px;
+
+            border-radius: 8px;
+
+            cursor: pointer;
+
+            font-size: 15px;
+
+            font-weight: bold;
+        }
+
+
+        .calculate-button:hover {
+            background: #1d4ed8;
+        }
+
+
+        .clear-button {
+            margin-top: 28px;
+
+            margin-left: 8px;
+
+            background: #e5e7eb;
+
+            color: #374151;
+
+            border: none;
+
+            padding:
+                13px 22px;
+
+            border-radius: 8px;
+
+            cursor: pointer;
+
+            font-size: 15px;
+
+            font-weight: bold;
+        }
+
+
+        .clear-button:hover {
+            background: #d1d5db;
+        }
+
+
+        /* =========================
+           RESULT
+        ========================== */
+
+        .result {
+            display: none;
+
+            margin-top: 30px;
+
+            background: #f8fafc;
+
+            border:
+                1px solid #e2e8f0;
+
+            border-radius: 12px;
+
+            padding: 25px;
+        }
+
+
+        .result h3 {
+            margin-top: 0;
+
+            margin-bottom: 20px;
+        }
+
+
+        .result-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap: 15px;
+        }
+
+
+        .result-box {
+            background: white;
+
+            border:
+                1px solid #e2e8f0;
+
+            border-radius: 10px;
+
+            padding: 18px;
+        }
+
+
+        .result-label {
+            font-size: 13px;
+
+            color: #64748b;
+
+            margin-bottom: 7px;
+        }
+
+
+        .result-value {
+            font-size: 24px;
+
+            font-weight: bold;
+
+            color: #111827;
+
+            word-break: break-word;
+        }
+
+
+        .copy-result {
+            margin-top: 20px;
+
+            background: #0f766e;
+
+            color: white;
+
+            border: none;
+
+            padding:
+                11px 18px;
+
+            border-radius: 8px;
+
+            cursor: pointer;
+
+            font-weight: bold;
+        }
+
+
+        .copy-result:hover {
+            background: #115e59;
+        }
+
+
+        /* =========================
+           EXAMPLES
+        ========================== */
+
+        .example-section {
+            margin-top: 40px;
+
+            background: white;
+
+            padding: 30px;
+
+            border-radius: 14px;
+
+            box-shadow:
+                0 3px 12px rgba(0,0,0,0.05);
+        }
+
+
+        .example-section h2 {
+            margin-top: 0;
+        }
+
+
+        .example-section p {
+            color: #64748b;
+
+            line-height: 1.7;
+        }
+
+
+        .formula {
+            background: #111827;
+
+            color: #e5e7eb;
+
+            padding: 18px;
+
+            border-radius: 8px;
+
+            font-family:
+                Consolas,
+                Monaco,
+                monospace;
+
+            line-height: 1.8;
+
+            overflow-x: auto;
+        }
+
+
+        /* =========================
+           SEO CONTENT
+        ========================== */
+
+        .seo-content {
+            margin-top: 40px;
+
+            background: white;
+
+            padding: 35px;
+
+            border-radius: 14px;
+
+            box-shadow:
+                0 3px 12px rgba(0,0,0,0.05);
+        }
+
+
+        .seo-content h2 {
+            margin-top: 0;
+
+            font-size: 25px;
+        }
+
+
+        .seo-content h3 {
+            margin-top: 28px;
+        }
+
+
+        .seo-content p {
+            color: #64748b;
+
+            line-height: 1.8;
+        }
+
+
+        .seo-content ul {
+            color: #64748b;
+
+            line-height: 1.8;
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================== */
+
+        footer {
+            text-align: center;
+
+            padding: 45px 20px;
+
+            color: #64748b;
+        }
+
+
+        /* =========================
+           MOBILE
+        ========================== */
+
+        @media (max-width: 800px) {
+
+            .header-container {
+                flex-direction: column;
+
+                gap: 15px;
+            }
+
+
+            nav {
+                text-align: center;
+            }
+
+
+            nav a {
+                margin:
+                    0 7px;
+
+                font-size: 14px;
+            }
+
+
+            .hero h1 {
+                font-size: 32px;
+            }
+
+
+            .calculator-card {
+                padding: 25px;
+            }
+
+
+            .mode-selector {
+                grid-template-columns: 1fr;
+            }
+
+
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+
+
+            .result-grid {
+                grid-template-columns: 1fr;
+            }
+
+
+            .clear-button {
+                margin-left: 0;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     HEADER
+========================= -->
+
+<header>
+
+    <div class="header-container">
+
+        <a
+            href="../index.html"
+            class="logo">
+
+            Pubs<span>Rate</span>
+
+        </a>
+
+
+        <nav>
+
+            <a href="../index.html">
+                Home
+            </a>
+
+            <a href="../publishers/">
+                Publishers
+            </a>
+
+            <a href="../advertising/">
+                Advertising
+            </a>
+
+            <a href="index.html">
+                Tools
+            </a>
+
+        </nav>
+
+    </div>
+
+</header>
+
+
+<main class="container">
+
+
+<!-- =========================
+     HERO
+========================= -->
+
+<section class="hero">
+
+    <div class="badge">
+        📊 PUBSRATE ADVERTISING MEASUREMENT TOOL
+    </div>
+
+
+    <h1>
+        CPM & eCPM Calculator
+    </h1>
+
+
+    <p>
+        Calculate CPM, eCPM, advertising revenue and
+        impressions for digital advertising campaigns
+        and publisher inventory.
+    </p>
+
+</section>
+
+
+<!-- =========================
+     CALCULATOR
+========================= -->
+
+<section class="calculator-card">
+
+    <h2>
+        Advertising Measurement Calculator
+    </h2>
+
+
+    <p class="description">
+        Choose what you want to calculate and enter the
+        available advertising metrics.
+    </p>
+
+
+    <!-- =========================
+         MODE
+    ========================== -->
+
+    <div class="mode-selector">
+
+        <button
+            class="mode-button active"
+            id="modeRevenue"
+            onclick="setMode('revenue')">
+
+            CPM → Revenue
+
+        </button>
+
+
+        <button
+            class="mode-button"
+            id="modeEcpm"
+            onclick="setMode('ecpm')">
+
+            Revenue → eCPM
+
+        </button>
+
+
+        <button
+            class="mode-button"
+            id="modeCpm"
+            onclick="setMode('cpm')">
+
+            Revenue → CPM
+
+        </button>
+
+    </div>
+
+
+    <!-- =========================
+         FORM
+    ========================== -->
+
+    <div class="form-grid">
+
+
+        <div class="form-group">
+
+            <label for="amount">
+                CPM / Revenue
+            </label>
+
+            <input
+                type="number"
+                id="amount"
+                min="0"
+                step="any"
+                placeholder="Example: 5"
+            >
+
+            <span
+                class="input-help"
+                id="amountHelp">
+
+                Enter CPM.
+
+            </span>
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label for="impressions">
+                Impressions
+            </label>
+
+            <input
+                type="number"
+                id="impressions"
+                min="0"
+                step="1"
+                placeholder="Example: 100000"
+            >
+
+            <span class="input-help">
+                Number of ad impressions.
+            </span>
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label for="currency">
+                Currency
+            </label>
+
+            <select id="currency">
+
+                <option value="$">
+                    USD ($)
+                </option>
+
+                <option value="₹">
+                    INR (₹)
+                </option>
+
+                <option value="€">
+                    EUR (€)
+                </option>
+
+                <option value="£">
+                    GBP (£)
+                </option>
+
+            </select>
+
+        </div>
+
+    </div>
+
+
+    <button
+        class="calculate-button"
+        onclick="calculate()">
+
+        Calculate
+
+    </button>
+
+
+    <button
+        class="clear-button"
+        onclick="clearCalculator()">
+
+        Clear
+
+    </button>
+
+
+    <!-- =========================
+         RESULT
+    ========================== -->
+
+    <div
+        class="result"
+        id="result">
+
+        <h3>
+            Calculation Result
+        </h3>
+
+
+        <div
+            class="result-grid"
+            id="resultGrid">
+
+        </div>
+
+
+        <button
+            class="copy-result"
+            onclick="copyResults()">
+
+            📋 Copy Results
+
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     FORMULAS
+========================= -->
+
+<section class="example-section">
+
+    <h2>
+        CPM & eCPM Formulas
+    </h2>
+
+
+    <p>
+        CPM and eCPM are commonly used metrics in digital
+        advertising to measure advertising value and revenue
+        efficiency.
+    </p>
+
+
+    <div class="formula">
+
+        CPM = (Advertising Cost ÷ Impressions) × 1,000
+
+        <br><br>
+
+        eCPM = (Advertising Revenue ÷ Impressions) × 1,000
+
+        <br><br>
+
+        Revenue = (CPM × Impressions) ÷ 1,000
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     EXAMPLES
+========================= -->
+
+<section class="example-section">
+
+    <h2>
+        Example Calculation
+    </h2>
+
+
+    <p>
+        Suppose a publisher generates $500 in advertising
+        revenue from 100,000 impressions.
+    </p>
+
+
+    <div class="formula">
+
+        eCPM = ($500 ÷ 100,000) × 1,000
+
+        <br><br>
+
+        eCPM = $5.00
+
+    </div>
+
+
+    <p>
+        This means the publisher generated an effective
+        revenue of $5 for every 1,000 impressions.
+    </p>
+
+</section>
+
+
+<!-- =========================
+     SEO CONTENT
+========================= -->
+
+<section class="seo-content">
+
+    <h2>
+        CPM & eCPM Calculator for Digital Advertising
+    </h2>
+
+
+    <p>
+        CPM and eCPM are important measurement metrics used
+        by advertisers, publishers and AdOps professionals
+        to evaluate digital advertising performance.
+        This PubsRate calculator makes it easy to calculate
+        advertising revenue, CPM and eCPM using impressions
+        and revenue data.
+    </p>
+
+
+    <h3>
+        What is CPM?
+    </h3>
+
+
+    <p>
+        CPM stands for Cost Per Mille, where "mille" means
+        one thousand. CPM represents the cost associated
+        with delivering 1,000 advertising impressions.
+        Advertisers commonly use CPM when evaluating the
+        cost of advertising inventory.
+    </p>
+
+
+    <h3>
+        What is eCPM?
+    </h3>
+
+
+    <p>
+        eCPM stands for Effective Cost Per Mille. It is
+        commonly used to normalize advertising revenue
+        against impressions and determine how much revenue
+        is generated per 1,000 impressions.
+    </p>
+
+
+    <h3>
+        CPM vs eCPM
+    </h3>
+
+
+    <p>
+        CPM generally describes the cost of advertising
+        inventory from the advertiser's perspective, while
+        eCPM can be used to measure effective revenue or
+        monetization performance from the publisher's
+        perspective.
+    </p>
+
+
+    <h3>
+        Why CPM and eCPM Matter to Publishers
+    </h3>
+
+
+    <ul>
+
+        <li>
+            Compare advertising performance across demand sources.
+        </li>
+
+        <li>
+            Understand revenue generated from impressions.
+        </li>
+
+        <li>
+            Compare different ad formats.
+        </li>
+
+        <li>
+            Analyze publisher monetization performance.
+        </li>
+
+        <li>
+            Evaluate changes in advertising demand.
+        </li>
+
+    </ul>
+
+
+    <h3>
+        Who Can Use This Calculator?
+    </h3>
+
+
+    <p>
+        The PubsRate CPM & eCPM Calculator is designed for
+        publishers, AdOps professionals, advertising
+        operations teams, developers, media companies and
+        advertisers working with digital advertising
+        inventory.
+    </p>
+
+</section>
+
+
+</main>
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+    © 2026 PubsRate. All rights reserved.
+
+</footer>
+
+
+<!-- =========================
+     JAVASCRIPT
+========================= -->
+
+<script>
+
+    let currentMode = "revenue";
+
+
+    function setMode(mode) {
+
+        currentMode = mode;
+
+
+        document
+            .querySelectorAll(".mode-button")
+            .forEach(button => {
+
+                button.classList.remove("active");
+
+            });
+
+
+        if (mode === "revenue") {
+
+            document
+                .getElementById("modeRevenue")
+                .classList.add("active");
+
+
+            document
+                .getElementById("amountHelp")
+                .textContent =
+                "Enter CPM.";
+
+        }
+
+
+        if (mode === "ecpm") {
+
+            document
+                .getElementById("modeEcpm")
+                .classList.add("active");
+
+
+            document
+                .getElementById("amountHelp")
+                .textContent =
+                "Enter advertising revenue.";
+
+        }
+
+
+        if (mode === "cpm") {
+
+            document
+                .getElementById("modeCpm")
+                .classList.add("active");
+
+
+            document
+                .getElementById("amountHelp")
+                .textContent =
+                "Enter advertising revenue.";
+
+        }
+
+
+        document
+            .getElementById("amount")
+            .value = "";
+
+
+        document
+            .getElementById("impressions")
+            .value = "";
+
+
+        document
+            .getElementById("result")
+            .style.display = "none";
+
+    }
+
+
+    function calculate() {
+
+        const amount =
+            parseFloat(
+                document
+                    .getElementById("amount")
+                    .value
+            );
+
+
+        const impressions =
+            parseFloat(
+                document
+                    .getElementById("impressions")
+                    .value
+            );
+
+
+        const currency =
+            document
+                .getElementById("currency")
+                .value;
+
+
+        if (
+            isNaN(amount) ||
+            amount < 0
+        ) {
+
+            alert(
+                "Please enter a valid CPM or revenue amount."
+            );
+
+            return;
+
+        }
+
+
+        if (
+            isNaN(impressions) ||
+            impressions <= 0
+        ) {
+
+            alert(
+                "Please enter a valid number of impressions greater than zero."
+            );
+
+            return;
+
+        }
+
+
+        let results = [];
+
+
+        /* =========================
+           CPM → REVENUE
+        ========================== */
+
+        if (currentMode === "revenue") {
+
+            const revenue =
+                (amount * impressions) / 1000;
+
+
+            results.push({
+                label: "CPM",
+                value:
+                    currency +
+                    formatNumber(amount)
+            });
+
+
+            results.push({
+                label: "Impressions",
+                value:
+                    formatNumber(impressions)
+            });
+
+
+            results.push({
+                label: "Estimated Revenue",
+                value:
+                    currency +
+                    formatNumber(revenue)
+            });
+
+        }
+
+
+        /* =========================
+           REVENUE → eCPM
+        ========================== */
+
+        if (currentMode === "ecpm") {
+
+            const ecpm =
+                (amount / impressions) * 1000;
+
+
+            results.push({
+                label: "Revenue",
+                value:
+                    currency +
+                    formatNumber(amount)
+            });
+
+
+            results.push({
+                label: "Impressions",
+                value:
+                    formatNumber(impressions)
+            });
+
+
+            results.push({
+                label: "eCPM",
+                value:
+                    currency +
+                    formatNumber(ecpm)
+            });
+
+        }
+
+
+        /* =========================
+           REVENUE → CPM
+        ========================== */
+
+        if (currentMode === "cpm") {
+
+            const cpm =
+                (amount / impressions) * 1000;
+
+
+            results.push({
+                label: "Revenue",
+                value:
+                    currency +
+                    formatNumber(amount)
+            });
+
+
+            results.push({
+                label: "Impressions",
+                value:
+                    formatNumber(impressions)
+            });
+
+
+            results.push({
+                label: "CPM",
+                value:
+                    currency +
+                    formatNumber(cpm)
+            });
+
+        }
+
+
+        displayResults(results);
+
+    }
+
+
+    function displayResults(results) {
+
+        const grid =
+            document
+                .getElementById("resultGrid");
+
+
+        grid.innerHTML = "";
+
+
+        results.forEach(result => {
+
+            const box =
+                document.createElement("div");
+
+
+            box.className =
+                "result-box";
+
+
+            box.innerHTML = `
+
+                <div class="result-label">
+                    ${result.label}
+                </div>
+
+                <div class="result-value">
+                    ${result.value}
+                </div>
+
+            `;
+
+
+            grid.appendChild(box);
+
+        });
+
+
+        document
+            .getElementById("result")
+            .style.display = "block";
+
+
+        document
+            .getElementById("result")
+            .scrollIntoView({
+                behavior: "smooth",
+                block: "nearest"
+            });
+
+    }
+
+
+    function formatNumber(number) {
+
+        return Number(number)
+            .toLocaleString(
+                "en-US",
+                {
+                    minimumFractionDigits: 2,
+                    maximumFractionDigits: 2
+                }
+            );
+
+    }
+
+
+    function copyResults() {
+
+        const resultText =
+            document
+                .getElementById("resultGrid")
+                .innerText;
+
+
+        navigator.clipboard
+            .writeText(resultText)
+            .then(() => {
+
+                const button =
+                    document.querySelector(
+                        ".copy-result"
+                    );
+
+
+                const original =
+                    button.textContent;
+
+
+                button.textContent =
+                    "✓ Copied!";
+
+
+                setTimeout(() => {
+
+                    button.textContent =
+                        original;
+
+                }, 1500);
+
+            })
+            .catch(() => {
+
+                alert(
+                    "Unable to copy automatically. Please copy the result manually."
+                );
+
+            });
+
+    }
+
+
+    function clearCalculator() {
+
+        document
+            .getElementById("amount")
+            .value = "";
+
+
+        document
+            .getElementById("impressions")
+            .value = "";
+
+
+        document
+            .getElementById("result")
+            .style.display = "none";
+
+    }
+
+</script>
+
+
+</body>
+
+</html>
