@@ -33,23 +33,19 @@
         content="width=device-width, initial-scale=1.0"
     >
 
-
     <title>
         Publisher Directory & CPM Rates | Indian & International Publishers | PubsRate
     </title>
 
-
     <meta
         name="description"
-        content="Explore the PubsRate publisher directory featuring Indian and international publishers, advertising platforms, CPM benchmarks, ad formats, content niches and publisher advertising information."
+        content="Explore the PubsRate publisher directory featuring Indian and international publishers, CPM benchmarks, ad formats, content niches and publisher advertising information."
     >
-
 
     <meta
         name="robots"
         content="index, follow"
     >
-
 
     <link
         rel="canonical"
@@ -66,24 +62,20 @@
         content="website"
     >
 
-
     <meta
         property="og:title"
         content="Publisher Directory & CPM Rates | PubsRate"
     >
-
 
     <meta
         property="og:description"
         content="Explore Indian and international publishers, advertising opportunities, CPM benchmarks, ad formats and publisher information."
     >
 
-
     <meta
         property="og:url"
         content="https://pubsrate.com/publishers/"
     >
-
 
     <meta
         property="og:site_name"
@@ -100,12 +92,10 @@
         content="summary"
     >
 
-
     <meta
         name="twitter:title"
         content="Publisher Directory & CPM Rates | PubsRate"
     >
-
 
     <meta
         name="twitter:description"
@@ -137,13 +127,10 @@
 
                 "publisher": {
                     "@type": "Organization",
-
                     "name": "PubsRate",
-
                     "url": "https://pubsrate.com/"
                 }
             },
-
 
             {
                 "@type": "CollectionPage",
@@ -190,7 +177,6 @@
                 ]
             },
 
-
             {
                 "@type": "ItemList",
 
@@ -209,7 +195,7 @@
 
 
     <!-- =========================
-         EXISTING STYLES
+         EXISTING CSS
     ========================== -->
 
     <link
@@ -217,6 +203,10 @@
         href="main.css"
     >
 
+
+    <!-- =========================
+         ADDITIONAL SEO / FILTER CSS
+    ========================== -->
 
     <style>
 
@@ -244,8 +234,7 @@
 
         .seo-intro h2 {
 
-            margin:
-                0 0 12px;
+            margin: 0 0 12px;
 
             font-size: 26px;
 
@@ -262,8 +251,37 @@
 
             font-size: 16px;
 
-            margin:
-                0 0 12px;
+            margin: 0 0 12px;
+
+        }
+
+
+        /* =========================
+           FILTER LABEL
+        ========================== */
+
+        .filter-group label {
+
+            display: block;
+
+            margin-bottom: 6px;
+
+            font-weight: 600;
+
+        }
+
+
+        /* =========================
+           DISABLED STATE FILTER
+        ========================== */
+
+        #stateFilter:disabled {
+
+            background: #f1f5f9;
+
+            color: #94a3b8;
+
+            cursor: not-allowed;
 
         }
 
@@ -292,8 +310,7 @@
 
         .seo-content h2 {
 
-            margin:
-                0 0 12px;
+            margin: 0 0 12px;
 
             font-size: 25px;
 
@@ -317,8 +334,7 @@
 
             font-size: 16px;
 
-            margin:
-                0 0 15px;
+            margin: 0 0 15px;
 
         }
 
@@ -415,13 +431,11 @@
 
             }
 
-
             .seo-content {
 
                 padding: 25px;
 
             }
-
 
             .related-resources {
 
@@ -438,10 +452,6 @@
 
 <body>
 
-
-<!-- =========================
-     MAIN
-========================= -->
 
 <div class="container">
 
@@ -467,7 +477,6 @@
                 Indian & International Publisher Directory
             </h1>
 
-
             <p class="subtitle">
                 Explore publishers, advertising opportunities,
                 CPM benchmarks, ad formats and media properties
@@ -477,9 +486,7 @@
         </div>
 
 
-        <!-- =========================
-             CURRENCY TOGGLE
-        ========================== -->
+        <!-- CURRENCY -->
 
         <div class="currency-toggle-wrapper">
 
@@ -510,21 +517,17 @@
             Publisher Directory
         </h2>
 
-
         <p>
             Search and explore the PubsRate directory of Indian
             and international publishers. Find publishers by
-            content niche, platform and advertising format,
-            including news, sports, finance, gaming, entertainment,
-            OTT and regional media.
+            country, state, content niche, platform and
+            advertising format.
         </p>
 
-
         <p>
-            The directory also provides advertising and CPM
-            benchmark information to help advertisers, media
-            buyers, publishers and AdOps professionals research
-            digital advertising opportunities.
+            The directory covers news, sports, finance, gaming,
+            entertainment, OTT, streaming, regional content and
+            other digital publishing categories.
         </p>
 
     </section>
@@ -538,18 +541,16 @@
     <div class="filter-bar">
 
 
+        <!-- SEARCH -->
+
         <div
             class="filter-group"
-            style="
-                flex:2;
-                min-width:250px;
-            "
+            style="flex:2; min-width:250px;"
         >
 
             <label for="searchBar">
                 Search Publisher
             </label>
-
 
             <input
                 type="text"
@@ -561,12 +562,76 @@
 
 
 
+        <!-- COUNTRY -->
+
+        <div class="filter-group">
+
+            <label for="countryFilter">
+                Country
+            </label>
+
+            <select id="countryFilter">
+
+                <option value="all">
+                    All Countries
+                </option>
+
+                <option value="India">
+                    India
+                </option>
+
+                <option value="USA">
+                    USA
+                </option>
+
+                <option value="UK">
+                    United Kingdom
+                </option>
+
+                <option value="Canada">
+                    Canada
+                </option>
+
+                <option value="Australia">
+                    Australia
+                </option>
+
+            </select>
+
+        </div>
+
+
+
+        <!-- STATE -->
+
+        <div class="filter-group">
+
+            <label for="stateFilter">
+                State / Region
+            </label>
+
+            <select
+                id="stateFilter"
+                disabled
+            >
+
+                <option value="all">
+                    Select Country First
+                </option>
+
+            </select>
+
+        </div>
+
+
+
+        <!-- NICHE -->
+
         <div class="filter-group">
 
             <label for="nicheFilter">
                 Content Niche
             </label>
-
 
             <select id="nicheFilter">
 
@@ -608,12 +673,13 @@
 
 
 
+        <!-- PLATFORM -->
+
         <div class="filter-group">
 
             <label for="platformFilter">
                 Platform
             </label>
-
 
             <select id="platformFilter">
 
@@ -651,12 +717,13 @@
 
 
 
+        <!-- AD FORMAT -->
+
         <div class="filter-group">
 
             <label for="formatFilter">
                 Ad Format
             </label>
-
 
             <select id="formatFilter">
 
@@ -694,6 +761,8 @@
 
 
 
+        <!-- EXPORT -->
+
         <button
             id="exportCsvBtn"
             class="export-btn"
@@ -714,7 +783,7 @@
 
 
     <!-- =========================
-         PUBLISHER DIRECTORY
+         DIRECTORY
     ========================== -->
 
     <section>
@@ -727,7 +796,6 @@
         >
             Publisher Directory
         </h2>
-
 
         <div
             class="grid"
@@ -749,15 +817,11 @@
             List of Publishers
         </h2>
 
-
         <p>
             PubsRate provides a searchable list of Indian and
             international publishers across news, sports,
             finance, entertainment, technology, gaming,
-            streaming and other digital content categories.
-            Use the publisher directory to discover media
-            properties and compare available advertising
-            information.
+            streaming and regional content categories.
         </p>
 
 
@@ -766,23 +830,19 @@
             Publisher CPM Rates
         </h2>
 
-
         <p>
-            CPM, or cost per thousand impressions, is one of
-            the common metrics used to understand digital
-            advertising pricing. Publisher CPM rates can vary
-            significantly depending on audience, geography,
+            CPM, or cost per thousand impressions, is a common
+            metric used in digital advertising. Publisher CPM
+            rates can vary depending on audience, geography,
             content category, device, ad format, seasonality,
             campaign objectives and advertising demand.
         </p>
 
-
         <p>
-            PubsRate provides directional CPM benchmarks and
-            advertising information to help users research
-            publisher media opportunities. These figures should
-            be treated as market reference points rather than
-            guaranteed campaign prices.
+            PubsRate provides directional CPM benchmarks to help
+            advertisers, media buyers and publishers research
+            digital advertising opportunities. Actual campaign
+            pricing may vary.
         </p>
 
 
@@ -791,29 +851,24 @@
             Indian Publishers
         </h2>
 
-
         <p>
-            The directory includes Indian publishers and media
-            properties covering news, sports, finance, regional
-            content, entertainment, gaming and other digital
-            categories. Publishers can be searched and filtered
-            using the available directory tools.
+            Explore Indian publishers and digital media
+            properties covering news, sports, finance,
+            entertainment, regional content, gaming and
+            streaming.
         </p>
 
 
 
         <h2>
-            Digital Publisher Advertising
+            Publisher Advertising
         </h2>
 
-
         <p>
-            Digital publishers monetize their audiences through
+            Digital publishers can monetize audiences through
             display advertising, video advertising, native ads,
             programmatic demand, direct campaigns, sponsorships
-            and other advertising formats. The PubsRate directory
-            helps advertisers and media buyers research publishers
-            and their advertising opportunities.
+            and other advertising formats.
         </p>
 
 
@@ -822,12 +877,11 @@
             Publisher Monetization
         </h2>
 
-
         <p>
-            Publisher monetization can depend on traffic volume,
-            audience quality, geographic distribution, viewability,
-            ad formats, demand sources, CPM, eCPM, fill rate and
-            competition in programmatic auctions.
+            Publisher monetization can depend on traffic,
+            audience quality, geography, viewability, ad formats,
+            demand sources, CPM, eCPM, fill rate and competition
+            in advertising auctions.
         </p>
 
 
@@ -836,17 +890,14 @@
             Explore Advertising and AdTech
         </h2>
 
-
         <p>
-            Learn more about digital advertising, programmatic
-            advertising, Google Ad Manager, header bidding,
-            publisher monetization and other advertising
-            technologies in the
+            Learn more about programmatic advertising, Google Ad
+            Manager, header bidding, CTV and publisher
+            monetization in the
             <a href="../advertising/">
                 PubsRate Advertising section
             </a>.
         </p>
-
 
 
         <p>
@@ -859,10 +910,7 @@
         </p>
 
 
-
-        <!-- =========================
-             RELATED RESOURCES
-        ========================== -->
+        <!-- RELATED -->
 
         <div class="related-resources">
 
@@ -873,13 +921,10 @@
                     📊 Advertising
                 </h3>
 
-
                 <p>
                     Explore programmatic advertising,
-                    Google Ad Manager, CTV and publisher
-                    monetization resources.
+                    publisher monetization and AdTech resources.
                 </p>
-
 
                 <a href="../advertising/">
                     Explore Advertising →
@@ -895,12 +940,10 @@
                     🛠️ AdTech Tools
                 </h3>
 
-
                 <p>
-                    Test VAST video advertising tags
-                    and web advertising implementations.
+                    Test VAST video advertising tags and web
+                    advertising implementations.
                 </p>
-
 
                 <a href="../tools/">
                     Explore Tools →
@@ -916,12 +959,10 @@
                     📚 Publisher Resources
                 </h3>
 
-
                 <p>
-                    Learn more about publisher advertising,
-                    monetization and digital media.
+                    Explore resources related to digital
+                    publishing and publisher monetization.
                 </p>
-
 
                 <a href="../advertising/">
                     Explore Resources →
@@ -933,7 +974,6 @@
         </div>
 
     </section>
-
 
 
 </div>
@@ -950,7 +990,6 @@
 >
 
     <div class="modal-content">
-
 
         <span
             class="close-modal"
@@ -973,6 +1012,8 @@
 
         <div class="modal-body">
 
+
+            <!-- CALCULATOR -->
 
             <div class="calculator-panel">
 
@@ -1054,12 +1095,13 @@
 
 
 
+            <!-- CHANNELS -->
+
             <div class="detail-section">
 
                 <h3>
                     📺 Channels / Sub-Networks Offered
                 </h3>
-
 
                 <ul
                     id="modalChannelsList"
@@ -1070,12 +1112,13 @@
 
 
 
+            <!-- SPORTS -->
+
             <div class="detail-section">
 
                 <h3>
                     ⚽ Sports Coverage / Key Content
                 </h3>
-
 
                 <ul
                     id="modalSportsList"
@@ -1084,10 +1127,11 @@
 
             </div>
 
-
         </div>
 
 
+
+        <!-- PORTAL -->
 
         <div class="modal-footer">
 
@@ -1103,7 +1147,6 @@
 
         </div>
 
-
     </div>
 
 </div>
@@ -1117,6 +1160,211 @@
 <script src="main.js"></script>
 
 <script src="app.js"></script>
+
+
+<!-- =========================
+     COUNTRY → STATE LOGIC
+========================= -->
+
+<script>
+
+    const countryFilter =
+        document.getElementById("countryFilter");
+
+    const stateFilter =
+        document.getElementById("stateFilter");
+
+
+    /*
+     * Country → State / Region list
+     */
+
+    const countryRegions = {
+
+        "India": [
+            "All States",
+            "Andhra Pradesh",
+            "Assam",
+            "Bihar",
+            "Chhattisgarh",
+            "Delhi",
+            "Goa",
+            "Gujarat",
+            "Haryana",
+            "Himachal Pradesh",
+            "Jharkhand",
+            "Karnataka",
+            "Kerala",
+            "Madhya Pradesh",
+            "Maharashtra",
+            "Manipur",
+            "Meghalaya",
+            "Mizoram",
+            "Nagaland",
+            "Odisha",
+            "Punjab",
+            "Rajasthan",
+            "Sikkim",
+            "Tamil Nadu",
+            "Telangana",
+            "Tripura",
+            "Uttar Pradesh",
+            "Uttarakhand",
+            "West Bengal",
+            "Jammu and Kashmir",
+            "Ladakh"
+        ],
+
+        "USA": [
+            "All States",
+            "California",
+            "Florida",
+            "Illinois",
+            "Massachusetts",
+            "New Jersey",
+            "New York",
+            "Texas",
+            "Washington",
+            "Other"
+        ],
+
+        "UK": [
+            "All Regions",
+            "England",
+            "Scotland",
+            "Wales",
+            "Northern Ireland"
+        ],
+
+        "Canada": [
+            "All Provinces",
+            "Alberta",
+            "British Columbia",
+            "Manitoba",
+            "New Brunswick",
+            "Newfoundland and Labrador",
+            "Nova Scotia",
+            "Ontario",
+            "Quebec",
+            "Saskatchewan"
+        ],
+
+        "Australia": [
+            "All States",
+            "New South Wales",
+            "Queensland",
+            "South Australia",
+            "Tasmania",
+            "Victoria",
+            "Western Australia",
+            "Australian Capital Territory",
+            "Northern Territory"
+        ]
+
+    };
+
+
+    /*
+     * When country changes
+     */
+
+    countryFilter.addEventListener(
+        "change",
+        function () {
+
+            const selectedCountry =
+                this.value;
+
+
+            /*
+             * Reset state dropdown
+             */
+
+            stateFilter.innerHTML = "";
+
+
+            /*
+             * No country selected
+             */
+
+            if (
+                selectedCountry === "all"
+            ) {
+
+                const option =
+                    document.createElement("option");
+
+                option.value = "all";
+
+                option.textContent =
+                    "Select Country First";
+
+                stateFilter.appendChild(option);
+
+                stateFilter.disabled = true;
+
+                return;
+            }
+
+
+            /*
+             * Enable state dropdown
+             */
+
+            stateFilter.disabled = false;
+
+
+            /*
+             * Get regions
+             */
+
+            const regions =
+                countryRegions[selectedCountry] || [];
+
+
+            /*
+             * Add regions
+             */
+
+            regions.forEach(
+                function (region, index) {
+
+                    const option =
+                        document.createElement("option");
+
+                    if (index === 0) {
+
+                        option.value = "all";
+
+                    } else {
+
+                        option.value = region;
+
+                    }
+
+                    option.textContent = region;
+
+                    stateFilter.appendChild(option);
+
+                }
+            );
+
+
+            /*
+             * IMPORTANT:
+             * Your main.js/app.js will need to use
+             * countryFilter.value and stateFilter.value
+             * when filtering publishers.
+             */
+
+            stateFilter.dispatchEvent(
+                new Event("change")
+            );
+
+        }
+    );
+
+</script>
 
 
 </body>
