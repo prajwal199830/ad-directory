@@ -1,0 +1,1571 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <!-- =========================
+         GOOGLE ANALYTICS
+    ========================== -->
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZK40W0H1B0"></script>
+
+    <script>
+
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+
+        gtag('config', 'G-ZK40W0H1B0');
+
+    </script>
+
+
+    <!-- =========================
+         SEO
+    ========================== -->
+
+    <title>
+        Ad Impression Calculator | PubsRate
+    </title>
+
+    <meta
+        name="description"
+        content="Free Ad Impression Calculator to estimate daily, monthly and yearly ad impressions based on traffic, pages per session and ads per page."
+    >
+
+    <meta
+        name="robots"
+        content="index, follow"
+    >
+
+    <link
+        rel="canonical"
+        href="https://pubsrate.com/tools/ad-impression-calculator.html"
+    >
+
+
+    <!-- =========================
+         OPEN GRAPH
+    ========================== -->
+
+    <meta
+        property="og:type"
+        content="website"
+    >
+
+    <meta
+        property="og:title"
+        content="Ad Impression Calculator | PubsRate"
+    >
+
+    <meta
+        property="og:description"
+        content="Calculate estimated daily, monthly and yearly advertising impressions based on website traffic and ad placements."
+    >
+
+    <meta
+        property="og:url"
+        content="https://pubsrate.com/tools/ad-impression-calculator.html"
+    >
+
+    <meta
+        property="og:site_name"
+        content="PubsRate"
+    >
+
+
+    <!-- =========================
+         TWITTER / X
+    ========================== -->
+
+    <meta
+        name="twitter:card"
+        content="summary"
+    >
+
+    <meta
+        name="twitter:title"
+        content="Ad Impression Calculator | PubsRate"
+    >
+
+    <meta
+        name="twitter:description"
+        content="Estimate website ad impressions and potential advertising revenue with the PubsRate Ad Impression Calculator."
+    >
+
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+
+        body {
+
+            margin: 0;
+
+            font-family:
+                Arial,
+                Helvetica,
+                sans-serif;
+
+            background: #f5f7fb;
+
+            color: #1f2937;
+
+        }
+
+
+        /* =========================
+           HEADER
+        ========================== */
+
+        header {
+
+            background: #111827;
+
+            color: white;
+
+            padding: 18px 20px;
+
+        }
+
+
+        .header-container {
+
+            max-width: 1150px;
+
+            margin: auto;
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+        }
+
+
+        .logo {
+
+            font-size: 27px;
+
+            font-weight: bold;
+
+            text-decoration: none;
+
+            color: white;
+
+        }
+
+
+        .logo span {
+
+            color: #38bdf8;
+
+        }
+
+
+        nav a {
+
+            color: white;
+
+            text-decoration: none;
+
+            margin-left: 25px;
+
+            font-size: 15px;
+
+        }
+
+
+        nav a:hover {
+
+            color: #38bdf8;
+
+        }
+
+
+        /* =========================
+           MAIN
+        ========================== */
+
+        .container {
+
+            max-width: 1000px;
+
+            margin: auto;
+
+            padding: 40px 20px;
+
+        }
+
+
+        /* =========================
+           HERO
+        ========================== */
+
+        .hero {
+
+            text-align: center;
+
+            margin-bottom: 30px;
+
+        }
+
+
+        .badge {
+
+            display: inline-block;
+
+            background: #e0f2fe;
+
+            color: #0369a1;
+
+            padding: 8px 14px;
+
+            border-radius: 20px;
+
+            font-size: 13px;
+
+            font-weight: bold;
+
+            margin-bottom: 15px;
+
+        }
+
+
+        .hero h1 {
+
+            font-size: 40px;
+
+            margin:
+
+                0 0 15px;
+
+            color: #111827;
+
+        }
+
+
+        .hero p {
+
+            max-width: 760px;
+
+            margin: auto;
+
+            color: #64748b;
+
+            line-height: 1.7;
+
+            font-size: 17px;
+
+        }
+
+
+        /* =========================
+           TOOL CARD
+        ========================== */
+
+        .tool-card {
+
+            background: white;
+
+            border-radius: 18px;
+
+            padding: 35px;
+
+            box-shadow:
+                0 5px 20px rgba(0,0,0,0.07);
+
+        }
+
+
+        .tool-card h2 {
+
+            margin-top: 0;
+
+            font-size: 25px;
+
+        }
+
+
+        .tool-description {
+
+            color: #64748b;
+
+            line-height: 1.6;
+
+            margin-bottom: 30px;
+
+        }
+
+
+        /* =========================
+           FORM
+        ========================== */
+
+        .form-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap: 20px;
+
+        }
+
+
+        .form-group {
+
+            display: flex;
+
+            flex-direction: column;
+
+        }
+
+
+        .form-group.full {
+
+            grid-column: 1 / -1;
+
+        }
+
+
+        label {
+
+            font-weight: bold;
+
+            margin-bottom: 8px;
+
+            font-size: 14px;
+
+        }
+
+
+        input,
+        select {
+
+            width: 100%;
+
+            padding: 13px;
+
+            border: 1px solid #cbd5e1;
+
+            border-radius: 8px;
+
+            font-size: 16px;
+
+            outline: none;
+
+            background: white;
+
+        }
+
+
+        input:focus,
+        select:focus {
+
+            border-color: #2563eb;
+
+        }
+
+
+        .input-help {
+
+            color: #94a3b8;
+
+            font-size: 12px;
+
+            margin-top: 5px;
+
+        }
+
+
+        /* =========================
+           BUTTON
+        ========================== */
+
+        .calculate-button {
+
+            width: 100%;
+
+            margin-top: 25px;
+
+            padding: 15px;
+
+            border: none;
+
+            border-radius: 9px;
+
+            background: #2563eb;
+
+            color: white;
+
+            font-size: 17px;
+
+            font-weight: bold;
+
+            cursor: pointer;
+
+        }
+
+
+        .calculate-button:hover {
+
+            background: #1d4ed8;
+
+        }
+
+
+        /* =========================
+           RESULTS
+        ========================== */
+
+        .results {
+
+            display: none;
+
+            margin-top: 35px;
+
+        }
+
+
+        .results h2 {
+
+            font-size: 25px;
+
+            margin-bottom: 20px;
+
+        }
+
+
+        .result-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 15px;
+
+        }
+
+
+        .result-card {
+
+            background: #f8fafc;
+
+            border: 1px solid #e2e8f0;
+
+            border-radius: 12px;
+
+            padding: 20px;
+
+        }
+
+
+        .result-card span {
+
+            display: block;
+
+            color: #64748b;
+
+            font-size: 13px;
+
+            margin-bottom: 8px;
+
+        }
+
+
+        .result-card strong {
+
+            font-size: 23px;
+
+            color: #111827;
+
+        }
+
+
+        /* =========================
+           REVENUE SECTION
+        ========================== */
+
+        .revenue-box {
+
+            margin-top: 25px;
+
+            padding: 25px;
+
+            background: #f8fafc;
+
+            border: 1px solid #e2e8f0;
+
+            border-radius: 12px;
+
+        }
+
+
+        .revenue-box h3 {
+
+            margin-top: 0;
+
+        }
+
+
+        .revenue-row {
+
+            display: flex;
+
+            justify-content: space-between;
+
+            padding: 12px 0;
+
+            border-bottom: 1px solid #e2e8f0;
+
+        }
+
+
+        .revenue-row:last-child {
+
+            border-bottom: none;
+
+        }
+
+
+        .revenue-row strong {
+
+            font-size: 17px;
+
+        }
+
+
+        .highlight {
+
+            margin-top: 20px;
+
+            padding: 18px;
+
+            background: #eff6ff;
+
+            border: 1px solid #bfdbfe;
+
+            border-radius: 10px;
+
+            color: #1e40af;
+
+            line-height: 1.6;
+
+        }
+
+
+        /* =========================
+           SEO CONTENT
+        ========================== */
+
+        .seo-content {
+
+            margin-top: 45px;
+
+            background: white;
+
+            padding: 35px;
+
+            border-radius: 16px;
+
+            box-shadow:
+                0 4px 15px rgba(0,0,0,0.05);
+
+        }
+
+
+        .seo-content h2 {
+
+            margin-top: 0;
+
+            color: #111827;
+
+        }
+
+
+        .seo-content h2:not(:first-child) {
+
+            margin-top: 30px;
+
+        }
+
+
+        .seo-content p {
+
+            color: #64748b;
+
+            line-height: 1.8;
+
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================== */
+
+        footer {
+
+            text-align: center;
+
+            padding: 40px 20px;
+
+            color: #64748b;
+
+        }
+
+
+        footer a {
+
+            color: #2563eb;
+
+            text-decoration: none;
+
+        }
+
+
+        /* =========================
+           MOBILE
+        ========================== */
+
+        @media (max-width: 750px) {
+
+            .header-container {
+
+                flex-direction: column;
+
+                gap: 15px;
+
+            }
+
+
+            nav a {
+
+                margin:
+                    0 7px;
+
+            }
+
+
+            .hero h1 {
+
+                font-size: 31px;
+
+            }
+
+
+            .tool-card {
+
+                padding: 25px;
+
+            }
+
+
+            .form-grid {
+
+                grid-template-columns: 1fr;
+
+            }
+
+
+            .form-group.full {
+
+                grid-column: auto;
+
+            }
+
+
+            .result-grid {
+
+                grid-template-columns: 1fr;
+
+            }
+
+
+            .revenue-row {
+
+                flex-direction: column;
+
+                gap: 5px;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     HEADER
+========================= -->
+
+<header>
+
+    <div class="header-container">
+
+        <a
+            href="../index.html"
+            class="logo">
+
+            Pubs<span>Rate</span>
+
+        </a>
+
+
+        <nav>
+
+            <a href="../index.html">
+                Home
+            </a>
+
+            <a href="../publishers/">
+                Publishers
+            </a>
+
+            <a href="../advertising/">
+                Advertising
+            </a>
+
+            <a href="index.html">
+                Tools
+            </a>
+
+        </nav>
+
+    </div>
+
+</header>
+
+
+
+<main class="container">
+
+
+<!-- =========================
+     HERO
+========================= -->
+
+<section class="hero">
+
+    <div class="badge">
+        📊 PubsRate AdTech Tool
+    </div>
+
+
+    <h1>
+        Ad Impression Calculator
+    </h1>
+
+
+    <p>
+        Calculate estimated daily, monthly and yearly
+        advertising impressions based on your website
+        traffic, pages per session and ads displayed per page.
+    </p>
+
+</section>
+
+
+
+<!-- =========================
+     TOOL
+========================= -->
+
+<section class="tool-card">
+
+    <h2>
+        Calculate Your Ad Impressions
+    </h2>
+
+
+    <p class="tool-description">
+
+        Enter your website traffic and advertising setup
+        to estimate the number of ad impressions your
+        website can generate.
+
+    </p>
+
+
+    <div class="form-grid">
+
+
+        <!-- DAILY USERS -->
+
+        <div class="form-group">
+
+            <label for="dailyUsers">
+                Daily Visitors / Users
+            </label>
+
+            <input
+                type="number"
+                id="dailyUsers"
+                value="10000"
+                min="0"
+                placeholder="Example: 10000"
+            >
+
+            <div class="input-help">
+                Average number of users visiting your website each day.
+            </div>
+
+        </div>
+
+
+
+        <!-- PAGES PER SESSION -->
+
+        <div class="form-group">
+
+            <label for="pagesPerSession">
+                Pages Per Session
+            </label>
+
+            <input
+                type="number"
+                id="pagesPerSession"
+                value="2.5"
+                min="0"
+                step="0.1"
+                placeholder="Example: 2.5"
+            >
+
+            <div class="input-help">
+                Average number of pages viewed by each user.
+            </div>
+
+        </div>
+
+
+
+        <!-- ADS PER PAGE -->
+
+        <div class="form-group">
+
+            <label for="adsPerPage">
+                Ads Per Page
+            </label>
+
+            <input
+                type="number"
+                id="adsPerPage"
+                value="3"
+                min="0"
+                step="1"
+                placeholder="Example: 3"
+            >
+
+            <div class="input-help">
+                Average number of advertising placements per page.
+            </div>
+
+        </div>
+
+
+
+        <!-- FILL RATE -->
+
+        <div class="form-group">
+
+            <label for="fillRate">
+                Estimated Fill Rate (%)
+            </label>
+
+            <input
+                type="number"
+                id="fillRate"
+                value="85"
+                min="0"
+                max="100"
+                step="0.1"
+                placeholder="Example: 85"
+            >
+
+            <div class="input-help">
+                Percentage of ad opportunities that receive an ad.
+            </div>
+
+        </div>
+
+
+
+        <!-- CPM -->
+
+        <div class="form-group full">
+
+            <label for="cpm">
+                Average CPM ($)
+            </label>
+
+            <input
+                type="number"
+                id="cpm"
+                value="2.50"
+                min="0"
+                step="0.01"
+                placeholder="Example: 2.50"
+            >
+
+            <div class="input-help">
+                Optional: average revenue earned per 1,000 ad impressions.
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+    <button
+        class="calculate-button"
+        onclick="calculateImpressions()">
+
+        Calculate Ad Impressions
+
+    </button>
+
+
+
+    <!-- =========================
+         RESULTS
+    ========================== -->
+
+    <div
+        class="results"
+        id="results">
+
+        <h2>
+            Estimated Results
+        </h2>
+
+
+        <div class="result-grid">
+
+
+            <div class="result-card">
+
+                <span>
+                    Daily Page Views
+                </span>
+
+                <strong id="dailyPageViews">
+                    0
+                </strong>
+
+            </div>
+
+
+
+            <div class="result-card">
+
+                <span>
+                    Daily Ad Opportunities
+                </span>
+
+                <strong id="dailyOpportunities">
+                    0
+                </strong>
+
+            </div>
+
+
+
+            <div class="result-card">
+
+                <span>
+                    Daily Ad Impressions
+                </span>
+
+                <strong id="dailyImpressions">
+                    0
+                </strong>
+
+            </div>
+
+
+
+            <div class="result-card">
+
+                <span>
+                    Monthly Ad Impressions
+                </span>
+
+                <strong id="monthlyImpressions">
+                    0
+                </strong>
+
+            </div>
+
+
+
+            <div class="result-card">
+
+                <span>
+                    Yearly Ad Impressions
+                </span>
+
+                <strong id="yearlyImpressions">
+                    0
+                </strong>
+
+            </div>
+
+
+
+            <div class="result-card">
+
+                <span>
+                    Estimated Monthly Revenue
+                </span>
+
+                <strong id="monthlyRevenue">
+                    $0
+                </strong>
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- =========================
+             REVENUE
+        ========================== -->
+
+        <div class="revenue-box">
+
+            <h3>
+                Advertising Estimate
+            </h3>
+
+
+            <div class="revenue-row">
+
+                <span>
+                    Daily Ad Impressions
+                </span>
+
+                <strong id="revenueDailyImpressions">
+                    0
+                </strong>
+
+            </div>
+
+
+            <div class="revenue-row">
+
+                <span>
+                    Monthly Ad Impressions
+                </span>
+
+                <strong id="revenueMonthlyImpressions">
+                    0
+                </strong>
+
+            </div>
+
+
+            <div class="revenue-row">
+
+                <span>
+                    Yearly Ad Impressions
+                </span>
+
+                <strong id="revenueYearlyImpressions">
+                    0
+                </strong>
+
+            </div>
+
+
+            <div class="revenue-row">
+
+                <span>
+                    Average CPM
+                </span>
+
+                <strong id="revenueCPM">
+                    $0
+                </strong>
+
+            </div>
+
+
+            <div class="revenue-row">
+
+                <span>
+                    Estimated Monthly Revenue
+                </span>
+
+                <strong id="revenueMonthly">
+                    $0
+                </strong>
+
+            </div>
+
+
+            <div class="revenue-row">
+
+                <span>
+                    Estimated Yearly Revenue
+                </span>
+
+                <strong id="revenueYearly">
+                    $0
+                </strong>
+
+            </div>
+
+
+            <div class="highlight">
+
+                Your website could generate approximately
+
+                <strong id="highlightImpressions">
+                    0
+                </strong>
+
+                ad impressions per month based on the
+                information provided.
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     SEO CONTENT
+========================= -->
+
+<section class="seo-content">
+
+    <h2>
+        What Are Ad Impressions?
+    </h2>
+
+    <p>
+
+        An ad impression generally represents an instance
+        where an advertisement is served or displayed to a
+        user. Publishers use ad impressions to measure the
+        volume of advertising inventory generated by their
+        websites, applications and other digital properties.
+
+    </p>
+
+
+    <h2>
+        How Are Ad Impressions Calculated?
+    </h2>
+
+    <p>
+
+        Estimated ad impressions can be calculated by
+        multiplying page views by the number of advertising
+        placements available on each page. Fill rate can
+        then be applied to estimate how many of those
+        opportunities actually result in served ads.
+
+    </p>
+
+
+    <h2>
+        Example Ad Impression Calculation
+    </h2>
+
+    <p>
+
+        If a website receives 10,000 visitors per day,
+        each visitor views 2.5 pages and each page contains
+        3 advertising placements, the website has approximately
+        75,000 daily ad opportunities before applying fill rate.
+
+    </p>
+
+
+    <h2>
+        Why Fill Rate Matters
+    </h2>
+
+    <p>
+
+        Not every advertising opportunity necessarily
+        results in a served advertisement. Fill rate represents
+        the percentage of available ad opportunities that are
+        successfully filled with advertising demand.
+
+    </p>
+
+
+    <h2>
+        Ad Impressions and Publisher Revenue
+    </h2>
+
+    <p>
+
+        Ad impressions are one of the factors used when
+        evaluating advertising revenue. Revenue can also
+        depend on CPM, geography, audience quality, ad format,
+        viewability, demand competition, device type and
+        advertiser demand.
+
+    </p>
+
+
+    <h2>
+        Important Note
+    </h2>
+
+    <p>
+
+        This calculator provides an estimate rather than a
+        guaranteed advertising forecast. Actual impression
+        volume and revenue may vary depending on website
+        traffic patterns, ad refresh settings, lazy loading,
+        ad blockers, viewability, demand availability and
+        other factors.
+
+    </p>
+
+</section>
+
+
+</main>
+
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+    © 2026 PubsRate.
+    All rights reserved.
+
+    <br><br>
+
+    <a href="../index.html">
+        PubsRate
+    </a>
+
+</footer>
+
+
+
+<script>
+
+    function formatNumber(value) {
+
+        return Math.round(value).toLocaleString(
+            "en-US"
+        );
+
+    }
+
+
+    function formatCurrency(value) {
+
+        return "$" + value.toLocaleString(
+            "en-US",
+            {
+                minimumFractionDigits: 2,
+                maximumFractionDigits: 2
+            }
+        );
+
+    }
+
+
+    function calculateImpressions() {
+
+        const dailyUsers =
+            parseFloat(
+                document.getElementById(
+                    "dailyUsers"
+                ).value
+            ) || 0;
+
+
+        const pagesPerSession =
+            parseFloat(
+                document.getElementById(
+                    "pagesPerSession"
+                ).value
+            ) || 0;
+
+
+        const adsPerPage =
+            parseFloat(
+                document.getElementById(
+                    "adsPerPage"
+                ).value
+            ) || 0;
+
+
+        const fillRate =
+            parseFloat(
+                document.getElementById(
+                    "fillRate"
+                ).value
+            ) || 0;
+
+
+        const cpm =
+            parseFloat(
+                document.getElementById(
+                    "cpm"
+                ).value
+            ) || 0;
+
+
+        if (fillRate > 100) {
+
+            alert(
+                "Fill rate cannot be greater than 100%."
+            );
+
+            return;
+
+        }
+
+
+        if (
+            dailyUsers < 0 ||
+            pagesPerSession < 0 ||
+            adsPerPage < 0 ||
+            fillRate < 0 ||
+            cpm < 0
+        ) {
+
+            alert(
+                "Please enter valid values."
+            );
+
+            return;
+
+        }
+
+
+        /*
+         * Daily page views
+         */
+
+        const dailyPageViews =
+            dailyUsers *
+            pagesPerSession;
+
+
+        /*
+         * Daily advertising opportunities
+         */
+
+        const dailyOpportunities =
+            dailyPageViews *
+            adsPerPage;
+
+
+        /*
+         * Actual estimated served impressions
+         */
+
+        const dailyImpressions =
+            dailyOpportunities *
+            (fillRate / 100);
+
+
+        /*
+         * Monthly impressions
+         */
+
+        const monthlyImpressions =
+            dailyImpressions *
+            30;
+
+
+        /*
+         * Yearly impressions
+         */
+
+        const yearlyImpressions =
+            dailyImpressions *
+            365;
+
+
+        /*
+         * Estimated revenue
+         */
+
+        const monthlyRevenue =
+            (
+                monthlyImpressions /
+                1000
+            ) * cpm;
+
+
+        const yearlyRevenue =
+            (
+                yearlyImpressions /
+                1000
+            ) * cpm;
+
+
+        /*
+         * Display results
+         */
+
+        document.getElementById(
+            "dailyPageViews"
+        ).textContent =
+            formatNumber(
+                dailyPageViews
+            );
+
+
+        document.getElementById(
+            "dailyOpportunities"
+        ).textContent =
+            formatNumber(
+                dailyOpportunities
+            );
+
+
+        document.getElementById(
+            "dailyImpressions"
+        ).textContent =
+            formatNumber(
+                dailyImpressions
+            );
+
+
+        document.getElementById(
+            "monthlyImpressions"
+        ).textContent =
+            formatNumber(
+                monthlyImpressions
+            );
+
+
+        document.getElementById(
+            "yearlyImpressions"
+        ).textContent =
+            formatNumber(
+                yearlyImpressions
+            );
+
+
+        document.getElementById(
+            "monthlyRevenue"
+        ).textContent =
+            formatCurrency(
+                monthlyRevenue
+            );
+
+
+        document.getElementById(
+            "revenueDailyImpressions"
+        ).textContent =
+            formatNumber(
+                dailyImpressions
+            );
+
+
+        document.getElementById(
+            "revenueMonthlyImpressions"
+        ).textContent =
+            formatNumber(
+                monthlyImpressions
+            );
+
+
+        document.getElementById(
+            "revenueYearlyImpressions"
+        ).textContent =
+            formatNumber(
+                yearlyImpressions
+            );
+
+
+        document.getElementById(
+            "revenueCPM"
+        ).textContent =
+            formatCurrency(
+                cpm
+            );
+
+
+        document.getElementById(
+            "revenueMonthly"
+        ).textContent =
+            formatCurrency(
+                monthlyRevenue
+            );
+
+
+        document.getElementById(
+            "revenueYearly"
+        ).textContent =
+            formatCurrency(
+                yearlyRevenue
+            );
+
+
+        document.getElementById(
+            "highlightImpressions"
+        ).textContent =
+            formatNumber(
+                monthlyImpressions
+            );
+
+
+        document.getElementById(
+            "results"
+        ).style.display =
+            "block";
+
+    }
+
+
+    /*
+     * Calculate default values
+     * when the page loads.
+     */
+
+    window.addEventListener(
+        "load",
+        calculateImpressions
+    );
+
+</script>
+
+
+</body>
+
+</html>
