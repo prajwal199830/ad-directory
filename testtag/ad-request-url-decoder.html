@@ -1,0 +1,1700 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <!-- =========================
+         GOOGLE ANALYTICS
+    ========================== -->
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZK40W0H1B0"></script>
+
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+
+        gtag('config', 'G-ZK40W0H1B0');
+    </script>
+
+
+    <!-- =========================
+         SEO
+    ========================== -->
+
+    <title>
+        Ad Request URL Decoder | PubsRate AdTech Tools
+    </title>
+
+    <meta
+        name="description"
+        content="Free Ad Request URL Decoder for decoding and analyzing advertising request URLs, parameters, values and tracking information."
+    >
+
+    <meta
+        name="robots"
+        content="index, follow"
+    >
+
+    <link
+        rel="canonical"
+        href="https://pubsrate.com/tools/ad-request-url-decoder.html"
+    >
+
+
+    <!-- =========================
+         OPEN GRAPH
+    ========================== -->
+
+    <meta
+        property="og:type"
+        content="website"
+    >
+
+    <meta
+        property="og:title"
+        content="Ad Request URL Decoder | PubsRate"
+    >
+
+    <meta
+        property="og:description"
+        content="Decode and analyze advertising request URLs and their parameters with PubsRate's free AdTech tool."
+    >
+
+    <meta
+        property="og:url"
+        content="https://pubsrate.com/tools/ad-request-url-decoder.html"
+    >
+
+    <meta
+        property="og:site_name"
+        content="PubsRate"
+    >
+
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+
+        body {
+            margin: 0;
+
+            font-family:
+                Arial,
+                Helvetica,
+                sans-serif;
+
+            background: #f5f7fb;
+
+            color: #1f2937;
+        }
+
+
+        /* =========================
+           HEADER
+        ========================== */
+
+        header {
+            background: #111827;
+
+            color: white;
+
+            padding: 18px 20px;
+        }
+
+
+        .header-container {
+            max-width: 1150px;
+
+            margin: auto;
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+        }
+
+
+        .logo {
+            font-size: 27px;
+
+            font-weight: bold;
+
+            color: white;
+
+            text-decoration: none;
+        }
+
+
+        .logo span {
+            color: #38bdf8;
+        }
+
+
+        nav a {
+            color: white;
+
+            text-decoration: none;
+
+            margin-left: 25px;
+
+            font-size: 15px;
+        }
+
+
+        nav a:hover {
+            color: #38bdf8;
+        }
+
+
+        /* =========================
+           MAIN
+        ========================== */
+
+        .container {
+            max-width: 1150px;
+
+            margin: auto;
+
+            padding: 40px 20px;
+        }
+
+
+        /* =========================
+           HERO
+        ========================== */
+
+        .hero {
+            background: white;
+
+            padding: 40px;
+
+            border-radius: 18px;
+
+            box-shadow:
+                0 4px 15px rgba(0,0,0,0.07);
+
+            margin-bottom: 30px;
+        }
+
+
+        .badge {
+            display: inline-block;
+
+            background: #e0f2fe;
+
+            color: #0369a1;
+
+            padding:
+                7px 13px;
+
+            border-radius: 20px;
+
+            font-size: 13px;
+
+            font-weight: bold;
+
+            margin-bottom: 15px;
+        }
+
+
+        .hero h1 {
+            margin:
+                0 0 15px;
+
+            font-size: 40px;
+        }
+
+
+        .hero p {
+            max-width: 850px;
+
+            color: #64748b;
+
+            line-height: 1.7;
+
+            font-size: 17px;
+        }
+
+
+        /* =========================
+           TOOL CARD
+        ========================== */
+
+        .tool-card {
+            background: white;
+
+            padding: 30px;
+
+            border-radius: 16px;
+
+            box-shadow:
+                0 4px 15px rgba(0,0,0,0.06);
+
+            margin-bottom: 30px;
+        }
+
+
+        .tool-card h2 {
+            margin-top: 0;
+
+            font-size: 25px;
+        }
+
+
+        textarea {
+            width: 100%;
+
+            min-height: 180px;
+
+            padding: 16px;
+
+            border:
+                1px solid #cbd5e1;
+
+            border-radius: 10px;
+
+            font-family:
+                Consolas,
+                Monaco,
+                monospace;
+
+            font-size: 14px;
+
+            line-height: 1.6;
+
+            resize: vertical;
+
+            outline: none;
+        }
+
+
+        textarea:focus {
+            border-color: #2563eb;
+
+            box-shadow:
+                0 0 0 3px
+                rgba(37,99,235,0.10);
+        }
+
+
+        /* =========================
+           BUTTONS
+        ========================== */
+
+        .buttons {
+            display: flex;
+
+            gap: 12px;
+
+            flex-wrap: wrap;
+
+            margin-top: 15px;
+        }
+
+
+        button {
+            border: none;
+
+            cursor: pointer;
+
+            padding:
+                12px 20px;
+
+            border-radius: 8px;
+
+            font-size: 15px;
+
+            font-weight: bold;
+        }
+
+
+        .decode-btn {
+            background: #2563eb;
+
+            color: white;
+        }
+
+
+        .decode-btn:hover {
+            background: #1d4ed8;
+        }
+
+
+        .example-btn {
+            background: #e2e8f0;
+
+            color: #1e293b;
+        }
+
+
+        .example-btn:hover {
+            background: #cbd5e1;
+        }
+
+
+        .clear-btn {
+            background: #fee2e2;
+
+            color: #991b1b;
+        }
+
+
+        .clear-btn:hover {
+            background: #fecaca;
+        }
+
+
+        /* =========================
+           RESULT
+        ========================== */
+
+        .result {
+            display: none;
+
+            margin-top: 25px;
+        }
+
+
+        .result.visible {
+            display: block;
+        }
+
+
+        .result-header {
+            background: #ecfdf5;
+
+            border:
+                1px solid #86efac;
+
+            border-radius: 12px;
+
+            padding: 20px;
+
+            margin-bottom: 20px;
+        }
+
+
+        .result-header h3 {
+            margin:
+                0 0 8px;
+
+            font-size: 21px;
+        }
+
+
+        .result-header p {
+            margin: 0;
+
+            color: #475569;
+        }
+
+
+        /* =========================
+           URL SUMMARY
+        ========================== */
+
+        .url-summary {
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 15px;
+
+            margin-bottom: 20px;
+        }
+
+
+        .summary-card {
+            background: #f8fafc;
+
+            border:
+                1px solid #e2e8f0;
+
+            border-radius: 10px;
+
+            padding: 18px;
+
+            text-align: center;
+        }
+
+
+        .summary-number {
+            font-size: 27px;
+
+            font-weight: bold;
+
+            color: #2563eb;
+        }
+
+
+        .summary-label {
+            font-size: 13px;
+
+            color: #64748b;
+
+            margin-top: 5px;
+        }
+
+
+        /* =========================
+           BASE URL
+        ========================== */
+
+        .base-url {
+            background: #f8fafc;
+
+            border:
+                1px solid #e2e8f0;
+
+            padding: 18px;
+
+            border-radius: 10px;
+
+            margin-bottom: 20px;
+        }
+
+
+        .base-url strong {
+            display: block;
+
+            margin-bottom: 8px;
+        }
+
+
+        .base-url code {
+            display: block;
+
+            word-break: break-all;
+
+            color: #334155;
+
+            line-height: 1.6;
+        }
+
+
+        /* =========================
+           PARAMETERS
+        ========================== */
+
+        .parameter-table-wrapper {
+            overflow-x: auto;
+
+            border:
+                1px solid #e2e8f0;
+
+            border-radius: 10px;
+        }
+
+
+        table {
+            width: 100%;
+
+            border-collapse: collapse;
+
+            min-width: 650px;
+        }
+
+
+        th {
+            background: #111827;
+
+            color: white;
+
+            text-align: left;
+
+            padding: 13px;
+
+            font-size: 14px;
+        }
+
+
+        td {
+            padding: 13px;
+
+            border-bottom:
+                1px solid #e2e8f0;
+
+            vertical-align: top;
+
+            font-size: 14px;
+        }
+
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+
+        td:first-child {
+            font-weight: bold;
+
+            color: #2563eb;
+
+            width: 25%;
+        }
+
+
+        td:nth-child(2) {
+            color: #475569;
+
+            word-break: break-word;
+        }
+
+
+        td:nth-child(3) {
+            color: #1f2937;
+
+            word-break: break-word;
+        }
+
+
+        /* =========================
+           HIGHLIGHTS
+        ========================== */
+
+        .highlight-section {
+            margin-top: 25px;
+        }
+
+
+        .highlight-section h3 {
+            font-size: 20px;
+
+            margin-bottom: 12px;
+        }
+
+
+        .highlight-list {
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap: 12px;
+        }
+
+
+        .highlight-card {
+            background: #f8fafc;
+
+            border:
+                1px solid #e2e8f0;
+
+            border-radius: 10px;
+
+            padding: 15px;
+        }
+
+
+        .highlight-card strong {
+            display: block;
+
+            color: #2563eb;
+
+            margin-bottom: 5px;
+        }
+
+
+        .highlight-card span {
+            color: #64748b;
+
+            font-size: 14px;
+
+            word-break: break-word;
+
+            line-height: 1.5;
+        }
+
+
+        /* =========================
+           INFORMATION
+        ========================== */
+
+        .info-section {
+            background: white;
+
+            padding: 30px;
+
+            border-radius: 16px;
+
+            box-shadow:
+                0 4px 15px rgba(0,0,0,0.05);
+
+            margin-bottom: 30px;
+        }
+
+
+        .info-section h2 {
+            margin-top: 0;
+
+            font-size: 25px;
+        }
+
+
+        .info-section h3 {
+            margin-top: 25px;
+
+            font-size: 19px;
+        }
+
+
+        .info-section p {
+            color: #64748b;
+
+            line-height: 1.7;
+        }
+
+
+        .info-section ul {
+            color: #64748b;
+
+            line-height: 1.8;
+        }
+
+
+        code {
+            background: #f1f5f9;
+
+            padding:
+                2px 6px;
+
+            border-radius: 4px;
+
+            font-family: monospace;
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================== */
+
+        footer {
+            text-align: center;
+
+            padding: 45px 20px;
+
+            color: #64748b;
+        }
+
+
+        /* =========================
+           MOBILE
+        ========================== */
+
+        @media (max-width: 800px) {
+
+            .header-container {
+                flex-direction: column;
+
+                gap: 15px;
+            }
+
+
+            nav a {
+                margin:
+                    0 7px;
+
+                font-size: 14px;
+            }
+
+
+            .hero {
+                padding: 28px;
+            }
+
+
+            .hero h1 {
+                font-size: 32px;
+            }
+
+
+            .tool-card {
+                padding: 22px;
+            }
+
+
+            .url-summary {
+                grid-template-columns:
+                    1fr;
+            }
+
+
+            .highlight-list {
+                grid-template-columns:
+                    1fr;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     HEADER
+========================= -->
+
+<header>
+
+    <div class="header-container">
+
+        <a
+            href="../index.html"
+            class="logo"
+        >
+            Pubs<span>Rate</span>
+        </a>
+
+
+        <nav>
+
+            <a href="../index.html">
+                Home
+            </a>
+
+            <a href="../publishers/">
+                Publishers
+            </a>
+
+            <a href="../advertising/">
+                Advertising
+            </a>
+
+            <a href="../tools/">
+                Tools
+            </a>
+
+        </nav>
+
+    </div>
+
+</header>
+
+
+<main class="container">
+
+
+<!-- =========================
+     HERO
+========================= -->
+
+<section class="hero">
+
+    <div class="badge">
+        🔍 ADTECH DEBUGGING TOOL
+    </div>
+
+
+    <h1>
+        Ad Request URL Decoder
+    </h1>
+
+
+    <p>
+        Decode and analyze advertising request URLs.
+        Quickly separate the base URL, query parameters
+        and decoded values to help troubleshoot ad requests,
+        targeting parameters and AdTech integrations.
+    </p>
+
+</section>
+
+
+<!-- =========================
+     DECODER
+========================= -->
+
+<section class="tool-card">
+
+    <h2>
+        Paste Ad Request URL
+    </h2>
+
+
+    <p style="color:#64748b; line-height:1.6;">
+
+        Paste an advertising request URL below.
+        The tool runs entirely in your browser and
+        does not send the URL to a server.
+
+    </p>
+
+
+    <textarea
+        id="urlInput"
+        placeholder="https://example.com/ad?site=example.com&size=300x250&format=json"
+    ></textarea>
+
+
+    <div class="buttons">
+
+        <button
+            class="decode-btn"
+            onclick="decodeURL()"
+        >
+            Decode URL
+        </button>
+
+
+        <button
+            class="example-btn"
+            onclick="loadExample()"
+        >
+            Load Example
+        </button>
+
+
+        <button
+            class="clear-btn"
+            onclick="clearDecoder()"
+        >
+            Clear
+        </button>
+
+    </div>
+
+
+    <!-- =========================
+         RESULT
+    ========================== -->
+
+    <div
+        id="result"
+        class="result"
+    >
+
+        <div
+            id="resultHeader"
+            class="result-header"
+        ></div>
+
+
+        <div
+            id="summary"
+            class="url-summary"
+        ></div>
+
+
+        <div
+            id="baseURL"
+            class="base-url"
+        ></div>
+
+
+        <div class="parameter-table-wrapper">
+
+            <table>
+
+                <thead>
+
+                    <tr>
+
+                        <th>
+                            Parameter
+                        </th>
+
+                        <th>
+                            Encoded Value
+                        </th>
+
+                        <th>
+                            Decoded Value
+                        </th>
+
+                    </tr>
+
+                </thead>
+
+
+                <tbody
+                    id="parameterBody"
+                ></tbody>
+
+            </table>
+
+        </div>
+
+
+        <div
+            id="highlights"
+            class="highlight-section"
+        ></div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     INFORMATION
+========================= -->
+
+<section class="info-section">
+
+    <h2>
+        What is an Ad Request URL?
+    </h2>
+
+
+    <p>
+        An ad request URL is a URL used by an advertising
+        platform, ad server, SDK or video player to request
+        advertising information. It can contain many
+        parameters describing the publisher, ad placement,
+        device, content, targeting and other request details.
+    </p>
+
+
+    <h3>
+        Why decode an ad request?
+    </h3>
+
+
+    <p>
+        Advertising request URLs can become difficult to read
+        because parameter values are often URL encoded.
+        Decoding the URL makes it easier to understand the
+        information being passed between advertising systems.
+    </p>
+
+
+    <h3>
+        Common advertising URL parameters
+    </h3>
+
+
+    <ul>
+
+        <li>
+            <strong>sz / size</strong> — ad slot dimensions
+        </li>
+
+        <li>
+            <strong>iu</strong> — inventory or ad unit path
+        </li>
+
+        <li>
+            <strong>site</strong> — website or domain information
+        </li>
+
+        <li>
+            <strong>description_url</strong> — content or page URL
+        </li>
+
+        <li>
+            <strong>correlator</strong> — request/cache-busting value
+        </li>
+
+        <li>
+            <strong>output</strong> — requested response format
+        </li>
+
+        <li>
+            <strong>env</strong> — advertising environment
+        </li>
+
+        <li>
+            <strong>gdfp_req</strong> — Google ad request indicator
+        </li>
+
+    </ul>
+
+
+    <h3>
+        URL encoding
+    </h3>
+
+
+    <p>
+        Characters such as spaces, ampersands and special
+        characters can be encoded inside URLs. For example,
+        <code>%20</code> represents a space and
+        <code>%3A</code> represents a colon. This tool
+        converts URL-encoded values into a readable format.
+    </p>
+
+</section>
+
+
+<!-- =========================
+     SEO CONTENT
+========================= -->
+
+<section class="info-section">
+
+    <h2>
+        Ad Request URL Decoder for AdTech Professionals
+    </h2>
+
+
+    <p>
+        PubsRate's Ad Request URL Decoder is designed for
+        publishers, AdOps professionals, developers and
+        advertising technology teams who need to inspect
+        advertising request URLs quickly.
+    </p>
+
+
+    <h2>
+        Troubleshooting Advertising Requests
+    </h2>
+
+
+    <p>
+        When troubleshooting an advertising implementation,
+        inspecting the request URL can help identify missing
+        parameters, incorrect values, unexpected encoding
+        and configuration problems.
+    </p>
+
+
+    <h2>
+        Google Ad Manager and Ad Request URLs
+    </h2>
+
+
+    <p>
+        Google Ad Manager and other advertising platforms can
+        generate complex request URLs containing inventory,
+        size, targeting, cache-busting and other information.
+        Decoding these values can make debugging easier.
+    </p>
+
+
+    <h2>
+        Free Advertising URL Decoder
+    </h2>
+
+
+    <p>
+        This PubsRate tool processes the URL locally in your
+        browser. It is designed as a quick utility for
+        inspecting advertising requests without requiring
+        additional software.
+    </p>
+
+</section>
+
+
+</main>
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+    © 2026 PubsRate. All rights reserved.
+
+</footer>
+
+
+<script>
+
+    /* =========================
+       LOAD EXAMPLE
+    ========================== */
+
+    function loadExample() {
+
+        document.getElementById(
+            "urlInput"
+        ).value =
+            "https://securepubads.g.doubleclick.net/gampad/ads?iu=%2F123456%2Fexample%2Fhomepage&sz=300x250&description_url=https%3A%2F%2Fexample.com%2Fnews%3Fcategory%3Dtechnology&env=vp&output=vast&gdfp_req=1&correlator=123456789";
+
+    }
+
+
+    /* =========================
+       CLEAR
+    ========================== */
+
+    function clearDecoder() {
+
+        document.getElementById(
+            "urlInput"
+        ).value = "";
+
+
+        document.getElementById(
+            "result"
+        ).classList.remove(
+            "visible"
+        );
+
+
+        document.getElementById(
+            "resultHeader"
+        ).innerHTML = "";
+
+
+        document.getElementById(
+            "summary"
+        ).innerHTML = "";
+
+
+        document.getElementById(
+            "baseURL"
+        ).innerHTML = "";
+
+
+        document.getElementById(
+            "parameterBody"
+        ).innerHTML = "";
+
+
+        document.getElementById(
+            "highlights"
+        ).innerHTML = "";
+
+    }
+
+
+    /* =========================
+       DECODE URL
+    ========================== */
+
+    function decodeURL() {
+
+        const input =
+            document.getElementById(
+                "urlInput"
+            ).value.trim();
+
+
+        if (!input) {
+
+            alert(
+                "Please enter an ad request URL."
+            );
+
+            return;
+
+        }
+
+
+        let parsedURL;
+
+
+        try {
+
+            parsedURL =
+                new URL(input);
+
+        }
+
+        catch (error) {
+
+            alert(
+                "Invalid URL. Please enter a complete URL such as https://example.com/ad?param=value"
+            );
+
+            return;
+
+        }
+
+
+        const parameters = [];
+
+
+        parsedURL.searchParams.forEach(
+            (
+                value,
+                key
+            ) => {
+
+                const encodedValue =
+                    getEncodedParameter(
+                        parsedURL.search,
+                        key
+                    );
+
+
+                parameters.push({
+
+                    key:
+                        key,
+
+                    encoded:
+                        encodedValue,
+
+                    decoded:
+                        value
+
+                });
+
+            }
+        );
+
+
+        displayResult(
+            parsedURL,
+            parameters
+        );
+
+    }
+
+
+    /* =========================
+       GET ENCODED VALUE
+    ========================== */
+
+    function getEncodedParameter(
+        search,
+        targetKey
+    ) {
+
+        const query =
+            search.startsWith("?")
+                ? search.substring(1)
+                : search;
+
+
+        const parts =
+            query.split("&");
+
+
+        for (
+            let i = 0;
+            i < parts.length;
+            i++
+        ) {
+
+            const equalIndex =
+                parts[i].indexOf("=");
+
+
+            if (
+                equalIndex === -1
+            ) {
+
+                if (
+                    decodeURIComponent(
+                        parts[i]
+                    ) === targetKey
+                ) {
+
+                    return "";
+
+                }
+
+                continue;
+
+            }
+
+
+            const rawKey =
+                parts[i].substring(
+                    0,
+                    equalIndex
+                );
+
+
+            let decodedKey;
+
+
+            try {
+
+                decodedKey =
+                    decodeURIComponent(
+                        rawKey.replace(
+                            /\+/g,
+                            " "
+                        )
+                    );
+
+            }
+
+            catch (error) {
+
+                decodedKey =
+                    rawKey;
+
+            }
+
+
+            if (
+                decodedKey ===
+                targetKey
+            ) {
+
+                return parts[i].substring(
+                    equalIndex + 1
+                );
+
+            }
+
+        }
+
+
+        return "";
+
+    }
+
+
+    /* =========================
+       DISPLAY RESULT
+    ========================== */
+
+    function displayResult(
+        parsedURL,
+        parameters
+    ) {
+
+        const result =
+            document.getElementById(
+                "result"
+            );
+
+
+        result.classList.add(
+            "visible"
+        );
+
+
+        /* =========================
+           RESULT HEADER
+        ========================== */
+
+        document.getElementById(
+            "resultHeader"
+        ).innerHTML = `
+
+            <h3>
+                ✅ URL Decoded Successfully
+            </h3>
+
+            <p>
+                The advertising request URL was parsed
+                successfully and its query parameters
+                are shown below.
+            </p>
+
+        `;
+
+
+        /* =========================
+           SUMMARY
+        ========================== */
+
+        document.getElementById(
+            "summary"
+        ).innerHTML = `
+
+            <div class="summary-card">
+
+                <div class="summary-number">
+                    ${parameters.length}
+                </div>
+
+                <div class="summary-label">
+                    Parameters
+                </div>
+
+            </div>
+
+
+            <div class="summary-card">
+
+                <div class="summary-number">
+                    ${parsedURL.protocol.replace(":", "")}
+                </div>
+
+                <div class="summary-label">
+                    Protocol
+                </div>
+
+            </div>
+
+
+            <div class="summary-card">
+
+                <div
+                    class="summary-number"
+                    style="font-size:20px; word-break:break-word;"
+                >
+                    ${escapeHTML(
+                        parsedURL.hostname
+                    )}
+                </div>
+
+                <div class="summary-label">
+                    Host
+                </div>
+
+            </div>
+
+        `;
+
+
+        /* =========================
+           BASE URL
+        ========================== */
+
+        const base =
+            parsedURL.origin +
+            parsedURL.pathname;
+
+
+        document.getElementById(
+            "baseURL"
+        ).innerHTML = `
+
+            <strong>
+                Base URL
+            </strong>
+
+            <code>
+                ${escapeHTML(base)}
+            </code>
+
+        `;
+
+
+        /* =========================
+           PARAMETERS
+        ========================== */
+
+        const body =
+            document.getElementById(
+                "parameterBody"
+            );
+
+
+        body.innerHTML = "";
+
+
+        if (
+            parameters.length === 0
+        ) {
+
+            body.innerHTML = `
+
+                <tr>
+
+                    <td colspan="3">
+
+                        No query parameters found.
+
+                    </td>
+
+                </tr>
+
+            `;
+
+        } else {
+
+            parameters.forEach(
+                parameter => {
+
+                    const row =
+                        document.createElement(
+                            "tr"
+                        );
+
+
+                    row.innerHTML = `
+
+                        <td>
+                            ${escapeHTML(
+                                parameter.key
+                            )}
+                        </td>
+
+                        <td>
+                            ${escapeHTML(
+                                parameter.encoded
+                            )}
+                        </td>
+
+                        <td>
+                            ${escapeHTML(
+                                parameter.decoded
+                            )}
+                        </td>
+
+                    `;
+
+
+                    body.appendChild(
+                        row
+                    );
+
+                }
+            );
+
+        }
+
+
+        /* =========================
+           HIGHLIGHT IMPORTANT VALUES
+        ========================== */
+
+        const importantNames = [
+
+            "iu",
+            "sz",
+            "size",
+            "site",
+            "url",
+            "description_url",
+            "output",
+            "env",
+            "gdfp_req",
+            "correlator",
+            "cust_params",
+            "adunit",
+            "ad_unit",
+            "placement",
+            "domain",
+            "page_url"
+
+        ];
+
+
+        const highlights =
+            parameters.filter(
+                parameter => {
+
+                    return importantNames.includes(
+                        parameter.key.toLowerCase()
+                    );
+
+                }
+            );
+
+
+        const highlightContainer =
+            document.getElementById(
+                "highlights"
+            );
+
+
+        if (
+            highlights.length === 0
+        ) {
+
+            highlightContainer.innerHTML = "";
+
+        } else {
+
+            let html = `
+
+                <h3>
+                    Important Advertising Parameters
+                </h3>
+
+                <div class="highlight-list">
+
+            `;
+
+
+            highlights.forEach(
+                parameter => {
+
+                    html += `
+
+                        <div class="highlight-card">
+
+                            <strong>
+                                ${escapeHTML(
+                                    parameter.key
+                                )}
+                            </strong>
+
+                            <span>
+                                ${escapeHTML(
+                                    parameter.decoded
+                                )}
+                            </span>
+
+                        </div>
+
+                    `;
+
+                }
+            );
+
+
+            html += `
+                </div>
+            `;
+
+
+            highlightContainer.innerHTML =
+                html;
+
+        }
+
+
+        result.scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+        });
+
+    }
+
+
+    /* =========================
+       HTML ESCAPE
+    ========================== */
+
+    function escapeHTML(
+        value
+    ) {
+
+        return String(value)
+
+            .replace(
+                /&/g,
+                "&amp;"
+            )
+
+            .replace(
+                /</g,
+                "&lt;"
+            )
+
+            .replace(
+                />/g,
+                "&gt;"
+            )
+
+            .replace(
+                /"/g,
+                "&quot;"
+            )
+
+            .replace(
+                /'/g,
+                "&#039;"
+            );
+
+    }
+
+</script>
+
+
+</body>
+
+</html>
