@@ -1,0 +1,1821 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <!-- =========================
+         SEO
+    ========================== -->
+
+    <title>
+        Publisher Revenue Comparison Tool | PubsRate
+    </title>
+
+    <meta
+        name="description"
+        content="Free Publisher Revenue Comparison Tool to compare estimated advertising revenue between two publishers using traffic, ad impressions, fill rate and CPM."
+    >
+
+    <meta
+        name="robots"
+        content="index, follow"
+    >
+
+    <link
+        rel="canonical"
+        href="https://pubsrate.com/tools/publisher-revenue-comparison.html"
+    >
+
+
+    <!-- =========================
+         OPEN GRAPH
+    ========================== -->
+
+    <meta
+        property="og:type"
+        content="website"
+    >
+
+    <meta
+        property="og:title"
+        content="Publisher Revenue Comparison Tool | PubsRate"
+    >
+
+    <meta
+        property="og:description"
+        content="Compare estimated advertising revenue between two publishers using traffic, impressions, fill rate and CPM."
+    >
+
+    <meta
+        property="og:url"
+        content="https://pubsrate.com/tools/publisher-revenue-comparison.html"
+    >
+
+    <meta
+        property="og:site_name"
+        content="PubsRate"
+    >
+
+
+    <!-- =========================
+         TWITTER / X
+    ========================== -->
+
+    <meta
+        name="twitter:card"
+        content="summary"
+    >
+
+    <meta
+        name="twitter:title"
+        content="Publisher Revenue Comparison Tool | PubsRate"
+    >
+
+    <meta
+        name="twitter:description"
+        content="Compare estimated publisher advertising revenue using traffic, fill rate and CPM."
+    >
+
+
+    <!-- =========================
+         STRUCTURED DATA
+    ========================== -->
+
+    <script type="application/ld+json">
+
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Publisher Revenue Comparison Tool",
+        "url": "https://pubsrate.com/tools/publisher-revenue-comparison.html",
+        "description": "Free tool for comparing estimated advertising revenue between two publishers.",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Web"
+    }
+
+    </script>
+
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+
+        body {
+
+            margin: 0;
+
+            font-family:
+                Arial,
+                Helvetica,
+                sans-serif;
+
+            background: #f5f7fb;
+
+            color: #1f2937;
+
+        }
+
+
+        /* =========================
+           HEADER
+        ========================== */
+
+        header {
+
+            background: #111827;
+
+            color: white;
+
+            padding: 18px 20px;
+
+        }
+
+
+        .header-container {
+
+            max-width: 1150px;
+
+            margin: auto;
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+        }
+
+
+        .logo {
+
+            font-size: 27px;
+
+            font-weight: bold;
+
+        }
+
+
+        .logo span {
+
+            color: #38bdf8;
+
+        }
+
+
+        nav a {
+
+            color: white;
+
+            text-decoration: none;
+
+            margin-left: 25px;
+
+            font-size: 15px;
+
+        }
+
+
+        nav a:hover {
+
+            color: #38bdf8;
+
+        }
+
+
+        /* =========================
+           MAIN
+        ========================== */
+
+        .container {
+
+            max-width: 1100px;
+
+            margin: auto;
+
+            padding: 40px 20px;
+
+        }
+
+
+        /* =========================
+           HERO
+        ========================== */
+
+        .hero {
+
+            background: white;
+
+            padding: 40px;
+
+            border-radius: 18px;
+
+            box-shadow:
+                0 4px 15px rgba(0,0,0,0.07);
+
+            margin-bottom: 25px;
+
+        }
+
+
+        .tool-label {
+
+            display: inline-block;
+
+            background: #e0f2fe;
+
+            color: #0369a1;
+
+            padding:
+                7px 12px;
+
+            border-radius: 20px;
+
+            font-size: 13px;
+
+            font-weight: bold;
+
+            margin-bottom: 15px;
+
+        }
+
+
+        .hero h1 {
+
+            margin:
+                0 0 15px;
+
+            font-size: 38px;
+
+            color: #111827;
+
+        }
+
+
+        .hero p {
+
+            margin: 0;
+
+            max-width: 850px;
+
+            color: #64748b;
+
+            font-size: 17px;
+
+            line-height: 1.7;
+
+        }
+
+
+        /* =========================
+           COMPARISON
+        ========================== */
+
+        .comparison {
+
+            background: white;
+
+            padding: 35px;
+
+            border-radius: 16px;
+
+            box-shadow:
+                0 4px 15px rgba(0,0,0,0.06);
+
+        }
+
+
+        .comparison h2 {
+
+            margin-top: 0;
+
+            font-size: 25px;
+
+        }
+
+
+        .publisher-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap: 25px;
+
+        }
+
+
+        .publisher-card {
+
+            border:
+                1px solid #e2e8f0;
+
+            padding: 25px;
+
+            border-radius: 14px;
+
+            background: #f8fafc;
+
+        }
+
+
+        .publisher-card h3 {
+
+            margin-top: 0;
+
+            font-size: 21px;
+
+            color: #111827;
+
+        }
+
+
+        .form-group {
+
+            margin-bottom: 18px;
+
+        }
+
+
+        .form-group label {
+
+            display: block;
+
+            font-size: 14px;
+
+            font-weight: bold;
+
+            margin-bottom: 7px;
+
+        }
+
+
+        .form-group input,
+        .form-group select {
+
+            width: 100%;
+
+            padding: 12px;
+
+            border:
+                1px solid #cbd5e1;
+
+            border-radius: 8px;
+
+            font-size: 15px;
+
+            outline: none;
+
+        }
+
+
+        .form-group input:focus,
+        .form-group select:focus {
+
+            border-color: #2563eb;
+
+        }
+
+
+        .help-text {
+
+            margin-top: 5px;
+
+            font-size: 12px;
+
+            color: #94a3b8;
+
+        }
+
+
+        .calculate-button {
+
+            width: 100%;
+
+            margin-top: 25px;
+
+            padding: 14px;
+
+            border: none;
+
+            border-radius: 8px;
+
+            background: #2563eb;
+
+            color: white;
+
+            font-size: 17px;
+
+            font-weight: bold;
+
+            cursor: pointer;
+
+        }
+
+
+        .calculate-button:hover {
+
+            background: #1d4ed8;
+
+        }
+
+
+        /* =========================
+           RESULTS
+        ========================== */
+
+        .results {
+
+            display: none;
+
+            margin-top: 30px;
+
+        }
+
+
+        .results h2 {
+
+            font-size: 25px;
+
+            margin-bottom: 18px;
+
+        }
+
+
+        .result-table-wrapper {
+
+            overflow-x: auto;
+
+        }
+
+
+        .result-table {
+
+            width: 100%;
+
+            border-collapse: collapse;
+
+            background: white;
+
+        }
+
+
+        .result-table th,
+        .result-table td {
+
+            padding: 15px;
+
+            border-bottom:
+                1px solid #e2e8f0;
+
+            text-align: left;
+
+        }
+
+
+        .result-table th {
+
+            background: #f8fafc;
+
+            color: #475569;
+
+            font-size: 14px;
+
+        }
+
+
+        .result-table td {
+
+            font-size: 15px;
+
+        }
+
+
+        .winner {
+
+            font-weight: bold;
+
+            color: #15803d;
+
+        }
+
+
+        .comparison-summary {
+
+            margin-top: 20px;
+
+            padding: 22px;
+
+            border-radius: 12px;
+
+            background: #eff6ff;
+
+            border:
+                1px solid #bfdbfe;
+
+        }
+
+
+        .comparison-summary h3 {
+
+            margin-top: 0;
+
+            color: #1d4ed8;
+
+        }
+
+
+        .comparison-summary p {
+
+            margin-bottom: 0;
+
+            line-height: 1.7;
+
+            color: #475569;
+
+        }
+
+
+        /* =========================
+           SEO CONTENT
+        ========================== */
+
+        .content {
+
+            background: white;
+
+            margin-top: 30px;
+
+            padding: 35px;
+
+            border-radius: 16px;
+
+            box-shadow:
+                0 3px 12px rgba(0,0,0,0.05);
+
+        }
+
+
+        .content h2 {
+
+            margin-top: 0;
+
+            color: #111827;
+
+        }
+
+
+        .content h2:not(:first-child) {
+
+            margin-top: 32px;
+
+        }
+
+
+        .content p {
+
+            color: #64748b;
+
+            line-height: 1.8;
+
+        }
+
+
+        .content ul {
+
+            color: #64748b;
+
+            line-height: 1.8;
+
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================== */
+
+        footer {
+
+            text-align: center;
+
+            padding: 40px 20px;
+
+            color: #64748b;
+
+        }
+
+
+        /* =========================
+           MOBILE
+        ========================== */
+
+        @media (max-width: 700px) {
+
+            .header-container {
+
+                flex-direction: column;
+
+                gap: 15px;
+
+            }
+
+
+            nav a {
+
+                margin:
+                    0 7px;
+
+            }
+
+
+            .hero {
+
+                padding: 28px;
+
+            }
+
+
+            .hero h1 {
+
+                font-size: 30px;
+
+            }
+
+
+            .comparison {
+
+                padding: 25px;
+
+            }
+
+
+            .publisher-grid {
+
+                grid-template-columns: 1fr;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     HEADER
+========================= -->
+
+<header>
+
+    <div class="header-container">
+
+        <div class="logo">
+            Pubs<span>Rate</span>
+        </div>
+
+
+        <nav>
+
+            <a href="../index.html">
+                Home
+            </a>
+
+            <a href="../publishers/">
+                Publishers
+            </a>
+
+            <a href="../advertising/">
+                Advertising
+            </a>
+
+            <a href="index.html">
+                Tools
+            </a>
+
+        </nav>
+
+    </div>
+
+</header>
+
+
+
+<main class="container">
+
+
+<!-- =========================
+     HERO
+========================= -->
+
+<section class="hero">
+
+    <div class="tool-label">
+        PUBLISHER MONETIZATION TOOL
+    </div>
+
+
+    <h1>
+        Publisher Revenue Comparison
+    </h1>
+
+
+    <p>
+        Compare estimated advertising revenue between two
+        publishers using traffic, ad impressions, fill rate
+        and CPM. Use the results to understand how differences
+        in traffic and monetization performance can affect
+        estimated advertising revenue.
+    </p>
+
+</section>
+
+
+
+<!-- =========================
+     COMPARISON TOOL
+========================= -->
+
+<section class="comparison">
+
+    <h2>
+        Compare Two Publishers
+    </h2>
+
+
+    <div class="publisher-grid">
+
+
+        <!-- =========================
+             PUBLISHER A
+        ========================== -->
+
+        <div class="publisher-card">
+
+            <h3>
+                Publisher A
+            </h3>
+
+
+            <div class="form-group">
+
+                <label for="publisherA">
+                    Publisher Name
+                </label>
+
+                <input
+                    type="text"
+                    id="publisherA"
+                    placeholder="Example: Publisher A"
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="trafficA">
+                    Monthly Pageviews
+                </label>
+
+                <input
+                    type="number"
+                    id="trafficA"
+                    min="0"
+                    step="1"
+                    placeholder="1000000"
+                >
+
+                <div class="help-text">
+                    Estimated monthly pageviews.
+                </div>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="adsPerPageA">
+                    Ads Per Page
+                </label>
+
+                <input
+                    type="number"
+                    id="adsPerPageA"
+                    min="0"
+                    step="0.1"
+                    placeholder="3"
+                >
+
+                <div class="help-text">
+                    Average number of monetized ad impressions per pageview.
+                </div>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="fillRateA">
+                    Fill Rate (%)
+                </label>
+
+                <input
+                    type="number"
+                    id="fillRateA"
+                    min="0"
+                    max="100"
+                    step="0.01"
+                    placeholder="80"
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="cpmA">
+                    Average CPM
+                </label>
+
+                <input
+                    type="number"
+                    id="cpmA"
+                    min="0"
+                    step="0.01"
+                    placeholder="3"
+                >
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =========================
+             PUBLISHER B
+        ========================== -->
+
+        <div class="publisher-card">
+
+            <h3>
+                Publisher B
+            </h3>
+
+
+            <div class="form-group">
+
+                <label for="publisherB">
+                    Publisher Name
+                </label>
+
+                <input
+                    type="text"
+                    id="publisherB"
+                    placeholder="Example: Publisher B"
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="trafficB">
+                    Monthly Pageviews
+                </label>
+
+                <input
+                    type="number"
+                    id="trafficB"
+                    min="0"
+                    step="1"
+                    placeholder="750000"
+                >
+
+                <div class="help-text">
+                    Estimated monthly pageviews.
+                </div>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="adsPerPageB">
+                    Ads Per Page
+                </label>
+
+                <input
+                    type="number"
+                    id="adsPerPageB"
+                    min="0"
+                    step="0.1"
+                    placeholder="4"
+                >
+
+                <div class="help-text">
+                    Average number of monetized ad impressions per pageview.
+                </div>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="fillRateB">
+                    Fill Rate (%)
+                </label>
+
+                <input
+                    type="number"
+                    id="fillRateB"
+                    min="0"
+                    max="100"
+                    step="0.01"
+                    placeholder="90"
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="cpmB">
+                    Average CPM
+                </label>
+
+                <input
+                    type="number"
+                    id="cpmB"
+                    min="0"
+                    step="0.01"
+                    placeholder="4"
+                >
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+
+    <button
+        class="calculate-button"
+        onclick="compareRevenue()"
+    >
+        Compare Publisher Revenue
+    </button>
+
+
+
+    <!-- =========================
+         RESULTS
+    ========================== -->
+
+    <div
+        class="results"
+        id="results"
+    >
+
+        <h2>
+            Revenue Comparison
+        </h2>
+
+
+        <div class="result-table-wrapper">
+
+            <table class="result-table">
+
+                <thead>
+
+                    <tr>
+
+                        <th>
+                            Metric
+                        </th>
+
+                        <th id="tablePublisherA">
+                            Publisher A
+                        </th>
+
+                        <th id="tablePublisherB">
+                            Publisher B
+                        </th>
+
+                    </tr>
+
+                </thead>
+
+
+                <tbody>
+
+                    <tr>
+
+                        <td>
+                            Monthly Pageviews
+                        </td>
+
+                        <td id="resultTrafficA">
+                            0
+                        </td>
+
+                        <td id="resultTrafficB">
+                            0
+                        </td>
+
+                    </tr>
+
+
+                    <tr>
+
+                        <td>
+                            Ads Per Page
+                        </td>
+
+                        <td id="resultAdsA">
+                            0
+                        </td>
+
+                        <td id="resultAdsB">
+                            0
+                        </td>
+
+                    </tr>
+
+
+                    <tr>
+
+                        <td>
+                            Potential Ad Impressions
+                        </td>
+
+                        <td id="resultPotentialA">
+                            0
+                        </td>
+
+                        <td id="resultPotentialB">
+                            0
+                        </td>
+
+                    </tr>
+
+
+                    <tr>
+
+                        <td>
+                            Fill Rate
+                        </td>
+
+                        <td id="resultFillA">
+                            0%
+                        </td>
+
+                        <td id="resultFillB">
+                            0%
+                        </td>
+
+                    </tr>
+
+
+                    <tr>
+
+                        <td>
+                            Filled Ad Impressions
+                        </td>
+
+                        <td id="resultFilledA">
+                            0
+                        </td>
+
+                        <td id="resultFilledB">
+                            0
+                        </td>
+
+                    </tr>
+
+
+                    <tr>
+
+                        <td>
+                            Average CPM
+                        </td>
+
+                        <td id="resultCPMA">
+                            $0.00
+                        </td>
+
+                        <td id="resultCPMB">
+                            $0.00
+                        </td>
+
+                    </tr>
+
+
+                    <tr>
+
+                        <td>
+                            Estimated Monthly Revenue
+                        </td>
+
+                        <td
+                            id="resultRevenueA"
+                            class="winner"
+                        >
+                            $0.00
+                        </td>
+
+                        <td
+                            id="resultRevenueB"
+                            class="winner"
+                        >
+                            $0.00
+                        </td>
+
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+
+
+        <div class="comparison-summary">
+
+            <h3 id="summaryTitle">
+                Comparison Result
+            </h3>
+
+            <p id="summaryText">
+                Enter publisher information to compare estimated revenue.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     SEO CONTENT
+========================= -->
+
+<section class="content">
+
+    <h2>
+        What is Publisher Revenue Comparison?
+    </h2>
+
+    <p>
+        Publisher Revenue Comparison is a way to estimate and
+        compare advertising monetization performance between
+        two websites or digital publishers. The comparison can
+        consider traffic volume, advertising opportunities,
+        fill rate and CPM.
+    </p>
+
+
+    <h2>
+        How the Calculator Works
+    </h2>
+
+    <p>
+        The calculator estimates potential ad impressions by
+        multiplying monthly pageviews by the average number of
+        monetized ads per page. It then applies the fill rate
+        to estimate the number of filled advertising impressions.
+    </p>
+
+    <p>
+        Estimated monthly revenue is calculated by dividing
+        filled impressions by 1,000 and multiplying the result
+        by the average CPM.
+    </p>
+
+
+    <h2>
+        Publisher Revenue Formula
+    </h2>
+
+    <p>
+        Potential Ad Impressions =
+        Monthly Pageviews × Ads Per Page
+    </p>
+
+    <p>
+        Filled Ad Impressions =
+        Potential Ad Impressions × Fill Rate
+    </p>
+
+    <p>
+        Estimated Revenue =
+        Filled Ad Impressions ÷ 1,000 × CPM
+    </p>
+
+
+    <h2>
+        Factors That Affect Publisher Revenue
+    </h2>
+
+    <ul>
+
+        <li>
+            Monthly website traffic
+        </li>
+
+        <li>
+            Number of ad placements
+        </li>
+
+        <li>
+            Fill rate
+        </li>
+
+        <li>
+            CPM and eCPM
+        </li>
+
+        <li>
+            Geographic audience
+        </li>
+
+        <li>
+            Viewability
+        </li>
+
+        <li>
+            Ad formats
+        </li>
+
+        <li>
+            Programmatic demand
+        </li>
+
+        <li>
+            Header bidding competition
+        </li>
+
+        <li>
+            Seasonality
+        </li>
+
+    </ul>
+
+
+    <h2>
+        Publisher Monetization and AdTech
+    </h2>
+
+    <p>
+        Publisher revenue is influenced by the interaction
+        between traffic, advertising inventory and demand.
+        Technologies such as Google Ad Manager, header bidding,
+        SSPs, DSPs, ad exchanges and programmatic auctions can
+        affect the monetization performance of a publisher.
+    </p>
+
+
+    <h2>
+        Important Note
+    </h2>
+
+    <p>
+        This tool provides an estimated comparison and should
+        not be considered actual publisher revenue. Real-world
+        revenue can vary significantly depending on traffic
+        quality, audience location, viewability, invalid traffic,
+        demand sources, platform fees, ad formats and advertiser
+        demand.
+    </p>
+
+</section>
+
+
+</main>
+
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+    © 2026 PubsRate. All rights reserved.
+
+</footer>
+
+
+
+<!-- =========================
+     JAVASCRIPT
+========================= -->
+
+<script>
+
+function formatNumber(number) {
+
+    return number.toLocaleString(
+        "en-US",
+        {
+            maximumFractionDigits: 2
+        }
+    );
+
+}
+
+
+function formatCurrency(number) {
+
+    return "$" +
+        number.toLocaleString(
+            "en-US",
+            {
+                minimumFractionDigits: 2,
+                maximumFractionDigits: 2
+            }
+        );
+
+}
+
+
+function getValue(id) {
+
+    return parseFloat(
+        document.getElementById(id).value
+    );
+
+}
+
+
+function compareRevenue() {
+
+
+    const publisherA =
+        document.getElementById(
+            "publisherA"
+        ).value.trim()
+        || "Publisher A";
+
+
+    const publisherB =
+        document.getElementById(
+            "publisherB"
+        ).value.trim()
+        || "Publisher B";
+
+
+    const trafficA =
+        getValue("trafficA");
+
+
+    const trafficB =
+        getValue("trafficB");
+
+
+    const adsA =
+        getValue("adsPerPageA");
+
+
+    const adsB =
+        getValue("adsPerPageB");
+
+
+    const fillA =
+        getValue("fillRateA");
+
+
+    const fillB =
+        getValue("fillRateB");
+
+
+    const cpmA =
+        getValue("cpmA");
+
+
+    const cpmB =
+        getValue("cpmB");
+
+
+
+    /* =========================
+       VALIDATION
+    ========================== */
+
+    const values = [
+        trafficA,
+        trafficB,
+        adsA,
+        adsB,
+        fillA,
+        fillB,
+        cpmA,
+        cpmB
+    ];
+
+
+    if (
+        values.some(
+            value => isNaN(value)
+        )
+    ) {
+
+        alert(
+            "Please complete all publisher fields."
+        );
+
+        return;
+
+    }
+
+
+    if (
+        trafficA < 0 ||
+        trafficB < 0 ||
+        adsA < 0 ||
+        adsB < 0 ||
+        cpmA < 0 ||
+        cpmB < 0
+    ) {
+
+        alert(
+            "Traffic, ads per page and CPM cannot be negative."
+        );
+
+        return;
+
+    }
+
+
+    if (
+        fillA < 0 ||
+        fillA > 100 ||
+        fillB < 0 ||
+        fillB > 100
+    ) {
+
+        alert(
+            "Fill rate must be between 0% and 100%."
+        );
+
+        return;
+
+    }
+
+
+
+    /* =========================
+       CALCULATIONS
+    ========================== */
+
+    const potentialA =
+        trafficA *
+        adsA;
+
+
+    const potentialB =
+        trafficB *
+        adsB;
+
+
+    const filledA =
+        potentialA *
+        (fillA / 100);
+
+
+    const filledB =
+        potentialB *
+        (fillB / 100);
+
+
+    const revenueA =
+        (
+            filledA /
+            1000
+        ) *
+        cpmA;
+
+
+    const revenueB =
+        (
+            filledB /
+            1000
+        ) *
+        cpmB;
+
+
+
+    /* =========================
+       UPDATE HEADERS
+    ========================== */
+
+    document.getElementById(
+        "tablePublisherA"
+    ).textContent =
+        publisherA;
+
+
+    document.getElementById(
+        "tablePublisherB"
+    ).textContent =
+        publisherB;
+
+
+
+    /* =========================
+       UPDATE RESULTS
+    ========================== */
+
+    document.getElementById(
+        "resultTrafficA"
+    ).textContent =
+        formatNumber(trafficA);
+
+
+    document.getElementById(
+        "resultTrafficB"
+    ).textContent =
+        formatNumber(trafficB);
+
+
+    document.getElementById(
+        "resultAdsA"
+    ).textContent =
+        adsA.toFixed(2);
+
+
+    document.getElementById(
+        "resultAdsB"
+    ).textContent =
+        adsB.toFixed(2);
+
+
+    document.getElementById(
+        "resultPotentialA"
+    ).textContent =
+        formatNumber(potentialA);
+
+
+    document.getElementById(
+        "resultPotentialB"
+    ).textContent =
+        formatNumber(potentialB);
+
+
+    document.getElementById(
+        "resultFillA"
+    ).textContent =
+        fillA.toFixed(2) +
+        "%";
+
+
+    document.getElementById(
+        "resultFillB"
+    ).textContent =
+        fillB.toFixed(2) +
+        "%";
+
+
+    document.getElementById(
+        "resultFilledA"
+    ).textContent =
+        formatNumber(filledA);
+
+
+    document.getElementById(
+        "resultFilledB"
+    ).textContent =
+        formatNumber(filledB);
+
+
+    document.getElementById(
+        "resultCPMA"
+    ).textContent =
+        formatCurrency(cpmA);
+
+
+    document.getElementById(
+        "resultCPMB"
+    ).textContent =
+        formatCurrency(cpmB);
+
+
+    document.getElementById(
+        "resultRevenueA"
+    ).textContent =
+        formatCurrency(revenueA);
+
+
+    document.getElementById(
+        "resultRevenueB"
+    ).textContent =
+        formatCurrency(revenueB);
+
+
+
+    /* =========================
+       DETERMINE WINNER
+    ========================== */
+
+    const revenueDifference =
+        Math.abs(
+            revenueA -
+            revenueB
+        );
+
+
+    let percentageDifference = 0;
+
+
+    if (
+        Math.min(
+            revenueA,
+            revenueB
+        ) > 0
+    ) {
+
+        percentageDifference =
+            (
+                revenueDifference /
+                Math.min(
+                    revenueA,
+                    revenueB
+                )
+            ) *
+            100;
+
+    }
+
+
+
+    const revenueCells = [
+        document.getElementById(
+            "resultRevenueA"
+        ),
+        document.getElementById(
+            "resultRevenueB"
+        )
+    ];
+
+
+    revenueCells.forEach(
+        cell => {
+            cell.classList.remove(
+                "winner"
+            );
+        }
+    );
+
+
+
+    let title = "";
+    let message = "";
+
+
+    if (
+        revenueA > revenueB
+    ) {
+
+        revenueCells[0]
+            .classList.add(
+                "winner"
+            );
+
+
+        title =
+            publisherA +
+            " has higher estimated revenue";
+
+
+        message =
+            publisherA +
+            " is estimated to generate " +
+            formatCurrency(
+                revenueDifference
+            ) +
+            " more monthly advertising revenue than " +
+            publisherB +
+            ".";
+
+
+        if (
+            percentageDifference > 0
+        ) {
+
+            message +=
+                " That is approximately " +
+                percentageDifference.toFixed(1) +
+                "% higher based on the entered assumptions.";
+
+        }
+
+    }
+
+
+    else if (
+        revenueB > revenueA
+    ) {
+
+        revenueCells[1]
+            .classList.add(
+                "winner"
+            );
+
+
+        title =
+            publisherB +
+            " has higher estimated revenue";
+
+
+        message =
+            publisherB +
+            " is estimated to generate " +
+            formatCurrency(
+                revenueDifference
+            ) +
+            " more monthly advertising revenue than " +
+            publisherA +
+            ".";
+
+
+        if (
+            percentageDifference > 0
+        ) {
+
+            message +=
+                " That is approximately " +
+                percentageDifference.toFixed(1) +
+                "% higher based on the entered assumptions.";
+
+        }
+
+    }
+
+
+    else {
+
+        title =
+            "Estimated revenues are equal";
+
+
+        message =
+            "Both publishers have the same estimated monthly advertising revenue based on the entered assumptions.";
+
+    }
+
+
+
+    document.getElementById(
+        "summaryTitle"
+    ).textContent =
+        title;
+
+
+    document.getElementById(
+        "summaryText"
+    ).textContent =
+        message;
+
+
+
+    /* =========================
+       SHOW RESULTS
+    ========================== */
+
+    document.getElementById(
+        "results"
+    ).style.display =
+        "block";
+
+
+    document.getElementById(
+        "results"
+    ).scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+    });
+
+}
+
+</script>
+
+
+</body>
+
+</html>
