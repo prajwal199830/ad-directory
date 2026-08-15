@@ -3794,7 +3794,6 @@ const publishers = [
     "channels": ["ESPN Main Stream", "SEC Network+", "NHL Power Play", "PGA Tour Live"],
     "contentFocus": ["Live Sports Events", "30 for 30 Documentaries", "Studio Analysis"]
   },
-    [
   {
     "id": 311,
     "name": "Sling Freestream / Sling TV",
@@ -3925,7 +3924,6 @@ const publishers = [
     "channels": ["Crunchyroll Simulcasts", "Anime Classics Hub", "Dubbed Hits Channel"],
     "contentFocus": ["Japanese Anime Simulcasts", "Gaming & Youth Culture", "Animated Movies"]
   },
-[
   {
     "id": 321,
     "name": "Xumo Play",
@@ -4056,7 +4054,6 @@ const publishers = [
     "channels": ["Vevo Pop", "Vevo Hip-Hop", "Vevo Country", "Vevo Latino", "Vevo 2000s"],
     "contentFocus": ["24/7 Music Video Streams", "Live Performances", "Artist Spotlights"]
   },
-    [
   {
     "id": 331,
     "name": "Scripps News / Bounce / Court TV Network",
@@ -4187,7 +4184,6 @@ const publishers = [
     "channels": ["MotorTrend FAST", "Roadkill Channel", "Hot Rod Garage"],
     "contentFocus": ["Car Restorations", "Automotive Racing & Reviews", "Garage DIY Mechanics"]
   },
-[
   {
     "id": 341,
     "name": "DirecTV Stream",
