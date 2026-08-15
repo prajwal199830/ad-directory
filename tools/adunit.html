@@ -1,0 +1,1456 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- =========================
+         SEO
+    ========================== -->
+
+    <title>Ad Unit Naming Generator | PubsRate</title>
+
+    <meta
+        name="description"
+        content="Free Ad Unit Naming Generator for publishers and AdOps professionals. Create consistent and structured ad unit names for Google Ad Manager and digital advertising."
+    >
+
+    <meta
+        name="robots"
+        content="index, follow"
+    >
+
+    <link
+        rel="canonical"
+        href="https://pubsrate.com/tools/ad-unit-naming-generator.html"
+    >
+
+
+    <!-- =========================
+         OPEN GRAPH
+    ========================== -->
+
+    <meta
+        property="og:type"
+        content="website"
+    >
+
+    <meta
+        property="og:title"
+        content="Ad Unit Naming Generator | PubsRate"
+    >
+
+    <meta
+        property="og:description"
+        content="Create standardized ad unit names for publishers, AdOps teams and Google Ad Manager."
+    >
+
+    <meta
+        property="og:url"
+        content="https://pubsrate.com/tools/ad-unit-naming-generator.html"
+    >
+
+    <meta
+        property="og:site_name"
+        content="PubsRate"
+    >
+
+
+    <!-- =========================
+         TWITTER / X
+    ========================== -->
+
+    <meta
+        name="twitter:card"
+        content="summary"
+    >
+
+    <meta
+        name="twitter:title"
+        content="Ad Unit Naming Generator | PubsRate"
+    >
+
+    <meta
+        name="twitter:description"
+        content="Generate clean and consistent ad unit names for digital advertising and AdOps."
+    >
+
+
+    <!-- =========================
+         STYLES
+    ========================== -->
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+
+            font-family:
+                Arial,
+                Helvetica,
+                sans-serif;
+
+            background: #f5f7fb;
+
+            color: #1f2937;
+        }
+
+
+        /* =========================
+           HEADER
+        ========================== */
+
+        header {
+            background: #111827;
+
+            color: white;
+
+            padding: 18px 20px;
+        }
+
+
+        .header-container {
+            max-width: 1150px;
+
+            margin: auto;
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+        }
+
+
+        .logo {
+            font-size: 27px;
+
+            font-weight: bold;
+
+            text-decoration: none;
+
+            color: white;
+        }
+
+
+        .logo span {
+            color: #38bdf8;
+        }
+
+
+        nav a {
+            color: white;
+
+            text-decoration: none;
+
+            margin-left: 25px;
+
+            font-size: 15px;
+        }
+
+
+        nav a:hover {
+            color: #38bdf8;
+        }
+
+
+        /* =========================
+           MAIN
+        ========================== */
+
+        .container {
+            max-width: 1050px;
+
+            margin: auto;
+
+            padding: 40px 20px;
+        }
+
+
+        /* =========================
+           HERO
+        ========================== */
+
+        .hero {
+            text-align: center;
+
+            margin-bottom: 35px;
+        }
+
+
+        .hero h1 {
+            font-size: 40px;
+
+            margin:
+                0 0 15px;
+        }
+
+
+        .hero p {
+            max-width: 750px;
+
+            margin: auto;
+
+            color: #64748b;
+
+            line-height: 1.7;
+
+            font-size: 17px;
+        }
+
+
+        .badge {
+            display: inline-block;
+
+            background: #e0f2fe;
+
+            color: #0369a1;
+
+            padding: 7px 13px;
+
+            border-radius: 20px;
+
+            font-size: 13px;
+
+            font-weight: bold;
+
+            margin-bottom: 15px;
+        }
+
+
+        /* =========================
+           TOOL CARD
+        ========================== */
+
+        .tool-card {
+            background: white;
+
+            border-radius: 16px;
+
+            padding: 35px;
+
+            box-shadow:
+                0 4px 18px rgba(0,0,0,0.07);
+        }
+
+
+        .tool-card h2 {
+            margin-top: 0;
+
+            font-size: 24px;
+        }
+
+
+        .tool-description {
+            color: #64748b;
+
+            line-height: 1.6;
+
+            margin-bottom: 30px;
+        }
+
+
+        /* =========================
+           FORM GRID
+        ========================== */
+
+        .form-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap: 20px;
+        }
+
+
+        .form-group {
+            display: flex;
+
+            flex-direction: column;
+        }
+
+
+        .form-group.full {
+            grid-column: 1 / -1;
+        }
+
+
+        label {
+            font-size: 14px;
+
+            font-weight: bold;
+
+            margin-bottom: 8px;
+
+            color: #374151;
+        }
+
+
+        input,
+        select {
+            width: 100%;
+
+            padding: 12px 13px;
+
+            border:
+                1px solid #d1d5db;
+
+            border-radius: 8px;
+
+            font-size: 15px;
+
+            background: white;
+
+            outline: none;
+        }
+
+
+        input:focus,
+        select:focus {
+            border-color: #2563eb;
+
+            box-shadow:
+                0 0 0 3px rgba(37,99,235,0.1);
+        }
+
+
+        /* =========================
+           BUTTONS
+        ========================== */
+
+        .button-row {
+            display: flex;
+
+            gap: 12px;
+
+            margin-top: 28px;
+
+            flex-wrap: wrap;
+        }
+
+
+        button {
+            border: none;
+
+            cursor: pointer;
+
+            padding: 12px 20px;
+
+            border-radius: 8px;
+
+            font-size: 15px;
+
+            font-weight: bold;
+        }
+
+
+        .generate-button {
+            background: #2563eb;
+
+            color: white;
+        }
+
+
+        .generate-button:hover {
+            background: #1d4ed8;
+        }
+
+
+        .clear-button {
+            background: #e5e7eb;
+
+            color: #374151;
+        }
+
+
+        .clear-button:hover {
+            background: #d1d5db;
+        }
+
+
+        /* =========================
+           RESULT
+        ========================== */
+
+        .result {
+            margin-top: 35px;
+
+            background: #f8fafc;
+
+            border:
+                1px solid #e2e8f0;
+
+            border-radius: 12px;
+
+            padding: 25px;
+
+            display: none;
+        }
+
+
+        .result h3 {
+            margin-top: 0;
+
+            margin-bottom: 15px;
+        }
+
+
+        .generated-name {
+            background: #111827;
+
+            color: white;
+
+            padding: 18px;
+
+            border-radius: 8px;
+
+            font-family:
+                Consolas,
+                Monaco,
+                monospace;
+
+            font-size: 18px;
+
+            word-break: break-word;
+
+            margin-bottom: 15px;
+        }
+
+
+        .copy-button {
+            background: #0f766e;
+
+            color: white;
+        }
+
+
+        .copy-button:hover {
+            background: #115e59;
+        }
+
+
+        .result-info {
+            margin-top: 20px;
+
+            color: #64748b;
+
+            line-height: 1.6;
+
+            font-size: 14px;
+        }
+
+
+        /* =========================
+           FORMAT EXAMPLE
+        ========================== */
+
+        .example {
+            margin-top: 40px;
+
+            background: white;
+
+            border-radius: 14px;
+
+            padding: 30px;
+
+            box-shadow:
+                0 3px 12px rgba(0,0,0,0.05);
+        }
+
+
+        .example h2 {
+            margin-top: 0;
+        }
+
+
+        .example p {
+            color: #64748b;
+
+            line-height: 1.6;
+        }
+
+
+        .example-code {
+            background: #111827;
+
+            color: #e5e7eb;
+
+            padding: 18px;
+
+            border-radius: 8px;
+
+            font-family:
+                Consolas,
+                Monaco,
+                monospace;
+
+            line-height: 1.8;
+
+            overflow-x: auto;
+        }
+
+
+        /* =========================
+           SEO CONTENT
+        ========================== */
+
+        .seo-content {
+            margin-top: 40px;
+
+            background: white;
+
+            padding: 35px;
+
+            border-radius: 14px;
+
+            box-shadow:
+                0 3px 12px rgba(0,0,0,0.05);
+        }
+
+
+        .seo-content h2 {
+            margin-top: 0;
+
+            font-size: 25px;
+        }
+
+
+        .seo-content h3 {
+            margin-top: 28px;
+        }
+
+
+        .seo-content p {
+            color: #64748b;
+
+            line-height: 1.8;
+        }
+
+
+        .seo-content ul {
+            color: #64748b;
+
+            line-height: 1.8;
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================== */
+
+        footer {
+            text-align: center;
+
+            padding: 45px 20px;
+
+            color: #64748b;
+        }
+
+
+        /* =========================
+           MOBILE
+        ========================== */
+
+        @media (max-width: 800px) {
+
+            .header-container {
+                flex-direction: column;
+
+                gap: 15px;
+            }
+
+
+            nav {
+                text-align: center;
+            }
+
+
+            nav a {
+                margin:
+                    0 7px;
+
+                font-size: 14px;
+            }
+
+
+            .hero h1 {
+                font-size: 32px;
+            }
+
+
+            .tool-card {
+                padding: 25px;
+            }
+
+
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+
+
+            .form-group.full {
+                grid-column: auto;
+            }
+
+        }
+
+    </style>
+
+
+    <!-- =========================
+         STRUCTURED DATA
+    ========================== -->
+
+    <script type="application/ld+json">
+
+    {
+        "@context": "https://schema.org",
+
+        "@type": "WebApplication",
+
+        "name": "Ad Unit Naming Generator",
+
+        "url": "https://pubsrate.com/tools/ad-unit-naming-generator.html",
+
+        "description": "Free tool for generating standardized ad unit names for publishers and AdOps professionals.",
+
+        "applicationCategory": "BusinessApplication",
+
+        "operatingSystem": "Web"
+
+    }
+
+    </script>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     HEADER
+========================= -->
+
+<header>
+
+    <div class="header-container">
+
+        <a
+            href="../index.html"
+            class="logo">
+
+            Pubs<span>Rate</span>
+
+        </a>
+
+
+        <nav>
+
+            <a href="../index.html">
+                Home
+            </a>
+
+            <a href="../publishers/">
+                Publishers
+            </a>
+
+            <a href="../advertising/">
+                Advertising
+            </a>
+
+            <a href="index.html">
+                Tools
+            </a>
+
+        </nav>
+
+    </div>
+
+</header>
+
+
+<main class="container">
+
+
+<!-- =========================
+     HERO
+========================= -->
+
+<section class="hero">
+
+    <div class="badge">
+        🛠️ PUBSRATE ADTECH TOOL
+    </div>
+
+
+    <h1>
+        Ad Unit Naming Generator
+    </h1>
+
+
+    <p>
+        Create consistent and structured ad unit names
+        for publishers, AdOps teams and digital advertising
+        implementations.
+    </p>
+
+</section>
+
+
+<!-- =========================
+     GENERATOR
+========================= -->
+
+<section class="tool-card">
+
+    <h2>
+        Generate Your Ad Unit Name
+    </h2>
+
+
+    <p class="tool-description">
+        Select the characteristics of your ad placement
+        and generate a standardized ad unit naming structure.
+    </p>
+
+
+    <div class="form-grid">
+
+
+        <!-- SITE -->
+
+        <div class="form-group">
+
+            <label for="site">
+                Publisher / Site
+            </label>
+
+            <input
+                type="text"
+                id="site"
+                placeholder="Example: PubsRate"
+            >
+
+        </div>
+
+
+        <!-- DEVICE -->
+
+        <div class="form-group">
+
+            <label for="device">
+                Device
+            </label>
+
+            <select id="device">
+
+                <option value="desktop">
+                    Desktop
+                </option>
+
+                <option value="mobile">
+                    Mobile
+                </option>
+
+                <option value="tablet">
+                    Tablet
+                </option>
+
+                <option value="ctv">
+                    CTV
+                </option>
+
+                <option value="app">
+                    App
+                </option>
+
+            </select>
+
+        </div>
+
+
+        <!-- PAGE TYPE -->
+
+        <div class="form-group">
+
+            <label for="page">
+                Page Type
+            </label>
+
+            <select id="page">
+
+                <option value="homepage">
+                    Homepage
+                </option>
+
+                <option value="article">
+                    Article
+                </option>
+
+                <option value="category">
+                    Category
+                </option>
+
+                <option value="search">
+                    Search
+                </option>
+
+                <option value="video">
+                    Video
+                </option>
+
+                <option value="live">
+                    Live
+                </option>
+
+                <option value="other">
+                    Other
+                </option>
+
+            </select>
+
+        </div>
+
+
+        <!-- AD FORMAT -->
+
+        <div class="form-group">
+
+            <label for="format">
+                Ad Format
+            </label>
+
+            <select id="format">
+
+                <option value="display">
+                    Display
+                </option>
+
+                <option value="video">
+                    Video
+                </option>
+
+                <option value="native">
+                    Native
+                </option>
+
+                <option value="interstitial">
+                    Interstitial
+                </option>
+
+                <option value="rewarded">
+                    Rewarded
+                </option>
+
+                <option value="outstream">
+                    Outstream
+                </option>
+
+            </select>
+
+        </div>
+
+
+        <!-- SIZE -->
+
+        <div class="form-group">
+
+            <label for="size">
+                Ad Size
+            </label>
+
+            <select id="size">
+
+                <option value="300x250">
+                    300x250
+                </option>
+
+                <option value="320x50">
+                    320x50
+                </option>
+
+                <option value="320x100">
+                    320x100
+                </option>
+
+                <option value="728x90">
+                    728x90
+                </option>
+
+                <option value="970x90">
+                    970x90
+                </option>
+
+                <option value="970x250">
+                    970x250
+                </option>
+
+                <option value="300x600">
+                    300x600
+                </option>
+
+                <option value="336x280">
+                    336x280
+                </option>
+
+                <option value="fluid">
+                    Fluid
+                </option>
+
+                <option value="custom">
+                    Custom
+                </option>
+
+            </select>
+
+        </div>
+
+
+        <!-- POSITION -->
+
+        <div class="form-group">
+
+            <label for="position">
+                Placement Position
+            </label>
+
+            <select id="position">
+
+                <option value="top">
+                    Top
+                </option>
+
+                <option value="header">
+                    Header
+                </option>
+
+                <option value="billboard">
+                    Billboard
+                </option>
+
+                <option value="sidebar">
+                    Sidebar
+                </option>
+
+                <option value="content">
+                    In Content
+                </option>
+
+                <option value="midcontent">
+                    Mid Content
+                </option>
+
+                <option value="bottom">
+                    Bottom
+                </option>
+
+                <option value="sticky">
+                    Sticky
+                </option>
+
+                <option value="footer">
+                    Footer
+                </option>
+
+            </select>
+
+        </div>
+
+
+        <!-- ENVIRONMENT -->
+
+        <div class="form-group">
+
+            <label for="environment">
+                Environment
+            </label>
+
+            <select id="environment">
+
+                <option value="prod">
+                    Production
+                </option>
+
+                <option value="staging">
+                    Staging
+                </option>
+
+                <option value="test">
+                    Test
+                </option>
+
+            </select>
+
+        </div>
+
+
+        <!-- CUSTOM NAME -->
+
+        <div class="form-group full">
+
+            <label for="custom">
+                Optional Custom Identifier
+            </label>
+
+            <input
+                type="text"
+                id="custom"
+                placeholder="Example: sports, premium, breaking-news"
+            >
+
+        </div>
+
+
+    </div>
+
+
+    <!-- BUTTONS -->
+
+    <div class="button-row">
+
+        <button
+            class="generate-button"
+            onclick="generateAdUnit()">
+
+            Generate Ad Unit Name
+
+        </button>
+
+
+        <button
+            class="clear-button"
+            onclick="clearGenerator()">
+
+            Clear
+
+        </button>
+
+    </div>
+
+
+    <!-- RESULT -->
+
+    <div
+        class="result"
+        id="result">
+
+        <h3>
+            Generated Ad Unit Name
+        </h3>
+
+
+        <div
+            class="generated-name"
+            id="generatedName">
+
+        </div>
+
+
+        <button
+            class="copy-button"
+            onclick="copyName()">
+
+            📋 Copy Name
+
+        </button>
+
+
+        <div class="result-info">
+
+            Recommended structure:
+
+            <strong>
+                site / device / page / format / size / position / environment
+            </strong>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     EXAMPLE
+========================= -->
+
+<section class="example">
+
+    <h2>
+        Ad Unit Naming Examples
+    </h2>
+
+
+    <p>
+        A consistent naming convention makes it easier for
+        publishers and AdOps teams to manage inventory,
+        troubleshoot campaigns and analyze advertising
+        performance.
+    </p>
+
+
+    <div class="example-code">
+
+        pubsrate / desktop / homepage / display / 970x250 / top / prod
+
+        <br>
+
+        pubsrate / mobile / article / display / 320x100 / sticky / prod
+
+        <br>
+
+        pubsrate / desktop / article / display / 300x600 / sidebar / prod
+
+        <br>
+
+        pubsrate / mobile / article / video / fluid / midcontent / prod
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     SEO CONTENT
+========================= -->
+
+<section class="seo-content">
+
+    <h2>
+        Ad Unit Naming Generator
+    </h2>
+
+
+    <p>
+        Ad unit naming is an important part of digital
+        advertising operations. A consistent naming
+        convention helps publishers organize advertising
+        inventory and makes it easier for AdOps teams to
+        identify placements across websites and applications.
+    </p>
+
+
+    <h3>
+        Why Use a Consistent Ad Unit Naming Convention?
+    </h3>
+
+
+    <p>
+        Publishers can have hundreds or thousands of ad
+        placements across different devices, page types,
+        formats and sizes. A structured naming convention
+        makes those placements easier to understand and
+        manage.
+    </p>
+
+
+    <ul>
+
+        <li>
+            Easier inventory management
+        </li>
+
+        <li>
+            Faster troubleshooting
+        </li>
+
+        <li>
+            Better reporting and analysis
+        </li>
+
+        <li>
+            Easier campaign trafficking
+        </li>
+
+        <li>
+            Consistent communication between AdOps teams
+        </li>
+
+        <li>
+            Easier identification of ad placements
+        </li>
+
+    </ul>
+
+
+    <h3>
+        Recommended Ad Unit Naming Structure
+    </h3>
+
+
+    <p>
+        A useful naming structure can include the publisher,
+        device, page type, ad format, ad size, placement
+        position and environment.
+    </p>
+
+
+    <p>
+        For example:
+    </p>
+
+
+    <div class="example-code">
+
+        site / device / page / format / size / position / environment
+
+    </div>
+
+
+    <h3>
+        Who Can Use This Tool?
+    </h3>
+
+
+    <p>
+        The Ad Unit Naming Generator can be useful for
+        publishers, AdOps professionals, advertising
+        operations teams, developers and anyone managing
+        digital advertising inventory.
+    </p>
+
+</section>
+
+
+</main>
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+    © 2026 PubsRate. All rights reserved.
+
+</footer>
+
+
+<!-- =========================
+     JAVASCRIPT
+========================= -->
+
+<script>
+
+    function cleanValue(value) {
+
+        return value
+            .trim()
+            .toLowerCase()
+            .replace(/[^a-z0-9]+/g, "-")
+            .replace(/^-+|-+$/g, "");
+
+    }
+
+
+    function generateAdUnit() {
+
+        const site =
+            cleanValue(
+                document.getElementById("site").value
+            );
+
+
+        const device =
+            document.getElementById("device").value;
+
+
+        const page =
+            document.getElementById("page").value;
+
+
+        const format =
+            document.getElementById("format").value;
+
+
+        const size =
+            document.getElementById("size").value;
+
+
+        const position =
+            document.getElementById("position").value;
+
+
+        const environment =
+            document.getElementById("environment").value;
+
+
+        const custom =
+            cleanValue(
+                document.getElementById("custom").value
+            );
+
+
+        if (!site) {
+
+            alert(
+                "Please enter a Publisher / Site name."
+            );
+
+            document
+                .getElementById("site")
+                .focus();
+
+            return;
+
+        }
+
+
+        let parts = [
+
+            site,
+
+            device,
+
+            page,
+
+            format,
+
+            size,
+
+            position,
+
+            environment
+
+        ];
+
+
+        if (custom) {
+
+            parts.push(custom);
+
+        }
+
+
+        const generated =
+            parts.join("/");
+
+
+        document
+            .getElementById("generatedName")
+            .textContent = generated;
+
+
+        document
+            .getElementById("result")
+            .style.display = "block";
+
+
+        document
+            .getElementById("result")
+            .scrollIntoView({
+                behavior: "smooth",
+                block: "nearest"
+            });
+
+    }
+
+
+    function copyName() {
+
+        const name =
+            document
+                .getElementById("generatedName")
+                .textContent;
+
+
+        navigator.clipboard
+            .writeText(name)
+            .then(() => {
+
+                const button =
+                    document.querySelector(
+                        ".copy-button"
+                    );
+
+
+                const original =
+                    button.textContent;
+
+
+                button.textContent =
+                    "✓ Copied!";
+
+
+                setTimeout(() => {
+
+                    button.textContent =
+                        original;
+
+                }, 1500);
+
+            })
+            .catch(() => {
+
+                alert(
+                    "Unable to copy automatically. Please copy the generated name manually."
+                );
+
+            });
+
+    }
+
+
+    function clearGenerator() {
+
+        document
+            .getElementById("site")
+            .value = "";
+
+
+        document
+            .getElementById("custom")
+            .value = "";
+
+
+        document
+            .getElementById("device")
+            .selectedIndex = 0;
+
+
+        document
+            .getElementById("page")
+            .selectedIndex = 0;
+
+
+        document
+            .getElementById("format")
+            .selectedIndex = 0;
+
+
+        document
+            .getElementById("size")
+            .selectedIndex = 0;
+
+
+        document
+            .getElementById("position")
+            .selectedIndex = 0;
+
+
+        document
+            .getElementById("environment")
+            .selectedIndex = 0;
+
+
+        document
+            .getElementById("result")
+            .style.display = "none";
+
+    }
+
+</script>
+
+
+</body>
+
+</html>
