@@ -805,7 +805,13 @@
 
 
 
-    <div id="latest-posts">
+ <div id="latest-posts">
+
+    <div class="community-loading">
+        Loading community posts...
+    </div>
+
+    </div>
 
 
         <article class="latest-card">
@@ -978,35 +984,403 @@
 
 </footer>
 
+<script type="module">
+
+import {
+    initializeApp
+} from "https://www.gstatic.com/firebasejs/12.17.1/firebase-app.js";
+
+import {
+    getFirestore,
+    collection,
+    getDocs
+} from "https://www.gstatic.com/firebasejs/12.17.1/firebase-firestore.js";
 
 
-<script>
+/* =========================
+   FIREBASE CONFIG
+========================= */
 
-function searchPosts() {
+const firebaseConfig = {
+
+    apiKey: "AIzaSyDNjWPkpLsnlCZ4sSTvXebyHqGCWNe7sTI",
+
+    authDomain: "pubsrate-community.firebaseapp.com",
+
+    projectId: "pubsrate-community",
+
+    storageBucket: "pubsrate-community.firebasestorage.app",
+
+    messagingSenderId: "1049440527338",
+
+    appId: "1:1049440527338:web:87d4bd939218f912774893",
+
+    measurementId: "G-Z4LX4VW3BV"
+
+};
+
+
+/* =========================
+   INITIALIZE FIREBASE
+========================= */
+
+const app = initializeApp(firebaseConfig);
+
+const db = getFirestore(app);
+
+
+/* =========================
+   LOAD COMMUNITY POSTS
+========================= */
+
+async function loadCommunityPosts() {
+
+    const latestPosts =
+        document.getElementById("latest-posts");
+
+    try {
+
+        const snapshot =
+            await getDocs(
+                collection(db, "blogs")
+            );
+
+
+        const posts = [];
+
+
+        snapshot.forEach((doc) => {
+
+            const data = doc.data();
+
+
+            /*
+                Only show published posts
+            */
+
+            if (data.status === "published") {
+
+                posts.push({
+                    id: doc.id,
+                    ...data
+                });
+
+            }
+
+        });
+
+
+        /*
+            Newest posts first
+        */
+
+        posts.sort((a, b) => {
+
+            const dateA =
+                a.createdAt?.toMillis
+                    ? a.createdAt.toMillis()
+                    : 0;
+
+            const dateB =
+                b.createdAt?.toMillis
+                    ? b.createdAt.toMillis()
+                    : 0;
+
+            return dateB - dateA;
+
+        });
+
+
+        /*
+            Update post count
+        */
+
+        document.getElementById(
+            "community-posts"
+        ).textContent = posts.length;
+
+
+        /*
+            No posts
+        */
+
+        if (posts.length === 0) {
+
+            latestPosts.innerHTML = `
+
+                <div class="community-empty">
+
+                    <div style="font-size:45px;">
+                        ✍️
+                    </div>
+
+                    <h3>
+                        Community posts will appear here soon.
+                    </h3>
+
+                    <p>
+                        Be the first to share your AdTech experience.
+                    </p>
+
+                    <a href="write.html">
+                        Write the first blog →
+                    </a>
+
+                </div>
+
+            `;
+
+            return;
+
+        }
+
+
+        /*
+            Display posts
+        */
+
+        latestPosts.innerHTML =
+            posts.map(post => {
+
+
+                const author =
+                    post.authorName || "Anonymous";
+
+
+                const title =
+                    post.title || "Untitled";
+
+
+                const category =
+                    post.category || "AdTech";
+
+
+                const content =
+                    post.content || "";
+
+
+                const excerpt =
+                    content.length > 180
+                        ? content.substring(0, 180) + "..."
+                        : content;
+
+
+                const firstLetter =
+                    author
+                        .charAt(0)
+                        .toUpperCase();
+
+
+                let dateText = "";
+
+
+                if (
+                    post.createdAt &&
+                    post.createdAt.toDate
+                ) {
+
+                    dateText =
+                        post.createdAt
+                            .toDate()
+                            .toLocaleDateString(
+                                "en-IN",
+                                {
+                                    day: "numeric",
+                                    month: "short",
+                                    year: "numeric"
+                                }
+                            );
+
+                }
+
+
+                return `
+
+                    <article class="latest-card">
+
+                        <div class="latest-category">
+
+                            ${escapeHTML(category)}
+
+                        </div>
+
+
+                        <div>
+
+                            <h3>
+
+                                ${escapeHTML(title)}
+
+                            </h3>
+
+
+                            <p>
+
+                                ${escapeHTML(excerpt)}
+
+                            </p>
+
+
+                            <div class="latest-meta">
+
+                                <span class="post-mini-avatar">
+
+                                    ${escapeHTML(firstLetter)}
+
+                                </span>
+
+                                👤
+                                ${escapeHTML(author)}
+
+                                ${dateText
+                                    ? " · " + dateText
+                                    : ""
+                                }
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="latest-stats">
+
+                            Community
+
+                        </div>
+
+                    </article>
+
+                `;
+
+            }).join("");
+
+
+    } catch (error) {
+
+        console.error(
+            "Error loading community posts:",
+            error
+        );
+
+
+        latestPosts.innerHTML = `
+
+            <div class="community-empty">
+
+                <div style="font-size:40px;">
+                    ⚠️
+                </div>
+
+                <h3>
+                    Unable to load community posts
+                </h3>
+
+                <p>
+                    Please try refreshing the page.
+                </p>
+
+            </div>
+
+        `;
+
+    }
+
+}
+
+
+/* =========================
+   SEARCH
+========================= */
+
+window.searchPosts = function () {
+
+    const searchInput =
+        document.getElementById(
+            "searchInput"
+        );
 
     const search =
-        document
-        .getElementById("searchInput")
-        .value
-        .trim();
+        searchInput.value
+            .trim()
+            .toLowerCase();
 
 
     if (!search) {
 
-        alert("Please enter something to search.");
+        alert(
+            "Please enter something to search."
+        );
 
         return;
 
     }
 
 
-    alert(
-        "Community search will be connected to Firebase soon."
-    );
+    const cards =
+        document.querySelectorAll(
+            ".latest-card"
+        );
+
+
+    let found = false;
+
+
+    cards.forEach(card => {
+
+        const text =
+            card.textContent.toLowerCase();
+
+
+        if (text.includes(search)) {
+
+            card.style.display = "";
+
+            found = true;
+
+        } else {
+
+            card.style.display = "none";
+
+        }
+
+    });
+
+
+    if (!found) {
+
+        alert(
+            "No community posts found."
+        );
+
+    }
+
+};
+
+
+/* =========================
+   SECURITY
+========================= */
+
+function escapeHTML(value) {
+
+    return String(value)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
 
 }
 
+
+/* =========================
+   START
+========================= */
+
+loadCommunityPosts();
+
 </script>
+
 
 
 </body>
