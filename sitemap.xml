@@ -1,10 +1,46 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
+    <!-- Main Website -->
     <url>
         <loc>https://pubsrate.com/</loc>
         <changefreq>daily</changefreq>
         <priority>1.0</priority>
+    </url>
+
+    <!-- Publisher -->
+    <url>
+        <loc>https://pubsrate.com/publisher/</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <!-- Advertising -->
+    <url>
+        <loc>https://pubsrate.com/advertising/</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <!-- AdTech Tools -->
+    <url>
+        <loc>https://pubsrate.com/tools/</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+
+    <!-- Tag Testing Tools -->
+    <url>
+        <loc>https://pubsrate.com/testtag/</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+
+    <!-- CPM Calculator -->
+    <url>
+        <loc>https://pubsrate.com/tools/cpm-calculator/</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
     </url>
 
 </urlset>
