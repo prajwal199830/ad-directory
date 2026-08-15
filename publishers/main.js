@@ -6139,7 +6139,6 @@ const publishers = [
     "channels": ["SBNation.com", "300+ Local Team Blogs (e.g., Bleeding Green Nation, Field Gulls)"],
     "contentFocus": ["NFL, NBA, & MLB Fan Coverage", "Game Analysis", "Draft Coverage"]
   },
-[
   {
     "id": 491,
     "name": "Ars Technica (Condé Nast)",
