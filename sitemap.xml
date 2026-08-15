@@ -38,7 +38,7 @@
 
     <!-- CPM Calculator -->
     <url>
-        <loc>https://pubsrate.com/tools/cpm-calculator/</loc>
+        <loc>https://pubsrate.com/tools/cpm-calculator.html</loc>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
