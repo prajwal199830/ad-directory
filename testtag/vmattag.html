@@ -1,0 +1,1844 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>VMAP Validator | PubsRate AdTech Tools</title>
+
+    <meta
+        name="description"
+        content="Free VMAP validator for checking VMAP XML structure, ad breaks, time offsets, break types, AdSource and VAST references."
+    >
+
+    <meta
+        name="robots"
+        content="index, follow"
+    >
+
+    <link
+        rel="canonical"
+        href="https://pubsrate.com/tools/vmap-validator.html"
+    >
+
+    <!-- =========================
+         GOOGLE ANALYTICS
+    ========================== -->
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZK40W0H1B0"></script>
+
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+
+        gtag('config', 'G-ZK40W0H1B0');
+    </script>
+
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+
+            font-family:
+                Arial,
+                Helvetica,
+                sans-serif;
+
+            background: #f5f7fb;
+
+            color: #1f2937;
+        }
+
+
+        /* =========================
+           HEADER
+        ========================== */
+
+        header {
+            background: #111827;
+
+            color: white;
+
+            padding: 18px 20px;
+        }
+
+        .header-container {
+            max-width: 1150px;
+
+            margin: auto;
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 27px;
+
+            font-weight: bold;
+
+            color: white;
+
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: #38bdf8;
+        }
+
+        nav a {
+            color: white;
+
+            text-decoration: none;
+
+            margin-left: 25px;
+
+            font-size: 15px;
+        }
+
+        nav a:hover {
+            color: #38bdf8;
+        }
+
+
+        /* =========================
+           MAIN
+        ========================== */
+
+        .container {
+            max-width: 1150px;
+
+            margin: auto;
+
+            padding: 40px 20px;
+        }
+
+
+        /* =========================
+           HERO
+        ========================== */
+
+        .hero {
+            background: white;
+
+            padding: 40px;
+
+            border-radius: 18px;
+
+            box-shadow:
+                0 4px 15px rgba(0,0,0,0.07);
+
+            margin-bottom: 30px;
+        }
+
+        .badge {
+            display: inline-block;
+
+            background: #e0f2fe;
+
+            color: #0369a1;
+
+            padding: 7px 13px;
+
+            border-radius: 20px;
+
+            font-size: 13px;
+
+            font-weight: bold;
+
+            margin-bottom: 15px;
+        }
+
+        h1 {
+            margin: 0 0 15px;
+
+            font-size: 40px;
+        }
+
+        .hero p {
+            max-width: 850px;
+
+            color: #64748b;
+
+            line-height: 1.7;
+
+            font-size: 17px;
+        }
+
+
+        /* =========================
+           TOOL CARD
+        ========================== */
+
+        .tool-card {
+            background: white;
+
+            padding: 30px;
+
+            border-radius: 16px;
+
+            box-shadow:
+                0 4px 15px rgba(0,0,0,0.06);
+
+            margin-bottom: 30px;
+        }
+
+        .tool-card h2 {
+            margin-top: 0;
+
+            font-size: 25px;
+        }
+
+
+        textarea {
+            width: 100%;
+
+            min-height: 350px;
+
+            padding: 16px;
+
+            border: 1px solid #cbd5e1;
+
+            border-radius: 10px;
+
+            font-family:
+                Consolas,
+                Monaco,
+                monospace;
+
+            font-size: 14px;
+
+            line-height: 1.6;
+
+            resize: vertical;
+
+            outline: none;
+        }
+
+        textarea:focus {
+            border-color: #2563eb;
+
+            box-shadow:
+                0 0 0 3px rgba(37,99,235,0.10);
+        }
+
+
+        /* =========================
+           BUTTONS
+        ========================== */
+
+        .buttons {
+            display: flex;
+
+            gap: 12px;
+
+            flex-wrap: wrap;
+
+            margin-top: 15px;
+        }
+
+        button {
+            border: none;
+
+            cursor: pointer;
+
+            padding: 12px 20px;
+
+            border-radius: 8px;
+
+            font-size: 15px;
+
+            font-weight: bold;
+        }
+
+        .validate-btn {
+            background: #2563eb;
+
+            color: white;
+        }
+
+        .validate-btn:hover {
+            background: #1d4ed8;
+        }
+
+        .example-btn {
+            background: #e2e8f0;
+
+            color: #1e293b;
+        }
+
+        .example-btn:hover {
+            background: #cbd5e1;
+        }
+
+        .clear-btn {
+            background: #fee2e2;
+
+            color: #991b1b;
+        }
+
+        .clear-btn:hover {
+            background: #fecaca;
+        }
+
+
+        /* =========================
+           RESULT
+        ========================== */
+
+        .result {
+            display: none;
+
+            margin-top: 25px;
+
+            border-radius: 12px;
+
+            padding: 22px;
+        }
+
+        .result.success {
+            display: block;
+
+            background: #ecfdf5;
+
+            border: 1px solid #86efac;
+        }
+
+        .result.warning {
+            display: block;
+
+            background: #fffbeb;
+
+            border: 1px solid #fde68a;
+        }
+
+        .result.error {
+            display: block;
+
+            background: #fef2f2;
+
+            border: 1px solid #fecaca;
+        }
+
+        .result-title {
+            font-size: 20px;
+
+            font-weight: bold;
+
+            margin-bottom: 15px;
+        }
+
+
+        /* =========================
+           SUMMARY
+        ========================== */
+
+        .summary {
+            display: grid;
+
+            grid-template-columns:
+                repeat(4, 1fr);
+
+            gap: 15px;
+
+            margin-bottom: 25px;
+        }
+
+        .summary-card {
+            background: #f8fafc;
+
+            border: 1px solid #e2e8f0;
+
+            border-radius: 10px;
+
+            padding: 18px;
+
+            text-align: center;
+        }
+
+        .summary-number {
+            font-size: 27px;
+
+            font-weight: bold;
+
+            color: #2563eb;
+        }
+
+        .summary-label {
+            font-size: 13px;
+
+            color: #64748b;
+
+            margin-top: 5px;
+        }
+
+
+        /* =========================
+           CHECKS
+        ========================== */
+
+        .checks {
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 10px;
+        }
+
+        .check {
+            padding: 13px 15px;
+
+            border-radius: 8px;
+
+            background: white;
+
+            border: 1px solid #e2e8f0;
+        }
+
+        .check.pass {
+            border-left:
+                5px solid #16a34a;
+        }
+
+        .check.warning {
+            border-left:
+                5px solid #d97706;
+        }
+
+        .check.fail {
+            border-left:
+                5px solid #dc2626;
+        }
+
+        .check strong {
+            display: block;
+
+            margin-bottom: 4px;
+        }
+
+        .check span {
+            color: #64748b;
+
+            font-size: 14px;
+
+            line-height: 1.5;
+        }
+
+
+        /* =========================
+           INFORMATION
+        ========================== */
+
+        .info-section {
+            background: white;
+
+            padding: 30px;
+
+            border-radius: 16px;
+
+            box-shadow:
+                0 4px 15px rgba(0,0,0,0.05);
+
+            margin-bottom: 30px;
+        }
+
+        .info-section h2 {
+            margin-top: 0;
+
+            font-size: 25px;
+        }
+
+        .info-section h3 {
+            margin-top: 25px;
+
+            font-size: 19px;
+        }
+
+        .info-section p {
+            color: #64748b;
+
+            line-height: 1.7;
+        }
+
+        .info-section ul {
+            color: #64748b;
+
+            line-height: 1.8;
+        }
+
+        code {
+            background: #f1f5f9;
+
+            padding: 2px 6px;
+
+            border-radius: 4px;
+
+            font-family: monospace;
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================== */
+
+        footer {
+            text-align: center;
+
+            padding: 45px 20px;
+
+            color: #64748b;
+        }
+
+
+        /* =========================
+           MOBILE
+        ========================== */
+
+        @media (max-width: 800px) {
+
+            .header-container {
+                flex-direction: column;
+
+                gap: 15px;
+            }
+
+            nav a {
+                margin:
+                    0 7px;
+
+                font-size: 14px;
+            }
+
+            .hero {
+                padding: 28px;
+            }
+
+            h1 {
+                font-size: 32px;
+            }
+
+            .tool-card {
+                padding: 22px;
+            }
+
+            .summary {
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+
+        }
+
+        @media (max-width: 500px) {
+
+            .summary {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     HEADER
+========================= -->
+
+<header>
+
+    <div class="header-container">
+
+        <a
+            href="../index.html"
+            class="logo"
+        >
+            Pubs<span>Rate</span>
+        </a>
+
+
+        <nav>
+
+            <a href="../index.html">
+                Home
+            </a>
+
+            <a href="../publishers/">
+                Publishers
+            </a>
+
+            <a href="../advertising/">
+                Advertising
+            </a>
+
+            <a href="../tools/">
+                Tools
+            </a>
+
+        </nav>
+
+    </div>
+
+</header>
+
+
+<main class="container">
+
+
+<!-- =========================
+     HERO
+========================= -->
+
+<section class="hero">
+
+    <div class="badge">
+        🧪 ADTECH VALIDATION TOOL
+    </div>
+
+    <h1>
+        VMAP Validator
+    </h1>
+
+    <p>
+        Validate VMAP XML for common structural problems,
+        ad breaks, time offsets, break types, AdSource
+        configuration and VAST references. Free browser-based
+        VMAP validation for publishers, developers and AdOps
+        professionals.
+    </p>
+
+</section>
+
+
+<!-- =========================
+     VALIDATOR
+========================= -->
+
+<section class="tool-card">
+
+    <h2>
+        Paste Your VMAP XML
+    </h2>
+
+    <p style="color:#64748b; line-height:1.6;">
+        Paste a VMAP document below and click
+        <strong>Validate VMAP</strong> to check its structure
+        and common implementation issues.
+    </p>
+
+
+    <textarea
+        id="vmapInput"
+        placeholder="Paste your VMAP XML here..."
+    ></textarea>
+
+
+    <div class="buttons">
+
+        <button
+            class="validate-btn"
+            onclick="validateVMAP()"
+        >
+            Validate VMAP
+        </button>
+
+
+        <button
+            class="example-btn"
+            onclick="loadExample()"
+        >
+            Load Example
+        </button>
+
+
+        <button
+            class="clear-btn"
+            onclick="clearValidator()"
+        >
+            Clear
+        </button>
+
+    </div>
+
+
+    <div
+        id="result"
+        class="result"
+    ></div>
+
+</section>
+
+
+<!-- =========================
+     ABOUT VMAP
+========================= -->
+
+<section class="info-section">
+
+    <h2>
+        What is VMAP?
+    </h2>
+
+    <p>
+        VMAP, or Video Multiple Ad Playlist, is an XML-based
+        standard used to describe advertising opportunities
+        within video content. It allows publishers and video
+        platforms to define where advertising breaks can occur,
+        such as pre-roll, mid-roll and post-roll.
+    </p>
+
+
+    <h3>
+        What this validator checks
+    </h3>
+
+    <ul>
+
+        <li>
+            Valid XML structure
+        </li>
+
+        <li>
+            VMAP root element
+        </li>
+
+        <li>
+            VMAP namespace
+        </li>
+
+        <li>
+            AdBreak elements
+        </li>
+
+        <li>
+            Break IDs
+        </li>
+
+        <li>
+            Time offsets
+        </li>
+
+        <li>
+            Break types
+        </li>
+
+        <li>
+            AdSource elements
+        </li>
+
+        <li>
+            VAST AdTagURI references
+        </li>
+
+        <li>
+            VASTAdData elements
+        </li>
+
+    </ul>
+
+
+    <h3>
+        Common VMAP break types
+    </h3>
+
+    <p>
+        VMAP commonly uses break types such as
+        <code>linear</code> and <code>nonlinear</code>.
+        The validator checks the values and highlights
+        potentially unexpected configurations.
+    </p>
+
+
+    <h3>
+        Common time offsets
+    </h3>
+
+    <p>
+        A VMAP <code>timeOffset</code> can represent a
+        percentage, a clock time such as
+        <code>00:05:00</code>, or special values such as
+        <code>start</code> and <code>end</code>.
+    </p>
+
+</section>
+
+
+<!-- =========================
+     SEO CONTENT
+========================= -->
+
+<section class="info-section">
+
+    <h2>
+        VMAP Validation for Publishers
+    </h2>
+
+    <p>
+        A correctly structured VMAP response helps video
+        players understand when and how advertising breaks
+        should be requested. Publishers and video developers
+        can use this validator to identify common XML and
+        configuration issues before deploying VMAP responses.
+    </p>
+
+
+    <h2>
+        VMAP and VAST
+    </h2>
+
+    <p>
+        VMAP defines the advertising schedule while VAST
+        commonly provides the actual video advertising
+        response. A VMAP document can reference a VAST
+        resource using an AdTagURI or include VAST data
+        directly through an AdSource.
+    </p>
+
+
+    <h2>
+        VMAP Pre-Roll, Mid-Roll and Post-Roll
+    </h2>
+
+    <p>
+        VMAP can define advertising breaks at different
+        points in a video. Pre-roll occurs before the main
+        content, mid-roll occurs during playback and post-roll
+        occurs after the content. Correct timeOffset values
+        are important for these breaks to work as expected.
+    </p>
+
+
+    <h2>
+        Free VMAP Validator
+    </h2>
+
+    <p>
+        PubsRate's VMAP Validator runs directly in your browser.
+        Your XML is processed locally by this page and is not
+        uploaded to a server by the validator.
+    </p>
+
+</section>
+
+
+</main>
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+    © 2026 PubsRate. All rights reserved.
+
+</footer>
+
+
+<script>
+
+    /* =========================
+       LOAD EXAMPLE
+    ========================== */
+
+    function loadExample() {
+
+        const example = `<?xml version="1.0" encoding="UTF-8"?>
+
+<vmap:VMAP
+    xmlns:vmap="http://www.iab.net/videosuite/vmap"
+    version="1.0">
+
+    <vmap:AdBreak
+        timeOffset="start"
+        breakType="linear"
+        breakId="preroll-1">
+
+        <vmap:AdSource
+            id="adsource-1"
+            allowMultipleAds="false"
+            followRedirects="true">
+
+            <vmap:AdTagURI
+                templateType="vast4">
+                <![CDATA[
+                    https://example.com/vast.xml
+                ]]>
+            </vmap:AdTagURI>
+
+        </vmap:AdSource>
+
+    </vmap:AdBreak>
+
+
+    <vmap:AdBreak
+        timeOffset="00:10:00"
+        breakType="linear"
+        breakId="midroll-1">
+
+        <vmap:AdSource
+            id="adsource-2"
+            allowMultipleAds="false"
+            followRedirects="true">
+
+            <vmap:AdTagURI
+                templateType="vast4">
+                <![CDATA[
+                    https://example.com/midroll.xml
+                ]]>
+            </vmap:AdTagURI>
+
+        </vmap:AdSource>
+
+    </vmap:AdBreak>
+
+
+    <vmap:AdBreak
+        timeOffset="end"
+        breakType="linear"
+        breakId="postroll-1">
+
+        <vmap:AdSource
+            id="adsource-3"
+            allowMultipleAds="false"
+            followRedirects="true">
+
+            <vmap:AdTagURI
+                templateType="vast4">
+                <![CDATA[
+                    https://example.com/postroll.xml
+                ]]>
+            </vmap:AdTagURI>
+
+        </vmap:AdSource>
+
+    </vmap:AdBreak>
+
+</vmap:VMAP>`;
+
+        document.getElementById(
+            "vmapInput"
+        ).value = example;
+
+    }
+
+
+    /* =========================
+       CLEAR
+    ========================== */
+
+    function clearValidator() {
+
+        document.getElementById(
+            "vmapInput"
+        ).value = "";
+
+        const result =
+            document.getElementById("result");
+
+        result.innerHTML = "";
+
+        result.className = "result";
+
+    }
+
+
+    /* =========================
+       VALIDATE VMAP
+    ========================== */
+
+    function validateVMAP() {
+
+        const input =
+            document.getElementById(
+                "vmapInput"
+            ).value.trim();
+
+        const result =
+            document.getElementById(
+                "result"
+            );
+
+
+        if (!input) {
+
+            showResult(
+                "error",
+                "❌ No VMAP XML provided",
+                [],
+                []
+            );
+
+            return;
+
+        }
+
+
+        const parser =
+            new DOMParser();
+
+        const xml =
+            parser.parseFromString(
+                input,
+                "application/xml"
+            );
+
+
+        const parserError =
+            xml.getElementsByTagName(
+                "parsererror"
+            );
+
+
+        if (parserError.length > 0) {
+
+            showResult(
+                "error",
+                "❌ Invalid XML",
+                [
+                    {
+                        type: "fail",
+                        title: "XML Syntax",
+                        message:
+                            "The document contains invalid XML syntax. Check opening and closing tags, quotes and special characters."
+                    }
+                ],
+                []
+            );
+
+            return;
+
+        }
+
+
+        const checks = [];
+
+        const warnings = [];
+
+
+        /* =========================
+           ROOT CHECK
+        ========================== */
+
+        const root =
+            xml.documentElement;
+
+        const rootLocalName =
+            root.localName ||
+            root.nodeName.split(":").pop();
+
+
+        if (
+            rootLocalName === "VMAP"
+        ) {
+
+            checks.push({
+                type: "pass",
+                title: "VMAP Root Element",
+                message:
+                    "The document contains a VMAP root element."
+            });
+
+        } else {
+
+            checks.push({
+                type: "fail",
+                title: "VMAP Root Element",
+                message:
+                    "The root element is not VMAP."
+            });
+
+        }
+
+
+        /* =========================
+           VERSION
+        ========================== */
+
+        const version =
+            root.getAttribute(
+                "version"
+            );
+
+
+        if (version) {
+
+            checks.push({
+                type: "pass",
+                title: "VMAP Version",
+                message:
+                    "VMAP version " +
+                    version +
+                    " is declared."
+            });
+
+        } else {
+
+            warnings.push({
+                type: "warning",
+                title: "VMAP Version",
+                message:
+                    "No VMAP version attribute was found."
+            });
+
+        }
+
+
+        /* =========================
+           NAMESPACE
+        ========================== */
+
+        const namespace =
+            root.namespaceURI ||
+            root.getAttribute(
+                "xmlns:vmap"
+            );
+
+
+        if (
+            namespace ===
+            "http://www.iab.net/videosuite/vmap"
+        ) {
+
+            checks.push({
+                type: "pass",
+                title: "VMAP Namespace",
+                message:
+                    "The standard VMAP namespace is present."
+            });
+
+        } else {
+
+            warnings.push({
+                type: "warning",
+                title: "VMAP Namespace",
+                message:
+                    "The standard VMAP namespace was not detected."
+            });
+
+        }
+
+
+        /* =========================
+           AD BREAKS
+        ========================== */
+
+        const adBreaks =
+            getElementsByLocalName(
+                xml,
+                "AdBreak"
+            );
+
+
+        if (
+            adBreaks.length > 0
+        ) {
+
+            checks.push({
+                type: "pass",
+                title: "AdBreak Elements",
+                message:
+                    adBreaks.length +
+                    " AdBreak element(s) found."
+            });
+
+        } else {
+
+            checks.push({
+                type: "fail",
+                title: "AdBreak Elements",
+                message:
+                    "No AdBreak elements were found."
+            });
+
+        }
+
+
+        /* =========================
+           BREAK VALIDATION
+        ========================== */
+
+        const breakIds =
+            new Set();
+
+        let validBreaks = 0;
+
+        let invalidBreaks = 0;
+
+
+        adBreaks.forEach(
+            (adBreak, index) => {
+
+                const breakNumber =
+                    index + 1;
+
+
+                const breakId =
+                    adBreak.getAttribute(
+                        "breakId"
+                    );
+
+
+                const timeOffset =
+                    adBreak.getAttribute(
+                        "timeOffset"
+                    );
+
+
+                const breakType =
+                    adBreak.getAttribute(
+                        "breakType"
+                    );
+
+
+                if (breakId) {
+
+                    if (
+                        breakIds.has(
+                            breakId
+                        )
+                    ) {
+
+                        warnings.push({
+                            type: "warning",
+                            title:
+                                "Duplicate Break ID",
+                            message:
+                                "AdBreak " +
+                                breakNumber +
+                                " uses duplicate breakId: " +
+                                breakId
+                        });
+
+                    } else {
+
+                        breakIds.add(
+                            breakId
+                        );
+
+                    }
+
+                } else {
+
+                    warnings.push({
+                        type: "warning",
+                        title:
+                            "Missing Break ID",
+                        message:
+                            "AdBreak " +
+                            breakNumber +
+                            " does not contain a breakId."
+                    });
+
+                }
+
+
+                if (
+                    timeOffset
+                ) {
+
+                    if (
+                        isValidTimeOffset(
+                            timeOffset
+                        )
+                    ) {
+
+                        checks.push({
+                            type: "pass",
+                            title:
+                                "AdBreak " +
+                                breakNumber +
+                                " Time Offset",
+                            message:
+                                "timeOffset \"" +
+                                timeOffset +
+                                "\" is in an accepted format."
+                        });
+
+                    } else {
+
+                        invalidBreaks++;
+
+                        checks.push({
+                            type: "fail",
+                            title:
+                                "AdBreak " +
+                                breakNumber +
+                                " Time Offset",
+                            message:
+                                "timeOffset \"" +
+                                timeOffset +
+                                "\" does not match common VMAP formats."
+                        });
+
+                    }
+
+                } else {
+
+                    invalidBreaks++;
+
+                    checks.push({
+                        type: "fail",
+                        title:
+                            "AdBreak " +
+                            breakNumber +
+                            " Time Offset",
+                        message:
+                            "The AdBreak does not contain timeOffset."
+                    });
+
+                }
+
+
+                if (
+                    breakType
+                ) {
+
+                    if (
+                        breakType ===
+                        "linear" ||
+                        breakType ===
+                        "nonlinear"
+                    ) {
+
+                        checks.push({
+                            type: "pass",
+                            title:
+                                "AdBreak " +
+                                breakNumber +
+                                " Break Type",
+                            message:
+                                "breakType is \"" +
+                                breakType +
+                                "\"."
+                        });
+
+                    } else {
+
+                        warnings.push({
+                            type: "warning",
+                            title:
+                                "AdBreak " +
+                                breakNumber +
+                                " Break Type",
+                            message:
+                                "Unexpected breakType \"" +
+                                breakType +
+                                "\" detected."
+                        });
+
+                    }
+
+                } else {
+
+                    warnings.push({
+                        type: "warning",
+                        title:
+                            "AdBreak " +
+                            breakNumber +
+                            " Break Type",
+                        message:
+                            "No breakType attribute was found."
+                    });
+
+                }
+
+
+                const adSources =
+                    getElementsByLocalName(
+                        adBreak,
+                        "AdSource"
+                    );
+
+
+                if (
+                    adSources.length === 0
+                ) {
+
+                    invalidBreaks++;
+
+                    checks.push({
+                        type: "fail",
+                        title:
+                            "AdBreak " +
+                            breakNumber +
+                            " AdSource",
+                        message:
+                            "No AdSource element was found."
+                    });
+
+                } else {
+
+                    validBreaks++;
+
+                    checks.push({
+                        type: "pass",
+                        title:
+                            "AdBreak " +
+                            breakNumber +
+                            " AdSource",
+                        message:
+                            adSources.length +
+                            " AdSource element(s) found."
+                    });
+
+                }
+
+
+                adSources.forEach(
+                    (source, sourceIndex) => {
+
+                        const sourceNumber =
+                            sourceIndex + 1;
+
+
+                        const adTagURI =
+                            getElementsByLocalName(
+                                source,
+                                "AdTagURI"
+                            );
+
+
+                        const vastAdData =
+                            getElementsByLocalName(
+                                source,
+                                "VASTAdData"
+                            );
+
+
+                        if (
+                            adTagURI.length > 0
+                        ) {
+
+                            checks.push({
+                                type: "pass",
+                                title:
+                                    "AdSource " +
+                                    sourceNumber +
+                                    " VAST AdTagURI",
+                                message:
+                                    "A VAST AdTagURI reference was found."
+                            });
+
+                        } else if (
+                            vastAdData.length > 0
+                        ) {
+
+                            checks.push({
+                                type: "pass",
+                                title:
+                                    "AdSource " +
+                                    sourceNumber +
+                                    " VASTAdData",
+                                message:
+                                    "Embedded VASTAdData was found."
+                            });
+
+                        } else {
+
+                            warnings.push({
+                                type: "warning",
+                                title:
+                                    "AdSource " +
+                                    sourceNumber +
+                                    " VAST Source",
+                                message:
+                                    "No AdTagURI or VASTAdData element was found."
+                            });
+
+                        }
+
+                    }
+                );
+
+            }
+        );
+
+
+        /* =========================
+           FINAL RESULT
+        ========================== */
+
+        let status =
+            "success";
+
+        let title =
+            "✅ VMAP Validation Passed";
+
+
+        if (
+            checks.some(
+                check =>
+                    check.type === "fail"
+            )
+        ) {
+
+            status =
+                "error";
+
+            title =
+                "❌ VMAP Validation Failed";
+
+        } else if (
+            warnings.length > 0
+        ) {
+
+            status =
+                "warning";
+
+            title =
+                "⚠️ VMAP Validated With Warnings";
+
+        }
+
+
+        showResult(
+            status,
+            title,
+            checks,
+            warnings
+        );
+
+    }
+
+
+    /* =========================
+       TIME OFFSET
+    ========================== */
+
+    function isValidTimeOffset(
+        value
+    ) {
+
+        if (
+            value === "start" ||
+            value === "end"
+        ) {
+
+            return true;
+
+        }
+
+
+        /* Percentage */
+
+        if (
+            /^\d+(\.\d+)?%$/.test(
+                value
+            )
+        ) {
+
+            return true;
+
+        }
+
+
+        /* HH:MM:SS */
+
+        if (
+            /^\d{2}:\d{2}:\d{2}(\.\d+)?$/.test(
+                value
+            )
+        ) {
+
+            return true;
+
+        }
+
+
+        return false;
+
+    }
+
+
+    /* =========================
+       LOCAL NAME SEARCH
+    ========================== */
+
+    function getElementsByLocalName(
+        parent,
+        name
+    ) {
+
+        const elements =
+            parent.getElementsByTagName("*");
+
+        const matches = [];
+
+
+        for (
+            let i = 0;
+            i < elements.length;
+            i++
+        ) {
+
+            const element =
+                elements[i];
+
+            const localName =
+                element.localName ||
+                element.nodeName
+                    .split(":")
+                    .pop();
+
+
+            if (
+                localName === name
+            ) {
+
+                matches.push(
+                    element
+                );
+
+            }
+
+        }
+
+
+        return matches;
+
+    }
+
+
+    /* =========================
+       SHOW RESULT
+    ========================== */
+
+    function showResult(
+        status,
+        title,
+        checks,
+        warnings
+    ) {
+
+        const result =
+            document.getElementById(
+                "result"
+            );
+
+
+        const failures =
+            checks.filter(
+                item =>
+                    item.type === "fail"
+            ).length;
+
+
+        const passes =
+            checks.filter(
+                item =>
+                    item.type === "pass"
+            ).length;
+
+
+        result.className =
+            "result " +
+            status;
+
+
+        let html = `
+
+            <div class="result-title">
+                ${title}
+            </div>
+
+            <div class="summary">
+
+                <div class="summary-card">
+
+                    <div class="summary-number">
+                        ${passes}
+                    </div>
+
+                    <div class="summary-label">
+                        Passed
+                    </div>
+
+                </div>
+
+
+                <div class="summary-card">
+
+                    <div class="summary-number">
+                        ${failures}
+                    </div>
+
+                    <div class="summary-label">
+                        Errors
+                    </div>
+
+                </div>
+
+
+                <div class="summary-card">
+
+                    <div class="summary-number">
+                        ${warnings.length}
+                    </div>
+
+                    <div class="summary-label">
+                        Warnings
+                    </div>
+
+                </div>
+
+
+                <div class="summary-card">
+
+                    <div class="summary-number">
+                        ${checks.length}
+                    </div>
+
+                    <div class="summary-label">
+                        Checks
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="checks">
+        `;
+
+
+        checks.forEach(
+            check => {
+
+                const icon =
+                    check.type === "pass"
+                        ? "✅"
+                        : "❌";
+
+
+                html += `
+
+                    <div class="check ${check.type}">
+
+                        <strong>
+                            ${icon}
+                            ${escapeHTML(
+                                check.title
+                            )}
+                        </strong>
+
+                        <span>
+                            ${escapeHTML(
+                                check.message
+                            )}
+                        </span>
+
+                    </div>
+
+                `;
+
+            }
+        );
+
+
+        warnings.forEach(
+            warning => {
+
+                html += `
+
+                    <div class="check warning">
+
+                        <strong>
+                            ⚠️
+                            ${escapeHTML(
+                                warning.title
+                            )}
+                        </strong>
+
+                        <span>
+                            ${escapeHTML(
+                                warning.message
+                            )}
+                        </span>
+
+                    </div>
+
+                `;
+
+            }
+        );
+
+
+        html += `
+            </div>
+        `;
+
+
+        result.innerHTML =
+            html;
+
+
+        result.scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+        });
+
+    }
+
+
+    /* =========================
+       HTML ESCAPE
+    ========================== */
+
+    function escapeHTML(
+        value
+    ) {
+
+        return String(value)
+
+            .replace(
+                /&/g,
+                "&amp;"
+            )
+
+            .replace(
+                /</g,
+                "&lt;"
+            )
+
+            .replace(
+                />/g,
+                "&gt;"
+            )
+
+            .replace(
+                /"/g,
+                "&quot;"
+            )
+
+            .replace(
+                /'/g,
+                "&#039;"
+            );
+
+    }
+
+</script>
+
+
+</body>
+
+</html>
