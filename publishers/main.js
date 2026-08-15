@@ -4444,7 +4444,6 @@ const publishers = [
     "channels": ["Gusto TV Main Feed", "Gusto BBQ", "Gusto Desserts"],
     "contentFocus": ["High-Production Culinary Shows", "Global Cuisine Recipes", "Chef Masterclasses"]
   },
-    [
   {
     "id": 361,
     "name": "Local Now Movies & Docs",
