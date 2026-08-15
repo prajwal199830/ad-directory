@@ -7,7 +7,7 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
- <!-- =========================
+    <!-- =========================
          SEO
     ========================== -->
 
@@ -160,56 +160,76 @@
 
     </script>
 
+
     <style>
 
         * {
             box-sizing: border-box;
         }
 
+
         body {
             margin: 0;
-            font-family: Arial, Helvetica, sans-serif;
+
+            font-family:
+                Arial,
+                Helvetica,
+                sans-serif;
+
             background: #f5f7fb;
+
             color: #1f2937;
         }
 
 
         /* =========================
            HEADER
-        ========================= */
+        ========================== */
 
         header {
             background: #111827;
+
             color: white;
+
             padding: 18px 20px;
         }
 
+
         .header-container {
             max-width: 1150px;
+
             margin: auto;
 
             display: flex;
+
             justify-content: space-between;
+
             align-items: center;
         }
 
+
         .logo {
             font-size: 27px;
+
             font-weight: bold;
         }
+
 
         .logo span {
             color: #38bdf8;
         }
 
+
         nav a {
             color: white;
+
             text-decoration: none;
 
             margin-left: 25px;
 
             font-size: 15px;
         }
+
 
         nav a:hover {
             color: #38bdf8;
@@ -218,10 +238,11 @@
 
         /* =========================
            MAIN
-        ========================= */
+        ========================== */
 
         .container {
             max-width: 1100px;
+
             margin: auto;
 
             padding: 50px 20px;
@@ -230,7 +251,7 @@
 
         /* =========================
            HERO
-        ========================= */
+        ========================== */
 
         .hero {
             background: white;
@@ -247,12 +268,14 @@
             margin-bottom: 40px;
         }
 
+
         .hero h1 {
             font-size: 42px;
 
             margin:
                 0 0 15px;
         }
+
 
         .hero p {
             max-width: 760px;
@@ -269,7 +292,7 @@
 
         /* =========================
            TOOLS GRID
-        ========================= */
+        ========================== */
 
         .tools-grid {
             display: grid;
@@ -278,12 +301,14 @@
                 repeat(2, 1fr);
 
             gap: 25px;
+
+            margin-bottom: 45px;
         }
 
 
         /* =========================
            TOOL CARD
-        ========================= */
+        ========================== */
 
         .tool-card {
             background: white;
@@ -302,6 +327,7 @@
                 box-shadow 0.2s;
         }
 
+
         .tool-card:hover {
             transform:
                 translateY(-5px);
@@ -311,15 +337,19 @@
         }
 
 
-        /* ICON */
+        /* =========================
+           TOOL ICON
+        ========================== */
 
         .tool-icon {
             width: 65px;
+
             height: 65px;
 
             display: flex;
 
             align-items: center;
+
             justify-content: center;
 
             border-radius: 14px;
@@ -332,7 +362,9 @@
         }
 
 
-        /* TITLE */
+        /* =========================
+           TOOL TITLE
+        ========================== */
 
         .tool-card h2 {
             margin:
@@ -342,7 +374,9 @@
         }
 
 
-        /* DESCRIPTION */
+        /* =========================
+           TOOL DESCRIPTION
+        ========================== */
 
         .tool-card p {
             color: #64748b;
@@ -353,7 +387,9 @@
         }
 
 
-        /* FEATURES */
+        /* =========================
+           FEATURES
+        ========================== */
 
         .features {
             list-style: none;
@@ -362,6 +398,7 @@
 
             margin: 20px 0;
         }
+
 
         .features li {
             margin-bottom: 10px;
@@ -372,7 +409,9 @@
         }
 
 
-        /* BUTTON */
+        /* =========================
+           BUTTON
+        ========================== */
 
         .tool-button {
             display: inline-block;
@@ -392,14 +431,76 @@
             font-weight: bold;
         }
 
+
         .tool-button:hover {
             background: #1d4ed8;
         }
 
 
         /* =========================
+           SEO CONTENT
+        ========================== */
+
+        .seo-content {
+            background: white;
+
+            margin-top: 10px;
+
+            padding: 40px;
+
+            border-radius: 16px;
+
+            border: 1px solid #e5e7eb;
+
+            box-shadow:
+                0 4px 15px rgba(0,0,0,0.05);
+        }
+
+
+        .seo-content h2 {
+            margin:
+                0 0 12px;
+
+            font-size: 25px;
+
+            color: #111827;
+        }
+
+
+        .seo-content h2:not(:first-child) {
+            margin-top: 35px;
+        }
+
+
+        .seo-content p {
+            color: #64748b;
+
+            line-height: 1.8;
+
+            font-size: 16px;
+
+            margin:
+                0 0 15px;
+        }
+
+
+        .seo-content a {
+            color: #2563eb;
+
+            font-weight: 700;
+
+            text-decoration: none;
+        }
+
+
+        .seo-content a:hover {
+            text-decoration: underline;
+        }
+
+
+        /* =========================
            FOOTER
-        ========================= */
+        ========================== */
 
         footer {
             text-align: center;
@@ -412,7 +513,7 @@
 
         /* =========================
            MOBILE
-        ========================= */
+        ========================== */
 
         @media (max-width: 750px) {
 
@@ -422,99 +523,60 @@
                 gap: 15px;
             }
 
+
             nav a {
                 margin:
                     0 8px;
             }
 
-            .hero {
-                padding: 35px 25px;
+
+            .container {
+                padding:
+                    30px 15px;
             }
+
+
+            .hero {
+                padding:
+                    35px 25px;
+            }
+
 
             .hero h1 {
                 font-size: 34px;
             }
 
+
+            .hero p {
+                font-size: 16px;
+            }
+
+
             .tools-grid {
                 grid-template-columns: 1fr;
+
+                gap: 20px;
             }
-            /* =========================
-   SEO CONTENT
-========================= */
-
-.seo-content {
-
-    background: white;
-
-    margin-top: 45px;
-
-    padding: 40px;
-
-    border-radius: 16px;
-
-    border: 1px solid #e5e7eb;
-
-    box-shadow:
-        0 4px 15px rgba(0,0,0,0.05);
-
-}
-
-.seo-content h2 {
-
-    margin:
-        0 0 12px;
-
-    font-size: 25px;
-
-    color: #111827;
-
-}
-
-.seo-content h2:not(:first-child) {
-
-    margin-top: 35px;
-
-}
-
-.seo-content p {
-
-    color: #64748b;
-
-    line-height: 1.8;
-
-    font-size: 16px;
-
-    margin:
-        0 0 15px;
-
-}
-
-.seo-content a {
-
-    color: #2563eb;
-
-    font-weight: 700;
-
-    text-decoration: none;
-
-}
-
-.seo-content a:hover {
-
-    text-decoration: underline;
-
-}
 
 
-@media (max-width: 750px) {
+            .tool-card {
+                padding: 28px;
+            }
 
-    .seo-content {
 
-        padding: 25px;
+            .tool-card p {
+                min-height: auto;
+            }
 
-    }
 
-}
+            .seo-content {
+                padding: 25px;
+            }
+
+
+            .seo-content h2 {
+                font-size: 22px;
+            }
 
         }
 
@@ -575,93 +637,15 @@
 <section class="hero">
 
     <h1>
-    🛠️ AdTech Tools for Publishers & AdOps
+        🛠️ AdTech Tools for Publishers & AdOps
     </h1>
 
     <p>
-    Free tools for testing, validating and troubleshooting
-    advertising implementations across web and video.
-    Test VAST video ad tags and web advertising tags
-    with practical tools built for publishers, AdOps teams,
-    developers and AdTech professionals.
-</p>
-
-</section>
-<section class="seo-content">
-
-    <h2>
-        Free AdTech Testing Tools
-    </h2>
-
-    <p>
-        PubsRate provides practical advertising technology
-        tools for publishers, AdOps professionals, developers
-        and advertising teams. Use these tools to inspect
-        advertising implementations and troubleshoot common
-        issues with web and video advertising.
-    </p>
-
-
-    <h2>
-        VAST Tag Testing
-    </h2>
-
-    <p>
-        The PubsRate VAST Tag Tester helps you inspect and
-        validate VAST video advertising tags. You can check
-        VAST versions, impressions, creatives, media files
-        and tracking events before deploying a video ad tag.
-    </p>
-
-    <p>
-        <a href="vast-tag-tester.html">
-            Test a VAST ad tag →
-        </a>
-    </p>
-
-
-    <h2>
-        Web Ad Tag Testing
-    </h2>
-
-    <p>
-        The Web Ad Tag Tester is designed to help inspect
-        Google Publisher Tag implementations and common
-        web advertising configurations. Use it to identify
-        ad units, sizes, slot IDs, targeting information and
-        other GPT configuration details.
-    </p>
-
-    <p>
-        <a href="web-ad-tag-tester.html">
-            Test a web ad tag →
-        </a>
-    </p>
-
-
-    <h2>
-        Who Are These Tools For?
-    </h2>
-
-    <p>
-        These tools are useful for publishers, AdOps teams,
-        advertising operations specialists, web developers,
-        video engineers and AdTech professionals working with
-        digital advertising implementations.
-    </p>
-
-
-    <h2>
-        More AdTech Resources
-    </h2>
-
-    <p>
-        Learn more about digital advertising, publisher
-        monetization, VAST, programmatic advertising and
-        other AdTech concepts through the
-        <a href="../advertising/">
-            PubsRate Advertising resources
-        </a>.
+        Free tools for testing, validating and troubleshooting
+        advertising implementations across web and video.
+        Test VAST video ad tags and web advertising tags
+        with practical tools built for publishers, AdOps teams,
+        developers and AdTech professionals.
     </p>
 
 </section>
@@ -806,9 +790,98 @@
 </section>
 
 
+
+<!-- =========================
+     SEO / DESCRIPTION
+========================= -->
+
+<section class="seo-content">
+
+    <h2>
+        Free AdTech Testing Tools
+    </h2>
+
+    <p>
+        PubsRate provides practical advertising technology
+        tools for publishers, AdOps professionals, developers
+        and advertising teams. Use these tools to inspect
+        advertising implementations and troubleshoot common
+        issues with web and video advertising.
+    </p>
+
+
+    <h2>
+        VAST Tag Testing
+    </h2>
+
+    <p>
+        The PubsRate VAST Tag Tester helps you inspect and
+        validate VAST video advertising tags. You can check
+        VAST versions, impressions, creatives, media files
+        and tracking events before deploying a video ad tag.
+    </p>
+
+    <p>
+        <a href="vast-tag-tester.html">
+            Test a VAST ad tag →
+        </a>
+    </p>
+
+
+    <h2>
+        Web Ad Tag Testing
+    </h2>
+
+    <p>
+        The Web Ad Tag Tester is designed to help inspect
+        Google Publisher Tag implementations and common
+        web advertising configurations. Use it to identify
+        ad units, sizes, slot IDs, targeting information and
+        other GPT configuration details.
+    </p>
+
+    <p>
+        <a href="web-ad-tag-tester.html">
+            Test a web ad tag →
+        </a>
+    </p>
+
+
+    <h2>
+        Who Are These Tools For?
+    </h2>
+
+    <p>
+        These tools are useful for publishers, AdOps teams,
+        advertising operations specialists, web developers,
+        video engineers and AdTech professionals working with
+        digital advertising implementations.
+    </p>
+
+
+    <h2>
+        More AdTech Resources
+    </h2>
+
+    <p>
+        Learn more about digital advertising, publisher
+        monetization, VAST, programmatic advertising and
+        other AdTech concepts through the
+        <a href="../advertising/">
+            PubsRate Advertising resources
+        </a>.
+    </p>
+
+</section>
+
+
 </main>
 
 
+
+<!-- =========================
+     FOOTER
+========================= -->
 
 <footer>
 
