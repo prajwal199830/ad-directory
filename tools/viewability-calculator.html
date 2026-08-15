@@ -1,0 +1,862 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <!-- =========================
+         SEO
+    ========================== -->
+
+    <title>
+        Viewability Calculator | Calculate Ad Viewability % | PubsRate
+    </title>
+
+    <meta
+        name="description"
+        content="Free ad viewability calculator for publishers and AdOps professionals. Calculate viewability percentage from measurable and viewable ad impressions."
+    >
+
+    <meta
+        name="robots"
+        content="index, follow"
+    >
+
+    <link
+        rel="canonical"
+        href="https://pubsrate.com/tools/viewability-calculator.html"
+    >
+
+
+    <!-- =========================
+         OPEN GRAPH
+    ========================== -->
+
+    <meta
+        property="og:type"
+        content="website"
+    >
+
+    <meta
+        property="og:title"
+        content="Viewability Calculator | PubsRate"
+    >
+
+    <meta
+        property="og:description"
+        content="Calculate ad viewability percentage using measurable and viewable impressions."
+    >
+
+    <meta
+        property="og:url"
+        content="https://pubsrate.com/tools/viewability-calculator.html"
+    >
+
+    <meta
+        property="og:site_name"
+        content="PubsRate"
+    >
+
+
+    <!-- =========================
+         TWITTER / X
+    ========================== -->
+
+    <meta
+        name="twitter:card"
+        content="summary"
+    >
+
+    <meta
+        name="twitter:title"
+        content="Viewability Calculator | PubsRate"
+    >
+
+    <meta
+        name="twitter:description"
+        content="Free calculator for measuring digital advertising viewability."
+    >
+
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+
+        body {
+            margin: 0;
+
+            font-family:
+                Arial,
+                Helvetica,
+                sans-serif;
+
+            background: #f5f7fb;
+
+            color: #1f2937;
+        }
+
+
+        /* =========================
+           HEADER
+        ========================== */
+
+        header {
+            background: #111827;
+
+            color: white;
+
+            padding: 18px 20px;
+        }
+
+
+        .header-container {
+            max-width: 1150px;
+
+            margin: auto;
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+        }
+
+
+        .logo {
+            font-size: 27px;
+
+            font-weight: bold;
+        }
+
+
+        .logo span {
+            color: #38bdf8;
+        }
+
+
+        nav a {
+            color: white;
+
+            text-decoration: none;
+
+            margin-left: 25px;
+
+            font-size: 15px;
+        }
+
+
+        nav a:hover {
+            color: #38bdf8;
+        }
+
+
+        /* =========================
+           MAIN
+        ========================== */
+
+        .container {
+            max-width: 900px;
+
+            margin: auto;
+
+            padding: 50px 20px;
+        }
+
+
+        /* =========================
+           HERO
+        ========================== */
+
+        .hero {
+            background: white;
+
+            padding: 45px;
+
+            border-radius: 18px;
+
+            text-align: center;
+
+            box-shadow:
+                0 4px 15px rgba(0,0,0,0.06);
+
+            margin-bottom: 30px;
+        }
+
+
+        .hero h1 {
+            font-size: 40px;
+
+            margin:
+                0 0 15px;
+        }
+
+
+        .hero p {
+            max-width: 720px;
+
+            margin: auto;
+
+            color: #64748b;
+
+            font-size: 17px;
+
+            line-height: 1.7;
+        }
+
+
+        /* =========================
+           CALCULATOR
+        ========================== */
+
+        .calculator {
+            background: white;
+
+            padding: 35px;
+
+            border-radius: 16px;
+
+            border: 1px solid #e5e7eb;
+
+            box-shadow:
+                0 4px 15px rgba(0,0,0,0.06);
+        }
+
+
+        .input-group {
+            margin-bottom: 22px;
+        }
+
+
+        .input-group label {
+            display: block;
+
+            font-weight: bold;
+
+            margin-bottom: 8px;
+        }
+
+
+        .input-group small {
+            display: block;
+
+            color: #64748b;
+
+            margin-top: 6px;
+        }
+
+
+        .input-group input {
+            width: 100%;
+
+            padding: 14px;
+
+            border: 1px solid #cbd5e1;
+
+            border-radius: 8px;
+
+            font-size: 16px;
+
+            outline: none;
+        }
+
+
+        .input-group input:focus {
+            border-color: #2563eb;
+
+            box-shadow:
+                0 0 0 3px rgba(37,99,235,0.1);
+        }
+
+
+        .calculate-button {
+            width: 100%;
+
+            padding: 14px;
+
+            background: #2563eb;
+
+            color: white;
+
+            border: none;
+
+            border-radius: 8px;
+
+            font-size: 16px;
+
+            font-weight: bold;
+
+            cursor: pointer;
+        }
+
+
+        .calculate-button:hover {
+            background: #1d4ed8;
+        }
+
+
+        /* =========================
+           RESULT
+        ========================== */
+
+        .result {
+            display: none;
+
+            margin-top: 30px;
+
+            padding: 30px;
+
+            border-radius: 12px;
+
+            background: #eff6ff;
+
+            text-align: center;
+        }
+
+
+        .result-label {
+            color: #475569;
+
+            font-size: 15px;
+
+            margin-bottom: 8px;
+        }
+
+
+        .result-value {
+            font-size: 48px;
+
+            font-weight: bold;
+
+            color: #2563eb;
+
+            margin-bottom: 10px;
+        }
+
+
+        .result-status {
+            font-size: 18px;
+
+            font-weight: bold;
+
+            margin-bottom: 10px;
+        }
+
+
+        .result-description {
+            color: #64748b;
+
+            line-height: 1.6;
+        }
+
+
+        .details {
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap: 15px;
+
+            margin-top: 25px;
+        }
+
+
+        .detail-box {
+            background: white;
+
+            padding: 18px;
+
+            border-radius: 10px;
+
+            border: 1px solid #e5e7eb;
+        }
+
+
+        .detail-box strong {
+            display: block;
+
+            font-size: 20px;
+
+            margin-top: 5px;
+        }
+
+
+        /* =========================
+           SEO CONTENT
+        ========================== */
+
+        .seo-content {
+            background: white;
+
+            margin-top: 30px;
+
+            padding: 35px;
+
+            border-radius: 16px;
+
+            border: 1px solid #e5e7eb;
+
+            box-shadow:
+                0 4px 15px rgba(0,0,0,0.05);
+        }
+
+
+        .seo-content h2 {
+            font-size: 25px;
+
+            margin:
+                0 0 12px;
+        }
+
+
+        .seo-content h2:not(:first-child) {
+            margin-top: 35px;
+        }
+
+
+        .seo-content p {
+            color: #64748b;
+
+            line-height: 1.8;
+
+            font-size: 16px;
+        }
+
+
+        .seo-content a {
+            color: #2563eb;
+
+            font-weight: bold;
+
+            text-decoration: none;
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================== */
+
+        footer {
+            text-align: center;
+
+            padding: 45px 20px;
+
+            color: #64748b;
+        }
+
+
+        /* =========================
+           MOBILE
+        ========================== */
+
+        @media (max-width: 750px) {
+
+            .header-container {
+                flex-direction: column;
+
+                gap: 15px;
+            }
+
+
+            nav a {
+                margin:
+                    0 8px;
+            }
+
+
+            .hero {
+                padding: 35px 25px;
+            }
+
+
+            .hero h1 {
+                font-size: 32px;
+            }
+
+
+            .calculator {
+                padding: 25px;
+            }
+
+
+            .details {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<header>
+
+    <div class="header-container">
+
+        <div class="logo">
+            Pubs<span>Rate</span>
+        </div>
+
+
+        <nav>
+
+            <a href="../index.html">
+                Home
+            </a>
+
+            <a href="../publishers/">
+                Publishers
+            </a>
+
+            <a href="../advertising/">
+                Advertising
+            </a>
+
+            <a href="index.html">
+                Tools
+            </a>
+
+        </nav>
+
+    </div>
+
+</header>
+
+
+<main class="container">
+
+
+<section class="hero">
+
+    <h1>
+        👁️ Viewability Calculator
+    </h1>
+
+    <p>
+        Calculate your digital advertising viewability
+        percentage using measurable impressions and
+        viewable impressions.
+    </p>
+
+</section>
+
+
+<section class="calculator">
+
+    <div class="input-group">
+
+        <label for="measurable">
+            Measurable Impressions
+        </label>
+
+        <input
+            type="number"
+            id="measurable"
+            min="0"
+            placeholder="Example: 100000"
+        >
+
+        <small>
+            Enter the number of impressions that were measurable.
+        </small>
+
+    </div>
+
+
+    <div class="input-group">
+
+        <label for="viewable">
+            Viewable Impressions
+        </label>
+
+        <input
+            type="number"
+            id="viewable"
+            min="0"
+            placeholder="Example: 70000"
+        >
+
+        <small>
+            Enter the number of measurable impressions that were viewable.
+        </small>
+
+    </div>
+
+
+    <button
+        class="calculate-button"
+        onclick="calculateViewability()">
+
+        Calculate Viewability
+
+    </button>
+
+
+    <div
+        class="result"
+        id="result">
+
+        <div class="result-label">
+            Viewability Rate
+        </div>
+
+
+        <div
+            class="result-value"
+            id="percentage">
+
+            0%
+
+        </div>
+
+
+        <div
+            class="result-status"
+            id="status">
+
+        </div>
+
+
+        <div
+            class="result-description"
+            id="description">
+
+        </div>
+
+
+        <div class="details">
+
+            <div class="detail-box">
+
+                Viewable Impressions
+
+                <strong id="viewableResult">
+                    0
+                </strong>
+
+            </div>
+
+
+            <div class="detail-box">
+
+                Non-Viewable Impressions
+
+                <strong id="nonViewableResult">
+                    0
+                </strong>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="seo-content">
+
+    <h2>
+        What Is Ad Viewability?
+    </h2>
+
+    <p>
+        Ad viewability measures whether an advertisement
+        had an opportunity to be seen by a user. It is an
+        important metric for publishers, advertisers and
+        AdOps teams when evaluating digital advertising
+        performance.
+    </p>
+
+
+    <h2>
+        How Is Viewability Calculated?
+    </h2>
+
+    <p>
+        Viewability percentage is calculated by dividing
+        viewable impressions by measurable impressions
+        and multiplying the result by 100.
+    </p>
+
+
+    <p>
+        <strong>
+            Viewability % = (Viewable Impressions ÷
+            Measurable Impressions) × 100
+        </strong>
+    </p>
+
+
+    <h2>
+        Why Is Viewability Important?
+    </h2>
+
+    <p>
+        Higher viewability can indicate that advertisements
+        are receiving more opportunities to be seen. Publishers
+        and advertising teams can use viewability data to
+        understand ad placement and inventory performance.
+    </p>
+
+
+    <h2>
+        More AdTech Tools
+    </h2>
+
+    <p>
+        Explore more
+        <a href="index.html">
+            PubsRate AdTech Tools
+        </a>
+        for advertising testing, validation and
+        measurement.
+    </p>
+
+</section>
+
+
+</main>
+
+
+<footer>
+
+    © 2026 PubsRate. All rights reserved.
+
+</footer>
+
+
+<script>
+
+function calculateViewability() {
+
+    const measurable =
+        parseFloat(
+            document.getElementById("measurable").value
+        );
+
+    const viewable =
+        parseFloat(
+            document.getElementById("viewable").value
+        );
+
+
+    if (
+        isNaN(measurable) ||
+        isNaN(viewable) ||
+        measurable <= 0 ||
+        viewable < 0
+    ) {
+
+        alert(
+            "Please enter valid impression numbers."
+        );
+
+        return;
+
+    }
+
+
+    if (viewable > measurable) {
+
+        alert(
+            "Viewable impressions cannot be greater than measurable impressions."
+        );
+
+        return;
+
+    }
+
+
+    const percentage =
+        (viewable / measurable) * 100;
+
+
+    const nonViewable =
+        measurable - viewable;
+
+
+    let status = "";
+
+    let description = "";
+
+
+    if (percentage >= 70) {
+
+        status =
+            "Excellent Viewability";
+
+        description =
+            "Your calculated viewability rate is strong.";
+
+    }
+
+    else if (percentage >= 50) {
+
+        status =
+            "Good Viewability";
+
+        description =
+            "Your calculated viewability rate is moderate to good.";
+
+    }
+
+    else {
+
+        status =
+            "Needs Improvement";
+
+        description =
+            "A significant portion of measurable impressions were not viewable.";
+
+    }
+
+
+    document.getElementById("percentage")
+        .textContent =
+        percentage.toFixed(2) + "%";
+
+
+    document.getElementById("status")
+        .textContent =
+        status;
+
+
+    document.getElementById("description")
+        .textContent =
+        description;
+
+
+    document.getElementById("viewableResult")
+        .textContent =
+        viewable.toLocaleString();
+
+
+    document.getElementById("nonViewableResult")
+        .textContent =
+        nonViewable.toLocaleString();
+
+
+    document.getElementById("result")
+        .style.display =
+        "block";
+
+}
+
+</script>
+
+
+</body>
+
+</html>
