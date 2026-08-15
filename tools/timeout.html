@@ -1,0 +1,1658 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <!-- =========================
+         GOOGLE ANALYTICS
+    ========================== -->
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZK40W0H1B0"></script>
+
+    <script>
+
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+
+        gtag('config', 'G-ZK40W0H1B0');
+
+    </script>
+
+
+    <!-- =========================
+         SEO
+    ========================== -->
+
+    <title>
+        Header Bidding Timeout Calculator | PubsRate
+    </title>
+
+    <meta
+        name="description"
+        content="Free Header Bidding Timeout Calculator to estimate auction completion, timeout rates and potential impact of header bidding timeouts on publisher ad revenue."
+    >
+
+    <meta
+        name="robots"
+        content="index, follow"
+    >
+
+    <link
+        rel="canonical"
+        href="https://pubsrate.com/tools/header-bidding-timeout-calculator.html"
+    >
+
+
+    <!-- =========================
+         OPEN GRAPH
+    ========================== -->
+
+    <meta
+        property="og:type"
+        content="website"
+    >
+
+    <meta
+        property="og:title"
+        content="Header Bidding Timeout Calculator | PubsRate"
+    >
+
+    <meta
+        property="og:description"
+        content="Estimate header bidding timeout rates and understand how timeout settings can affect auction participation and publisher revenue."
+    >
+
+    <meta
+        property="og:url"
+        content="https://pubsrate.com/tools/header-bidding-timeout-calculator.html"
+    >
+
+    <meta
+        property="og:site_name"
+        content="PubsRate"
+    >
+
+
+    <!-- =========================
+         TWITTER / X
+    ========================== -->
+
+    <meta
+        name="twitter:card"
+        content="summary"
+    >
+
+    <meta
+        name="twitter:title"
+        content="Header Bidding Timeout Calculator | PubsRate"
+    >
+
+    <meta
+        name="twitter:description"
+        content="Calculate header bidding timeout rates and estimated auction participation with PubsRate."
+    >
+
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+
+        body {
+
+            margin: 0;
+
+            font-family:
+                Arial,
+                Helvetica,
+                sans-serif;
+
+            background: #f5f7fb;
+
+            color: #1f2937;
+
+        }
+
+
+        /* =========================
+           HEADER
+        ========================== */
+
+        header {
+
+            background: #111827;
+
+            color: white;
+
+            padding: 18px 20px;
+
+        }
+
+
+        .header-container {
+
+            max-width: 1150px;
+
+            margin: auto;
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+        }
+
+
+        .logo {
+
+            font-size: 27px;
+
+            font-weight: bold;
+
+            text-decoration: none;
+
+            color: white;
+
+        }
+
+
+        .logo span {
+
+            color: #38bdf8;
+
+        }
+
+
+        nav a {
+
+            color: white;
+
+            text-decoration: none;
+
+            margin-left: 25px;
+
+            font-size: 15px;
+
+        }
+
+
+        nav a:hover {
+
+            color: #38bdf8;
+
+        }
+
+
+        /* =========================
+           MAIN
+        ========================== */
+
+        .container {
+
+            max-width: 1000px;
+
+            margin: auto;
+
+            padding: 40px 20px;
+
+        }
+
+
+        /* =========================
+           HERO
+        ========================== */
+
+        .hero {
+
+            text-align: center;
+
+            margin-bottom: 30px;
+
+        }
+
+
+        .badge {
+
+            display: inline-block;
+
+            background: #e0f2fe;
+
+            color: #0369a1;
+
+            padding: 8px 14px;
+
+            border-radius: 20px;
+
+            font-size: 13px;
+
+            font-weight: bold;
+
+            margin-bottom: 15px;
+
+        }
+
+
+        .hero h1 {
+
+            font-size: 40px;
+
+            margin:
+                0 0 15px;
+
+            color: #111827;
+
+        }
+
+
+        .hero p {
+
+            max-width: 780px;
+
+            margin: auto;
+
+            color: #64748b;
+
+            line-height: 1.7;
+
+            font-size: 17px;
+
+        }
+
+
+        /* =========================
+           TOOL CARD
+        ========================== */
+
+        .tool-card {
+
+            background: white;
+
+            border-radius: 18px;
+
+            padding: 35px;
+
+            box-shadow:
+                0 5px 20px rgba(0,0,0,0.07);
+
+        }
+
+
+        .tool-card h2 {
+
+            margin-top: 0;
+
+            font-size: 25px;
+
+        }
+
+
+        .tool-description {
+
+            color: #64748b;
+
+            line-height: 1.6;
+
+            margin-bottom: 30px;
+
+        }
+
+
+        /* =========================
+           FORM
+        ========================== */
+
+        .form-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap: 20px;
+
+        }
+
+
+        .form-group {
+
+            display: flex;
+
+            flex-direction: column;
+
+        }
+
+
+        .form-group.full {
+
+            grid-column: 1 / -1;
+
+        }
+
+
+        label {
+
+            font-weight: bold;
+
+            margin-bottom: 8px;
+
+            font-size: 14px;
+
+        }
+
+
+        input {
+
+            width: 100%;
+
+            padding: 13px;
+
+            border: 1px solid #cbd5e1;
+
+            border-radius: 8px;
+
+            font-size: 16px;
+
+            outline: none;
+
+        }
+
+
+        input:focus {
+
+            border-color: #2563eb;
+
+        }
+
+
+        .input-help {
+
+            color: #94a3b8;
+
+            font-size: 12px;
+
+            margin-top: 5px;
+
+        }
+
+
+        /* =========================
+           BUTTON
+        ========================== */
+
+        .calculate-button {
+
+            width: 100%;
+
+            margin-top: 25px;
+
+            padding: 15px;
+
+            border: none;
+
+            border-radius: 9px;
+
+            background: #2563eb;
+
+            color: white;
+
+            font-size: 17px;
+
+            font-weight: bold;
+
+            cursor: pointer;
+
+        }
+
+
+        .calculate-button:hover {
+
+            background: #1d4ed8;
+
+        }
+
+
+        /* =========================
+           RESULTS
+        ========================== */
+
+        .results {
+
+            display: none;
+
+            margin-top: 35px;
+
+        }
+
+
+        .results h2 {
+
+            font-size: 25px;
+
+            margin-bottom: 20px;
+
+        }
+
+
+        .result-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 15px;
+
+        }
+
+
+        .result-card {
+
+            background: #f8fafc;
+
+            border: 1px solid #e2e8f0;
+
+            border-radius: 12px;
+
+            padding: 20px;
+
+        }
+
+
+        .result-card span {
+
+            display: block;
+
+            color: #64748b;
+
+            font-size: 13px;
+
+            margin-bottom: 8px;
+
+        }
+
+
+        .result-card strong {
+
+            font-size: 23px;
+
+            color: #111827;
+
+        }
+
+
+        /* =========================
+           ANALYSIS
+        ========================== */
+
+        .analysis {
+
+            margin-top: 25px;
+
+            padding: 25px;
+
+            background: #f8fafc;
+
+            border: 1px solid #e2e8f0;
+
+            border-radius: 12px;
+
+        }
+
+
+        .analysis h3 {
+
+            margin-top: 0;
+
+        }
+
+
+        .analysis-row {
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            padding: 12px 0;
+
+            border-bottom: 1px solid #e2e8f0;
+
+        }
+
+
+        .analysis-row:last-child {
+
+            border-bottom: none;
+
+        }
+
+
+        .analysis-row strong {
+
+            font-size: 17px;
+
+        }
+
+
+        .status {
+
+            margin-top: 20px;
+
+            padding: 18px;
+
+            border-radius: 10px;
+
+            line-height: 1.6;
+
+            font-weight: bold;
+
+        }
+
+
+        .status.good {
+
+            background: #ecfdf5;
+
+            border: 1px solid #a7f3d0;
+
+            color: #065f46;
+
+        }
+
+
+        .status.warning {
+
+            background: #fffbeb;
+
+            border: 1px solid #fde68a;
+
+            color: #92400e;
+
+        }
+
+
+        .status.high {
+
+            background: #fef2f2;
+
+            border: 1px solid #fecaca;
+
+            color: #991b1b;
+
+        }
+
+
+        /* =========================
+           SEO CONTENT
+        ========================== */
+
+        .seo-content {
+
+            margin-top: 45px;
+
+            background: white;
+
+            padding: 35px;
+
+            border-radius: 16px;
+
+            box-shadow:
+                0 4px 15px rgba(0,0,0,0.05);
+
+        }
+
+
+        .seo-content h2 {
+
+            margin-top: 0;
+
+            color: #111827;
+
+        }
+
+
+        .seo-content h2:not(:first-child) {
+
+            margin-top: 30px;
+
+        }
+
+
+        .seo-content p {
+
+            color: #64748b;
+
+            line-height: 1.8;
+
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================== */
+
+        footer {
+
+            text-align: center;
+
+            padding: 40px 20px;
+
+            color: #64748b;
+
+        }
+
+
+        footer a {
+
+            color: #2563eb;
+
+            text-decoration: none;
+
+        }
+
+
+        /* =========================
+           MOBILE
+        ========================== */
+
+        @media (max-width: 750px) {
+
+            .header-container {
+
+                flex-direction: column;
+
+                gap: 15px;
+
+            }
+
+
+            nav a {
+
+                margin:
+                    0 7px;
+
+            }
+
+
+            .hero h1 {
+
+                font-size: 31px;
+
+            }
+
+
+            .tool-card {
+
+                padding: 25px;
+
+            }
+
+
+            .form-grid {
+
+                grid-template-columns: 1fr;
+
+            }
+
+
+            .form-group.full {
+
+                grid-column: auto;
+
+            }
+
+
+            .result-grid {
+
+                grid-template-columns: 1fr;
+
+            }
+
+
+            .analysis-row {
+
+                flex-direction: column;
+
+                align-items: flex-start;
+
+                gap: 5px;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     HEADER
+========================= -->
+
+<header>
+
+    <div class="header-container">
+
+        <a
+            href="../index.html"
+            class="logo">
+
+            Pubs<span>Rate</span>
+
+        </a>
+
+
+        <nav>
+
+            <a href="../index.html">
+                Home
+            </a>
+
+            <a href="../publishers/">
+                Publishers
+            </a>
+
+            <a href="../advertising/">
+                Advertising
+            </a>
+
+            <a href="index.html">
+                Tools
+            </a>
+
+        </nav>
+
+    </div>
+
+</header>
+
+
+
+<main class="container">
+
+
+<!-- =========================
+     HERO
+========================= -->
+
+<section class="hero">
+
+    <div class="badge">
+        ⚡ PubsRate AdTech Tool
+    </div>
+
+
+    <h1>
+        Header Bidding Timeout Calculator
+    </h1>
+
+
+    <p>
+        Estimate header bidding timeout rates, auction
+        participation and the potential impact of timeout
+        settings on your programmatic advertising setup.
+    </p>
+
+</section>
+
+
+
+<!-- =========================
+     TOOL
+========================= -->
+
+<section class="tool-card">
+
+    <h2>
+        Calculate Header Bidding Timeout
+    </h2>
+
+
+    <p class="tool-description">
+
+        Enter your header bidding configuration and
+        performance data to estimate how many auctions
+        complete before the timeout and how many demand
+        opportunities may be lost.
+
+    </p>
+
+
+    <div class="form-grid">
+
+
+        <!-- AUCTIONS -->
+
+        <div class="form-group">
+
+            <label for="auctions">
+                Header Bidding Auctions
+            </label>
+
+            <input
+                type="number"
+                id="auctions"
+                value="100000"
+                min="0"
+                placeholder="Example: 100000"
+            >
+
+            <div class="input-help">
+                Number of header bidding auctions during the selected period.
+            </div>
+
+        </div>
+
+
+
+        <!-- TIMEOUT -->
+
+        <div class="form-group">
+
+            <label for="timeout">
+                Configured Timeout (ms)
+            </label>
+
+            <input
+                type="number"
+                id="timeout"
+                value="1000"
+                min="1"
+                step="1"
+                placeholder="Example: 1000"
+            >
+
+            <div class="input-help">
+                Maximum time allowed for the header bidding auction.
+            </div>
+
+        </div>
+
+
+
+        <!-- AVERAGE RESPONSE -->
+
+        <div class="form-group">
+
+            <label for="responseTime">
+                Average Bid Response Time (ms)
+            </label>
+
+            <input
+                type="number"
+                id="responseTime"
+                value="700"
+                min="0"
+                step="1"
+                placeholder="Example: 700"
+            >
+
+            <div class="input-help">
+                Average response time from demand partners.
+            </div>
+
+        </div>
+
+
+
+        <!-- ACTUAL TIMEOUT RATE -->
+
+        <div class="form-group">
+
+            <label for="timeoutRate">
+                Observed Timeout Rate (%)
+            </label>
+
+            <input
+                type="number"
+                id="timeoutRate"
+                value="10"
+                min="0"
+                max="100"
+                step="0.1"
+                placeholder="Example: 10"
+            >
+
+            <div class="input-help">
+                Percentage of auctions currently experiencing timeouts.
+            </div>
+
+        </div>
+
+
+
+        <!-- DEMAND PARTNERS -->
+
+        <div class="form-group">
+
+            <label for="partners">
+                Demand Partners
+            </label>
+
+            <input
+                type="number"
+                id="partners"
+                value="5"
+                min="1"
+                step="1"
+                placeholder="Example: 5"
+            >
+
+            <div class="input-help">
+                Number of SSPs or demand partners participating.
+            </div>
+
+        </div>
+
+
+
+        <!-- CPM -->
+
+        <div class="form-group">
+
+            <label for="cpm">
+                Average Winning CPM ($)
+            </label>
+
+            <input
+                type="number"
+                id="cpm"
+                value="2.50"
+                min="0"
+                step="0.01"
+                placeholder="Example: 2.50"
+            >
+
+            <div class="input-help">
+                Optional CPM used to estimate potential revenue affected by timeouts.
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+    <button
+        class="calculate-button"
+        onclick="calculateTimeout()">
+
+        Calculate Timeout Impact
+
+    </button>
+
+
+
+    <!-- =========================
+         RESULTS
+    ========================== -->
+
+    <div
+        class="results"
+        id="results">
+
+        <h2>
+            Estimated Results
+        </h2>
+
+
+        <div class="result-grid">
+
+
+            <div class="result-card">
+
+                <span>
+                    Auctions
+                </span>
+
+                <strong id="resultAuctions">
+                    0
+                </strong>
+
+            </div>
+
+
+
+            <div class="result-card">
+
+                <span>
+                    Auctions Completed
+                </span>
+
+                <strong id="completedAuctions">
+                    0
+                </strong>
+
+            </div>
+
+
+
+            <div class="result-card">
+
+                <span>
+                    Auctions Timed Out
+                </span>
+
+                <strong id="timedOutAuctions">
+                    0
+                </strong>
+
+            </div>
+
+
+
+            <div class="result-card">
+
+                <span>
+                    Auction Completion Rate
+                </span>
+
+                <strong id="completionRate">
+                    0%
+                </strong>
+
+            </div>
+
+
+
+            <div class="result-card">
+
+                <span>
+                    Estimated Revenue at Risk
+                </span>
+
+                <strong id="revenueAtRisk">
+                    $0
+                </strong>
+
+            </div>
+
+
+
+            <div class="result-card">
+
+                <span>
+                    Average Response Time
+                </span>
+
+                <strong id="resultResponseTime">
+                    0 ms
+                </strong>
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- =========================
+             ANALYSIS
+        ========================== -->
+
+        <div class="analysis">
+
+            <h3>
+                Timeout Analysis
+            </h3>
+
+
+            <div class="analysis-row">
+
+                <span>
+                    Configured Timeout
+                </span>
+
+                <strong id="resultTimeout">
+                    0 ms
+                </strong>
+
+            </div>
+
+
+            <div class="analysis-row">
+
+                <span>
+                    Average Response Time
+                </span>
+
+                <strong id="analysisResponse">
+                    0 ms
+                </strong>
+
+            </div>
+
+
+            <div class="analysis-row">
+
+                <span>
+                    Response Time Margin
+                </span>
+
+                <strong id="responseMargin">
+                    0 ms
+                </strong>
+
+            </div>
+
+
+            <div class="analysis-row">
+
+                <span>
+                    Observed Timeout Rate
+                </span>
+
+                <strong id="analysisTimeoutRate">
+                    0%
+                </strong>
+
+            </div>
+
+
+            <div class="analysis-row">
+
+                <span>
+                    Demand Partners
+                </span>
+
+                <strong id="analysisPartners">
+                    0
+                </strong>
+
+            </div>
+
+
+            <div
+                id="status"
+                class="status">
+
+                Analysis will appear here.
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     SEO CONTENT
+========================= -->
+
+<section class="seo-content">
+
+    <h2>
+        What Is Header Bidding Timeout?
+    </h2>
+
+    <p>
+
+        A header bidding timeout is the maximum amount of
+        time a publisher allows participating demand partners
+        to respond to a header bidding auction. If a bid does
+        not respond within the configured timeout, that
+        response may not participate in the auction.
+
+    </p>
+
+
+    <h2>
+        Why Does Header Bidding Timeout Matter?
+    </h2>
+
+    <p>
+
+        Timeout settings involve a balance between demand
+        competition and page performance. A longer timeout
+        can give demand partners more time to respond, while
+        an excessively long timeout can increase latency and
+        potentially affect the user experience.
+
+    </p>
+
+
+    <h2>
+        How Does This Calculator Work?
+    </h2>
+
+    <p>
+
+        The calculator uses the number of auctions, configured
+        timeout, average bid response time and observed timeout
+        rate to estimate completed auctions and auctions that
+        may time out. An optional CPM is used to provide a
+        simple estimate of potential revenue associated with
+        timed-out auctions.
+
+    </p>
+
+
+    <h2>
+        What Is a Good Header Bidding Timeout?
+    </h2>
+
+    <p>
+
+        There is no universal timeout value that works for
+        every publisher. The appropriate setting depends on
+        the demand partners being used, traffic geography,
+        device mix, auction architecture, latency requirements
+        and overall page performance.
+
+    </p>
+
+
+    <h2>
+        How Can Publishers Reduce Timeouts?
+    </h2>
+
+    <p>
+
+        Publishers can analyze individual demand partner
+        response times, remove consistently slow partners,
+        optimize bidder configuration and monitor timeout
+        rates. Server-side solutions can also be considered
+        where appropriate to reduce browser-side processing
+        and latency.
+
+    </p>
+
+
+    <h2>
+        Important Note
+    </h2>
+
+    <p>
+
+        This calculator provides an estimate and should not be
+        treated as a measurement of actual auction performance.
+        Real header bidding results depend on bidder-specific
+        response times, auction configuration, floors, traffic,
+        browser conditions and other technical factors.
+
+    </p>
+
+</section>
+
+
+</main>
+
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+    © 2026 PubsRate.
+    All rights reserved.
+
+    <br><br>
+
+    <a href="../index.html">
+        PubsRate
+    </a>
+
+</footer>
+
+
+
+<script>
+
+    function formatNumber(value) {
+
+        return Math.round(value).toLocaleString(
+            "en-US"
+        );
+
+    }
+
+
+    function formatCurrency(value) {
+
+        return "$" + value.toLocaleString(
+            "en-US",
+            {
+                minimumFractionDigits: 2,
+                maximumFractionDigits: 2
+            }
+        );
+
+    }
+
+
+    function calculateTimeout() {
+
+        const auctions =
+            parseFloat(
+                document.getElementById(
+                    "auctions"
+                ).value
+            ) || 0;
+
+
+        const timeout =
+            parseFloat(
+                document.getElementById(
+                    "timeout"
+                ).value
+            ) || 0;
+
+
+        const responseTime =
+            parseFloat(
+                document.getElementById(
+                    "responseTime"
+                ).value
+            ) || 0;
+
+
+        const timeoutRate =
+            parseFloat(
+                document.getElementById(
+                    "timeoutRate"
+                ).value
+            ) || 0;
+
+
+        const partners =
+            parseInt(
+                document.getElementById(
+                    "partners"
+                ).value
+            ) || 0;
+
+
+        const cpm =
+            parseFloat(
+                document.getElementById(
+                    "cpm"
+                ).value
+            ) || 0;
+
+
+        if (timeoutRate > 100) {
+
+            alert(
+                "Timeout rate cannot be greater than 100%."
+            );
+
+            return;
+
+        }
+
+
+        if (
+            auctions < 0 ||
+            timeout <= 0 ||
+            responseTime < 0 ||
+            timeoutRate < 0 ||
+            partners < 1 ||
+            cpm < 0
+        ) {
+
+            alert(
+                "Please enter valid values."
+            );
+
+            return;
+
+        }
+
+
+        /*
+         * Auctions that time out
+         */
+
+        const timedOutAuctions =
+            auctions *
+            (timeoutRate / 100);
+
+
+        /*
+         * Auctions that complete
+         */
+
+        const completedAuctions =
+            auctions -
+            timedOutAuctions;
+
+
+        /*
+         * Completion rate
+         */
+
+        const completionRate =
+            auctions > 0
+                ? (
+                    completedAuctions /
+                    auctions
+                ) * 100
+                : 0;
+
+
+        /*
+         * Estimated revenue associated
+         * with timed-out auctions.
+         *
+         * This is only a simplified estimate.
+         */
+
+        const revenueAtRisk =
+            (
+                timedOutAuctions /
+                1000
+            ) * cpm;
+
+
+        /*
+         * Response time margin
+         */
+
+        const responseMargin =
+            timeout -
+            responseTime;
+
+
+        /*
+         * Display results
+         */
+
+        document.getElementById(
+            "resultAuctions"
+        ).textContent =
+            formatNumber(
+                auctions
+            );
+
+
+        document.getElementById(
+            "completedAuctions"
+        ).textContent =
+            formatNumber(
+                completedAuctions
+            );
+
+
+        document.getElementById(
+            "timedOutAuctions"
+        ).textContent =
+            formatNumber(
+                timedOutAuctions
+            );
+
+
+        document.getElementById(
+            "completionRate"
+        ).textContent =
+            completionRate.toFixed(1) +
+            "%";
+
+
+        document.getElementById(
+            "revenueAtRisk"
+        ).textContent =
+            formatCurrency(
+                revenueAtRisk
+            );
+
+
+        document.getElementById(
+            "resultResponseTime"
+        ).textContent =
+            responseTime.toFixed(0) +
+            " ms";
+
+
+        document.getElementById(
+            "resultTimeout"
+        ).textContent =
+            timeout.toFixed(0) +
+            " ms";
+
+
+        document.getElementById(
+            "analysisResponse"
+        ).textContent =
+            responseTime.toFixed(0) +
+            " ms";
+
+
+        document.getElementById(
+            "responseMargin"
+        ).textContent =
+            responseMargin.toFixed(0) +
+            " ms";
+
+
+        document.getElementById(
+            "analysisTimeoutRate"
+        ).textContent =
+            timeoutRate.toFixed(1) +
+            "%";
+
+
+        document.getElementById(
+            "analysisPartners"
+        ).textContent =
+            partners;
+
+
+        /*
+         * Status analysis
+         */
+
+        const status =
+            document.getElementById(
+                "status"
+            );
+
+
+        status.className =
+            "status";
+
+
+        if (
+            timeoutRate <= 5 &&
+            responseTime < timeout
+        ) {
+
+            status.classList.add(
+                "good"
+            );
+
+            status.textContent =
+                "Low timeout rate. Your average bidder response time is within the configured timeout, which indicates a relatively healthy auction response pattern.";
+
+        }
+
+        else if (
+            timeoutRate <= 15 &&
+            responseTime < timeout
+        ) {
+
+            status.classList.add(
+                "warning"
+            );
+
+            status.textContent =
+                "Moderate timeout rate. Consider analyzing bidder-level response times and identifying demand partners that frequently respond near or beyond the timeout.";
+
+        }
+
+        else {
+
+            status.classList.add(
+                "high"
+            );
+
+            status.textContent =
+                "High timeout impact. Review your timeout configuration, bidder response times and slow demand partners. Excessive timeouts can reduce auction participation and may affect revenue.";
+
+        }
+
+
+        /*
+         * If average response time exceeds
+         * configured timeout, add warning.
+         */
+
+        if (
+            responseTime >= timeout
+        ) {
+
+            status.className =
+                "status high";
+
+            status.textContent =
+                "Your average bid response time is at or above the configured timeout. This may cause a significant portion of demand responses to miss the auction deadline. Consider investigating slow bidders and reviewing your timeout configuration.";
+
+        }
+
+
+        document.getElementById(
+            "results"
+        ).style.display =
+            "block";
+
+    }
+
+
+    /*
+     * Calculate default values
+     * when the page loads.
+     */
+
+    window.addEventListener(
+        "load",
+        calculateTimeout
+    );
+
+</script>
+
+
+</body>
+
+</html>
