@@ -1,0 +1,2435 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Programmatic Standards & Transparency | PubsRate</title>
+
+    <meta name="description"
+          content="Learn about ads.txt, app-ads.txt, sellers.json, OpenRTB, VAST, VMAP, supply chain and CMP in programmatic advertising.">
+
+    <meta name="robots" content="index, follow">
+
+    <link rel="canonical"
+          href="https://www.pubsrate.com/advertising/programmatic/standards/">
+
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f7f9fc;
+            color: #172033;
+            line-height: 1.7;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1150px;
+            margin: auto;
+        }
+
+
+        /* ===============================
+           NAVBAR
+        =============================== */
+
+        .navbar {
+            height: 68px;
+            background: #ffffff;
+            border-bottom: 1px solid #e5e7eb;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding: 0 5%;
+
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: #111827;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 25px;
+        }
+
+        .nav-links a {
+            font-size: 14px;
+            color: #4b5563;
+        }
+
+        .nav-links a:hover {
+            color: #2563eb;
+        }
+
+
+        /* ===============================
+           BREADCRUMB
+        =============================== */
+
+        .breadcrumb {
+            background: #ffffff;
+            border-bottom: 1px solid #e5e7eb;
+            padding: 12px 0;
+
+            font-size: 12px;
+            color: #6b7280;
+        }
+
+        .breadcrumb a {
+            color: #2563eb;
+        }
+
+
+        /* ===============================
+           HERO
+        =============================== */
+
+        .hero {
+            background:
+                radial-gradient(
+                    circle at 80% 20%,
+                    #263b65,
+                    transparent 35%
+                ),
+                #111827;
+
+            color: white;
+
+            text-align: center;
+
+            padding: 75px 20px;
+        }
+
+        .hero-label {
+            font-size: 11px;
+            letter-spacing: 1.5px;
+            font-weight: 700;
+
+            color: #93c5fd;
+
+            margin-bottom: 15px;
+        }
+
+        .hero h1 {
+            font-size: 45px;
+            line-height: 1.15;
+
+            margin-bottom: 18px;
+        }
+
+        .hero p {
+            max-width: 820px;
+
+            margin: auto;
+
+            color: #d1d5db;
+
+            font-size: 17px;
+        }
+
+
+        /* ===============================
+           QUICK NAV
+        =============================== */
+
+        .quick-nav {
+            background: white;
+            border-bottom: 1px solid #e5e7eb;
+
+            padding: 14px 0;
+        }
+
+        .quick-nav-inner {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+
+            gap: 8px;
+        }
+
+        .quick-nav a {
+            padding: 7px 12px;
+
+            border: 1px solid #e5e7eb;
+
+            border-radius: 6px;
+
+            font-size: 11px;
+
+            color: #4b5563;
+        }
+
+        .quick-nav a:hover {
+            background: #eff6ff;
+            border-color: #93c5fd;
+            color: #2563eb;
+        }
+
+
+        /* ===============================
+           GENERAL SECTION
+        =============================== */
+
+        section {
+            padding: 65px 0;
+        }
+
+        .section-title {
+            text-align: center;
+
+            margin-bottom: 38px;
+        }
+
+        .section-title h2 {
+            font-size: 32px;
+
+            margin-bottom: 8px;
+        }
+
+        .section-title p {
+            max-width: 760px;
+
+            margin: auto;
+
+            color: #6b7280;
+
+            font-size: 14px;
+        }
+
+
+        /* ===============================
+           INTRO
+        =============================== */
+
+        .intro {
+            background: #ffffff;
+        }
+
+        .intro-box {
+            max-width: 900px;
+
+            margin: auto;
+
+            background: #f8fafc;
+
+            border: 1px solid #e5e7eb;
+
+            border-radius: 14px;
+
+            padding: 30px;
+        }
+
+        .intro-box h2 {
+            font-size: 24px;
+
+            margin-bottom: 12px;
+        }
+
+        .intro-box p {
+            font-size: 14px;
+
+            color: #5b6472;
+
+            margin-bottom: 12px;
+        }
+
+
+        /* ===============================
+           CONCEPT SECTIONS
+        =============================== */
+
+        .concept-section {
+            background: #f7f9fc;
+        }
+
+        .concept-section:nth-of-type(even) {
+            background: #ffffff;
+        }
+
+        .concept-card {
+            max-width: 900px;
+
+            margin: auto;
+
+            background: white;
+
+            border: 1px solid #e5e7eb;
+
+            border-radius: 14px;
+
+            padding: 32px;
+
+            box-shadow: 0 7px 25px rgba(0,0,0,.03);
+        }
+
+        .concept-card h3 {
+            font-size: 25px;
+
+            margin-bottom: 12px;
+        }
+
+        .concept-card p {
+            font-size: 14px;
+
+            color: #5b6472;
+
+            margin-bottom: 12px;
+        }
+
+        .highlight {
+            margin-top: 20px;
+
+            padding: 18px;
+
+            background: #eff6ff;
+
+            border: 1px solid #bfdbfe;
+
+            border-radius: 9px;
+        }
+
+        .highlight strong {
+            color: #1d4ed8;
+
+            font-size: 13px;
+        }
+
+
+        /* ===============================
+           CODE BLOCK
+        =============================== */
+
+        .code-title {
+            font-size: 12px;
+
+            font-weight: 700;
+
+            color: #374151;
+
+            margin-top: 25px;
+
+            margin-bottom: 7px;
+        }
+
+        pre {
+            background: #111827;
+
+            color: #d1d5db;
+
+            padding: 20px;
+
+            border-radius: 9px;
+
+            overflow-x: auto;
+
+            font-family: Consolas, monospace;
+
+            font-size: 12px;
+
+            line-height: 1.7;
+        }
+
+
+        /* ===============================
+           FIELD GRID
+        =============================== */
+
+        .field-grid {
+            display: grid;
+
+            grid-template-columns: repeat(2, 1fr);
+
+            gap: 12px;
+
+            margin-top: 20px;
+        }
+
+        .field {
+            background: #f8fafc;
+
+            border: 1px solid #e5e7eb;
+
+            border-radius: 9px;
+
+            padding: 16px;
+        }
+
+        .field strong {
+            display: block;
+
+            font-size: 13px;
+
+            margin-bottom: 4px;
+        }
+
+        .field span {
+            font-size: 11px;
+
+            color: #6b7280;
+        }
+
+
+        /* ===============================
+           SIMPLE DIAGRAM
+        =============================== */
+
+        .diagram {
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            flex-wrap: wrap;
+
+            gap: 10px;
+
+            margin-top: 30px;
+        }
+
+        .diagram-box {
+            min-width: 145px;
+
+            text-align: center;
+
+            padding: 18px 13px;
+
+            background: #ffffff;
+
+            border: 1px solid #dbe3ef;
+
+            border-radius: 10px;
+
+            font-size: 12px;
+
+            font-weight: 700;
+        }
+
+        .diagram-box small {
+            display: block;
+
+            margin-top: 4px;
+
+            font-size: 10px;
+
+            color: #6b7280;
+
+            font-weight: normal;
+        }
+
+        .diagram-arrow {
+            color: #2563eb;
+
+            font-size: 20px;
+        }
+
+
+        /* ===============================
+           COMPARISON
+        =============================== */
+
+        .comparison {
+            background: #ffffff;
+        }
+
+        .table-wrapper {
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+
+            border-collapse: collapse;
+
+            background: white;
+
+            border: 1px solid #e5e7eb;
+        }
+
+        th,
+        td {
+            padding: 15px;
+
+            border-bottom: 1px solid #e5e7eb;
+
+            text-align: left;
+
+            font-size: 13px;
+        }
+
+        th {
+            background: #111827;
+
+            color: white;
+
+            font-size: 12px;
+        }
+
+
+        /* ===============================
+           SUPPLY CHAIN
+        =============================== */
+
+        .supply {
+            background: #111827;
+
+            color: white;
+        }
+
+        .supply .section-title p {
+            color: #9ca3af;
+        }
+
+        .supply-diagram {
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            flex-wrap: wrap;
+
+            gap: 8px;
+        }
+
+        .supply-box {
+            background: #1f2937;
+
+            border: 1px solid #374151;
+
+            padding: 18px;
+
+            border-radius: 9px;
+
+            min-width: 125px;
+
+            text-align: center;
+
+            font-size: 12px;
+
+            font-weight: 700;
+        }
+
+        .supply-box small {
+            display: block;
+
+            margin-top: 4px;
+
+            color: #9ca3af;
+
+            font-size: 9px;
+
+            font-weight: normal;
+        }
+
+        .supply-arrow {
+            color: #60a5fa;
+
+            font-size: 20px;
+        }
+
+
+        /* ===============================
+           KEY TERMS
+        =============================== */
+
+        .terms {
+            background: #ffffff;
+        }
+
+        .term-grid {
+            display: grid;
+
+            grid-template-columns: repeat(4, 1fr);
+
+            gap: 13px;
+        }
+
+        .term {
+            background: #f8fafc;
+
+            border: 1px solid #e5e7eb;
+
+            border-radius: 9px;
+
+            padding: 18px;
+        }
+
+        .term strong {
+            display: block;
+
+            font-size: 14px;
+
+            margin-bottom: 4px;
+        }
+
+        .term span {
+            font-size: 11px;
+
+            color: #6b7280;
+        }
+
+
+        /* ===============================
+           NOTICE
+        =============================== */
+
+        .notice-section {
+            background: #f7f9fc;
+
+            padding: 45px 0;
+        }
+
+        .notice-box {
+            max-width: 900px;
+
+            margin: auto;
+
+            background: white;
+
+            border: 1px solid #e5e7eb;
+
+            border-radius: 12px;
+
+            padding: 27px;
+        }
+
+        .notice-box h2 {
+            font-size: 20px;
+
+            margin-bottom: 10px;
+        }
+
+        .notice-box p {
+            font-size: 12px;
+
+            color: #6b7280;
+
+            margin-bottom: 10px;
+        }
+
+
+        /* ===============================
+           FEEDBACK
+        =============================== */
+
+        .feedback {
+            background: white;
+
+            padding: 45px 0;
+        }
+
+        .feedback-box {
+            max-width: 900px;
+
+            margin: auto;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            gap: 25px;
+
+            background: #f8fafc;
+
+            border: 1px solid #e5e7eb;
+
+            border-radius: 13px;
+
+            padding: 28px;
+        }
+
+        .feedback-label {
+            font-size: 10px;
+
+            color: #2563eb;
+
+            letter-spacing: 1px;
+
+            font-weight: 700;
+        }
+
+        .feedback-box h2 {
+            font-size: 22px;
+
+            margin: 5px 0;
+        }
+
+        .feedback-box p {
+            color: #6b7280;
+
+            font-size: 12px;
+
+            max-width: 650px;
+        }
+
+        .feedback-button {
+            flex-shrink: 0;
+
+            background: #2563eb;
+
+            color: white;
+
+            padding: 11px 17px;
+
+            border-radius: 7px;
+
+            font-size: 12px;
+
+            font-weight: 600;
+        }
+
+        .feedback-button:hover {
+            background: #1d4ed8;
+        }
+
+
+        /* ===============================
+           CTA
+        =============================== */
+
+        .cta {
+            background: #111827;
+
+            color: white;
+
+            text-align: center;
+        }
+
+        .cta h2 {
+            font-size: 30px;
+
+            margin-bottom: 10px;
+        }
+
+        .cta p {
+            max-width: 700px;
+
+            margin: auto auto 20px;
+
+            color: #9ca3af;
+
+            font-size: 14px;
+        }
+
+        .cta-button {
+            display: inline-block;
+
+            background: #2563eb;
+
+            padding: 11px 20px;
+
+            border-radius: 7px;
+
+            font-size: 13px;
+
+            font-weight: 600;
+        }
+
+
+        /* ===============================
+           FOOTER
+        =============================== */
+
+        footer {
+            background: #0b1120;
+
+            color: #9ca3af;
+
+            text-align: center;
+
+            padding: 35px 20px;
+
+            font-size: 12px;
+        }
+
+        footer strong {
+            color: white;
+        }
+
+
+        /* ===============================
+           MOBILE
+        =============================== */
+
+        @media (max-width: 850px) {
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .term-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .field-grid {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+
+        @media (max-width: 600px) {
+
+            section {
+                padding: 50px 0;
+            }
+
+            .hero {
+                padding: 60px 20px;
+            }
+
+            .hero h1 {
+                font-size: 30px;
+            }
+
+            .hero p {
+                font-size: 14px;
+            }
+
+            .diagram,
+            .supply-diagram {
+                flex-direction: column;
+            }
+
+            .diagram-arrow,
+            .supply-arrow {
+                transform: rotate(90deg);
+            }
+
+            .term-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .feedback-box {
+                flex-direction: column;
+
+                align-items: flex-start;
+            }
+
+            .feedback-button {
+                width: 100%;
+
+                text-align: center;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- ===============================
+     NAVBAR
+=============================== -->
+
+<header class="navbar">
+
+    <div class="logo">
+        PubsRate
+    </div>
+
+    <nav class="nav-links">
+
+        <a href="/">
+            Home
+        </a>
+
+        <a href="/publishers/">
+            Publishers
+        </a>
+
+        <a href="/advertising/">
+            Advertising Hub
+        </a>
+
+        <a href="/tools/">
+            Tools
+        </a>
+
+        <a href="/news/">
+            News
+        </a>
+
+    </nav>
+
+</header>
+
+
+
+<!-- ===============================
+     BREADCRUMB
+=============================== -->
+
+<div class="breadcrumb">
+
+    <div class="container">
+
+        <a href="/">
+            PubsRate
+        </a>
+
+        &nbsp; / &nbsp;
+
+        <a href="/advertising/">
+            Advertising Hub
+        </a>
+
+        &nbsp; / &nbsp;
+
+        Programmatic Standards & Transparency
+
+    </div>
+
+</div>
+
+
+
+<!-- ===============================
+     HERO
+=============================== -->
+
+<section class="hero">
+
+    <div class="hero-label">
+        PROGRAMMATIC ADVERTISING
+    </div>
+
+    <h1>
+        Programmatic Standards & Transparency
+    </h1>
+
+    <p>
+        Explore ads.txt, app-ads.txt, sellers.json,
+        OpenRTB, VAST, VMAP, supply chain and CMP —
+        important concepts used across the digital
+        advertising ecosystem.
+    </p>
+
+</section>
+
+
+
+<!-- ===============================
+     QUICK NAV
+=============================== -->
+
+<div class="quick-nav">
+
+    <div class="container quick-nav-inner">
+
+        <a href="#adstxt">
+            ads.txt
+        </a>
+
+        <a href="#appadstxt">
+            app-ads.txt
+        </a>
+
+        <a href="#sellers">
+            sellers.json
+        </a>
+
+        <a href="#openrtb">
+            OpenRTB
+        </a>
+
+        <a href="#vast">
+            VAST
+        </a>
+
+        <a href="#vmap">
+            VMAP
+        </a>
+
+        <a href="#supply">
+            Supply Chain
+        </a>
+
+        <a href="#cmp">
+            CMP
+        </a>
+
+    </div>
+
+</div>
+
+
+
+<!-- ===============================
+     INTRO
+=============================== -->
+
+<section class="intro">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <h2>
+                Why These Standards Matter
+            </h2>
+
+            <p>
+                Programmatic advertising involves many platforms,
+                companies and technologies. These standards help
+                different parts of the ecosystem communicate,
+                verify relationships and manage advertising
+                transactions.
+            </p>
+
+        </div>
+
+
+        <div class="intro-box">
+
+            <h2>
+                A Connected Advertising Ecosystem
+            </h2>
+
+            <p>
+                A publisher may work with multiple SSPs,
+                exchanges, ad servers and other technology
+                providers while advertisers and DSPs evaluate
+                inventory through automated buying systems.
+            </p>
+
+            <p>
+                Standards such as ads.txt, sellers.json and
+                OpenRTB help different parts of this ecosystem
+                work together with greater transparency.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ===============================
+     ADS.TXT
+=============================== -->
+
+<section class="concept-section" id="adstxt">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <h2>
+                ads.txt
+            </h2>
+
+            <p>
+                Authorized digital sellers for publisher inventory.
+            </p>
+
+        </div>
+
+
+        <div class="concept-card">
+
+            <h3>
+                What is ads.txt?
+            </h3>
+
+            <p>
+                ads.txt is a text file that publishers place
+                on their website to identify the advertising
+                platforms and seller accounts that are authorized
+                to sell their ad inventory.
+            </p>
+
+            <p>
+                Buyers and advertising platforms can use the
+                information in ads.txt as one of the checks
+                when evaluating whether inventory is being
+                sold through an authorized seller.
+            </p>
+
+
+            <div class="code-title">
+                Sample ads.txt line
+            </div>
+
+            <pre>google.com, pub-1234, DIRECT, f08c47fec0942fa0</pre>
+
+
+            <div class="field-grid">
+
+                <div class="field">
+
+                    <strong>
+                        google.com
+                    </strong>
+
+                    <span>
+                        Domain of the advertising platform or exchange.
+                    </span>
+
+                </div>
+
+
+                <div class="field">
+
+                    <strong>
+                        pub-1234
+                    </strong>
+
+                    <span>
+                        Publisher account or seller ID on that platform.
+                    </span>
+
+                </div>
+
+
+                <div class="field">
+
+                    <strong>
+                        DIRECT
+                    </strong>
+
+                    <span>
+                        Indicates a direct relationship with the platform
+                        represented by the seller account.
+                    </span>
+
+                </div>
+
+
+                <div class="field">
+
+                    <strong>
+                        RESELLER
+                    </strong>
+
+                    <span>
+                        Indicates the seller is authorized through
+                        another intermediary.
+                    </span>
+
+                </div>
+
+
+                <div class="field">
+
+                    <strong>
+                        Certification Authority ID
+                    </strong>
+
+                    <span>
+                        Identifier associated with the platform's
+                        certification authority.
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="highlight">
+
+                <strong>
+                    Simple way to understand it:
+                </strong>
+
+                <p>
+                    ads.txt tells buyers which advertising platforms
+                    and seller accounts a publisher authorizes to
+                    sell its inventory.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ===============================
+     APP-ADS.TXT
+=============================== -->
+
+<section class="concept-section" id="appadstxt">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <h2>
+                app-ads.txt
+            </h2>
+
+            <p>
+                Authorized sellers for app advertising inventory.
+            </p>
+
+        </div>
+
+
+        <div class="concept-card">
+
+            <h3>
+                What is app-ads.txt?
+            </h3>
+
+            <p>
+                app-ads.txt follows the same basic authorization
+                concept as ads.txt, but it is designed for
+                advertising inventory associated with mobile
+                applications and other supported app environments.
+            </p>
+
+            <p>
+                App developers can publish an app-ads.txt file
+                on their associated developer website so buyers
+                can verify authorized sellers.
+            </p>
+
+
+            <div class="diagram">
+
+                <div class="diagram-box">
+
+                    Website
+
+                    <small>
+                        ads.txt
+                    </small>
+
+                </div>
+
+
+                <div class="diagram-arrow">
+                    →
+                </div>
+
+
+                <div class="diagram-box">
+
+                    App
+
+                    <small>
+                        app-ads.txt
+                    </small>
+
+                </div>
+
+            </div>
+
+
+            <div class="highlight">
+
+                <strong>
+                    Simple way to remember:
+                </strong>
+
+                <p>
+                    <b>ads.txt</b> → Website inventory
+                    <br>
+                    <b>app-ads.txt</b> → App inventory
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ===============================
+     SELLERS.JSON
+=============================== -->
+
+<section class="concept-section" id="sellers">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <h2>
+                sellers.json
+            </h2>
+
+            <p>
+                Information about sellers and intermediaries
+                in the advertising supply chain.
+            </p>
+
+        </div>
+
+
+        <div class="concept-card">
+
+            <h3>
+                What is sellers.json?
+            </h3>
+
+            <p>
+                sellers.json provides information about
+                organizations participating in the advertising
+                supply chain.
+            </p>
+
+            <p>
+                It allows buyers to obtain information about
+                sellers and intermediaries involved in selling
+                inventory and understand who is represented
+                by a particular seller ID.
+            </p>
+
+
+            <div class="code-title">
+                Example
+            </div>
+
+            <pre>{
+  "seller_id": "pub-1234",
+  "name": "Company Name",
+  "seller_type": "PUBLISHER",
+  "domain": "pubsrate.com",
+  "is_passthrough": false
+}</pre>
+
+
+            <div class="field-grid">
+
+                <div class="field">
+
+                    <strong>
+                        seller_id
+                    </strong>
+
+                    <span>
+                        Seller account or identifier used by
+                        the advertising platform.
+                    </span>
+
+                </div>
+
+
+                <div class="field">
+
+                    <strong>
+                        name
+                    </strong>
+
+                    <span>
+                        Name of the organization represented
+                        by the seller record.
+                    </span>
+
+                </div>
+
+
+                <div class="field">
+
+                    <strong>
+                        seller_type
+                    </strong>
+
+                    <span>
+                        Identifies the type of participant,
+                        such as publisher or intermediary.
+                    </span>
+
+                </div>
+
+
+                <div class="field">
+
+                    <strong>
+                        domain
+                    </strong>
+
+                    <span>
+                        Business or organizational domain
+                        associated with the seller.
+                    </span>
+
+                </div>
+
+
+                <div class="field">
+
+                    <strong>
+                        is_passthrough
+                    </strong>
+
+                    <span>
+                        Provides information about whether
+                        the seller is acting as a passthrough
+                        entity.
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="highlight">
+
+                <strong>
+                    Simple way to remember:
+                </strong>
+
+                <p>
+                    ads.txt tells buyers which sellers a
+                    publisher authorizes.
+                    <br>
+                    sellers.json helps buyers understand
+                    who those sellers are.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ===============================
+     OPENRTB
+=============================== -->
+
+<section class="concept-section" id="openrtb">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <h2>
+                OpenRTB
+            </h2>
+
+            <p>
+                A common protocol used for real-time
+                programmatic bidding.
+            </p>
+
+        </div>
+
+
+        <div class="concept-card">
+
+            <h3>
+                What is OpenRTB?
+            </h3>
+
+            <p>
+                OpenRTB is a protocol used by advertising
+                technology platforms to exchange information
+                about an advertising opportunity and conduct
+                automated bidding.
+            </p>
+
+            <p>
+                An ad request can contain information about
+                the available inventory, such as the website
+                or app, ad format, device and other applicable
+                signals.
+            </p>
+
+            <p>
+                Buyers can use the available information to
+                decide whether they want to participate and
+                what they are willing to bid.
+            </p>
+
+
+            <div class="diagram">
+
+                <div class="diagram-box">
+
+                    Publisher / App
+
+                    <small>
+                        Ad opportunity
+                    </small>
+
+                </div>
+
+                <div class="diagram-arrow">
+                    →
+                </div>
+
+                <div class="diagram-box">
+
+                    SSP / Exchange
+
+                    <small>
+                        Bid request
+                    </small>
+
+                </div>
+
+                <div class="diagram-arrow">
+                    →
+                </div>
+
+                <div class="diagram-box">
+
+                    DSP
+
+                    <small>
+                        Bid decision
+                    </small>
+
+                </div>
+
+                <div class="diagram-arrow">
+                    →
+                </div>
+
+                <div class="diagram-box">
+
+                    Auction
+
+                    <small>
+                        Winning bid
+                    </small>
+
+                </div>
+
+            </div>
+
+
+            <div class="highlight">
+
+                <strong>
+                    Simple way to understand it:
+                </strong>
+
+                <p>
+                    OpenRTB provides a common way for advertising
+                    platforms to communicate during a real-time
+                    programmatic auction.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ===============================
+     VAST
+=============================== -->
+
+<section class="concept-section" id="vast">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <h2>
+                VAST
+            </h2>
+
+            <p>
+                Video ad serving communication between
+                ad systems and video players.
+            </p>
+
+        </div>
+
+
+        <div class="concept-card">
+
+            <h3>
+                What is VAST?
+            </h3>
+
+            <p>
+                VAST (Video Ad Serving Template) is an IAB
+                standard used to communicate video advertising
+                information between an ad server and a video player.
+            </p>
+
+            <p>
+                VAST is commonly delivered as an XML document
+                containing information about the video advertisement,
+                creative resources, tracking events and other
+                instructions needed by the player.
+            </p>
+
+
+            <div class="diagram">
+
+                <div class="diagram-box">
+
+                    Ad Server
+
+                    <small>
+                        VAST response
+                    </small>
+
+                </div>
+
+                <div class="diagram-arrow">
+                    →
+                </div>
+
+                <div class="diagram-box">
+
+                    VAST XML
+
+                    <small>
+                        Ad information
+                    </small>
+
+                </div>
+
+                <div class="diagram-arrow">
+                    →
+                </div>
+
+                <div class="diagram-box">
+
+                    Video Player
+
+                    <small>
+                        Plays ad
+                    </small>
+
+                </div>
+
+            </div>
+
+
+            <div class="highlight">
+
+                <strong>
+                    Simple way to understand it:
+                </strong>
+
+                <p>
+                    VAST = Information that tells a video player
+                    how to handle a video advertisement.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ===============================
+     VMAP
+=============================== -->
+
+<section class="concept-section" id="vmap">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <h2>
+                VMAP
+            </h2>
+
+            <p>
+                A standard for describing advertising
+                opportunities within video content.
+            </p>
+
+        </div>
+
+
+        <div class="concept-card">
+
+            <h3>
+                What is VMAP?
+            </h3>
+
+            <p>
+                VMAP (Video Multiple Ad Playlist) is an IAB
+                standard used to describe where advertising
+                breaks can occur within video content.
+            </p>
+
+            <p>
+                It can define opportunities such as pre-roll,
+                mid-roll and post-roll advertising breaks.
+            </p>
+
+
+            <div class="diagram">
+
+                <div class="diagram-box">
+
+                    PRE-ROLL
+
+                    <small>
+                        Before content
+                    </small>
+
+                </div>
+
+                <div class="diagram-arrow">
+                    →
+                </div>
+
+                <div class="diagram-box">
+
+                    CONTENT
+
+                    <small>
+                        Main video
+                    </small>
+
+                </div>
+
+                <div class="diagram-arrow">
+                    →
+                </div>
+
+                <div class="diagram-box">
+
+                    MID-ROLL
+
+                    <small>
+                        During content
+                    </small>
+
+                </div>
+
+                <div class="diagram-arrow">
+                    →
+                </div>
+
+                <div class="diagram-box">
+
+                    POST-ROLL
+
+                    <small>
+                        After content
+                    </small>
+
+                </div>
+
+            </div>
+
+
+            <div class="highlight">
+
+                <strong>
+                    Simple way to understand it:
+                </strong>
+
+                <p>
+                    VMAP = A structure that tells the video
+                    player where advertising breaks can occur.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ===============================
+     VAST VS VMAP
+=============================== -->
+
+<section class="comparison">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <h2>
+                VAST vs VMAP
+            </h2>
+
+            <p>
+                They work together in video advertising,
+                but they solve different problems.
+            </p>
+
+        </div>
+
+
+        <div class="table-wrapper">
+
+            <table>
+
+                <thead>
+
+                    <tr>
+
+                        <th>
+                            Area
+                        </th>
+
+                        <th>
+                            VAST
+                        </th>
+
+                        <th>
+                            VMAP
+                        </th>
+
+                    </tr>
+
+                </thead>
+
+
+                <tbody>
+
+                    <tr>
+
+                        <td>
+                            Main purpose
+                        </td>
+
+                        <td>
+                            Communicates information about a video ad
+                        </td>
+
+                        <td>
+                            Defines advertising break opportunities
+                        </td>
+
+                    </tr>
+
+
+                    <tr>
+
+                        <td>
+                            Focus
+                        </td>
+
+                        <td>
+                            Advertisement
+                        </td>
+
+                        <td>
+                            Ad break structure
+                        </td>
+
+                    </tr>
+
+
+                    <tr>
+
+                        <td>
+                            Example
+                        </td>
+
+                        <td>
+                            Creative and tracking information
+                        </td>
+
+                        <td>
+                            Pre-roll, mid-roll and post-roll positions
+                        </td>
+
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ===============================
+     SUPPLY CHAIN
+=============================== -->
+
+<section class="supply" id="supply">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <h2>
+                Advertising Supply Chain
+            </h2>
+
+            <p>
+                The path an advertising opportunity can take
+                through the programmatic ecosystem.
+            </p>
+
+        </div>
+
+
+        <div class="supply-diagram">
+
+            <div class="supply-box">
+
+                Publisher
+
+                <small>
+                    Inventory
+                </small>
+
+            </div>
+
+
+            <div class="supply-arrow">
+                →
+            </div>
+
+
+            <div class="supply-box">
+
+                SSP
+
+                <small>
+                    Supply platform
+                </small>
+
+            </div>
+
+
+            <div class="supply-arrow">
+                →
+            </div>
+
+
+            <div class="supply-box">
+
+                Ad Exchange
+
+                <small>
+                    Marketplace
+                </small>
+
+            </div>
+
+
+            <div class="supply-arrow">
+                →
+            </div>
+
+
+            <div class="supply-box">
+
+                DSP
+
+                <small>
+                    Buyer platform
+                </small>
+
+            </div>
+
+
+            <div class="supply-arrow">
+                →
+            </div>
+
+
+            <div class="supply-box">
+
+                Advertiser
+
+                <small>
+                    Buyer
+                </small>
+
+            </div>
+
+
+        </div>
+
+
+        <div style="
+            max-width:800px;
+            margin:35px auto 0;
+            text-align:center;
+            color:#d1d5db;
+            font-size:14px;
+        ">
+
+            The exact path can vary depending on the
+            programmatic setup and participants involved.
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ===============================
+     CMP
+=============================== -->
+
+<section class="concept-section" id="cmp">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <h2>
+                CMP
+            </h2>
+
+            <p>
+                Managing privacy and consent choices.
+            </p>
+
+        </div>
+
+
+        <div class="concept-card">
+
+            <h3>
+                What is a CMP?
+            </h3>
+
+            <p>
+                CMP (Consent Management Platform) is a technology
+                used by websites and apps to collect and manage
+                a user's privacy and consent choices.
+            </p>
+
+            <p>
+                A CMP can present users with information about
+                different purposes of data processing and allow
+                them to make choices about what they consent to.
+            </p>
+
+            <p>
+                The resulting consent information can then be
+                communicated to participating advertising and
+                technology partners.
+            </p>
+
+
+            <div class="diagram">
+
+                <div class="diagram-box">
+
+                    User
+
+                    <small>
+                        Makes privacy choice
+                    </small>
+
+                </div>
+
+                <div class="diagram-arrow">
+                    →
+                </div>
+
+                <div class="diagram-box">
+
+                    CMP
+
+                    <small>
+                        Manages consent
+                    </small>
+
+                </div>
+
+                <div class="diagram-arrow">
+                    →
+                </div>
+
+                <div class="diagram-box">
+
+                    Advertising Partners
+
+                    <small>
+                        Receive applicable signals
+                    </small>
+
+                </div>
+
+            </div>
+
+
+            <div class="highlight">
+
+                <strong>
+                    Simple way to understand it:
+                </strong>
+
+                <p>
+                    CMP = A system that helps websites and apps
+                    collect and manage user consent choices.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ===============================
+     BIG PICTURE
+=============================== -->
+
+<section class="terms">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <h2>
+                The Big Picture
+            </h2>
+
+            <p>
+                These technologies solve different problems
+                across the advertising ecosystem.
+            </p>
+
+        </div>
+
+
+        <div class="term-grid">
+
+            <div class="term">
+
+                <strong>
+                    ads.txt
+                </strong>
+
+                <span>
+                    Helps publishers declare authorized sellers.
+                </span>
+
+            </div>
+
+
+            <div class="term">
+
+                <strong>
+                    app-ads.txt
+                </strong>
+
+                <span>
+                    Authorization file for app inventory.
+                </span>
+
+            </div>
+
+
+            <div class="term">
+
+                <strong>
+                    sellers.json
+                </strong>
+
+                <span>
+                    Provides information about sellers and
+                    intermediaries.
+                </span>
+
+            </div>
+
+
+            <div class="term">
+
+                <strong>
+                    OpenRTB
+                </strong>
+
+                <span>
+                    Communication protocol for real-time
+                    programmatic bidding.
+                </span>
+
+            </div>
+
+
+            <div class="term">
+
+                <strong>
+                    VAST
+                </strong>
+
+                <span>
+                    Communicates video advertising information
+                    to a video player.
+                </span>
+
+            </div>
+
+
+            <div class="term">
+
+                <strong>
+                    VMAP
+                </strong>
+
+                <span>
+                    Defines where video advertising breaks
+                    can occur.
+                </span>
+
+            </div>
+
+
+            <div class="term">
+
+                <strong>
+                    Supply Chain
+                </strong>
+
+                <span>
+                    Shows how an advertising opportunity moves
+                    through different participants.
+                </span>
+
+            </div>
+
+
+            <div class="term">
+
+                <strong>
+                    CMP
+                </strong>
+
+                <span>
+                    Helps manage user privacy and consent choices.
+                </span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ===============================
+     CONTENT NOTICE
+=============================== -->
+
+<section class="notice-section">
+
+    <div class="container">
+
+        <div class="notice-box">
+
+            <h2>
+                Content & Copyright Notice
+            </h2>
+
+
+            <p>
+                This page has been written and structured by
+                PubsRate for educational and informational purposes.
+                The explanations, examples, diagrams and presentation
+                are created for the PubsRate platform.
+            </p>
+
+
+            <p>
+                Third-party standards, company names, trademarks,
+                products and technologies mentioned on this page
+                belong to their respective owners. Mentioning a
+                technology or company does not imply endorsement
+                or affiliation.
+            </p>
+
+
+            <p>
+                This content is intended to explain concepts in a
+                simplified way. Technical implementations may differ
+                between platforms and environments.
+            </p>
+
+
+            <p>
+                Please do not reproduce the complete page content,
+                graphics or structure without permission.
+            </p>
+
+
+            <p style="
+                margin-top:15px;
+                font-weight:600;
+                color:#374151;
+            ">
+                Last reviewed: August 2026
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ===============================
+     FEEDBACK
+=============================== -->
+
+<section class="feedback">
+
+    <div class="container">
+
+        <div class="feedback-box">
+
+            <div>
+
+                <span class="feedback-label">
+                    HELP US IMPROVE
+                </span>
+
+
+                <h2>
+                    Found an issue?
+                </h2>
+
+
+                <p>
+                    AdTech changes quickly. If you notice an
+                    incorrect explanation, outdated information,
+                    broken link or anything that needs improvement,
+                    please let us know.
+                </p>
+
+            </div>
+
+
+            <a href="/contact/"
+               class="feedback-button">
+
+                Report an Issue →
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ===============================
+     CTA
+=============================== -->
+
+<section class="cta">
+
+    <div class="container">
+
+        <h2>
+            Continue Exploring Programmatic
+        </h2>
+
+
+        <p>
+            Explore header bidding, Open Bidding, mediation,
+            DSPs, SSPs, ad exchanges, CTV, programmatic direct
+            and other advertising technologies.
+        </p>
+
+
+        <a href="/advertising/programmatic/"
+           class="cta-button">
+
+            Explore Programmatic →
+
+        </a>
+
+    </div>
+
+</section>
+
+
+
+<!-- ===============================
+     FOOTER
+=============================== -->
+
+<footer>
+
+    <p>
+
+        <strong>PubsRate</strong>
+
+        — Publisher Monetization,
+        Advertising & AdTech Resources
+
+    </p>
+
+</footer>
+
+
+</body>
+
+</html>
