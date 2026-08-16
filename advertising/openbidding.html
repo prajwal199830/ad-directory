@@ -1,0 +1,2399 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+
+    <!-- =========================
+         SEO
+    ========================== -->
+
+    <title>
+        Open Bidding Explained | Google Ad Manager & Publisher Monetization | PubsRate
+    </title>
+
+    <meta name="description"
+          content="Learn what Open Bidding is, how Open Bidding works with Google Ad Manager, how multiple demand partners compete for publisher inventory, and how publishers can use Open Bidding for yield optimization.">
+
+    <meta name="keywords"
+          content="Open Bidding, Google Open Bidding, Google Ad Manager Open Bidding, Open Bidding explained, publisher monetization, ad exchange, SSP, demand partners, programmatic advertising, yield optimization, ad auction">
+
+    <meta name="robots"
+          content="index, follow">
+
+    <meta name="author"
+          content="PubsRate">
+
+    <link rel="canonical"
+          href="https://www.pubsrate.com/advertising/open-bidding/">
+
+
+    <!-- =========================
+         OPEN GRAPH
+    ========================== -->
+
+    <meta property="og:type"
+          content="article">
+
+    <meta property="og:title"
+          content="Open Bidding Explained | Google Ad Manager & Publisher Monetization">
+
+    <meta property="og:description"
+          content="Learn how Open Bidding works with Google Ad Manager, how demand partners compete for publisher inventory, and how publishers can optimize yield.">
+
+    <meta property="og:url"
+          content="https://www.pubsrate.com/advertising/open-bidding/">
+
+    <meta property="og:site_name"
+          content="PubsRate">
+
+
+    <!-- =========================
+         TWITTER
+    ========================== -->
+
+    <meta name="twitter:card"
+          content="summary">
+
+    <meta name="twitter:title"
+          content="Open Bidding Explained | Google Ad Manager">
+
+    <meta name="twitter:description"
+          content="A practical guide to Open Bidding, demand partners, Google Ad Manager auctions, publisher monetization and yield optimization.">
+
+
+    <!-- =========================
+         STRUCTURED DATA
+    ========================== -->
+
+    <script type="application/ld+json">
+
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "Open Bidding Explained | Google Ad Manager & Publisher Monetization",
+        "description": "Learn what Open Bidding is, how Open Bidding works with Google Ad Manager, how multiple demand partners compete for publisher inventory, and how publishers can use Open Bidding for yield optimization.",
+        "url": "https://www.pubsrate.com/advertising/open-bidding/",
+        "author": {
+            "@type": "Organization",
+            "name": "PubsRate"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "PubsRate"
+        },
+        "dateModified": "2026-08-16"
+    }
+
+    </script>
+
+
+    <script type="application/ld+json">
+
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "PubsRate",
+                "item": "https://www.pubsrate.com/"
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Advertising Hub",
+                "item": "https://www.pubsrate.com/advertising/"
+            },
+            {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "Open Bidding",
+                "item": "https://www.pubsrate.com/advertising/open-bidding/"
+            }
+        ]
+    }
+
+    </script>
+
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f7f9fc;
+            color: #172033;
+            line-height: 1.7;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1150px;
+            margin: auto;
+        }
+
+        section {
+            padding: 65px 0;
+        }
+
+
+        /* =====================================
+           NAVBAR
+        ===================================== */
+
+        .navbar {
+            height: 68px;
+
+            background: #ffffff;
+
+            border-bottom: 1px solid #e5e7eb;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            padding: 0 5%;
+
+            position: sticky;
+
+            top: 0;
+
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 24px;
+
+            font-weight: 700;
+
+            color: #111827;
+        }
+
+        .nav-links {
+            display: flex;
+
+            gap: 26px;
+
+            align-items: center;
+        }
+
+        .nav-links a {
+            font-size: 14px;
+
+            color: #4b5563;
+        }
+
+        .nav-links a:hover {
+            color: #2563eb;
+        }
+
+
+        /* =========================
+           NEWS COMING SOON
+        ========================== */
+
+        .news-coming {
+            position: relative;
+            cursor: default;
+        }
+
+        .news-coming > span {
+            font-size: 14px;
+            color: #4b5563;
+        }
+
+        .coming-soon-tooltip {
+            position: absolute;
+
+            top: 30px;
+            right: 0;
+
+            width: 145px;
+
+            padding: 11px 13px;
+
+            background: #111827;
+
+            color: #ffffff;
+
+            border-radius: 8px;
+
+            text-align: center;
+
+            font-size: 12px;
+
+            font-weight: 600;
+
+            box-shadow: 0 8px 25px rgba(0,0,0,.15);
+
+            opacity: 0;
+
+            visibility: hidden;
+
+            transform: translateY(-5px);
+
+            transition: .2s;
+
+            z-index: 2000;
+        }
+
+        .coming-soon-tooltip strong {
+            display: block;
+
+            font-size: 14px;
+
+            margin-bottom: 2px;
+
+            color: #ffffff;
+        }
+
+        .coming-soon-tooltip span {
+            font-size: 11px;
+
+            color: #d1d5db;
+        }
+
+        .news-coming:hover .coming-soon-tooltip {
+            opacity: 1;
+
+            visibility: visible;
+
+            transform: translateY(0);
+        }
+
+
+        /* =====================================
+           BREADCRUMB
+        ===================================== */
+
+        .breadcrumb {
+            background: #ffffff;
+
+            border-bottom: 1px solid #e5e7eb;
+
+            padding: 12px 0;
+
+            font-size: 12px;
+
+            color: #6b7280;
+        }
+
+        .breadcrumb a {
+            color: #2563eb;
+        }
+
+
+        /* =====================================
+           HERO
+        ===================================== */
+
+        .hero {
+            background:
+                radial-gradient(
+                    circle at 80% 20%,
+                    #263b65,
+                    transparent 35%
+                ),
+                #111827;
+
+            color: white;
+
+            text-align: center;
+
+            padding: 75px 20px;
+        }
+
+        .hero-label {
+            display: inline-block;
+
+            font-size: 11px;
+
+            font-weight: 700;
+
+            letter-spacing: 1.5px;
+
+            color: #93c5fd;
+
+            margin-bottom: 15px;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+
+            line-height: 1.15;
+
+            margin-bottom: 18px;
+        }
+
+        .hero p {
+            max-width: 800px;
+
+            margin: auto;
+
+            color: #d1d5db;
+
+            font-size: 17px;
+        }
+
+
+        /* =====================================
+           PAGE NAVIGATION
+        ===================================== */
+
+        .page-nav {
+            background: white;
+
+            border-bottom: 1px solid #e5e7eb;
+
+            padding: 15px 0;
+        }
+
+        .page-nav-inner {
+            display: flex;
+
+            justify-content: center;
+
+            flex-wrap: wrap;
+
+            gap: 9px;
+        }
+
+        .page-nav a {
+            font-size: 12px;
+
+            padding: 7px 13px;
+
+            border: 1px solid #e5e7eb;
+
+            border-radius: 6px;
+
+            color: #4b5563;
+        }
+
+        .page-nav a:hover {
+            background: #eff6ff;
+
+            color: #2563eb;
+
+            border-color: #93c5fd;
+        }
+
+
+        /* =====================================
+           SECTION TITLE
+        ===================================== */
+
+        .section-title {
+            text-align: center;
+
+            margin-bottom: 38px;
+        }
+
+        .section-title h2 {
+            font-size: 32px;
+
+            margin-bottom: 9px;
+        }
+
+        .section-title p {
+            max-width: 750px;
+
+            margin: auto;
+
+            color: #6b7280;
+
+            font-size: 14px;
+        }
+
+
+        /* =====================================
+           INTRO
+        ===================================== */
+
+        .intro {
+            background: #ffffff;
+        }
+
+        .intro-box {
+            max-width: 900px;
+
+            margin: auto;
+
+            background: #f8fafc;
+
+            border: 1px solid #e5e7eb;
+
+            border-radius: 13px;
+
+            padding: 30px;
+        }
+
+        .intro-box h2 {
+            font-size: 24px;
+
+            margin-bottom: 13px;
+        }
+
+        .intro-box p {
+            font-size: 15px;
+
+            color: #4b5563;
+
+            margin-bottom: 13px;
+        }
+
+
+        /* =====================================
+           WHY OPEN BIDDING
+        ===================================== */
+
+        .why {
+            background: #f7f9fc;
+        }
+
+        .why-grid {
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 22px;
+
+            align-items: stretch;
+        }
+
+        .why-card {
+            background: #ffffff;
+
+            border: 1px solid #e5e7eb;
+
+            border-radius: 13px;
+
+            padding: 27px;
+
+            box-shadow: 0 5px 20px rgba(0,0,0,.03);
+        }
+
+        .why-card h3 {
+            font-size: 20px;
+
+            margin-bottom: 10px;
+        }
+
+        .why-card p {
+            color: #6b7280;
+
+            font-size: 14px;
+        }
+
+        .highlight {
+            background: #eff6ff;
+
+            border: 1px solid #bfdbfe;
+
+            border-radius: 13px;
+
+            padding: 27px;
+        }
+
+        .highlight h3 {
+            color: #1d4ed8;
+
+            margin-bottom: 10px;
+        }
+
+        .highlight p {
+            font-size: 14px;
+
+            color: #374151;
+        }
+
+
+        /* =====================================
+           COMPETITION
+        ===================================== */
+
+        .competition {
+            background: #ffffff;
+        }
+
+        .competition-flow {
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            flex-wrap: wrap;
+
+            gap: 12px;
+
+            margin-top: 35px;
+        }
+
+        .competition-box {
+            width: 145px;
+
+            padding: 19px 12px;
+
+            text-align: center;
+
+            background: #f8fafc;
+
+            border: 1px solid #dbe3ef;
+
+            border-radius: 10px;
+        }
+
+        .competition-box strong {
+            display: block;
+
+            font-size: 14px;
+
+            margin-bottom: 4px;
+        }
+
+        .competition-box span {
+            font-size: 10px;
+
+            color: #6b7280;
+        }
+
+        .competition-arrow {
+            color: #2563eb;
+
+            font-size: 22px;
+
+            font-weight: bold;
+        }
+
+        .winner {
+            background: #effdf4;
+
+            border-color: #86efac;
+        }
+
+
+        /* =====================================
+           HOW IT WORKS
+        ===================================== */
+
+        .flow-section {
+            background: #ffffff;
+        }
+
+        .flow {
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            flex-wrap: wrap;
+
+            gap: 10px;
+
+            margin-top: 35px;
+        }
+
+        .flow-box {
+            min-width: 135px;
+
+            padding: 18px 15px;
+
+            text-align: center;
+
+            border-radius: 10px;
+
+            background: #f8fafc;
+
+            border: 1px solid #dbe3ef;
+
+            font-size: 12px;
+
+            font-weight: 600;
+        }
+
+        .flow-box small {
+            display: block;
+
+            color: #6b7280;
+
+            font-size: 10px;
+
+            font-weight: normal;
+
+            margin-top: 4px;
+        }
+
+        .flow-arrow {
+            color: #2563eb;
+
+            font-size: 20px;
+        }
+
+
+        /* =====================================
+           AUCTION
+        ===================================== */
+
+        .auction {
+            background: #111827;
+
+            color: white;
+        }
+
+        .auction .section-title p {
+            color: #9ca3af;
+        }
+
+        .auction-container {
+            max-width: 950px;
+
+            margin: auto;
+
+            background: #1f2937;
+
+            border: 1px solid #374151;
+
+            border-radius: 14px;
+
+            padding: 28px;
+        }
+
+        .auction-row {
+            display: flex;
+
+            align-items: center;
+
+            gap: 15px;
+
+            margin-bottom: 15px;
+        }
+
+        .auction-name {
+            width: 170px;
+
+            font-size: 13px;
+
+            font-weight: 600;
+        }
+
+        .auction-bar {
+            flex: 1;
+
+            height: 38px;
+
+            background: #374151;
+
+            border-radius: 7px;
+
+            overflow: hidden;
+        }
+
+        .auction-fill {
+            height: 100%;
+
+            display: flex;
+
+            align-items: center;
+
+            padding-left: 13px;
+
+            font-size: 11px;
+
+            font-weight: bold;
+
+            background: #2563eb;
+        }
+
+        .auction-fill.winner {
+            background: #16a34a;
+
+            color: white;
+        }
+
+        .auction-result {
+            text-align: center;
+
+            margin-top: 23px;
+
+            padding: 16px;
+
+            border-radius: 9px;
+
+            background: #172a1d;
+
+            border: 1px solid #28663b;
+
+            color: #bbf7d0;
+
+            font-size: 13px;
+        }
+
+
+        /* =====================================
+           COMPARISON
+        ===================================== */
+
+        .comparison {
+            background: #f7f9fc;
+        }
+
+        .comparison-table-wrapper {
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+
+            border-collapse: collapse;
+
+            background: white;
+
+            border: 1px solid #e5e7eb;
+
+            border-radius: 10px;
+
+            overflow: hidden;
+        }
+
+        th,
+        td {
+            padding: 15px;
+
+            text-align: left;
+
+            border-bottom: 1px solid #e5e7eb;
+
+            font-size: 13px;
+        }
+
+        th {
+            background: #111827;
+
+            color: white;
+
+            font-size: 12px;
+        }
+
+        td:first-child {
+            font-weight: 600;
+        }
+
+
+        /* =====================================
+           BENEFITS
+        ===================================== */
+
+        .benefits {
+            background: #ffffff;
+        }
+
+        .benefit-grid {
+            display: grid;
+
+            grid-template-columns: repeat(3, 1fr);
+
+            gap: 18px;
+        }
+
+        .benefit {
+            padding: 23px;
+
+            border: 1px solid #e5e7eb;
+
+            border-radius: 11px;
+
+            background: #ffffff;
+        }
+
+        .benefit-icon {
+            width: 40px;
+
+            height: 40px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            border-radius: 8px;
+
+            background: #eff6ff;
+
+            color: #2563eb;
+
+            font-weight: bold;
+
+            font-size: 10px;
+
+            margin-bottom: 13px;
+        }
+
+        .benefit h3 {
+            font-size: 17px;
+
+            margin-bottom: 6px;
+        }
+
+        .benefit p {
+            font-size: 12px;
+
+            color: #6b7280;
+        }
+
+
+        /* =====================================
+           KEY TERMS
+        ===================================== */
+
+        .terms {
+            background: #f7f9fc;
+        }
+
+        .term-grid {
+            display: grid;
+
+            grid-template-columns: repeat(4, 1fr);
+
+            gap: 13px;
+        }
+
+        .term {
+            background: white;
+
+            border: 1px solid #e5e7eb;
+
+            border-radius: 9px;
+
+            padding: 17px;
+        }
+
+        .term strong {
+            display: block;
+
+            font-size: 14px;
+
+            margin-bottom: 4px;
+        }
+
+        .term span {
+            font-size: 11px;
+
+            color: #6b7280;
+        }
+
+
+        /* =====================================
+           FEEDBACK
+        ===================================== */
+
+        .feedback {
+            background: #ffffff;
+
+            padding: 55px 0;
+        }
+
+        .feedback-box {
+            max-width: 900px;
+
+            margin: auto;
+
+            background: #f8fafc;
+
+            border: 1px solid #e5e7eb;
+
+            border-radius: 13px;
+
+            padding: 30px;
+        }
+
+        .feedback-header {
+            margin-bottom: 22px;
+        }
+
+        .feedback-label {
+            display: inline-block;
+
+            font-size: 10px;
+
+            color: #2563eb;
+
+            letter-spacing: 1px;
+
+            font-weight: 700;
+
+            margin-bottom: 5px;
+        }
+
+        .feedback-header h2 {
+            font-size: 24px;
+
+            margin-bottom: 6px;
+        }
+
+        .feedback-header p {
+            color: #6b7280;
+
+            font-size: 13px;
+
+            max-width: 700px;
+        }
+
+        .feedback-form {
+            display: grid;
+
+            gap: 14px;
+        }
+
+        .feedback-form label {
+            font-size: 12px;
+
+            font-weight: 600;
+
+            color: #374151;
+        }
+
+        .feedback-form input,
+        .feedback-form textarea {
+            width: 100%;
+
+            margin-top: 6px;
+
+            padding: 11px 12px;
+
+            border: 1px solid #d1d5db;
+
+            border-radius: 7px;
+
+            background: #ffffff;
+
+            font-family: inherit;
+
+            font-size: 13px;
+
+            outline: none;
+        }
+
+        .feedback-form input:focus,
+        .feedback-form textarea:focus {
+            border-color: #2563eb;
+
+            box-shadow: 0 0 0 2px rgba(37,99,235,.08);
+        }
+
+        .feedback-form textarea {
+            min-height: 120px;
+
+            resize: vertical;
+        }
+
+        .feedback-submit {
+            width: fit-content;
+
+            border: none;
+
+            background: #2563eb;
+
+            color: #ffffff;
+
+            padding: 11px 19px;
+
+            border-radius: 7px;
+
+            font-size: 12px;
+
+            font-weight: 600;
+
+            cursor: pointer;
+        }
+
+        .feedback-submit:hover {
+            background: #1d4ed8;
+        }
+
+
+        /* =====================================
+           CTA
+        ===================================== */
+
+        .cta {
+            background: #111827;
+
+            color: white;
+
+            text-align: center;
+        }
+
+        .cta h2 {
+            font-size: 31px;
+
+            margin-bottom: 10px;
+        }
+
+        .cta p {
+            max-width: 700px;
+
+            margin: auto auto 20px;
+
+            color: #9ca3af;
+
+            font-size: 14px;
+        }
+
+        .cta-button {
+            display: inline-block;
+
+            background: #2563eb;
+
+            color: white;
+
+            padding: 11px 20px;
+
+            border-radius: 7px;
+
+            font-size: 13px;
+
+            font-weight: 600;
+        }
+
+        .cta-button:hover {
+            background: #1d4ed8;
+        }
+
+
+        /* =====================================
+           FOOTER
+        ===================================== */
+
+        footer {
+            background: #0b1120;
+
+            color: #9ca3af;
+
+            text-align: center;
+
+            padding: 35px 20px;
+
+            font-size: 12px;
+        }
+
+        footer strong {
+            color: white;
+        }
+
+
+        /* =====================================
+           RESPONSIVE
+        ===================================== */
+
+        @media (max-width: 850px) {
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 38px;
+            }
+
+            .why-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .benefit-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .term-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+        }
+
+
+        @media (max-width: 600px) {
+
+            section {
+                padding: 50px 0;
+            }
+
+            .hero {
+                padding: 60px 20px;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .hero p {
+                font-size: 14px;
+            }
+
+            .competition-flow,
+            .flow {
+                flex-direction: column;
+            }
+
+            .competition-arrow,
+            .flow-arrow {
+                transform: rotate(90deg);
+            }
+
+            .benefit-grid,
+            .term-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .auction-row {
+                flex-direction: column;
+
+                align-items: stretch;
+            }
+
+            .auction-name {
+                width: auto;
+            }
+
+            .intro-box {
+                padding: 22px;
+            }
+
+            .feedback-box {
+                padding: 22px;
+            }
+
+            .feedback-submit {
+                width: 100%;
+
+                text-align: center;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================
+     NAVBAR
+===================================== -->
+
+<header class="navbar">
+
+    <div class="logo">
+        PubsRate
+    </div>
+
+
+    <nav class="nav-links">
+
+        <a href="/">
+            Home
+        </a>
+
+        <a href="/publishers/">
+            Publishers
+        </a>
+
+        <a href="/advertising/">
+            Advertising Hub
+        </a>
+
+        <a href="/tools/">
+            Tools
+        </a>
+
+
+        <!-- NEWS COMING SOON -->
+
+        <div class="news-coming">
+
+            <span>
+                News
+            </span>
+
+            <div class="coming-soon-tooltip">
+
+                <strong>
+                    ✦ Coming Soon
+                </strong>
+
+                <span>
+                    PubsRate News
+                </span>
+
+            </div>
+
+        </div>
+
+    </nav>
+
+</header>
+
+
+
+<!-- =====================================
+     BREADCRUMB
+===================================== -->
+
+
+<!-- =====================================
+     HERO
+===================================== -->
+
+<section class="hero">
+
+    <div class="hero-label">
+        PROGRAMMATIC ADVERTISING
+    </div>
+
+
+    <h1>
+        Open Bidding
+    </h1>
+
+
+    <p>
+        Understand how Open Bidding works with Google Ad Manager,
+        how multiple demand partners can compete for publisher
+        inventory, and how publishers can use demand competition
+        to support yield optimization.
+    </p>
+
+</section>
+
+
+
+<!-- =====================================
+     PAGE NAVIGATION
+===================================== -->
+
+<div class="page-nav">
+
+    <div class="container page-nav-inner">
+
+        <a href="#what">
+            What is Open Bidding?
+        </a>
+
+        <a href="#why">
+            Why is it Used?
+        </a>
+
+        <a href="#how">
+            How It Works
+        </a>
+
+        <a href="#auction">
+            Auction
+        </a>
+
+        <a href="#comparison">
+            Comparison
+        </a>
+
+        <a href="#benefits">
+            Benefits
+        </a>
+
+        <a href="#terms">
+            Key Terms
+        </a>
+
+    </div>
+
+</div>
+
+
+
+<!-- =====================================
+     WHAT IS OPEN BIDDING
+===================================== -->
+
+<section class="intro" id="what">
+
+    <div class="container">
+
+
+        <div class="section-title">
+
+            <h2>
+                What is Open Bidding?
+            </h2>
+
+            <p>
+                Open Bidding is a server-side auction approach
+                integrated with Google Ad Manager that allows
+                participating demand partners to compete for
+                eligible publisher inventory.
+            </p>
+
+        </div>
+
+
+        <div class="intro-box">
+
+            <h2>
+                Open Bidding
+            </h2>
+
+
+            <p>
+                Open Bidding is a programmatic monetization
+                solution available within Google Ad Manager.
+                It allows publishers to invite eligible
+                third-party demand partners to compete in
+                an auction for their advertising inventory.
+            </p>
+
+
+            <p>
+                Instead of relying on a single demand source,
+                participating demand partners can submit bids
+                for an impression. Google Ad Manager can then
+                use the auction outcome as part of its
+                ad-serving decision.
+            </p>
+
+
+            <p>
+                Open Bidding is different from client-side
+                header bidding because the demand auction
+                is handled through server-side infrastructure
+                rather than requiring every demand partner
+                to make a direct browser request.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================
+     WHY OPEN BIDDING
+===================================== -->
+
+<section class="why" id="why">
+
+    <div class="container">
+
+
+        <div class="section-title">
+
+            <h2>
+                Why Do Publishers Use Open Bidding?
+            </h2>
+
+            <p>
+                Open Bidding can give publishers another way
+                to bring demand sources into competition for
+                eligible advertising inventory.
+            </p>
+
+        </div>
+
+
+        <div class="why-grid">
+
+
+            <div class="why-card">
+
+                <h3>
+                    More Demand Competition
+                </h3>
+
+                <p>
+                    Publishers can work with multiple participating
+                    demand partners instead of depending entirely
+                    on a single source of demand.
+                </p>
+
+            </div>
+
+
+            <div class="highlight">
+
+                <h3>
+                    The Main Idea
+                </h3>
+
+                <p>
+                    Eligible demand partners can submit bids for
+                    available inventory. The resulting competition
+                    can create additional opportunities for publishers
+                    to improve yield and monetization.
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================
+     COMPETITION VISUAL
+===================================== -->
+
+<section class="competition">
+
+    <div class="container">
+
+
+        <div class="section-title">
+
+            <h2>
+                How Demand Partners Compete
+            </h2>
+
+            <p>
+                A simplified view of how multiple demand sources
+                can compete for the same publisher impression.
+            </p>
+
+        </div>
+
+
+        <div class="competition-flow">
+
+
+            <div class="competition-box">
+
+                <strong>
+                    Publisher
+                </strong>
+
+                <span>
+                    Ad inventory
+                </span>
+
+            </div>
+
+
+            <div class="competition-arrow">
+                →
+            </div>
+
+
+            <div class="competition-box">
+
+                <strong>
+                    Google Ad Manager
+                </strong>
+
+                <span>
+                    Auction request
+                </span>
+
+            </div>
+
+
+            <div class="competition-box">
+
+                <strong>
+                    Demand Partner A
+                </strong>
+
+                <span>
+                    Bid submitted
+                </span>
+
+            </div>
+
+
+            <div class="competition-box">
+
+                <strong>
+                    Demand Partner B
+                </strong>
+
+                <span>
+                    Bid submitted
+                </span>
+
+            </div>
+
+
+            <div class="competition-arrow">
+                →
+            </div>
+
+
+            <div class="competition-box winner">
+
+                <strong>
+                    Winning Demand
+                </strong>
+
+                <span>
+                    Eligible winning bid
+                </span>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================
+     HOW OPEN BIDDING WORKS
+===================================== -->
+
+<section class="flow-section" id="how">
+
+    <div class="container">
+
+
+        <div class="section-title">
+
+            <h2>
+                How Open Bidding Works
+            </h2>
+
+            <p>
+                Open Bidding uses server-side communication to
+                allow participating demand partners to compete
+                for eligible inventory.
+            </p>
+
+        </div>
+
+
+        <div class="flow">
+
+
+            <div class="flow-box">
+
+                User
+
+                <small>
+                    Opens webpage
+                </small>
+
+            </div>
+
+
+            <div class="flow-arrow">
+                →
+            </div>
+
+
+            <div class="flow-box">
+
+                Ad Request
+
+                <small>
+                    Inventory becomes available
+                </small>
+
+            </div>
+
+
+            <div class="flow-arrow">
+                →
+            </div>
+
+
+            <div class="flow-box">
+
+                Google Ad Manager
+
+                <small>
+                    Initiates auction process
+                </small>
+
+            </div>
+
+
+            <div class="flow-arrow">
+                →
+            </div>
+
+
+            <div class="flow-box">
+
+                Demand Partners
+
+                <small>
+                    Submit eligible bids
+                </small>
+
+            </div>
+
+
+            <div class="flow-arrow">
+                →
+            </div>
+
+
+            <div class="flow-box">
+
+                Auction
+
+                <small>
+                    Bids are evaluated
+                </small>
+
+            </div>
+
+
+            <div class="flow-arrow">
+                →
+            </div>
+
+
+            <div class="flow-box">
+
+                Ad Server
+
+                <small>
+                    Final ad decision
+                </small>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================
+     AUCTION
+===================================== -->
+
+<section class="auction" id="auction">
+
+    <div class="container">
+
+
+        <div class="section-title">
+
+            <h2>
+                Open Bidding Auction Example
+            </h2>
+
+            <p>
+                A simplified example showing different demand
+                partners competing for the same impression.
+            </p>
+
+        </div>
+
+
+        <div class="auction-container">
+
+
+            <div class="auction-row">
+
+                <div class="auction-name">
+                    Demand Partner A
+                </div>
+
+                <div class="auction-bar">
+
+                    <div class="auction-fill"
+                         style="width:62%;">
+
+                        $2.20 CPM
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="auction-row">
+
+                <div class="auction-name">
+                    Demand Partner B
+                </div>
+
+                <div class="auction-bar">
+
+                    <div class="auction-fill winner"
+                         style="width:91%;">
+
+                        $3.40 CPM — WINNING BID
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="auction-row">
+
+                <div class="auction-name">
+                    Demand Partner C
+                </div>
+
+                <div class="auction-bar">
+
+                    <div class="auction-fill"
+                         style="width:74%;">
+
+                        $2.75 CPM
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="auction-row">
+
+                <div class="auction-name">
+                    Demand Partner D
+                </div>
+
+                <div class="auction-bar">
+
+                    <div class="auction-fill"
+                         style="width:52%;">
+
+                        $1.95 CPM
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="auction-result">
+
+                The winning demand source is determined according
+                to the applicable auction and ad-serving setup.
+                This simplified example is for illustration only.
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================
+     OPEN BIDDING VS HEADER BIDDING
+===================================== -->
+
+<section class="comparison" id="comparison">
+
+    <div class="container">
+
+
+        <div class="section-title">
+
+            <h2>
+                Open Bidding vs Header Bidding
+            </h2>
+
+            <p>
+                Both approaches allow multiple demand sources
+                to compete, but their auction architecture and
+                implementation can differ.
+            </p>
+
+        </div>
+
+
+        <div class="comparison-table-wrapper">
+
+            <table>
+
+                <thead>
+
+                    <tr>
+
+                        <th>
+                            Feature
+                        </th>
+
+                        <th>
+                            Open Bidding
+                        </th>
+
+                        <th>
+                            Header Bidding
+                        </th>
+
+                    </tr>
+
+                </thead>
+
+
+                <tbody>
+
+                    <tr>
+
+                        <td>
+                            Auction environment
+                        </td>
+
+                        <td>
+                            Server-side infrastructure
+                        </td>
+
+                        <td>
+                            Client-side or server-side
+                        </td>
+
+                    </tr>
+
+
+                    <tr>
+
+                        <td>
+                            Ad server integration
+                        </td>
+
+                        <td>
+                            Closely integrated with Google Ad Manager
+                        </td>
+
+                        <td>
+                            Bid results are typically passed to the ad server
+                        </td>
+
+                    </tr>
+
+
+                    <tr>
+
+                        <td>
+                            Browser involvement
+                        </td>
+
+                        <td>
+                            Lower direct demand-request involvement
+                        </td>
+
+                        <td>
+                            Can be higher for client-side implementations
+                        </td>
+
+                    </tr>
+
+
+                    <tr>
+
+                        <td>
+                            Demand competition
+                        </td>
+
+                        <td>
+                            Participating demand partners
+                        </td>
+
+                        <td>
+                            Configured demand partners
+                        </td>
+
+                    </tr>
+
+
+                    <tr>
+
+                        <td>
+                            Main consideration
+                        </td>
+
+                        <td>
+                            Demand availability and auction performance
+                        </td>
+
+                        <td>
+                            Latency, configuration and demand coverage
+                        </td>
+
+                    </tr>
+
+
+                    <tr>
+
+                        <td>
+                            Publisher setup
+                        </td>
+
+                        <td>
+                            Configured through supported Google Ad Manager functionality
+                        </td>
+
+                        <td>
+                            Usually requires a header bidding solution or wrapper
+                        </td>
+
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================
+     BENEFITS
+===================================== -->
+
+<section class="benefits" id="benefits">
+
+    <div class="container">
+
+
+        <div class="section-title">
+
+            <h2>
+                Benefits of Open Bidding
+            </h2>
+
+            <p>
+                Open Bidding can provide publishers with additional
+                opportunities to manage and optimize advertising demand.
+            </p>
+
+        </div>
+
+
+        <div class="benefit-grid">
+
+
+            <div class="benefit">
+
+                <div class="benefit-icon">
+                    $
+                </div>
+
+                <h3>
+                    Revenue Opportunity
+                </h3>
+
+                <p>
+                    Additional demand competition can create
+                    opportunities to improve the value of available
+                    advertising inventory.
+                </p>
+
+            </div>
+
+
+            <div class="benefit">
+
+                <div class="benefit-icon">
+                    BID
+                </div>
+
+                <h3>
+                    Demand Competition
+                </h3>
+
+                <p>
+                    Multiple participating demand partners can
+                    compete for eligible publisher inventory.
+                </p>
+
+            </div>
+
+
+            <div class="benefit">
+
+                <div class="benefit-icon">
+                    YLD
+                </div>
+
+                <h3>
+                    Yield Optimization
+                </h3>
+
+                <p>
+                    Publishers can evaluate demand performance
+                    and use competition as part of their yield
+                    optimization strategy.
+                </p>
+
+            </div>
+
+
+            <div class="benefit">
+
+                <div class="benefit-icon">
+                    SSP
+                </div>
+
+                <h3>
+                    More Demand Access
+                </h3>
+
+                <p>
+                    Open Bidding can connect publishers with
+                    supported third-party demand sources.
+                </p>
+
+            </div>
+
+
+            <div class="benefit">
+
+                <div class="benefit-icon">
+                    DATA
+                </div>
+
+                <h3>
+                    Performance Analysis
+                </h3>
+
+                <p>
+                    Publishers can analyze demand performance,
+                    auction results and monetization trends.
+                </p>
+
+            </div>
+
+
+            <div class="benefit">
+
+                <div class="benefit-icon">
+                    OPT
+                </div>
+
+                <h3>
+                    Monetization Optimization
+                </h3>
+
+                <p>
+                    Publishers can optimize demand configurations
+                    based on inventory, performance and revenue data.
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================
+     KEY TERMS
+===================================== -->
+
+<section class="terms" id="terms">
+
+    <div class="container">
+
+
+        <div class="section-title">
+
+            <h2>
+                Key Open Bidding Terms
+            </h2>
+
+        </div>
+
+
+        <div class="term-grid">
+
+
+            <div class="term">
+
+                <strong>
+                    Open Bidding
+                </strong>
+
+                <span>
+                    A server-side auction approach available through Google Ad Manager.
+                </span>
+
+            </div>
+
+
+            <div class="term">
+
+                <strong>
+                    Google Ad Manager
+                </strong>
+
+                <span>
+                    Google's ad management platform used by publishers to manage advertising inventory.
+                </span>
+
+            </div>
+
+
+            <div class="term">
+
+                <strong>
+                    Demand Partner
+                </strong>
+
+                <span>
+                    A participating demand source that can submit bids for eligible inventory.
+                </span>
+
+            </div>
+
+
+            <div class="term">
+
+                <strong>
+                    Bid
+                </strong>
+
+                <span>
+                    The value submitted by a demand source for an advertising opportunity.
+                </span>
+
+            </div>
+
+
+            <div class="term">
+
+                <strong>
+                    Auction
+                </strong>
+
+                <span>
+                    The process through which eligible demand competes for inventory.
+                </span>
+
+            </div>
+
+
+            <div class="term">
+
+                <strong>
+                    Yield
+                </strong>
+
+                <span>
+                    The value generated from available advertising inventory.
+                </span>
+
+            </div>
+
+
+            <div class="term">
+
+                <strong>
+                    Floor Price
+                </strong>
+
+                <span>
+                    A minimum value that may be applied to eligible inventory.
+                </span>
+
+            </div>
+
+
+            <div class="term">
+
+                <strong>
+                    Ad Inventory
+                </strong>
+
+                <span>
+                    Advertising opportunities available for buyers and demand sources.
+                </span>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================
+     FEEDBACK FORM
+===================================== -->
+
+<section class="feedback">
+
+    <div class="container">
+
+        <div class="feedback-box">
+
+            <div class="feedback-header">
+
+                <span class="feedback-label">
+                    HELP US IMPROVE
+                </span>
+
+                <h2>
+                    Something Doesn't Look Right?
+                </h2>
+
+                <p>
+                    Found an incorrect explanation, outdated
+                    information or something that could be clearer?
+                    Let us know and we'll review it.
+                </p>
+
+            </div>
+
+
+            <form class="feedback-form"
+                  action="#"
+                  method="post">
+
+                <label>
+
+                    Name
+
+                    <input
+                        type="text"
+                        name="name"
+                        placeholder="Enter your name"
+                        autocomplete="name"
+                        required>
+
+                </label>
+
+
+                <label>
+
+                    What should we review?
+
+                    <textarea
+                        name="feedback"
+                        placeholder="Tell us what needs to be corrected or improved..."
+                        required></textarea>
+
+                </label>
+
+
+                <button
+                    type="submit"
+                    class="feedback-submit">
+
+                    Submit Feedback →
+
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================
+     CTA
+===================================== -->
+
+<section class="cta">
+
+    <div class="container">
+
+
+        <h2>
+            Explore More Programmatic Advertising
+        </h2>
+
+
+        <p>
+            Continue learning about header bidding, Google Ad Manager,
+            SSPs, DSPs, RTB, ad exchanges, CTV and the wider
+            programmatic advertising ecosystem.
+        </p>
+
+
+        <a href="/advertising/header-bidding/"
+           class="cta-button">
+
+            Explore Header Bidding →
+
+        </a>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================
+     FOOTER
+===================================== -->
+
+<footer>
+
+    <p>
+
+        <strong>PubsRate</strong>
+
+        — Publisher Monetization,
+        Advertising & AdTech Resources
+
+    </p>
+
+</footer>
+
+
+</body>
+
+</html>
