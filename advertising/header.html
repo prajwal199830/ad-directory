@@ -1,0 +1,2604 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- =========================
+         SEO
+    ========================== -->
+
+    <title>
+        Header Bidding Explained | Client-Side & Server-Side | PubsRate
+    </title>
+
+    <meta name="description"
+          content="Learn what header bidding is, how client-side and server-side header bidding work, how demand partners compete for publisher inventory, and how header bidding can support yield optimization.">
+
+    <meta name="keywords"
+          content="header bidding, client-side header bidding, server-side header bidding, header bidding wrapper, programmatic advertising, publisher monetization, SSP, DSP, ad auction, yield optimization">
+
+    <meta name="robots"
+          content="index, follow">
+
+    <meta name="author"
+          content="PubsRate">
+
+    <link rel="canonical"
+          href="https://www.pubsrate.com/advertising/header-bidding/">
+
+
+    <!-- =========================
+         OPEN GRAPH
+    ========================== -->
+
+    <meta property="og:type"
+          content="article">
+
+    <meta property="og:title"
+          content="Header Bidding Explained | Client-Side & Server-Side">
+
+    <meta property="og:description"
+          content="Learn how header bidding works, how client-side and server-side auctions differ, and how publishers use multiple demand partners to compete for ad inventory.">
+
+    <meta property="og:url"
+          content="https://www.pubsrate.com/advertising/header-bidding/">
+
+    <meta property="og:site_name"
+          content="PubsRate">
+
+
+    <!-- =========================
+         TWITTER
+    ========================== -->
+
+    <meta name="twitter:card"
+          content="summary">
+
+    <meta name="twitter:title"
+          content="Header Bidding Explained | Client-Side & Server-Side">
+
+    <meta name="twitter:description"
+          content="A practical guide to header bidding, client-side auctions, server-side auctions, demand partners and publisher yield optimization.">
+
+
+    <!-- =========================
+         STRUCTURED DATA
+    ========================== -->
+
+    <script type="application/ld+json">
+
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "Header Bidding Explained | Client-Side & Server-Side",
+        "description": "Learn what header bidding is, how client-side and server-side header bidding work, and how publishers use multiple demand partners to compete for advertising inventory.",
+        "url": "https://www.pubsrate.com/advertising/header-bidding/",
+        "author": {
+            "@type": "Organization",
+            "name": "PubsRate"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "PubsRate"
+        },
+        "dateModified": "2026-08-16"
+    }
+
+    </script>
+
+
+    <script type="application/ld+json">
+
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "PubsRate",
+                "item": "https://www.pubsrate.com/"
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Advertising Hub",
+                "item": "https://www.pubsrate.com/advertising/"
+            },
+            {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "Header Bidding",
+                "item": "https://www.pubsrate.com/advertising/header-bidding/"
+            }
+        ]
+    }
+
+    </script>
+
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f7f9fc;
+            color: #172033;
+            line-height: 1.7;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1150px;
+            margin: auto;
+        }
+
+        section {
+            padding: 65px 0;
+        }
+
+
+        /* =====================================
+           NAVBAR
+        ===================================== */
+
+        .navbar {
+            height: 68px;
+
+            background: #ffffff;
+
+            border-bottom: 1px solid #e5e7eb;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            padding: 0 5%;
+
+            position: sticky;
+
+            top: 0;
+
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 24px;
+
+            font-weight: 700;
+
+            color: #111827;
+        }
+
+        .nav-links {
+            display: flex;
+
+            gap: 26px;
+
+            align-items: center;
+        }
+
+        .nav-links a {
+            font-size: 14px;
+
+            color: #4b5563;
+        }
+
+        .nav-links a:hover {
+            color: #2563eb;
+        }
+
+
+        /* =========================
+           NEWS COMING SOON
+        ========================== */
+
+        .news-coming {
+            position: relative;
+            cursor: default;
+        }
+
+        .news-coming > span {
+            font-size: 14px;
+            color: #4b5563;
+        }
+
+        .coming-soon-tooltip {
+            position: absolute;
+
+            top: 30px;
+            right: 0;
+
+            width: 145px;
+
+            padding: 11px 13px;
+
+            background: #111827;
+
+            color: #ffffff;
+
+            border-radius: 8px;
+
+            text-align: center;
+
+            font-size: 12px;
+
+            font-weight: 600;
+
+            box-shadow: 0 8px 25px rgba(0,0,0,.15);
+
+            opacity: 0;
+
+            visibility: hidden;
+
+            transform: translateY(-5px);
+
+            transition: .2s;
+
+            z-index: 2000;
+        }
+
+        .coming-soon-tooltip strong {
+            display: block;
+
+            font-size: 14px;
+
+            margin-bottom: 2px;
+
+            color: #ffffff;
+        }
+
+        .coming-soon-tooltip span {
+            font-size: 11px;
+
+            color: #d1d5db;
+        }
+
+        .news-coming:hover .coming-soon-tooltip {
+            opacity: 1;
+
+            visibility: visible;
+
+            transform: translateY(0);
+        }
+
+
+        /* =====================================
+           BREADCRUMB
+        ===================================== */
+
+        .breadcrumb {
+            background: #ffffff;
+
+            border-bottom: 1px solid #e5e7eb;
+
+            padding: 12px 0;
+
+            font-size: 12px;
+
+            color: #6b7280;
+        }
+
+        .breadcrumb a {
+            color: #2563eb;
+        }
+
+
+        /* =====================================
+           HERO
+        ===================================== */
+
+        .hero {
+            background:
+                radial-gradient(
+                    circle at 80% 20%,
+                    #263b65,
+                    transparent 35%
+                ),
+                #111827;
+
+            color: white;
+
+            text-align: center;
+
+            padding: 75px 20px;
+        }
+
+        .hero-label {
+            display: inline-block;
+
+            font-size: 11px;
+
+            font-weight: 700;
+
+            letter-spacing: 1.5px;
+
+            color: #93c5fd;
+
+            margin-bottom: 15px;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+
+            line-height: 1.15;
+
+            margin-bottom: 18px;
+        }
+
+        .hero p {
+            max-width: 780px;
+
+            margin: auto;
+
+            color: #d1d5db;
+
+            font-size: 17px;
+        }
+
+
+        /* =====================================
+           PAGE NAVIGATION
+        ===================================== */
+
+        .page-nav {
+            background: white;
+
+            border-bottom: 1px solid #e5e7eb;
+
+            padding: 15px 0;
+        }
+
+        .page-nav-inner {
+            display: flex;
+
+            justify-content: center;
+
+            flex-wrap: wrap;
+
+            gap: 9px;
+        }
+
+        .page-nav a {
+            font-size: 12px;
+
+            padding: 7px 13px;
+
+            border: 1px solid #e5e7eb;
+
+            border-radius: 6px;
+
+            color: #4b5563;
+        }
+
+        .page-nav a:hover {
+            background: #eff6ff;
+
+            color: #2563eb;
+
+            border-color: #93c5fd;
+        }
+
+
+        /* =====================================
+           SECTION TITLE
+        ===================================== */
+
+        .section-title {
+            text-align: center;
+
+            margin-bottom: 38px;
+        }
+
+        .section-title h2 {
+            font-size: 32px;
+
+            margin-bottom: 9px;
+        }
+
+        .section-title p {
+            max-width: 750px;
+
+            margin: auto;
+
+            color: #6b7280;
+
+            font-size: 14px;
+        }
+
+
+        /* =====================================
+           INTRO
+        ===================================== */
+
+        .intro {
+            background: #ffffff;
+        }
+
+        .intro-box {
+            max-width: 900px;
+
+            margin: auto;
+
+            background: #f8fafc;
+
+            border: 1px solid #e5e7eb;
+
+            border-radius: 13px;
+
+            padding: 30px;
+        }
+
+        .intro-box h2 {
+            font-size: 24px;
+
+            margin-bottom: 13px;
+        }
+
+        .intro-box p {
+            font-size: 15px;
+
+            color: #4b5563;
+
+            margin-bottom: 13px;
+        }
+
+
+        /* =====================================
+           WHY HEADER BIDDING
+        ===================================== */
+
+        .why {
+            background: #f7f9fc;
+        }
+
+        .why-grid {
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 22px;
+
+            align-items: stretch;
+        }
+
+        .why-card {
+            background: #ffffff;
+
+            border: 1px solid #e5e7eb;
+
+            border-radius: 13px;
+
+            padding: 27px;
+
+            box-shadow: 0 5px 20px rgba(0,0,0,.03);
+        }
+
+        .why-card h3 {
+            font-size: 20px;
+
+            margin-bottom: 10px;
+        }
+
+        .why-card p {
+            color: #6b7280;
+
+            font-size: 14px;
+        }
+
+        .highlight {
+            background: #eff6ff;
+
+            border: 1px solid #bfdbfe;
+
+            border-radius: 13px;
+
+            padding: 27px;
+        }
+
+        .highlight h3 {
+            color: #1d4ed8;
+
+            margin-bottom: 10px;
+        }
+
+        .highlight p {
+            font-size: 14px;
+
+            color: #374151;
+        }
+
+
+        /* =====================================
+           COMPETITION VISUAL
+        ===================================== */
+
+        .competition {
+            background: #ffffff;
+        }
+
+        .competition-flow {
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            flex-wrap: wrap;
+
+            gap: 12px;
+
+            margin-top: 35px;
+        }
+
+        .competition-box {
+            width: 145px;
+
+            padding: 19px 12px;
+
+            text-align: center;
+
+            background: #f8fafc;
+
+            border: 1px solid #dbe3ef;
+
+            border-radius: 10px;
+        }
+
+        .competition-box strong {
+            display: block;
+
+            font-size: 14px;
+
+            margin-bottom: 4px;
+        }
+
+        .competition-box span {
+            font-size: 10px;
+
+            color: #6b7280;
+        }
+
+        .competition-arrow {
+            color: #2563eb;
+
+            font-size: 22px;
+
+            font-weight: bold;
+        }
+
+        .winner {
+            background: #effdf4;
+
+            border-color: #86efac;
+        }
+
+
+        /* =====================================
+           TYPES
+        ===================================== */
+
+        .types {
+            background: #f7f9fc;
+        }
+
+        .type-grid {
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 22px;
+        }
+
+        .type-card {
+            background: #ffffff;
+
+            border: 1px solid #e5e7eb;
+
+            border-radius: 14px;
+
+            padding: 30px;
+
+            transition: .2s;
+        }
+
+        .type-card:hover {
+            transform: translateY(-4px);
+
+            border-color: #93c5fd;
+
+            box-shadow: 0 10px 25px rgba(0,0,0,.06);
+        }
+
+        .type-number {
+            display: inline-flex;
+
+            width: 35px;
+
+            height: 35px;
+
+            align-items: center;
+
+            justify-content: center;
+
+            border-radius: 8px;
+
+            background: #eff6ff;
+
+            color: #2563eb;
+
+            font-weight: bold;
+
+            font-size: 13px;
+
+            margin-bottom: 14px;
+        }
+
+        .type-card h3 {
+            font-size: 22px;
+
+            margin-bottom: 12px;
+        }
+
+        .type-card p {
+            color: #5b6472;
+
+            font-size: 14px;
+
+            margin-bottom: 12px;
+        }
+
+
+        /* =====================================
+           FLOW
+        ===================================== */
+
+        .flow-section {
+            background: #ffffff;
+        }
+
+        .flow {
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            flex-wrap: wrap;
+
+            gap: 10px;
+
+            margin-top: 35px;
+        }
+
+        .flow-box {
+            min-width: 135px;
+
+            padding: 18px 15px;
+
+            text-align: center;
+
+            border-radius: 10px;
+
+            background: #f8fafc;
+
+            border: 1px solid #dbe3ef;
+
+            font-size: 12px;
+
+            font-weight: 600;
+        }
+
+        .flow-box small {
+            display: block;
+
+            color: #6b7280;
+
+            font-size: 10px;
+
+            font-weight: normal;
+
+            margin-top: 4px;
+        }
+
+        .flow-arrow {
+            color: #2563eb;
+
+            font-size: 20px;
+        }
+
+
+        /* =====================================
+           AUCTION
+        ===================================== */
+
+        .auction {
+            background: #111827;
+
+            color: white;
+        }
+
+        .auction .section-title p {
+            color: #9ca3af;
+        }
+
+        .auction-container {
+            max-width: 950px;
+
+            margin: auto;
+
+            background: #1f2937;
+
+            border: 1px solid #374151;
+
+            border-radius: 14px;
+
+            padding: 28px;
+        }
+
+        .auction-row {
+            display: flex;
+
+            align-items: center;
+
+            gap: 15px;
+
+            margin-bottom: 15px;
+        }
+
+        .auction-name {
+            width: 170px;
+
+            font-size: 13px;
+
+            font-weight: 600;
+        }
+
+        .auction-bar {
+            flex: 1;
+
+            height: 38px;
+
+            background: #374151;
+
+            border-radius: 7px;
+
+            overflow: hidden;
+        }
+
+        .auction-fill {
+            height: 100%;
+
+            display: flex;
+
+            align-items: center;
+
+            padding-left: 13px;
+
+            font-size: 11px;
+
+            font-weight: bold;
+
+            background: #2563eb;
+        }
+
+        .auction-fill.winner {
+            background: #16a34a;
+
+            color: white;
+        }
+
+        .auction-result {
+            text-align: center;
+
+            margin-top: 23px;
+
+            padding: 16px;
+
+            border-radius: 9px;
+
+            background: #172a1d;
+
+            border: 1px solid #28663b;
+
+            color: #bbf7d0;
+
+            font-size: 13px;
+        }
+
+
+        /* =====================================
+           COMPARISON
+        ===================================== */
+
+        .comparison {
+            background: #f7f9fc;
+        }
+
+        .comparison-table-wrapper {
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+
+            border-collapse: collapse;
+
+            background: white;
+
+            border: 1px solid #e5e7eb;
+
+            border-radius: 10px;
+
+            overflow: hidden;
+        }
+
+        th,
+        td {
+            padding: 15px;
+
+            text-align: left;
+
+            border-bottom: 1px solid #e5e7eb;
+
+            font-size: 13px;
+        }
+
+        th {
+            background: #111827;
+
+            color: white;
+
+            font-size: 12px;
+        }
+
+        td:first-child {
+            font-weight: 600;
+        }
+
+
+        /* =====================================
+           BENEFITS
+        ===================================== */
+
+        .benefits {
+            background: #ffffff;
+        }
+
+        .benefit-grid {
+            display: grid;
+
+            grid-template-columns: repeat(3, 1fr);
+
+            gap: 18px;
+        }
+
+        .benefit {
+            padding: 23px;
+
+            border: 1px solid #e5e7eb;
+
+            border-radius: 11px;
+
+            background: #ffffff;
+        }
+
+        .benefit-icon {
+            width: 40px;
+
+            height: 40px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            border-radius: 8px;
+
+            background: #eff6ff;
+
+            color: #2563eb;
+
+            font-weight: bold;
+
+            font-size: 10px;
+
+            margin-bottom: 13px;
+        }
+
+        .benefit h3 {
+            font-size: 17px;
+
+            margin-bottom: 6px;
+        }
+
+        .benefit p {
+            font-size: 12px;
+
+            color: #6b7280;
+        }
+
+
+        /* =====================================
+           KEY TERMS
+        ===================================== */
+
+        .terms {
+            background: #f7f9fc;
+        }
+
+        .term-grid {
+            display: grid;
+
+            grid-template-columns: repeat(4, 1fr);
+
+            gap: 13px;
+        }
+
+        .term {
+            background: white;
+
+            border: 1px solid #e5e7eb;
+
+            border-radius: 9px;
+
+            padding: 17px;
+        }
+
+        .term strong {
+            display: block;
+
+            font-size: 14px;
+
+            margin-bottom: 4px;
+        }
+
+        .term span {
+            font-size: 11px;
+
+            color: #6b7280;
+        }
+
+
+        /* =====================================
+           FEEDBACK
+        ===================================== */
+
+        .feedback {
+            background: #ffffff;
+
+            padding: 55px 0;
+        }
+
+        .feedback-box {
+            max-width: 900px;
+
+            margin: auto;
+
+            background: #f8fafc;
+
+            border: 1px solid #e5e7eb;
+
+            border-radius: 13px;
+
+            padding: 30px;
+        }
+
+        .feedback-header {
+            margin-bottom: 22px;
+        }
+
+        .feedback-label {
+            display: inline-block;
+
+            font-size: 10px;
+
+            color: #2563eb;
+
+            letter-spacing: 1px;
+
+            font-weight: 700;
+
+            margin-bottom: 5px;
+        }
+
+        .feedback-header h2 {
+            font-size: 24px;
+
+            margin-bottom: 6px;
+        }
+
+        .feedback-header p {
+            color: #6b7280;
+
+            font-size: 13px;
+
+            max-width: 700px;
+        }
+
+        .feedback-form {
+            display: grid;
+
+            gap: 14px;
+        }
+
+        .feedback-form label {
+            font-size: 12px;
+
+            font-weight: 600;
+
+            color: #374151;
+        }
+
+        .feedback-form input,
+        .feedback-form textarea {
+            width: 100%;
+
+            margin-top: 6px;
+
+            padding: 11px 12px;
+
+            border: 1px solid #d1d5db;
+
+            border-radius: 7px;
+
+            background: #ffffff;
+
+            font-family: inherit;
+
+            font-size: 13px;
+
+            outline: none;
+        }
+
+        .feedback-form input:focus,
+        .feedback-form textarea:focus {
+            border-color: #2563eb;
+
+            box-shadow: 0 0 0 2px rgba(37,99,235,.08);
+        }
+
+        .feedback-form textarea {
+            min-height: 120px;
+
+            resize: vertical;
+        }
+
+        .feedback-submit {
+            width: fit-content;
+
+            border: none;
+
+            background: #2563eb;
+
+            color: #ffffff;
+
+            padding: 11px 19px;
+
+            border-radius: 7px;
+
+            font-size: 12px;
+
+            font-weight: 600;
+
+            cursor: pointer;
+        }
+
+        .feedback-submit:hover {
+            background: #1d4ed8;
+        }
+
+
+        /* =====================================
+           CTA
+        ===================================== */
+
+        .cta {
+            background: #111827;
+
+            color: white;
+
+            text-align: center;
+        }
+
+        .cta h2 {
+            font-size: 31px;
+
+            margin-bottom: 10px;
+        }
+
+        .cta p {
+            max-width: 700px;
+
+            margin: auto auto 20px;
+
+            color: #9ca3af;
+
+            font-size: 14px;
+        }
+
+        .cta-button {
+            display: inline-block;
+
+            background: #2563eb;
+
+            color: white;
+
+            padding: 11px 20px;
+
+            border-radius: 7px;
+
+            font-size: 13px;
+
+            font-weight: 600;
+        }
+
+        .cta-button:hover {
+            background: #1d4ed8;
+        }
+
+
+        /* =====================================
+           FOOTER
+        ===================================== */
+
+        footer {
+            background: #0b1120;
+
+            color: #9ca3af;
+
+            text-align: center;
+
+            padding: 35px 20px;
+
+            font-size: 12px;
+        }
+
+        footer strong {
+            color: white;
+        }
+
+
+        /* =====================================
+           RESPONSIVE
+        ===================================== */
+
+        @media (max-width: 850px) {
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 38px;
+            }
+
+            .why-grid,
+            .type-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .benefit-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .term-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+        }
+
+
+        @media (max-width: 600px) {
+
+            section {
+                padding: 50px 0;
+            }
+
+            .hero {
+                padding: 60px 20px;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .hero p {
+                font-size: 14px;
+            }
+
+            .competition-flow,
+            .flow {
+                flex-direction: column;
+            }
+
+            .competition-arrow,
+            .flow-arrow {
+                transform: rotate(90deg);
+            }
+
+            .benefit-grid,
+            .term-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .auction-row {
+                flex-direction: column;
+
+                align-items: stretch;
+            }
+
+            .auction-name {
+                width: auto;
+            }
+
+            .intro-box,
+            .type-card {
+                padding: 22px;
+            }
+
+            .feedback-box {
+                padding: 22px;
+            }
+
+            .feedback-submit {
+                width: 100%;
+
+                text-align: center;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================
+     NAVBAR
+===================================== -->
+
+<header class="navbar">
+
+    <div class="logo">
+        PubsRate
+    </div>
+
+
+    <nav class="nav-links">
+
+        <a href="/">
+            Home
+        </a>
+
+        <a href="/publishers/">
+            Publishers
+        </a>
+
+        <a href="/advertising/">
+            Advertising Hub
+        </a>
+
+        <a href="/tools/">
+            Tools
+        </a>
+
+
+        <!-- NEWS COMING SOON -->
+
+        <div class="news-coming">
+
+            <span>
+                News
+            </span>
+
+            <div class="coming-soon-tooltip">
+
+                <strong>
+                    ✦ Coming Soon
+                </strong>
+
+                <span>
+                    PubsRate News
+                </span>
+
+            </div>
+
+        </div>
+
+    </nav>
+
+</header>
+
+
+
+<!-- =====================================
+     BREADCRUMB
+===================================== -->
+
+
+<!-- =====================================
+     HERO
+===================================== -->
+
+<section class="hero">
+
+    <div class="hero-label">
+        PROGRAMMATIC ADVERTISING
+    </div>
+
+
+    <h1>
+        Header Bidding
+    </h1>
+
+
+    <p>
+        Understand how publishers can offer their ad inventory
+        to multiple demand partners and increase competition
+        before making a final ad-serving decision.
+    </p>
+
+</section>
+
+
+
+<!-- =====================================
+     PAGE NAVIGATION
+===================================== -->
+
+<div class="page-nav">
+
+    <div class="container page-nav-inner">
+
+        <a href="#what">
+            What is Header Bidding?
+        </a>
+
+        <a href="#why">
+            Why is it Needed?
+        </a>
+
+        <a href="#types">
+            Types
+        </a>
+
+        <a href="#client">
+            Client-Side
+        </a>
+
+        <a href="#server">
+            Server-Side
+        </a>
+
+        <a href="#comparison">
+            Comparison
+        </a>
+
+        <a href="#benefits">
+            Benefits
+        </a>
+
+    </div>
+
+</div>
+
+
+
+<!-- =====================================
+     WHAT IS HEADER BIDDING
+===================================== -->
+
+<section class="intro" id="what">
+
+    <div class="container">
+
+
+        <div class="section-title">
+
+            <h2>
+                What is Header Bidding?
+            </h2>
+
+        </div>
+
+
+        <div class="intro-box">
+
+            <h2>
+                Header Bidding
+            </h2>
+
+
+            <p>
+                Header bidding is a programmatic advertising
+                technique used by publishers to offer their ad
+                inventory to multiple demand partners
+                simultaneously before making a final ad decision.
+            </p>
+
+
+            <p>
+                It is an approach used by publishers to maximize
+                revenue by increasing competition for their
+                available inventory.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================
+     WHY HEADER BIDDING
+===================================== -->
+
+<section class="why" id="why">
+
+    <div class="container">
+
+
+        <div class="section-title">
+
+            <h2>
+                Why is Header Bidding Needed?
+            </h2>
+
+            <p>
+                Header bidding changes how demand sources can
+                compete for publisher inventory.
+            </p>
+
+        </div>
+
+
+        <div class="why-grid">
+
+
+            <div class="why-card">
+
+                <h3>
+                    Traditional Approach
+                </h3>
+
+                <p>
+                    Instead of selecting an ad or line item directly
+                    from the ad server, publishers can use header
+                    bidding to give multiple demand partners an
+                    opportunity to bid for the same ad inventory.
+                </p>
+
+            </div>
+
+
+            <div class="highlight">
+
+                <h3>
+                    The Main Idea
+                </h3>
+
+                <p>
+                    Multiple demand partners can compete for the
+                    available inventory. Increased competition can
+                    help publishers increase revenue and improve
+                    yield.
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================
+     COMPETITION VISUAL
+===================================== -->
+
+<section class="competition">
+
+    <div class="container">
+
+
+        <div class="section-title">
+
+            <h2>
+                Increasing Competition
+            </h2>
+
+            <p>
+                Header bidding creates an opportunity for multiple
+                demand sources to compete for an impression.
+            </p>
+
+        </div>
+
+
+        <div class="competition-flow">
+
+
+            <div class="competition-box">
+
+                <strong>
+                    Publisher
+                </strong>
+
+                <span>
+                    Ad inventory
+                </span>
+
+            </div>
+
+
+            <div class="competition-arrow">
+                →
+            </div>
+
+
+            <div class="competition-box">
+
+                <strong>
+                    Demand Partner A
+                </strong>
+
+                <span>
+                    Bid submitted
+                </span>
+
+            </div>
+
+
+            <div class="competition-box">
+
+                <strong>
+                    Demand Partner B
+                </strong>
+
+                <span>
+                    Bid submitted
+                </span>
+
+            </div>
+
+
+            <div class="competition-box">
+
+                <strong>
+                    Demand Partner C
+                </strong>
+
+                <span>
+                    Bid submitted
+                </span>
+
+            </div>
+
+
+            <div class="competition-arrow">
+                →
+            </div>
+
+
+            <div class="competition-box winner">
+
+                <strong>
+                    Winning Bid
+                </strong>
+
+                <span>
+                    Highest eligible value
+                </span>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================
+     TYPES
+===================================== -->
+
+<section class="types" id="types">
+
+    <div class="container">
+
+
+        <div class="section-title">
+
+            <h2>
+                Types of Header Bidding
+            </h2>
+
+            <p>
+                Header bidding can generally be implemented
+                through client-side or server-side approaches.
+            </p>
+
+        </div>
+
+
+        <div class="type-grid">
+
+
+            <div class="type-card" id="client">
+
+                <div class="type-number">
+                    01
+                </div>
+
+
+                <h3>
+                    Client-Side Header Bidding
+                </h3>
+
+
+                <p>
+                    In client-side header bidding, the header bidding
+                    wrapper running on the webpage or app makes
+                    requests to multiple demand partners.
+                </p>
+
+
+                <p>
+                    The bids are collected, and the auction takes
+                    place on the user's device or within the app.
+                    Once the winning bid is selected, the bid is
+                    passed to the ad server for the final ad-serving
+                    decision.
+                </p>
+
+            </div>
+
+
+
+            <div class="type-card" id="server">
+
+                <div class="type-number">
+                    02
+                </div>
+
+
+                <h3>
+                    Server-Side Header Bidding
+                </h3>
+
+
+                <p>
+                    In server-side header bidding, the header bidding
+                    server sends requests to multiple demand partners.
+                </p>
+
+
+                <p>
+                    The server conducts the auction, determines the
+                    winning bid, and then passes the result to the
+                    ad server for the final ad-serving decision.
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================
+     CLIENT SIDE FLOW
+===================================== -->
+
+<section class="flow-section">
+
+    <div class="container">
+
+
+        <div class="section-title">
+
+            <h2>
+                How Client-Side Header Bidding Works
+            </h2>
+
+            <p>
+                The auction and demand requests are handled
+                through the user's browser or application.
+            </p>
+
+        </div>
+
+
+        <div class="flow">
+
+
+            <div class="flow-box">
+                User
+                <small>
+                    Opens webpage
+                </small>
+            </div>
+
+
+            <div class="flow-arrow">
+                →
+            </div>
+
+
+            <div class="flow-box">
+                Header Bidding Wrapper
+                <small>
+                    Runs on page
+                </small>
+            </div>
+
+
+            <div class="flow-arrow">
+                →
+            </div>
+
+
+            <div class="flow-box">
+                Demand Partners
+                <small>
+                    Submit bids
+                </small>
+            </div>
+
+
+            <div class="flow-arrow">
+                →
+            </div>
+
+
+            <div class="flow-box">
+                Auction
+                <small>
+                    Bid comparison
+                </small>
+            </div>
+
+
+            <div class="flow-arrow">
+                →
+            </div>
+
+
+            <div class="flow-box">
+                Ad Server
+                <small>
+                    Final decision
+                </small>
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================
+     SERVER SIDE FLOW
+===================================== -->
+
+<section class="flow-section" style="background:#f7f9fc;">
+
+    <div class="container">
+
+
+        <div class="section-title">
+
+            <h2>
+                How Server-Side Header Bidding Works
+            </h2>
+
+            <p>
+                A server handles the communication and auction
+                instead of sending every demand request directly
+                from the user's browser.
+            </p>
+
+        </div>
+
+
+        <div class="flow">
+
+
+            <div class="flow-box">
+                User
+                <small>
+                    Opens webpage
+                </small>
+            </div>
+
+
+            <div class="flow-arrow">
+                →
+            </div>
+
+
+            <div class="flow-box">
+                Header Bidding Server
+                <small>
+                    Receives request
+                </small>
+            </div>
+
+
+            <div class="flow-arrow">
+                →
+            </div>
+
+
+            <div class="flow-box">
+                Demand Partners
+                <small>
+                    Submit bids
+                </small>
+            </div>
+
+
+            <div class="flow-arrow">
+                →
+            </div>
+
+
+            <div class="flow-box">
+                Server Auction
+                <small>
+                    Determines winner
+                </small>
+            </div>
+
+
+            <div class="flow-arrow">
+                →
+            </div>
+
+
+            <div class="flow-box">
+                Ad Server
+                <small>
+                    Final decision
+                </small>
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================
+     AUCTION
+===================================== -->
+
+<section class="auction">
+
+    <div class="container">
+
+
+        <div class="section-title">
+
+            <h2>
+                Multiple Demand Partners Competing
+            </h2>
+
+            <p>
+                A simplified example of multiple demand sources
+                submitting bids for the same impression.
+            </p>
+
+        </div>
+
+
+        <div class="auction-container">
+
+
+            <div class="auction-row">
+
+                <div class="auction-name">
+                    Demand Partner A
+                </div>
+
+                <div class="auction-bar">
+
+                    <div class="auction-fill"
+                         style="width:65%;">
+
+                        $2.40 CPM
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="auction-row">
+
+                <div class="auction-name">
+                    Demand Partner B
+                </div>
+
+                <div class="auction-bar">
+
+                    <div class="auction-fill winner"
+                         style="width:90%;">
+
+                        $3.25 CPM — WINNING BID
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="auction-row">
+
+                <div class="auction-name">
+                    Demand Partner C
+                </div>
+
+                <div class="auction-bar">
+
+                    <div class="auction-fill"
+                         style="width:75%;">
+
+                        $2.75 CPM
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="auction-row">
+
+                <div class="auction-name">
+                    Demand Partner D
+                </div>
+
+                <div class="auction-bar">
+
+                    <div class="auction-fill"
+                         style="width:55%;">
+
+                        $2.10 CPM
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="auction-result">
+
+                The winning bid is passed toward the ad-serving
+                process according to the publisher's auction setup.
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================
+     COMPARISON
+===================================== -->
+
+<section class="comparison" id="comparison">
+
+    <div class="container">
+
+
+        <div class="section-title">
+
+            <h2>
+                Client-Side vs Server-Side Header Bidding
+            </h2>
+
+            <p>
+                Both approaches enable multiple demand partners
+                to compete, but the auction architecture is different.
+            </p>
+
+        </div>
+
+
+        <div class="comparison-table-wrapper">
+
+            <table>
+
+                <thead>
+
+                    <tr>
+
+                        <th>
+                            Feature
+                        </th>
+
+                        <th>
+                            Client-Side
+                        </th>
+
+                        <th>
+                            Server-Side
+                        </th>
+
+                    </tr>
+
+                </thead>
+
+
+                <tbody>
+
+                    <tr>
+
+                        <td>
+                            Where does the wrapper/auction operate?
+                        </td>
+
+                        <td>
+                            On the webpage or app
+                        </td>
+
+                        <td>
+                            On a server
+                        </td>
+
+                    </tr>
+
+
+                    <tr>
+
+                        <td>
+                            Demand requests
+                        </td>
+
+                        <td>
+                            Sent from the user's environment
+                        </td>
+
+                        <td>
+                            Sent by the header bidding server
+                        </td>
+
+                    </tr>
+
+
+                    <tr>
+
+                        <td>
+                            Auction
+                        </td>
+
+                        <td>
+                            Client-side environment
+                        </td>
+
+                        <td>
+                            Server-side environment
+                        </td>
+
+                    </tr>
+
+
+                    <tr>
+
+                        <td>
+                            Browser involvement
+                        </td>
+
+                        <td>
+                            Higher
+                        </td>
+
+                        <td>
+                            Lower
+                        </td>
+
+                    </tr>
+
+
+                    <tr>
+
+                        <td>
+                            Browser-side requests
+                        </td>
+
+                        <td>
+                            Can increase with more partners
+                        </td>
+
+                        <td>
+                            Can reduce direct browser requests
+                        </td>
+
+                    </tr>
+
+
+                    <tr>
+
+                        <td>
+                            Main consideration
+                        </td>
+
+                        <td>
+                            Page performance and latency
+                        </td>
+
+                        <td>
+                            Server capacity, demand reach and latency
+                        </td>
+
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================
+     BENEFITS
+===================================== -->
+
+<section class="benefits" id="benefits">
+
+    <div class="container">
+
+
+        <div class="section-title">
+
+            <h2>
+                Why Publishers Use Header Bidding
+            </h2>
+
+            <p>
+                Header bidding can provide publishers with
+                additional opportunities to compete for inventory.
+            </p>
+
+        </div>
+
+
+        <div class="benefit-grid">
+
+
+            <div class="benefit">
+
+                <div class="benefit-icon">
+                    $
+                </div>
+
+                <h3>
+                    Revenue Opportunity
+                </h3>
+
+                <p>
+                    More demand competition can help publishers
+                    increase the value of available inventory.
+                </p>
+
+            </div>
+
+
+            <div class="benefit">
+
+                <div class="benefit-icon">
+                    BID
+                </div>
+
+                <h3>
+                    More Competition
+                </h3>
+
+                <p>
+                    Multiple demand partners can compete for
+                    the same advertising opportunity.
+                </p>
+
+            </div>
+
+
+            <div class="benefit">
+
+                <div class="benefit-icon">
+                    YLD
+                </div>
+
+                <h3>
+                    Yield Optimization
+                </h3>
+
+                <p>
+                    Publishers can use competition between
+                    demand sources to improve yield.
+                </p>
+
+            </div>
+
+
+            <div class="benefit">
+
+                <div class="benefit-icon">
+                    DSP
+                </div>
+
+                <h3>
+                    More Demand Access
+                </h3>
+
+                <p>
+                    Publishers can connect their inventory
+                    with multiple demand sources.
+                </p>
+
+            </div>
+
+
+            <div class="benefit">
+
+                <div class="benefit-icon">
+                    DATA
+                </div>
+
+                <h3>
+                    Better Visibility
+                </h3>
+
+                <p>
+                    Publishers can analyze how different
+                    demand sources perform against each other.
+                </p>
+
+            </div>
+
+
+            <div class="benefit">
+
+                <div class="benefit-icon">
+                    OPT
+                </div>
+
+                <h3>
+                    Optimization
+                </h3>
+
+                <p>
+                    Header bidding setups can be optimized
+                    based on demand, performance and revenue.
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================
+     KEY TERMS
+===================================== -->
+
+<section class="terms">
+
+    <div class="container">
+
+
+        <div class="section-title">
+
+            <h2>
+                Key Header Bidding Terms
+            </h2>
+
+        </div>
+
+
+        <div class="term-grid">
+
+
+            <div class="term">
+
+                <strong>
+                    Header Bidding Wrapper
+                </strong>
+
+                <span>
+                    Technology used to manage multiple demand integrations.
+                </span>
+
+            </div>
+
+
+            <div class="term">
+
+                <strong>
+                    Demand Partner
+                </strong>
+
+                <span>
+                    A source that can submit a bid for inventory.
+                </span>
+
+            </div>
+
+
+            <div class="term">
+
+                <strong>
+                    Bid
+                </strong>
+
+                <span>
+                    The value submitted for an advertising opportunity.
+                </span>
+
+            </div>
+
+
+            <div class="term">
+
+                <strong>
+                    Auction
+                </strong>
+
+                <span>
+                    Process used to evaluate competing bids.
+                </span>
+
+            </div>
+
+
+            <div class="term">
+
+                <strong>
+                    Winning Bid
+                </strong>
+
+                <span>
+                    The eligible bid selected according to the auction setup.
+                </span>
+
+            </div>
+
+
+            <div class="term">
+
+                <strong>
+                    Ad Server
+                </strong>
+
+                <span>
+                    Technology involved in the final ad-serving decision.
+                </span>
+
+            </div>
+
+
+            <div class="term">
+
+                <strong>
+                    Floor Price
+                </strong>
+
+                <span>
+                    Minimum value a publisher may require for inventory.
+                </span>
+
+            </div>
+
+
+            <div class="term">
+
+                <strong>
+                    Yield
+                </strong>
+
+                <span>
+                    The value generated from available advertising inventory.
+                </span>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================
+     FEEDBACK FORM
+===================================== -->
+
+<section class="feedback">
+
+    <div class="container">
+
+        <div class="feedback-box">
+
+            <div class="feedback-header">
+
+                <span class="feedback-label">
+                    HELP US IMPROVE
+                </span>
+
+                <h2>
+                    Something Doesn't Look Right?
+                </h2>
+
+                <p>
+                    Found an incorrect explanation, outdated
+                    information or something that could be clearer?
+                    Let us know and we'll review it.
+                </p>
+
+            </div>
+
+
+            <form class="feedback-form"
+                  action="#"
+                  method="post">
+
+                <label>
+
+                    Name
+
+                    <input
+                        type="text"
+                        name="name"
+                        placeholder="Enter your name"
+                        autocomplete="name"
+                        required>
+
+                </label>
+
+
+                <label>
+
+                    What should we review?
+
+                    <textarea
+                        name="feedback"
+                        placeholder="Tell us what needs to be corrected or improved..."
+                        required></textarea>
+
+                </label>
+
+
+                <button
+                    type="submit"
+                    class="feedback-submit">
+
+                    Submit Feedback →
+
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================
+     CTA
+===================================== -->
+
+<section class="cta">
+
+    <div class="container">
+
+
+        <h2>
+            Explore More Programmatic Advertising
+        </h2>
+
+
+        <p>
+            Continue learning about DSPs, SSPs, RTB, ad exchanges,
+            private marketplaces, CTV and the wider programmatic ecosystem.
+        </p>
+
+
+        <a href="/advertising/programmatic/"
+           class="cta-button">
+
+            Explore Programmatic →
+
+        </a>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================
+     FOOTER
+===================================== -->
+
+<footer>
+
+    <p>
+
+        <strong>PubsRate</strong>
+
+        — Publisher Monetization,
+        Advertising & AdTech Resources
+
+    </p>
+
+</footer>
+
+
+</body>
+
+</html>
