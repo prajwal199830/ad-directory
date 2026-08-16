@@ -1,0 +1,1699 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Video Advertising & Ad Insertion | SSAI, CSAI, DAI | PubsRate</title>
+
+    <meta name="description"
+          content="Learn about video advertising technologies including SSAI, CSAI, DAI, wrappers and macros. A simple guide to digital video ad insertion from PubsRate.">
+
+    <meta name="robots" content="index, follow">
+
+    <link rel="canonical"
+          href="https://www.pubsrate.com/advertising/video-advertising/">
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f7f9fc;
+            color: #172033;
+            line-height: 1.7;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1150px;
+            margin: auto;
+        }
+
+
+        /* =========================
+           NAVBAR
+        ========================== */
+
+        .navbar {
+            height: 68px;
+            background: #ffffff;
+            border-bottom: 1px solid #e5e7eb;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding: 0 5%;
+
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: #111827;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 25px;
+        }
+
+        .nav-links a {
+            font-size: 14px;
+            color: #4b5563;
+        }
+
+        .nav-links a:hover {
+            color: #2563eb;
+        }
+
+
+        /* =========================
+           BREADCRUMB
+        ========================== */
+
+        .breadcrumb {
+            background: #ffffff;
+            border-bottom: 1px solid #e5e7eb;
+            padding: 12px 0;
+
+            font-size: 12px;
+            color: #6b7280;
+        }
+
+        .breadcrumb a {
+            color: #2563eb;
+        }
+
+
+        /* =========================
+           HERO
+        ========================== */
+
+        .hero {
+            background:
+                radial-gradient(
+                    circle at 80% 20%,
+                    #263b65,
+                    transparent 35%
+                ),
+                #111827;
+
+            color: white;
+
+            text-align: center;
+
+            padding: 75px 20px;
+        }
+
+        .hero-label {
+            font-size: 11px;
+
+            letter-spacing: 1.5px;
+
+            font-weight: 700;
+
+            color: #93c5fd;
+
+            margin-bottom: 15px;
+        }
+
+        .hero h1 {
+            font-size: 45px;
+
+            line-height: 1.15;
+
+            margin-bottom: 18px;
+        }
+
+        .hero p {
+            max-width: 780px;
+
+            margin: auto;
+
+            color: #d1d5db;
+
+            font-size: 17px;
+        }
+
+
+        /* =========================
+           EXPLORE BAR
+        ========================== */
+
+        .explore-bar {
+            background: #ffffff;
+
+            border-bottom: 1px solid #e5e7eb;
+
+            padding: 13px 0;
+        }
+
+        .explore-inner {
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            gap: 8px;
+
+            flex-wrap: wrap;
+        }
+
+        .explore-label {
+            font-size: 10px;
+
+            font-weight: 700;
+
+            color: #6b7280;
+
+            letter-spacing: 1px;
+
+            margin-right: 4px;
+        }
+
+        .explore-link {
+            padding: 6px 11px;
+
+            border: 1px solid #e5e7eb;
+
+            border-radius: 6px;
+
+            font-size: 10px;
+
+            color: #4b5563;
+
+            transition: .2s;
+        }
+
+        .explore-link:hover {
+            background: #eff6ff;
+
+            border-color: #93c5fd;
+
+            color: #2563eb;
+        }
+
+
+        /* =========================
+           INTRO
+        ========================== */
+
+        .intro {
+            background: #ffffff;
+
+            padding: 60px 0;
+        }
+
+        .section-title {
+            text-align: center;
+
+            margin-bottom: 40px;
+        }
+
+        .section-label {
+            display: inline-block;
+
+            font-size: 10px;
+
+            font-weight: 700;
+
+            letter-spacing: 1.5px;
+
+            color: #2563eb;
+
+            margin-bottom: 8px;
+        }
+
+        .section-title h2 {
+            font-size: 32px;
+
+            margin-bottom: 8px;
+        }
+
+        .section-title p {
+            max-width: 760px;
+
+            margin: auto;
+
+            color: #6b7280;
+
+            font-size: 14px;
+        }
+
+        .intro-box {
+            max-width: 900px;
+
+            margin: auto;
+
+            background: #f8fafc;
+
+            border: 1px solid #e5e7eb;
+
+            border-radius: 14px;
+
+            padding: 30px;
+        }
+
+        .intro-box p {
+            color: #5b6472;
+
+            font-size: 14px;
+
+            margin-bottom: 12px;
+        }
+
+        .intro-box p:last-child {
+            margin-bottom: 0;
+        }
+
+
+        /* =========================
+           CONCEPT GRID
+        ========================== */
+
+        .concept-section {
+            background: #f7f9fc;
+
+            padding: 70px 0;
+        }
+
+        .concept-grid {
+            display: grid;
+
+            grid-template-columns:
+            repeat(3, 1fr);
+
+            gap: 20px;
+        }
+
+        .concept-card {
+            background: #ffffff;
+
+            border: 1px solid #e5e7eb;
+
+            border-radius: 15px;
+
+            padding: 30px;
+
+            transition: .25s ease;
+
+            position: relative;
+        }
+
+        .concept-card:hover {
+            transform: translateY(-5px);
+
+            box-shadow:
+                0 15px 35px rgba(0,0,0,.07);
+
+            border-color: #bfdbfe;
+        }
+
+        .concept-number {
+            position: absolute;
+
+            top: 20px;
+
+            right: 22px;
+
+            font-size: 11px;
+
+            font-weight: 700;
+
+            color: #9ca3af;
+        }
+
+        .concept-icon {
+            width: 50px;
+
+            height: 50px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            background: #eff6ff;
+
+            border-radius: 12px;
+
+            font-size: 20px;
+
+            margin-bottom: 20px;
+        }
+
+        .concept-card h3 {
+            font-size: 24px;
+
+            margin-bottom: 2px;
+        }
+
+        .concept-subtitle {
+            display: block;
+
+            color: #2563eb;
+
+            font-size: 11px;
+
+            font-weight: 600;
+
+            margin-bottom: 16px;
+        }
+
+        .concept-card p {
+            color: #5b6472;
+
+            font-size: 13px;
+
+            line-height: 1.75;
+        }
+
+        .concept-tag {
+            display: inline-block;
+
+            margin-top: 20px;
+
+            padding: 5px 9px;
+
+            background: #111827;
+
+            color: #ffffff;
+
+            border-radius: 5px;
+
+            font-size: 9px;
+
+            font-weight: 600;
+        }
+
+
+        /* =========================
+           PROCESS
+        ========================== */
+
+        .process-section {
+            background: #ffffff;
+
+            padding: 70px 0;
+        }
+
+        .process-flow {
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            flex-wrap: wrap;
+
+            gap: 10px;
+
+            margin-top: 35px;
+        }
+
+        .process-box {
+            min-width: 145px;
+
+            padding: 18px 15px;
+
+            text-align: center;
+
+            background: #f8fafc;
+
+            border: 1px solid #dbe3ef;
+
+            border-radius: 10px;
+
+            font-size: 12px;
+
+            font-weight: 700;
+        }
+
+        .process-box small {
+            display: block;
+
+            margin-top: 5px;
+
+            color: #6b7280;
+
+            font-size: 10px;
+
+            font-weight: normal;
+        }
+
+        .process-arrow {
+            color: #2563eb;
+
+            font-size: 20px;
+        }
+
+
+        /* =========================
+           COMPARISON
+        ========================== */
+
+        .comparison {
+            background: #f7f9fc;
+
+            padding: 70px 0;
+        }
+
+        .table-wrapper {
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+
+            border-collapse: collapse;
+
+            background: #ffffff;
+
+            border: 1px solid #e5e7eb;
+        }
+
+        th,
+        td {
+            padding: 16px;
+
+            border-bottom: 1px solid #e5e7eb;
+
+            text-align: left;
+
+            font-size: 13px;
+        }
+
+        th {
+            background: #111827;
+
+            color: #ffffff;
+
+            font-size: 12px;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+
+        /* =========================
+           QUICK TERMS
+        ========================== */
+
+        .quick-section {
+            background: #ffffff;
+
+            padding: 65px 0;
+        }
+
+        .quick-grid {
+            display: grid;
+
+            grid-template-columns:
+            repeat(5, 1fr);
+
+            gap: 12px;
+        }
+
+        .quick-card {
+            padding: 20px;
+
+            background: #f8fafc;
+
+            border: 1px solid #e5e7eb;
+
+            border-radius: 10px;
+        }
+
+        .quick-card strong {
+            display: block;
+
+            font-size: 14px;
+
+            margin-bottom: 5px;
+        }
+
+        .quick-card span {
+            color: #6b7280;
+
+            font-size: 11px;
+        }
+
+
+        /* =========================
+           NOTICE
+        ========================== */
+
+        .notice-section {
+            background: #f7f9fc;
+
+            padding: 45px 0;
+        }
+
+        .notice-box {
+            max-width: 900px;
+
+            margin: auto;
+
+            background: #ffffff;
+
+            border: 1px solid #e5e7eb;
+
+            border-radius: 12px;
+
+            padding: 27px;
+        }
+
+        .notice-box h2 {
+            font-size: 20px;
+
+            margin-bottom: 10px;
+        }
+
+        .notice-box p {
+            font-size: 12px;
+
+            color: #6b7280;
+
+            margin-bottom: 10px;
+        }
+
+
+        /* =========================
+           FEEDBACK
+        ========================== */
+
+        .feedback {
+            background: #ffffff;
+
+            padding: 45px 0;
+        }
+
+        .feedback-box {
+            max-width: 900px;
+
+            margin: auto;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            gap: 25px;
+
+            background: #f8fafc;
+
+            border: 1px solid #e5e7eb;
+
+            border-radius: 13px;
+
+            padding: 28px;
+        }
+
+        .feedback-label {
+            font-size: 10px;
+
+            color: #2563eb;
+
+            letter-spacing: 1px;
+
+            font-weight: 700;
+        }
+
+        .feedback-box h2 {
+            font-size: 22px;
+
+            margin: 5px 0;
+        }
+
+        .feedback-box p {
+            color: #6b7280;
+
+            font-size: 12px;
+
+            max-width: 650px;
+        }
+
+        .feedback-button {
+            flex-shrink: 0;
+
+            background: #2563eb;
+
+            color: #ffffff;
+
+            padding: 11px 17px;
+
+            border-radius: 7px;
+
+            font-size: 12px;
+
+            font-weight: 600;
+        }
+
+        .feedback-button:hover {
+            background: #1d4ed8;
+        }
+
+
+        /* =========================
+           CTA
+        ========================== */
+
+        .cta {
+            background: #111827;
+
+            color: #ffffff;
+
+            text-align: center;
+
+            padding: 65px 0;
+        }
+
+        .cta h2 {
+            font-size: 30px;
+
+            margin-bottom: 10px;
+        }
+
+        .cta p {
+            max-width: 700px;
+
+            margin: auto auto 20px;
+
+            color: #9ca3af;
+
+            font-size: 14px;
+        }
+
+        .cta-button {
+            display: inline-block;
+
+            background: #2563eb;
+
+            padding: 11px 20px;
+
+            border-radius: 7px;
+
+            font-size: 13px;
+
+            font-weight: 600;
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================== */
+
+        footer {
+            background: #0b1120;
+
+            color: #9ca3af;
+
+            text-align: center;
+
+            padding: 35px 20px;
+
+            font-size: 12px;
+        }
+
+        footer strong {
+            color: #ffffff;
+        }
+
+
+        /* =========================
+           RESPONSIVE
+        ========================== */
+
+        @media (max-width: 950px) {
+
+            .concept-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .quick-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+        }
+
+
+        @media (max-width: 650px) {
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero {
+                padding: 60px 20px;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .hero p {
+                font-size: 14px;
+            }
+
+            .concept-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .quick-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .process-flow {
+                flex-direction: column;
+            }
+
+            .process-arrow {
+                transform: rotate(90deg);
+            }
+
+            .feedback-box {
+                flex-direction: column;
+
+                align-items: flex-start;
+            }
+
+            .feedback-button {
+                width: 100%;
+
+                text-align: center;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     NAVBAR
+===================================================== -->
+
+<header class="navbar">
+
+    <div class="logo">
+        PubsRate
+    </div>
+
+    <nav class="nav-links">
+
+        <a href="/">
+            Home
+        </a>
+
+        <a href="/publishers/">
+            Publishers
+        </a>
+
+        <a href="/advertising/">
+            Advertising Hub
+        </a>
+
+        <a href="/tools/">
+            Tools
+        </a>
+
+        <a href="/news/">
+            News
+        </a>
+
+    </nav>
+
+</header>
+
+
+
+<!-- =====================================================
+     BREADCRUMB
+===================================================== -->
+
+<div class="breadcrumb">
+
+    <div class="container">
+
+        <a href="/">
+            PubsRate
+        </a>
+
+        &nbsp; / &nbsp;
+
+        <a href="/advertising/">
+            Advertising Hub
+        </a>
+
+        &nbsp; / &nbsp;
+
+        Video Advertising
+
+    </div>
+
+</div>
+
+
+
+<!-- =====================================================
+     HERO
+===================================================== -->
+
+<section class="hero">
+
+    <div class="hero-label">
+        PUBSRATE • VIDEO ADVERTISING
+    </div>
+
+    <h1>
+        Video Advertising & Ad Insertion
+    </h1>
+
+    <p>
+        Understand the technologies used to request, select
+        and insert advertisements into digital video content.
+    </p>
+
+</section>
+
+
+
+<!-- =====================================================
+     EXPLORE
+===================================================== -->
+
+<div class="explore-bar">
+
+    <div class="container explore-inner">
+
+        <span class="explore-label">
+            EXPLORE
+        </span>
+
+        <a href="#ssai"
+           class="explore-link">
+            SSAI
+        </a>
+
+        <a href="#csai"
+           class="explore-link">
+            CSAI
+        </a>
+
+        <a href="#dai"
+           class="explore-link">
+            DAI
+        </a>
+
+        <a href="#wrapper"
+           class="explore-link">
+            Wrapper
+        </a>
+
+        <a href="#macros"
+           class="explore-link">
+            Macros
+        </a>
+
+    </div>
+
+</div>
+
+
+
+<!-- =====================================================
+     INTRODUCTION
+===================================================== -->
+
+<section class="intro">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <div class="section-label">
+                VIDEO ADVERTISING
+            </div>
+
+            <h2>
+                How Video Ads Reach the Viewer
+            </h2>
+
+            <p>
+                Digital video advertising can use different
+                technologies depending on where the ad is
+                requested, selected and inserted.
+            </p>
+
+        </div>
+
+
+        <div class="intro-box">
+
+            <p>
+                Video advertising can be delivered through
+                different ad insertion approaches. The
+                technology used can affect where the ad is
+                inserted and how the player receives the
+                advertisement.
+            </p>
+
+            <p>
+                Three important concepts are SSAI, CSAI and DAI.
+                Wrappers and macros are additional components
+                that can be encountered while working with
+                video advertising tags and requests.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     MAIN CONCEPTS
+===================================================== -->
+
+<section class="concept-section">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <div class="section-label">
+                CORE CONCEPTS
+            </div>
+
+            <h2>
+                Five Video Advertising Concepts
+            </h2>
+
+            <p>
+                Start with these five concepts to understand
+                the fundamentals of digital video ad insertion.
+            </p>
+
+        </div>
+
+
+        <div class="concept-grid">
+
+
+            <!-- SSAI -->
+
+            <div class="concept-card"
+                 id="ssai">
+
+                <div class="concept-number">
+                    01
+                </div>
+
+                <div class="concept-icon">
+                    🖥️
+                </div>
+
+                <h3>
+                    SSAI
+                </h3>
+
+                <span class="concept-subtitle">
+                    Server-Side Ad Insertion
+                </span>
+
+                <p>
+                    Server-Side Ad Insertion is an ad insertion
+                    technique where advertisements are inserted
+                    into the video stream on the server side
+                    before the content reaches the user's device.
+                </p>
+
+                <span class="concept-tag">
+                    SERVER SIDE
+                </span>
+
+            </div>
+
+
+
+            <!-- CSAI -->
+
+            <div class="concept-card"
+                 id="csai">
+
+                <div class="concept-number">
+                    02
+                </div>
+
+                <div class="concept-icon">
+                    ▶️
+                </div>
+
+                <h3>
+                    CSAI
+                </h3>
+
+                <span class="concept-subtitle">
+                    Client-Side Ad Insertion
+                </span>
+
+                <p>
+                    Client-Side Ad Insertion is an ad insertion
+                    technique where the video player on the
+                    user's device requests, fetches and loads
+                    the advertisement separately from the
+                    main content.
+                </p>
+
+                <span class="concept-tag">
+                    CLIENT SIDE
+                </span>
+
+            </div>
+
+
+
+            <!-- DAI -->
+
+            <div class="concept-card"
+                 id="dai">
+
+                <div class="concept-number">
+                    03
+                </div>
+
+                <div class="concept-icon">
+                    🎯
+                </div>
+
+                <h3>
+                    DAI
+                </h3>
+
+                <span class="concept-subtitle">
+                    Dynamic Ad Insertion
+                </span>
+
+                <p>
+                    Dynamic Ad Insertion is a technique where
+                    advertisements can be selected and inserted
+                    dynamically using available information such
+                    as location, device, content or other
+                    targeting signals.
+                </p>
+
+                <span class="concept-tag">
+                    DYNAMIC
+                </span>
+
+            </div>
+
+
+
+            <!-- WRAPPER -->
+
+            <div class="concept-card"
+                 id="wrapper">
+
+                <div class="concept-number">
+                    04
+                </div>
+
+                <div class="concept-icon">
+                    W
+                </div>
+
+                <h3>
+                    Wrapper
+                </h3>
+
+                <span class="concept-subtitle">
+                    Ad Tag Container
+                </span>
+
+                <p>
+                    A wrapper is an advertising tag that
+                    references another ad tag. It can be used
+                    to pass additional information and support
+                    functions such as tracking, measurement
+                    or additional ad requests.
+                </p>
+
+                <span class="concept-tag">
+                    AD TAG
+                </span>
+
+            </div>
+
+
+
+            <!-- MACROS -->
+
+            <div class="concept-card"
+                 id="macros">
+
+                <div class="concept-number">
+                    05
+                </div>
+
+                <div class="concept-icon">
+                    %
+                </div>
+
+                <h3>
+                    Macros
+                </h3>
+
+                <span class="concept-subtitle">
+                    Dynamic Placeholders
+                </span>
+
+                <p>
+                    Macros are placeholders used in advertising
+                    tags or URLs. They can be replaced with
+                    actual values when the request or tracking
+                    event is processed.
+                </p>
+
+                <span class="concept-tag">
+                    DYNAMIC VALUE
+                </span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     VIDEO AD FLOW
+===================================================== -->
+
+<section class="process-section">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <div class="section-label">
+                SIMPLE FLOW
+            </div>
+
+            <h2>
+                How Video Advertising Can Work
+            </h2>
+
+            <p>
+                The exact implementation can vary depending
+                on the video platform and ad-serving setup.
+            </p>
+
+        </div>
+
+
+        <div class="process-flow">
+
+            <div class="process-box">
+
+                Video Content
+
+                <small>
+                    Content stream
+                </small>
+
+            </div>
+
+            <div class="process-arrow">
+                →
+            </div>
+
+            <div class="process-box">
+
+                Ad Opportunity
+
+                <small>
+                    Impression opportunity
+                </small>
+
+            </div>
+
+            <div class="process-arrow">
+                →
+            </div>
+
+            <div class="process-box">
+
+                Ad Request
+
+                <small>
+                    Request for advertising
+                </small>
+
+            </div>
+
+            <div class="process-arrow">
+                →
+            </div>
+
+            <div class="process-box">
+
+                Ad Decision
+
+                <small>
+                    Advertisement selected
+                </small>
+
+            </div>
+
+            <div class="process-arrow">
+                →
+            </div>
+
+            <div class="process-box">
+
+                Ad Insertion
+
+                <small>
+                    Ad reaches playback
+                </small>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     SSAI / CSAI / DAI COMPARISON
+===================================================== -->
+
+<section class="comparison">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <div class="section-label">
+                QUICK COMPARISON
+            </div>
+
+            <h2>
+                SSAI vs CSAI vs DAI
+            </h2>
+
+            <p>
+                A simple comparison of the three main
+                concepts covered on this page.
+            </p>
+
+        </div>
+
+
+        <div class="table-wrapper">
+
+            <table>
+
+                <thead>
+
+                    <tr>
+
+                        <th>
+                            Technology
+                        </th>
+
+                        <th>
+                            Where the Ad is Inserted
+                        </th>
+
+                        <th>
+                            Main Idea
+                        </th>
+
+                    </tr>
+
+                </thead>
+
+
+                <tbody>
+
+                    <tr>
+
+                        <td>
+                            <strong>SSAI</strong>
+                        </td>
+
+                        <td>
+                            Server side
+                        </td>
+
+                        <td>
+                            Advertisement is inserted into
+                            the stream before it reaches the device.
+                        </td>
+
+                    </tr>
+
+
+                    <tr>
+
+                        <td>
+                            <strong>CSAI</strong>
+                        </td>
+
+                        <td>
+                            Client / player side
+                        </td>
+
+                        <td>
+                            Player requests and loads the
+                            advertisement separately.
+                        </td>
+
+                    </tr>
+
+
+                    <tr>
+
+                        <td>
+                            <strong>DAI</strong>
+                        </td>
+
+                        <td>
+                            Depends on implementation
+                        </td>
+
+                        <td>
+                            Advertisement is dynamically
+                            selected and inserted using
+                            available signals.
+                        </td>
+
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     WRAPPER + MACROS
+===================================================== -->
+
+<section class="quick-section">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <div class="section-label">
+                SUPPORTING CONCEPTS
+            </div>
+
+            <h2>
+                Wrapper & Macros
+            </h2>
+
+            <p>
+                These concepts commonly appear when working
+                with advertising tags and video ad requests.
+            </p>
+
+        </div>
+
+
+        <div class="quick-grid">
+
+
+            <div class="quick-card">
+
+                <strong>
+                    Wrapper
+                </strong>
+
+                <span>
+                    A tag that references another ad tag and
+                    can support tracking or additional requests.
+                </span>
+
+            </div>
+
+
+            <div class="quick-card">
+
+                <strong>
+                    Macro
+                </strong>
+
+                <span>
+                    A placeholder that can be replaced with
+                    an actual value during processing.
+                </span>
+
+            </div>
+
+
+            <div class="quick-card">
+
+                <strong>
+                    SSAI
+                </strong>
+
+                <span>
+                    Server-side ad insertion.
+                </span>
+
+            </div>
+
+
+            <div class="quick-card">
+
+                <strong>
+                    CSAI
+                </strong>
+
+                <span>
+                    Client-side ad insertion.
+                </span>
+
+            </div>
+
+
+            <div class="quick-card">
+
+                <strong>
+                    DAI
+                </strong>
+
+                <span>
+                    Dynamic ad insertion.
+                </span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     CONTENT NOTICE
+===================================================== -->
+
+<section class="notice-section">
+
+    <div class="container">
+
+        <div class="notice-box">
+
+            <h2>
+                Content & Copyright Notice
+            </h2>
+
+            <p>
+                This page has been written and structured by
+                PubsRate for educational and informational purposes.
+                The explanations, examples and presentation are
+                created for the PubsRate platform.
+            </p>
+
+            <p>
+                Third-party standards, company names, trademarks,
+                products and technologies mentioned on this page
+                belong to their respective owners. Mentioning a
+                technology or company does not imply endorsement
+                or affiliation.
+            </p>
+
+            <p>
+                Technical implementations can vary between
+                platforms, video players, ad servers and
+                advertising environments.
+            </p>
+
+            <p>
+                Please do not reproduce the complete page content,
+                graphics or structure without permission.
+            </p>
+
+            <p style="
+                margin-top:15px;
+                font-weight:600;
+                color:#374151;
+            ">
+                Last reviewed: August 2026
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     FEEDBACK
+===================================================== -->
+
+<section class="feedback">
+
+    <div class="container">
+
+        <div class="feedback-box">
+
+            <div>
+
+                <span class="feedback-label">
+                    HELP US IMPROVE
+                </span>
+
+                <h2>
+                    Found an issue?
+                </h2>
+
+                <p>
+                    If you notice an incorrect explanation,
+                    outdated information or something that
+                    needs improvement, let us know.
+                </p>
+
+            </div>
+
+
+            <a href="/contact/"
+               class="feedback-button">
+
+                Report an Issue →
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     CTA
+===================================================== -->
+
+<section class="cta">
+
+    <div class="container">
+
+        <h2>
+            Explore More AdTech
+        </h2>
+
+        <p>
+            Continue exploring programmatic advertising,
+            publisher monetization, advertising technology
+            and other concepts through PubsRate.
+        </p>
+
+        <a href="/advertising/"
+           class="cta-button">
+
+            Explore Advertising Hub →
+
+        </a>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer>
+
+    <p>
+
+        <strong>PubsRate</strong>
+
+        — Publisher Monetization,
+        Advertising & AdTech Resources
+
+    </p>
+
+</footer>
+
+
+</body>
+
+</html>
