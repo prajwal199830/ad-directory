@@ -1,0 +1,2335 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <!-- =========================
+         BASIC SEO
+    ========================== -->
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>
+        SSP, Ad Server, Ad Network & Ad Exchange Explained | PubsRate
+    </title>
+
+    <meta name="description"
+          content="Learn the differences between SSPs, ad servers, ad networks and ad exchanges. Explore how these AdTech platforms work together in the digital advertising and programmatic ecosystem.">
+
+    <meta name="author"
+          content="PubsRate">
+
+    <meta name="robots"
+          content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+
+    <meta name="googlebot"
+          content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+
+
+    <!-- =========================
+         CANONICAL
+    ========================== -->
+
+    <link rel="canonical"
+          href="https://www.pubsrate.com/advertising/ssp-ad-server-ad-network/">
+
+
+    <!-- =========================
+         OPEN GRAPH
+    ========================== -->
+
+    <meta property="og:type"
+          content="article">
+
+    <meta property="og:title"
+          content="SSP, Ad Server, Ad Network & Ad Exchange Explained | PubsRate">
+
+    <meta property="og:description"
+          content="Understand SSPs, ad servers, ad networks and ad exchanges and how they fit into the digital advertising and programmatic ecosystem.">
+
+    <meta property="og:url"
+          content="https://www.pubsrate.com/advertising/ssp-ad-server-ad-network/">
+
+    <meta property="og:site_name"
+          content="PubsRate">
+
+    <meta property="og:locale"
+          content="en_US">
+
+
+    <!-- =========================
+         TWITTER / X
+    ========================== -->
+
+    <meta name="twitter:card"
+          content="summary_large_image">
+
+    <meta name="twitter:title"
+          content="SSP, Ad Server, Ad Network & Ad Exchange Explained | PubsRate">
+
+    <meta name="twitter:description"
+          content="A simple guide to SSPs, ad servers, ad networks and ad exchanges in the programmatic advertising ecosystem.">
+
+
+    <!-- =========================
+         THEME
+    ========================== -->
+
+    <meta name="theme-color"
+          content="#111827">
+
+
+    <!-- =========================
+         STRUCTURED DATA
+         ORGANIZATION
+    ========================== -->
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "PubsRate",
+        "url": "https://www.pubsrate.com/",
+        "description": "PubsRate provides publisher resources, advertising technology information, programmatic advertising education and AdTech tools."
+    }
+    </script>
+
+
+    <!-- =========================
+         STRUCTURED DATA
+         WEBSITE
+    ========================== -->
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "PubsRate",
+        "url": "https://www.pubsrate.com/"
+    }
+    </script>
+
+
+    <!-- =========================
+         STRUCTURED DATA
+         ARTICLE
+    ========================== -->
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "SSP, Ad Server, Ad Network & Ad Exchange Explained",
+        "description": "Learn the differences between SSPs, ad servers, ad networks and ad exchanges and understand how they can connect within the digital advertising ecosystem.",
+        "url": "https://www.pubsrate.com/advertising/ssp-ad-server-ad-network/",
+        "author": {
+            "@type": "Organization",
+            "name": "PubsRate",
+            "url": "https://www.pubsrate.com/"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "PubsRate",
+            "url": "https://www.pubsrate.com/"
+        },
+        "dateModified": "2026-08-16",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://www.pubsrate.com/advertising/ssp-ad-server-ad-network/"
+        }
+    }
+    </script>
+
+
+    <!-- =========================
+         STYLES
+    ========================== -->
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f7f9fc;
+            color: #172033;
+            line-height: 1.7;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1150px;
+            margin: auto;
+        }
+
+
+        /* =========================
+           NAVBAR
+        ========================== */
+
+        .navbar {
+            height: 68px;
+            background: #ffffff;
+            border-bottom: 1px solid #e5e7eb;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding: 0 5%;
+
+            position: sticky;
+            top: 0;
+
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: #111827;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+        }
+
+        .nav-links a {
+            font-size: 14px;
+            color: #4b5563;
+        }
+
+        .nav-links a:hover {
+            color: #2563eb;
+        }
+
+
+        /* =========================
+           NEWS NAVIGATION
+        ========================== */
+
+        .news-nav {
+            display: flex !important;
+
+            flex-direction: column;
+
+            align-items: center;
+
+            justify-content: center;
+
+            line-height: 1.1;
+        }
+
+        .news-nav span {
+            font-size: 14px;
+        }
+
+        .news-nav small {
+            margin-top: 3px;
+
+            font-size: 6px;
+
+            font-weight: 600;
+
+            letter-spacing: 0.5px;
+
+            color: #2563eb;
+
+            white-space: nowrap;
+        }
+
+        .news-nav:hover small {
+            color: #1d4ed8;
+        }
+
+
+        /* =========================
+           BREADCRUMB
+        ========================== */
+
+        .breadcrumb {
+            background: #ffffff;
+            border-bottom: 1px solid #e5e7eb;
+
+            padding: 12px 0;
+
+            font-size: 12px;
+            color: #6b7280;
+        }
+
+        .breadcrumb a {
+            color: #2563eb;
+        }
+
+
+        /* =========================
+           HERO
+        ========================== */
+
+        .hero {
+            background:
+                radial-gradient(
+                    circle at 80% 20%,
+                    #263b65,
+                    transparent 35%
+                ),
+                #111827;
+
+            color: #ffffff;
+
+            text-align: center;
+
+            padding: 75px 20px;
+        }
+
+        .hero-label {
+            font-size: 11px;
+
+            letter-spacing: 1.5px;
+
+            font-weight: 700;
+
+            color: #93c5fd;
+
+            margin-bottom: 15px;
+        }
+
+        .hero h1 {
+            font-size: 45px;
+
+            line-height: 1.15;
+
+            margin-bottom: 18px;
+        }
+
+        .hero p {
+            max-width: 800px;
+
+            margin: auto;
+
+            color: #d1d5db;
+
+            font-size: 17px;
+        }
+
+
+        /* =========================
+           EXPLORE BAR
+        ========================== */
+
+        .explore-bar {
+            background: #ffffff;
+
+            border-bottom: 1px solid #e5e7eb;
+
+            padding: 13px 0;
+        }
+
+        .explore-inner {
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            gap: 8px;
+
+            flex-wrap: wrap;
+        }
+
+        .explore-label {
+            font-size: 10px;
+
+            font-weight: 700;
+
+            color: #6b7280;
+
+            letter-spacing: 1px;
+        }
+
+        .explore-link {
+            padding: 6px 12px;
+
+            border: 1px solid #e5e7eb;
+
+            border-radius: 6px;
+
+            font-size: 10px;
+
+            color: #4b5563;
+
+            transition: .2s;
+        }
+
+        .explore-link:hover {
+            background: #eff6ff;
+
+            border-color: #93c5fd;
+
+            color: #2563eb;
+        }
+
+
+        /* =========================
+           INTRO
+        ========================== */
+
+        .intro {
+            background: #ffffff;
+
+            padding: 65px 0;
+        }
+
+        .section-title {
+            text-align: center;
+
+            margin-bottom: 40px;
+        }
+
+        .section-label {
+            display: inline-block;
+
+            font-size: 10px;
+
+            font-weight: 700;
+
+            letter-spacing: 1.5px;
+
+            color: #2563eb;
+
+            margin-bottom: 8px;
+        }
+
+        .section-title h2 {
+            font-size: 32px;
+
+            margin-bottom: 8px;
+        }
+
+        .section-title p {
+            max-width: 760px;
+
+            margin: auto;
+
+            color: #6b7280;
+
+            font-size: 14px;
+        }
+
+        .intro-box {
+            max-width: 900px;
+
+            margin: auto;
+
+            background: #f8fafc;
+
+            border: 1px solid #e5e7eb;
+
+            border-radius: 14px;
+
+            padding: 32px;
+        }
+
+        .intro-box p {
+            color: #5b6472;
+
+            font-size: 14px;
+
+            margin-bottom: 12px;
+        }
+
+        .intro-box p:last-child {
+            margin-bottom: 0;
+        }
+
+
+        /* =========================
+           CONCEPT CARDS
+        ========================== */
+
+        .concept-section {
+            background: #f7f9fc;
+
+            padding: 70px 0;
+        }
+
+        .concept-grid {
+            display: grid;
+
+            grid-template-columns:
+            repeat(2, 1fr);
+
+            gap: 22px;
+        }
+
+        .concept-card {
+            background: #ffffff;
+
+            border: 1px solid #e5e7eb;
+
+            border-radius: 15px;
+
+            padding: 32px;
+
+            position: relative;
+
+            transition: .25s ease;
+        }
+
+        .concept-card:hover {
+            transform: translateY(-5px);
+
+            border-color: #bfdbfe;
+
+            box-shadow:
+                0 15px 35px rgba(0,0,0,.07);
+        }
+
+        .concept-number {
+            position: absolute;
+
+            top: 22px;
+
+            right: 24px;
+
+            font-size: 11px;
+
+            font-weight: 700;
+
+            color: #9ca3af;
+        }
+
+        .concept-icon {
+            width: 55px;
+
+            height: 55px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            background: #eff6ff;
+
+            border-radius: 12px;
+
+            font-size: 20px;
+
+            margin-bottom: 20px;
+        }
+
+        .concept-card h3 {
+            font-size: 25px;
+
+            margin-bottom: 3px;
+        }
+
+        .concept-name {
+            display: block;
+
+            color: #2563eb;
+
+            font-size: 11px;
+
+            font-weight: 600;
+
+            margin-bottom: 15px;
+        }
+
+        .concept-card p {
+            color: #5b6472;
+
+            font-size: 13px;
+
+            line-height: 1.8;
+
+            margin-bottom: 20px;
+        }
+
+
+        /* =========================
+           ANALOGY BOX
+        ========================== */
+
+        .analogy {
+            background: #f8fafc;
+
+            border-left: 4px solid #2563eb;
+
+            border-radius: 8px;
+
+            padding: 18px;
+        }
+
+        .analogy-label {
+            font-size: 9px;
+
+            font-weight: 700;
+
+            letter-spacing: 1px;
+
+            color: #2563eb;
+
+            display: block;
+
+            margin-bottom: 5px;
+        }
+
+        .analogy p {
+            margin: 0;
+
+            font-size: 12px;
+
+            color: #4b5563;
+
+            line-height: 1.7;
+        }
+
+
+        /* =========================
+           ECOSYSTEM FLOW
+        ========================== */
+
+        .ecosystem {
+            background: #ffffff;
+
+            padding: 75px 0;
+        }
+
+        .flow {
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            gap: 10px;
+
+            flex-wrap: wrap;
+
+            margin-top: 35px;
+        }
+
+        .flow-card {
+            width: 165px;
+
+            min-height: 115px;
+
+            display: flex;
+
+            flex-direction: column;
+
+            justify-content: center;
+
+            align-items: center;
+
+            text-align: center;
+
+            background: #ffffff;
+
+            border: 1px solid #dbe1e8;
+
+            border-radius: 12px;
+
+            padding: 15px;
+        }
+
+        .flow-card strong {
+            font-size: 13px;
+
+            margin-bottom: 5px;
+        }
+
+        .flow-card span {
+            color: #6b7280;
+
+            font-size: 10px;
+        }
+
+        .flow-arrow {
+            font-size: 22px;
+
+            color: #2563eb;
+        }
+
+
+        /* =========================
+           IMPORTANT NOTE
+        ========================== */
+
+        .note-section {
+            background: #f7f9fc;
+
+            padding: 60px 0;
+        }
+
+        .note-box {
+            max-width: 900px;
+
+            margin: auto;
+
+            background: #ffffff;
+
+            border: 1px solid #e5e7eb;
+
+            border-radius: 14px;
+
+            padding: 30px;
+        }
+
+        .note-box h3 {
+            font-size: 22px;
+
+            margin-bottom: 12px;
+        }
+
+        .note-box p {
+            color: #5b6472;
+
+            font-size: 13px;
+
+            margin-bottom: 12px;
+        }
+
+        .note-box p:last-child {
+            margin-bottom: 0;
+        }
+
+
+        /* =========================
+           COMPARISON TABLE
+        ========================== */
+
+        .comparison {
+            background: #ffffff;
+
+            padding: 70px 0;
+        }
+
+        .table-wrapper {
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+
+            border-collapse: collapse;
+
+            border: 1px solid #e5e7eb;
+        }
+
+        th,
+        td {
+            padding: 15px;
+
+            border-bottom: 1px solid #e5e7eb;
+
+            text-align: left;
+
+            font-size: 13px;
+        }
+
+        th {
+            background: #111827;
+
+            color: #ffffff;
+
+            font-size: 12px;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+
+        /* =========================
+           QUICK GUIDE
+        ========================== */
+
+        .quick {
+            background: #f7f9fc;
+
+            padding: 65px 0;
+        }
+
+        .quick-grid {
+            display: grid;
+
+            grid-template-columns:
+            repeat(4, 1fr);
+
+            gap: 15px;
+        }
+
+        .quick-card {
+            background: #ffffff;
+
+            border: 1px solid #e5e7eb;
+
+            border-radius: 10px;
+
+            padding: 20px;
+        }
+
+        .quick-card strong {
+            display: block;
+
+            font-size: 14px;
+
+            margin-bottom: 5px;
+        }
+
+        .quick-card span {
+            color: #6b7280;
+
+            font-size: 11px;
+        }
+
+
+        /* =========================
+           CONTENT NOTICE
+        ========================== */
+
+        .notice {
+            background: #ffffff;
+
+            padding: 45px 0;
+        }
+
+        .notice-box {
+            max-width: 900px;
+
+            margin: auto;
+
+            background: #f8fafc;
+
+            border: 1px solid #e5e7eb;
+
+            border-radius: 12px;
+
+            padding: 28px;
+        }
+
+        .notice-box h3 {
+            font-size: 20px;
+
+            margin-bottom: 10px;
+        }
+
+        .notice-box p {
+            color: #6b7280;
+
+            font-size: 12px;
+
+            margin-bottom: 10px;
+        }
+
+
+        /* =========================
+           FEEDBACK FORM
+        ========================== */
+
+        .feedback {
+            background: #f7f9fc;
+
+            padding: 65px 0;
+        }
+
+        .feedback-card {
+            max-width: 760px;
+
+            margin: auto;
+
+            background: #ffffff;
+
+            border: 1px solid #e5e7eb;
+
+            border-radius: 15px;
+
+            padding: 38px;
+        }
+
+        .feedback-header {
+            text-align: center;
+
+            margin-bottom: 28px;
+        }
+
+        .feedback-label {
+            display: inline-block;
+
+            font-size: 10px;
+
+            color: #2563eb;
+
+            letter-spacing: 1.5px;
+
+            font-weight: 700;
+
+            margin-bottom: 7px;
+        }
+
+        .feedback-header h2 {
+            font-size: 28px;
+
+            margin-bottom: 8px;
+        }
+
+        .feedback-header p {
+            max-width: 650px;
+
+            margin: auto;
+
+            color: #6b7280;
+
+            font-size: 13px;
+        }
+
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        .form-group label {
+            display: block;
+
+            font-size: 12px;
+
+            font-weight: 600;
+
+            color: #374151;
+
+            margin-bottom: 7px;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+
+            padding: 12px 13px;
+
+            border: 1px solid #d1d5db;
+
+            border-radius: 8px;
+
+            background: #ffffff;
+
+            font-family: Arial, Helvetica, sans-serif;
+
+            font-size: 13px;
+
+            color: #172033;
+
+            outline: none;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: #2563eb;
+
+            box-shadow:
+                0 0 0 3px rgba(37,99,235,.08);
+        }
+
+        .form-group textarea {
+            min-height: 130px;
+
+            resize: vertical;
+        }
+
+        .feedback-submit {
+            width: 100%;
+
+            border: none;
+
+            background: #2563eb;
+
+            color: #ffffff;
+
+            padding: 13px 18px;
+
+            border-radius: 8px;
+
+            font-size: 13px;
+
+            font-weight: 600;
+
+            cursor: pointer;
+        }
+
+        .feedback-submit:hover {
+            background: #1d4ed8;
+        }
+
+        .feedback-submit:disabled {
+            background: #93c5fd;
+
+            cursor: not-allowed;
+        }
+
+        .feedback-message {
+            text-align: center;
+
+            min-height: 18px;
+
+            margin-top: 14px;
+
+            font-size: 12px;
+        }
+
+
+        /* =========================
+           CTA
+        ========================== */
+
+        .cta {
+            background: #111827;
+
+            color: #ffffff;
+
+            text-align: center;
+
+            padding: 65px 0;
+        }
+
+        .cta h2 {
+            font-size: 30px;
+
+            margin-bottom: 10px;
+        }
+
+        .cta p {
+            max-width: 700px;
+
+            margin: auto auto 20px;
+
+            color: #9ca3af;
+
+            font-size: 14px;
+        }
+
+        .cta-button {
+            display: inline-block;
+
+            background: #2563eb;
+
+            padding: 11px 20px;
+
+            border-radius: 7px;
+
+            font-size: 13px;
+
+            font-weight: 600;
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================== */
+
+        footer {
+            background: #0b1120;
+
+            color: #9ca3af;
+
+            text-align: center;
+
+            padding: 35px 20px;
+
+            font-size: 12px;
+        }
+
+        footer strong {
+            color: #ffffff;
+        }
+
+
+        /* =========================
+           RESPONSIVE
+        ========================== */
+
+        @media (max-width: 900px) {
+
+            .concept-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .quick-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+        }
+
+
+        @media (max-width: 650px) {
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero {
+                padding: 60px 20px;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .hero p {
+                font-size: 14px;
+            }
+
+            .flow {
+                flex-direction: column;
+            }
+
+            .flow-arrow {
+                transform: rotate(90deg);
+            }
+
+            .quick-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .feedback-card {
+                padding: 25px 20px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     NAVBAR
+===================================================== -->
+
+<header class="navbar">
+
+    <div class="logo">
+        PubsRate
+    </div>
+
+
+    <nav class="nav-links">
+
+        <a href="/">
+            Home
+        </a>
+
+        <a href="/publishers/">
+            Publishers
+        </a>
+
+        <a href="/advertising/">
+            Advertising Hub
+        </a>
+
+        <a href="/tools/">
+            Tools
+        </a>
+
+
+        <!-- NEWS -->
+
+        <a href="/news/" class="news-nav">
+
+            <span>
+                News
+            </span>
+
+            <small>
+                ✦ Coming Soon
+            </small>
+
+        </a>
+
+    </nav>
+
+</header>
+
+
+
+<!-- =====================================================
+     BREADCRUMB
+===================================================== -->
+
+<div class="breadcrumb">
+
+    <div class="container">
+
+        <a href="/">
+            PubsRate
+        </a>
+
+        &nbsp; / &nbsp;
+
+        <a href="/advertising/">
+            Advertising Hub
+        </a>
+
+        &nbsp; / &nbsp;
+
+        AdTech Platforms
+
+    </div>
+
+</div>
+
+
+
+<!-- =====================================================
+     HERO
+===================================================== -->
+
+<section class="hero">
+
+    <div class="hero-label">
+        PUBSRATE • PROGRAMMATIC ECOSYSTEM
+    </div>
+
+    <h1>
+        SSP, Ad Server, Ad Network & Ad Exchange
+    </h1>
+
+    <p>
+        Let's break down some of the most commonly confused
+        components of the digital advertising ecosystem.
+    </p>
+
+</section>
+
+
+
+<!-- =====================================================
+     EXPLORE
+===================================================== -->
+
+<div class="explore-bar">
+
+    <div class="container explore-inner">
+
+        <span class="explore-label">
+            EXPLORE
+        </span>
+
+        <a href="#adserver"
+           class="explore-link">
+            Ad Server
+        </a>
+
+        <a href="#adnetwork"
+           class="explore-link">
+            Ad Network
+        </a>
+
+        <a href="#ssp"
+           class="explore-link">
+            SSP
+        </a>
+
+        <a href="#adexchange"
+           class="explore-link">
+            Ad Exchange
+        </a>
+
+        <a href="#ecosystem"
+           class="explore-link">
+            Ecosystem
+        </a>
+
+    </div>
+
+</div>
+
+
+
+<!-- =====================================================
+     INTRO
+===================================================== -->
+
+<section class="intro">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <div class="section-label">
+                ADTECH FUNDAMENTALS
+            </div>
+
+            <h2>
+                Why Do These Platforms Exist?
+            </h2>
+
+            <p>
+                Digital advertising involves multiple technologies
+                that help publishers manage inventory and help
+                advertisers find opportunities to reach audiences.
+            </p>
+
+        </div>
+
+
+        <div class="intro-box">
+
+            <p>
+                Terms such as SSP, ad server, ad network and ad
+                exchange are often used together, but they do not
+                describe exactly the same thing.
+            </p>
+
+            <p>
+                Understanding the role of each component makes it
+                easier to understand how advertising inventory can
+                move from a publisher to potential buyers.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     CONCEPT CARDS
+===================================================== -->
+
+<section class="concept-section">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <div class="section-label">
+                LET'S DEEP DIVE
+            </div>
+
+            <h2>
+                The Four Key Concepts
+            </h2>
+
+            <p>
+                Simple explanations followed by an analogy to
+                make each concept easier to understand.
+            </p>
+
+        </div>
+
+
+        <div class="concept-grid">
+
+
+            <!-- AD SERVER -->
+
+            <article class="concept-card"
+                     id="adserver">
+
+                <div class="concept-number">
+                    01
+                </div>
+
+                <div class="concept-icon">
+                    ▣
+                </div>
+
+                <h3>
+                    Ad Server
+                </h3>
+
+                <span class="concept-name">
+                    AD DELIVERY & MANAGEMENT
+                </span>
+
+                <p>
+                    An ad server is software used to store, manage,
+                    select and deliver advertisements to websites,
+                    applications and other digital properties.
+                </p>
+
+
+                <div class="analogy">
+
+                    <span class="analogy-label">
+                        SIMPLE ANALOGY
+                    </span>
+
+                    <p>
+                        Think of an ad server like a warehouse and
+                        delivery system. Ads are stored and managed
+                        in the warehouse, while the delivery system
+                        decides which ad should be delivered to an
+                        available ad space.
+                    </p>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- AD NETWORK -->
+
+            <article class="concept-card"
+                     id="adnetwork">
+
+                <div class="concept-number">
+                    02
+                </div>
+
+                <div class="concept-icon">
+                    ⇄
+                </div>
+
+                <h3>
+                    Ad Network
+                </h3>
+
+                <span class="concept-name">
+                    INVENTORY AGGREGATION
+                </span>
+
+                <p>
+                    An ad network acts as an intermediary between
+                    advertisers and publishers. It aggregates
+                    advertising inventory from multiple publishers
+                    and makes that inventory available to advertisers.
+                </p>
+
+
+                <div class="analogy">
+
+                    <span class="analogy-label">
+                        SIMPLE ANALOGY
+                    </span>
+
+                    <p>
+                        Imagine a company collecting advertising
+                        space from many sports websites and packaging
+                        that inventory so advertisers can reach
+                        audiences across those sites.
+                    </p>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- SSP -->
+
+            <article class="concept-card"
+                     id="ssp">
+
+                <div class="concept-number">
+                    03
+                </div>
+
+                <div class="concept-icon">
+                    ↑
+                </div>
+
+                <h3>
+                    SSP
+                </h3>
+
+                <span class="concept-name">
+                    SUPPLY-SIDE PLATFORM
+                </span>
+
+                <p>
+                    An SSP is a technology platform that helps
+                    publishers manage, sell and optimize their
+                    advertising inventory by connecting their
+                    inventory with demand partners, ad exchanges
+                    and other sources of demand.
+                </p>
+
+
+                <div class="analogy">
+
+                    <span class="analogy-label">
+                        SIMPLE ANALOGY
+                    </span>
+
+                    <p>
+                        An SSP works like a sales and optimization
+                        platform for publishers, helping make their
+                        available advertising inventory accessible
+                        to multiple sources of demand.
+                    </p>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- AD EXCHANGE -->
+
+            <article class="concept-card"
+                     id="adexchange">
+
+                <div class="concept-number">
+                    04
+                </div>
+
+                <div class="concept-icon">
+                    ◇
+                </div>
+
+                <h3>
+                    Ad Exchange
+                </h3>
+
+                <span class="concept-name">
+                    DIGITAL MARKETPLACE
+                </span>
+
+                <p>
+                    An ad exchange is a digital marketplace where
+                    advertising inventory can be bought and sold
+                    between buyers and sellers, often through
+                    automated auctions.
+                </p>
+
+
+                <div class="analogy">
+
+                    <span class="analogy-label">
+                        SIMPLE ANALOGY
+                    </span>
+
+                    <p>
+                        Think of an ad exchange as a digital
+                        marketplace where available advertising
+                        inventory is offered to buyers and competing
+                        bids can determine which buyer gets the
+                        opportunity to serve the ad.
+                    </p>
+
+                </div>
+
+            </article>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     ECOSYSTEM
+===================================================== -->
+
+<section class="ecosystem"
+         id="ecosystem">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <div class="section-label">
+                PROGRAMMATIC ECOSYSTEM
+            </div>
+
+            <h2>
+                How These Components Can Connect
+            </h2>
+
+            <p>
+                A simplified example of how advertising
+                technology components can interact.
+            </p>
+
+        </div>
+
+
+        <div class="flow">
+
+
+            <div class="flow-card">
+
+                <strong>
+                    Publisher
+                </strong>
+
+                <span>
+                    Makes advertising inventory available
+                </span>
+
+            </div>
+
+
+            <div class="flow-arrow">
+                →
+            </div>
+
+
+            <div class="flow-card">
+
+                <strong>
+                    Ad Server
+                </strong>
+
+                <span>
+                    Manages and delivers advertising
+                </span>
+
+            </div>
+
+
+            <div class="flow-arrow">
+                →
+            </div>
+
+
+            <div class="flow-card">
+
+                <strong>
+                    SSP
+                </strong>
+
+                <span>
+                    Connects publisher supply with demand
+                </span>
+
+            </div>
+
+
+            <div class="flow-arrow">
+                →
+            </div>
+
+
+            <div class="flow-card">
+
+                <strong>
+                    Ad Exchange
+                </strong>
+
+                <span>
+                    Marketplace for buying and selling inventory
+                </span>
+
+            </div>
+
+
+            <div class="flow-arrow">
+                →
+            </div>
+
+
+            <div class="flow-card">
+
+                <strong>
+                    Buyer / DSP
+                </strong>
+
+                <span>
+                    Participates in buying opportunities
+                </span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     IMPORTANT NOTE
+===================================================== -->
+
+<section class="note-section">
+
+    <div class="container">
+
+        <div class="note-box">
+
+            <h3>
+                One Important Thing to Remember
+            </h3>
+
+            <p>
+                The diagram above is a simplified example and
+                should not be interpreted as a mandatory path
+                for every advertising impression.
+            </p>
+
+            <p>
+                Different publishers, SSPs, ad exchanges,
+                ad servers and demand partners can use different
+                architectures and integrations.
+            </p>
+
+            <p>
+                An SSP may connect with multiple demand sources,
+                while an ad exchange can operate as a marketplace
+                connecting buyers and sellers. Some technologies
+                can also be closely integrated with one another.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     COMPARISON
+===================================================== -->
+
+<section class="comparison">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <div class="section-label">
+                QUICK COMPARISON
+            </div>
+
+            <h2>
+                What's the Difference?
+            </h2>
+
+            <p>
+                A simple comparison of the four concepts.
+            </p>
+
+        </div>
+
+
+        <div class="table-wrapper">
+
+            <table>
+
+                <thead>
+
+                    <tr>
+
+                        <th>
+                            Technology
+                        </th>
+
+                        <th>
+                            Primary Role
+                        </th>
+
+                        <th>
+                            Mainly Helps
+                        </th>
+
+                    </tr>
+
+                </thead>
+
+
+                <tbody>
+
+                    <tr>
+
+                        <td>
+                            <strong>
+                                Ad Server
+                            </strong>
+                        </td>
+
+                        <td>
+                            Manage, select and deliver ads
+                        </td>
+
+                        <td>
+                            Publishers / Advertisers
+                        </td>
+
+                    </tr>
+
+
+                    <tr>
+
+                        <td>
+                            <strong>
+                                Ad Network
+                            </strong>
+                        </td>
+
+                        <td>
+                            Aggregate and sell advertising inventory
+                        </td>
+
+                        <td>
+                            Publishers & Advertisers
+                        </td>
+
+                    </tr>
+
+
+                    <tr>
+
+                        <td>
+                            <strong>
+                                SSP
+                            </strong>
+                        </td>
+
+                        <td>
+                            Manage, sell and optimize publisher inventory
+                        </td>
+
+                        <td>
+                            Publishers
+                        </td>
+
+                    </tr>
+
+
+                    <tr>
+
+                        <td>
+                            <strong>
+                                Ad Exchange
+                            </strong>
+                        </td>
+
+                        <td>
+                            Facilitate buying and selling of inventory
+                        </td>
+
+                        <td>
+                            Buyers & Sellers
+                        </td>
+
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     QUICK GUIDE
+===================================================== -->
+
+<section class="quick">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <div class="section-label">
+                EASY WAY TO REMEMBER
+            </div>
+
+            <h2>
+                Think of It This Way
+            </h2>
+
+            <p>
+                Four simple descriptions to remember the roles.
+            </p>
+
+        </div>
+
+
+        <div class="quick-grid">
+
+
+            <div class="quick-card">
+
+                <strong>
+                    Ad Server
+                </strong>
+
+                <span>
+                    "Manage and deliver the ads."
+                </span>
+
+            </div>
+
+
+            <div class="quick-card">
+
+                <strong>
+                    Ad Network
+                </strong>
+
+                <span>
+                    "Aggregate inventory and connect it with advertisers."
+                </span>
+
+            </div>
+
+
+            <div class="quick-card">
+
+                <strong>
+                    SSP
+                </strong>
+
+                <span>
+                    "Help publishers sell and optimize inventory."
+                </span>
+
+            </div>
+
+
+            <div class="quick-card">
+
+                <strong>
+                    Ad Exchange
+                </strong>
+
+                <span>
+                    "Marketplace where inventory can be bought and sold."
+                </span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     CONTENT NOTICE
+===================================================== -->
+
+<section class="notice">
+
+    <div class="container">
+
+        <div class="notice-box">
+
+            <h3>
+                Content & Copyright Notice
+            </h3>
+
+            <p>
+                This page has been written and structured by
+                PubsRate for educational and informational purposes.
+                The explanations, examples and presentation are
+                created for the PubsRate platform.
+            </p>
+
+            <p>
+                Advertising terminology and technology
+                architectures may vary between platforms,
+                publishers, advertisers and service providers.
+            </p>
+
+            <p>
+                Third-party company names, trademarks, products
+                and technologies mentioned on this page belong
+                to their respective owners. Their mention does not
+                imply endorsement or affiliation.
+            </p>
+
+            <p>
+                Please do not reproduce the complete page content,
+                graphics or structure without permission.
+            </p>
+
+            <p style="
+                margin-top:15px;
+                font-weight:600;
+                color:#374151;
+            ">
+                Last reviewed: August 2026
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     FEEDBACK FORM
+===================================================== -->
+
+<section class="feedback">
+
+    <div class="container">
+
+        <div class="feedback-card">
+
+
+            <div class="feedback-header">
+
+                <span class="feedback-label">
+                    HELP US IMPROVE
+                </span>
+
+                <h2>
+                    Something Doesn't Look Right?
+                </h2>
+
+                <p>
+                    Found an incorrect explanation, outdated
+                    information or something that could be clearer?
+                    Let us know and we'll review it.
+                </p>
+
+            </div>
+
+
+            <form id="feedbackForm">
+
+
+                <div class="form-group">
+
+                    <label for="feedbackName">
+                        Name
+                    </label>
+
+                    <input
+                        type="text"
+                        id="feedbackName"
+                        name="name"
+                        placeholder="Your name"
+                        maxlength="100"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="feedbackDescription">
+                        Description
+                    </label>
+
+                    <textarea
+                        id="feedbackDescription"
+                        name="description"
+                        maxlength="1000"
+                        placeholder="Tell us what you think should be corrected or improved..."
+                        required
+                    ></textarea>
+
+                </div>
+
+
+                <button
+                    type="submit"
+                    class="feedback-submit"
+                    id="feedbackSubmit">
+
+                    Submit Feedback →
+
+                </button>
+
+
+                <div
+                    id="feedbackMessage"
+                    class="feedback-message">
+                </div>
+
+
+            </form>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     CTA
+===================================================== -->
+
+<section class="cta">
+
+    <div class="container">
+
+        <h2>
+            Explore More AdTech
+        </h2>
+
+        <p>
+            Continue exploring programmatic advertising,
+            publisher monetization, advertising technology
+            and other concepts through PubsRate.
+        </p>
+
+        <a href="/advertising/"
+           class="cta-button">
+
+            Explore Advertising Hub →
+
+        </a>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer>
+
+    <p>
+
+        <strong>
+            PubsRate
+        </strong>
+
+        — Publisher Monetization,
+        Advertising & AdTech Resources
+
+    </p>
+
+    <p style="margin-top:8px;">
+        © 2026 PubsRate. All rights reserved.
+    </p>
+
+</footer>
+
+
+
+<!-- =====================================================
+     FIREBASE FEEDBACK
+===================================================== -->
+
+<script type="module">
+
+    import {
+        initializeApp
+    } from
+    "https://www.gstatic.com/firebasejs/12.0.0/firebase-app.js";
+
+
+    import {
+        getFirestore,
+        collection,
+        addDoc,
+        serverTimestamp
+    } from
+    "https://www.gstatic.com/firebasejs/12.0.0/firebase-firestore.js";
+
+
+    /*
+       ==========================================
+       REPLACE WITH YOUR EXISTING FIREBASE CONFIG
+       ==========================================
+    */
+
+    const firebaseConfig = {
+
+        apiKey: "YOUR_API_KEY",
+
+        authDomain:
+            "YOUR_PROJECT.firebaseapp.com",
+
+        projectId:
+            "YOUR_PROJECT_ID",
+
+        storageBucket:
+            "YOUR_PROJECT.firebasestorage.app",
+
+        messagingSenderId:
+            "YOUR_SENDER_ID",
+
+        appId:
+            "YOUR_APP_ID"
+
+    };
+
+
+    const app =
+        initializeApp(firebaseConfig);
+
+
+    const db =
+        getFirestore(app);
+
+
+    const feedbackForm =
+        document.getElementById(
+            "feedbackForm"
+        );
+
+
+    const feedbackSubmit =
+        document.getElementById(
+            "feedbackSubmit"
+        );
+
+
+    const feedbackMessage =
+        document.getElementById(
+            "feedbackMessage"
+        );
+
+
+    feedbackForm.addEventListener(
+        "submit",
+
+        async function(event) {
+
+            event.preventDefault();
+
+
+            const name =
+                document
+                    .getElementById(
+                        "feedbackName"
+                    )
+                    .value
+                    .trim();
+
+
+            const description =
+                document
+                    .getElementById(
+                        "feedbackDescription"
+                    )
+                    .value
+                    .trim();
+
+
+            if (!name || !description) {
+
+                feedbackMessage.textContent =
+                    "Please complete all fields.";
+
+                feedbackMessage.style.color =
+                    "#dc2626";
+
+                return;
+
+            }
+
+
+            feedbackSubmit.disabled =
+                true;
+
+            feedbackSubmit.textContent =
+                "Submitting...";
+
+
+            try {
+
+                await addDoc(
+
+                    collection(
+                        db,
+                        "websiteFeedback"
+                    ),
+
+                    {
+
+                        name: name,
+
+                        description:
+                            description,
+
+                        page:
+                            window.location.pathname,
+
+                        createdAt:
+                            serverTimestamp()
+
+                    }
+
+                );
+
+
+                feedbackMessage.textContent =
+                    "Thank you! Your feedback has been submitted.";
+
+                feedbackMessage.style.color =
+                    "#15803d";
+
+
+                feedbackForm.reset();
+
+
+            }
+
+            catch (error) {
+
+                console.error(error);
+
+
+                feedbackMessage.textContent =
+                    "Something went wrong. Please try again.";
+
+                feedbackMessage.style.color =
+                    "#dc2626";
+
+            }
+
+
+            finally {
+
+                feedbackSubmit.disabled =
+                    false;
+
+                feedbackSubmit.textContent =
+                    "Submit Feedback →";
+
+            }
+
+        }
+
+    );
+
+</script>
+
+
+</body>
+
+</html>
