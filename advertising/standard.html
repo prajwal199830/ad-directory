@@ -1,0 +1,2370 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+
+    <!-- =========================
+         SEO
+    ========================== -->
+
+    <title>
+        Programmatic Standards & Transparency | Ads.txt, Sellers.json & Supply Chain | PubsRate
+    </title>
+
+    <meta name="description"
+          content="Learn about programmatic advertising standards and transparency, including ads.txt, app-ads.txt, sellers.json, SupplyChain object, OpenRTB and publisher supply-chain transparency.">
+
+    <meta name="keywords"
+          content="programmatic standards, programmatic transparency, ads.txt, app-ads.txt, sellers.json, SupplyChain object, schain, OpenRTB, advertising transparency, publisher transparency, ad tech standards, programmatic advertising, supply chain transparency">
+
+    <meta name="robots"
+          content="index, follow">
+
+    <meta name="author"
+          content="PubsRate">
+
+    <link rel="canonical"
+          href="https://www.pubsrate.com/advertising/programmatic-standards-transparency/">
+
+
+    <!-- =========================
+         OPEN GRAPH
+    ========================== -->
+
+    <meta property="og:type"
+          content="article">
+
+    <meta property="og:title"
+          content="Programmatic Standards & Transparency | Ads.txt, Sellers.json & Supply Chain">
+
+    <meta property="og:description"
+          content="Learn how ads.txt, app-ads.txt, sellers.json, SupplyChain and OpenRTB standards improve transparency across the programmatic advertising ecosystem.">
+
+    <meta property="og:url"
+          content="https://www.pubsrate.com/advertising/programmatic-standards-transparency/">
+
+    <meta property="og:site_name"
+          content="PubsRate">
+
+
+    <!-- =========================
+         TWITTER
+    ========================== -->
+
+    <meta name="twitter:card"
+          content="summary">
+
+    <meta name="twitter:title"
+          content="Programmatic Standards & Transparency | PubsRate">
+
+    <meta name="twitter:description"
+          content="A practical guide to ads.txt, app-ads.txt, sellers.json, SupplyChain, OpenRTB and transparency in programmatic advertising.">
+
+
+    <!-- =========================
+         STRUCTURED DATA
+    ========================== -->
+
+    <script type="application/ld+json">
+
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "Programmatic Standards & Transparency | Ads.txt, Sellers.json & Supply Chain",
+        "description": "Learn about programmatic advertising standards and transparency, including ads.txt, app-ads.txt, sellers.json, SupplyChain object, OpenRTB and publisher supply-chain transparency.",
+        "url": "https://www.pubsrate.com/advertising/programmatic-standards-transparency/",
+        "author": {
+            "@type": "Organization",
+            "name": "PubsRate"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "PubsRate"
+        },
+        "dateModified": "2026-08-16"
+    }
+
+    </script>
+
+
+    <script type="application/ld+json">
+
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "PubsRate",
+                "item": "https://www.pubsrate.com/"
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Advertising Hub",
+                "item": "https://www.pubsrate.com/advertising/"
+            },
+            {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "Programmatic Standards & Transparency",
+                "item": "https://www.pubsrate.com/advertising/programmatic-standards-transparency/"
+            }
+        ]
+    }
+
+    </script>
+
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f7f9fc;
+            color: #172033;
+            line-height: 1.7;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1150px;
+            margin: auto;
+        }
+
+        section {
+            padding: 65px 0;
+        }
+
+
+        /* =====================================
+           NAVBAR
+        ===================================== */
+
+        .navbar {
+            height: 68px;
+
+            background: #ffffff;
+
+            border-bottom: 1px solid #e5e7eb;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            padding: 0 5%;
+
+            position: sticky;
+
+            top: 0;
+
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 24px;
+
+            font-weight: 700;
+
+            color: #111827;
+        }
+
+        .nav-links {
+            display: flex;
+
+            gap: 26px;
+
+            align-items: center;
+        }
+
+        .nav-links a {
+            font-size: 14px;
+
+            color: #4b5563;
+        }
+
+        .nav-links a:hover {
+            color: #2563eb;
+        }
+
+
+        /* =========================
+           NEWS COMING SOON
+        ========================== */
+
+        .news-coming {
+            position: relative;
+            cursor: default;
+        }
+
+        .news-coming > span {
+            font-size: 14px;
+            color: #4b5563;
+        }
+
+        .coming-soon-tooltip {
+            position: absolute;
+
+            top: 30px;
+            right: 0;
+
+            width: 145px;
+
+            padding: 11px 13px;
+
+            background: #111827;
+
+            color: #ffffff;
+
+            border-radius: 8px;
+
+            text-align: center;
+
+            font-size: 12px;
+
+            font-weight: 600;
+
+            box-shadow: 0 8px 25px rgba(0,0,0,.15);
+
+            opacity: 0;
+
+            visibility: hidden;
+
+            transform: translateY(-5px);
+
+            transition: .2s;
+
+            z-index: 2000;
+        }
+
+        .coming-soon-tooltip strong {
+            display: block;
+
+            font-size: 14px;
+
+            margin-bottom: 2px;
+
+            color: #ffffff;
+        }
+
+        .coming-soon-tooltip span {
+            font-size: 11px;
+
+            color: #d1d5db;
+        }
+
+        .news-coming:hover .coming-soon-tooltip {
+            opacity: 1;
+
+            visibility: visible;
+
+            transform: translateY(0);
+        }
+
+
+        /* =====================================
+           HERO
+        ===================================== */
+
+        .hero {
+            background:
+                radial-gradient(
+                    circle at 80% 20%,
+                    #263b65,
+                    transparent 35%
+                ),
+                #111827;
+
+            color: white;
+
+            text-align: center;
+
+            padding: 75px 20px;
+        }
+
+        .hero-label {
+            display: inline-block;
+
+            font-size: 11px;
+
+            font-weight: 700;
+
+            letter-spacing: 1.5px;
+
+            color: #93c5fd;
+
+            margin-bottom: 15px;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+
+            line-height: 1.15;
+
+            margin-bottom: 18px;
+        }
+
+        .hero p {
+            max-width: 800px;
+
+            margin: auto;
+
+            color: #d1d5db;
+
+            font-size: 17px;
+        }
+
+
+        /* =====================================
+           PAGE NAVIGATION
+        ===================================== */
+
+        .page-nav {
+            background: white;
+
+            border-bottom: 1px solid #e5e7eb;
+
+            padding: 15px 0;
+        }
+
+        .page-nav-inner {
+            display: flex;
+
+            justify-content: center;
+
+            flex-wrap: wrap;
+
+            gap: 9px;
+        }
+
+        .page-nav a {
+            font-size: 12px;
+
+            padding: 7px 13px;
+
+            border: 1px solid #e5e7eb;
+
+            border-radius: 6px;
+
+            color: #4b5563;
+        }
+
+        .page-nav a:hover {
+            background: #eff6ff;
+
+            color: #2563eb;
+
+            border-color: #93c5fd;
+        }
+
+
+        /* =====================================
+           SECTION TITLE
+        ===================================== */
+
+        .section-title {
+            text-align: center;
+
+            margin-bottom: 38px;
+        }
+
+        .section-title h2 {
+            font-size: 32px;
+
+            margin-bottom: 9px;
+        }
+
+        .section-title p {
+            max-width: 750px;
+
+            margin: auto;
+
+            color: #6b7280;
+
+            font-size: 14px;
+        }
+
+
+        /* =====================================
+           INTRO
+        ===================================== */
+
+        .intro {
+            background: #ffffff;
+        }
+
+        .intro-box {
+            max-width: 900px;
+
+            margin: auto;
+
+            background: #f8fafc;
+
+            border: 1px solid #e5e7eb;
+
+            border-radius: 13px;
+
+            padding: 30px;
+        }
+
+        .intro-box h2 {
+            font-size: 24px;
+
+            margin-bottom: 13px;
+        }
+
+        .intro-box p {
+            font-size: 15px;
+
+            color: #4b5563;
+
+            margin-bottom: 13px;
+        }
+
+
+        /* =====================================
+           WHY TRANSPARENCY
+        ===================================== */
+
+        .why {
+            background: #f7f9fc;
+        }
+
+        .why-grid {
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 22px;
+
+            align-items: stretch;
+        }
+
+        .why-card {
+            background: #ffffff;
+
+            border: 1px solid #e5e7eb;
+
+            border-radius: 13px;
+
+            padding: 27px;
+
+            box-shadow: 0 5px 20px rgba(0,0,0,.03);
+        }
+
+        .why-card h3 {
+            font-size: 20px;
+
+            margin-bottom: 10px;
+        }
+
+        .why-card p {
+            color: #6b7280;
+
+            font-size: 14px;
+        }
+
+        .highlight {
+            background: #eff6ff;
+
+            border: 1px solid #bfdbfe;
+
+            border-radius: 13px;
+
+            padding: 27px;
+        }
+
+        .highlight h3 {
+            color: #1d4ed8;
+
+            margin-bottom: 10px;
+        }
+
+        .highlight p {
+            font-size: 14px;
+
+            color: #374151;
+        }
+
+
+        /* =====================================
+           STANDARDS
+        ===================================== */
+
+        .standards {
+            background: #ffffff;
+        }
+
+        .standards-flow {
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            flex-wrap: wrap;
+
+            gap: 12px;
+
+            margin-top: 35px;
+        }
+
+        .standards-box {
+            width: 155px;
+
+            padding: 19px 12px;
+
+            text-align: center;
+
+            background: #f8fafc;
+
+            border: 1px solid #dbe3ef;
+
+            border-radius: 10px;
+        }
+
+        .standards-box strong {
+            display: block;
+
+            font-size: 14px;
+
+            margin-bottom: 4px;
+        }
+
+        .standards-box span {
+            font-size: 10px;
+
+            color: #6b7280;
+        }
+
+        .standards-arrow {
+            color: #2563eb;
+
+            font-size: 22px;
+
+            font-weight: bold;
+        }
+
+        .standards-box.highlighted {
+            background: #effdf4;
+
+            border-color: #86efac;
+        }
+
+
+        /* =====================================
+           HOW TRANSPARENCY WORKS
+        ===================================== */
+
+        .flow-section {
+            background: #ffffff;
+        }
+
+        .flow {
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            flex-wrap: wrap;
+
+            gap: 10px;
+
+            margin-top: 35px;
+        }
+
+        .flow-box {
+            min-width: 135px;
+
+            padding: 18px 15px;
+
+            text-align: center;
+
+            border-radius: 10px;
+
+            background: #f8fafc;
+
+            border: 1px solid #dbe3ef;
+
+            font-size: 12px;
+
+            font-weight: 600;
+        }
+
+        .flow-box small {
+            display: block;
+
+            color: #6b7280;
+
+            font-size: 10px;
+
+            font-weight: normal;
+
+            margin-top: 4px;
+        }
+
+        .flow-arrow {
+            color: #2563eb;
+
+            font-size: 20px;
+        }
+
+
+        /* =====================================
+           TRANSPARENCY
+        ===================================== */
+
+        .transparency {
+            background: #111827;
+
+            color: white;
+        }
+
+        .transparency .section-title p {
+            color: #9ca3af;
+        }
+
+        .transparency-container {
+            max-width: 950px;
+
+            margin: auto;
+
+            background: #1f2937;
+
+            border: 1px solid #374151;
+
+            border-radius: 14px;
+
+            padding: 28px;
+        }
+
+        .transparency-row {
+            display: flex;
+
+            align-items: center;
+
+            gap: 15px;
+
+            margin-bottom: 15px;
+        }
+
+        .transparency-name {
+            width: 170px;
+
+            font-size: 13px;
+
+            font-weight: 600;
+        }
+
+        .transparency-bar {
+            flex: 1;
+
+            height: 38px;
+
+            background: #374151;
+
+            border-radius: 7px;
+
+            overflow: hidden;
+        }
+
+        .transparency-fill {
+            height: 100%;
+
+            display: flex;
+
+            align-items: center;
+
+            padding-left: 13px;
+
+            font-size: 11px;
+
+            font-weight: bold;
+
+            background: #2563eb;
+        }
+
+        .transparency-fill.winner {
+            background: #16a34a;
+
+            color: white;
+        }
+
+        .transparency-result {
+            text-align: center;
+
+            margin-top: 23px;
+
+            padding: 16px;
+
+            border-radius: 9px;
+
+            background: #172a1d;
+
+            border: 1px solid #28663b;
+
+            color: #bbf7d0;
+
+            font-size: 13px;
+        }
+
+
+        /* =====================================
+           COMPARISON
+        ===================================== */
+
+        .comparison {
+            background: #f7f9fc;
+        }
+
+        .comparison-table-wrapper {
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+
+            border-collapse: collapse;
+
+            background: white;
+
+            border: 1px solid #e5e7eb;
+
+            border-radius: 10px;
+
+            overflow: hidden;
+        }
+
+        th,
+        td {
+            padding: 15px;
+
+            text-align: left;
+
+            border-bottom: 1px solid #e5e7eb;
+
+            font-size: 13px;
+        }
+
+        th {
+            background: #111827;
+
+            color: white;
+
+            font-size: 12px;
+        }
+
+        td:first-child {
+            font-weight: 600;
+        }
+
+
+        /* =====================================
+           BENEFITS
+        ===================================== */
+
+        .benefits {
+            background: #ffffff;
+        }
+
+        .benefit-grid {
+            display: grid;
+
+            grid-template-columns: repeat(3, 1fr);
+
+            gap: 18px;
+        }
+
+        .benefit {
+            padding: 23px;
+
+            border: 1px solid #e5e7eb;
+
+            border-radius: 11px;
+
+            background: #ffffff;
+        }
+
+        .benefit-icon {
+            width: 40px;
+
+            height: 40px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            border-radius: 8px;
+
+            background: #eff6ff;
+
+            color: #2563eb;
+
+            font-weight: bold;
+
+            font-size: 10px;
+
+            margin-bottom: 13px;
+        }
+
+        .benefit h3 {
+            font-size: 17px;
+
+            margin-bottom: 6px;
+        }
+
+        .benefit p {
+            font-size: 12px;
+
+            color: #6b7280;
+        }
+
+
+        /* =====================================
+           KEY TERMS
+        ===================================== */
+
+        .terms {
+            background: #f7f9fc;
+        }
+
+        .term-grid {
+            display: grid;
+
+            grid-template-columns: repeat(4, 1fr);
+
+            gap: 13px;
+        }
+
+        .term {
+            background: white;
+
+            border: 1px solid #e5e7eb;
+
+            border-radius: 9px;
+
+            padding: 17px;
+        }
+
+        .term strong {
+            display: block;
+
+            font-size: 14px;
+
+            margin-bottom: 4px;
+        }
+
+        .term span {
+            font-size: 11px;
+
+            color: #6b7280;
+        }
+
+
+        /* =====================================
+           FEEDBACK
+        ===================================== */
+
+        .feedback {
+            background: #ffffff;
+
+            padding: 55px 0;
+        }
+
+        .feedback-box {
+            max-width: 900px;
+
+            margin: auto;
+
+            background: #f8fafc;
+
+            border: 1px solid #e5e7eb;
+
+            border-radius: 13px;
+
+            padding: 30px;
+        }
+
+        .feedback-header {
+            margin-bottom: 22px;
+        }
+
+        .feedback-label {
+            display: inline-block;
+
+            font-size: 10px;
+
+            color: #2563eb;
+
+            letter-spacing: 1px;
+
+            font-weight: 700;
+
+            margin-bottom: 5px;
+        }
+
+        .feedback-header h2 {
+            font-size: 24px;
+
+            margin-bottom: 6px;
+        }
+
+        .feedback-header p {
+            color: #6b7280;
+
+            font-size: 13px;
+
+            max-width: 700px;
+        }
+
+        .feedback-form {
+            display: grid;
+
+            gap: 14px;
+        }
+
+        .feedback-form label {
+            font-size: 12px;
+
+            font-weight: 600;
+
+            color: #374151;
+        }
+
+        .feedback-form input,
+        .feedback-form textarea {
+            width: 100%;
+
+            margin-top: 6px;
+
+            padding: 11px 12px;
+
+            border: 1px solid #d1d5db;
+
+            border-radius: 7px;
+
+            background: #ffffff;
+
+            font-family: inherit;
+
+            font-size: 13px;
+
+            outline: none;
+        }
+
+        .feedback-form input:focus,
+        .feedback-form textarea:focus {
+            border-color: #2563eb;
+
+            box-shadow: 0 0 0 2px rgba(37,99,235,.08);
+        }
+
+        .feedback-form textarea {
+            min-height: 120px;
+
+            resize: vertical;
+        }
+
+        .feedback-submit {
+            width: fit-content;
+
+            border: none;
+
+            background: #2563eb;
+
+            color: #ffffff;
+
+            padding: 11px 19px;
+
+            border-radius: 7px;
+
+            font-size: 12px;
+
+            font-weight: 600;
+
+            cursor: pointer;
+        }
+
+        .feedback-submit:hover {
+            background: #1d4ed8;
+        }
+
+
+        /* =====================================
+           CTA
+        ===================================== */
+
+        .cta {
+            background: #111827;
+
+            color: white;
+
+            text-align: center;
+        }
+
+        .cta h2 {
+            font-size: 31px;
+
+            margin-bottom: 10px;
+        }
+
+        .cta p {
+            max-width: 700px;
+
+            margin: auto auto 20px;
+
+            color: #9ca3af;
+
+            font-size: 14px;
+        }
+
+        .cta-button {
+            display: inline-block;
+
+            background: #2563eb;
+
+            color: white;
+
+            padding: 11px 20px;
+
+            border-radius: 7px;
+
+            font-size: 13px;
+
+            font-weight: 600;
+        }
+
+        .cta-button:hover {
+            background: #1d4ed8;
+        }
+
+
+        /* =====================================
+           FOOTER
+        ===================================== */
+
+        footer {
+            background: #0b1120;
+
+            color: #9ca3af;
+
+            text-align: center;
+
+            padding: 35px 20px;
+
+            font-size: 12px;
+        }
+
+        footer strong {
+            color: white;
+        }
+
+
+        /* =====================================
+           RESPONSIVE
+        ===================================== */
+
+        @media (max-width: 850px) {
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 38px;
+            }
+
+            .why-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .benefit-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .term-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+        }
+
+
+        @media (max-width: 600px) {
+
+            section {
+                padding: 50px 0;
+            }
+
+            .hero {
+                padding: 60px 20px;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .hero p {
+                font-size: 14px;
+            }
+
+            .standards-flow,
+            .flow {
+                flex-direction: column;
+            }
+
+            .standards-arrow,
+            .flow-arrow {
+                transform: rotate(90deg);
+            }
+
+            .benefit-grid,
+            .term-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .transparency-row {
+                flex-direction: column;
+
+                align-items: stretch;
+            }
+
+            .transparency-name {
+                width: auto;
+            }
+
+            .intro-box {
+                padding: 22px;
+            }
+
+            .feedback-box {
+                padding: 22px;
+            }
+
+            .feedback-submit {
+                width: 100%;
+
+                text-align: center;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================
+     NAVBAR
+===================================== -->
+
+<header class="navbar">
+
+    <div class="logo">
+        PubsRate
+    </div>
+
+
+    <nav class="nav-links">
+
+        <a href="/">
+            Home
+        </a>
+
+        <a href="/publishers/">
+            Publishers
+        </a>
+
+        <a href="/advertising/">
+            Advertising Hub
+        </a>
+
+        <a href="/tools/">
+            Tools
+        </a>
+
+
+        <!-- NEWS COMING SOON -->
+
+        <div class="news-coming">
+
+            <span>
+                News
+            </span>
+
+            <div class="coming-soon-tooltip">
+
+                <strong>
+                    ✦ Coming Soon
+                </strong>
+
+                <span>
+                    PubsRate News
+                </span>
+
+            </div>
+
+        </div>
+
+    </nav>
+
+</header>
+
+
+
+<!-- =====================================
+     HERO
+===================================== -->
+
+<section class="hero">
+
+    <div class="hero-label">
+        PROGRAMMATIC ADVERTISING
+    </div>
+
+
+    <h1>
+        Programmatic Standards & Transparency
+    </h1>
+
+
+    <p>
+        Understand the standards, protocols and transparency
+        frameworks that help publishers, advertisers and
+        technology platforms identify legitimate inventory
+        and understand the programmatic advertising supply chain.
+    </p>
+
+</section>
+
+
+
+<!-- =====================================
+     PAGE NAVIGATION
+===================================== -->
+
+<div class="page-nav">
+
+    <div class="container page-nav-inner">
+
+        <a href="#what">
+            What Are Programmatic Standards?
+        </a>
+
+        <a href="#why">
+            Why Transparency Matters
+        </a>
+
+        <a href="#standards">
+            Key Standards
+        </a>
+
+        <a href="#how">
+            How It Works
+        </a>
+
+        <a href="#transparency">
+            Supply Chain
+        </a>
+
+        <a href="#comparison">
+            Comparison
+        </a>
+
+        <a href="#benefits">
+            Benefits
+        </a>
+
+        <a href="#terms">
+            Key Terms
+        </a>
+
+    </div>
+
+</div>
+
+
+
+<!-- =====================================
+     WHAT ARE PROGRAMMATIC STANDARDS
+===================================== -->
+
+<section class="intro" id="what">
+
+    <div class="container">
+
+
+        <div class="section-title">
+
+            <h2>
+                What Are Programmatic Standards?
+            </h2>
+
+            <p>
+                Programmatic standards are specifications and
+                industry frameworks designed to improve
+                interoperability, transparency, trust and
+                efficiency across digital advertising.
+            </p>
+
+        </div>
+
+
+        <div class="intro-box">
+
+            <h2>
+                Standards & Transparency
+            </h2>
+
+
+            <p>
+                Programmatic advertising involves publishers,
+                advertisers, agencies, DSPs, SSPs, ad exchanges,
+                ad servers and other technology providers.
+                Standards help these participants communicate
+                and exchange information consistently.
+            </p>
+
+
+            <p>
+                Transparency frameworks can help participants
+                understand who is authorized to sell advertising
+                inventory, which entities are involved in the
+                supply chain, and how an impression moves through
+                the programmatic ecosystem.
+            </p>
+
+
+            <p>
+                Common technologies and standards include ads.txt,
+                app-ads.txt, sellers.json, the SupplyChain object
+                and OpenRTB specifications. Each addresses a
+                different part of the advertising ecosystem.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================
+     WHY TRANSPARENCY
+===================================== -->
+
+<section class="why" id="why">
+
+    <div class="container">
+
+
+        <div class="section-title">
+
+            <h2>
+                Why Does Programmatic Transparency Matter?
+            </h2>
+
+            <p>
+                Transparency helps advertising participants
+                better understand inventory ownership,
+                authorized sellers and the programmatic supply chain.
+            </p>
+
+        </div>
+
+
+        <div class="why-grid">
+
+
+            <div class="why-card">
+
+                <h3>
+                    Authorized Selling
+                </h3>
+
+                <p>
+                    ads.txt and app-ads.txt allow publishers and
+                    app developers to publicly identify advertising
+                    systems that are authorized to sell their inventory.
+                </p>
+
+            </div>
+
+
+            <div class="highlight">
+
+                <h3>
+                    The Main Idea
+                </h3>
+
+                <p>
+                    A transparent programmatic ecosystem makes it
+                    easier for buyers and sellers to understand the
+                    entities involved in an advertising transaction
+                    and evaluate the quality and legitimacy of supply.
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================
+     KEY STANDARDS
+===================================== -->
+
+<section class="standards" id="standards">
+
+    <div class="container">
+
+
+        <div class="section-title">
+
+            <h2>
+                Key Programmatic Standards
+            </h2>
+
+            <p>
+                Different standards address different parts of
+                the digital advertising supply chain.
+            </p>
+
+        </div>
+
+
+        <div class="standards-flow">
+
+
+            <div class="standards-box">
+
+                <strong>
+                    ads.txt
+                </strong>
+
+                <span>
+                    Authorized web inventory sellers
+                </span>
+
+            </div>
+
+
+            <div class="standards-arrow">
+                →
+            </div>
+
+
+            <div class="standards-box">
+
+                <strong>
+                    app-ads.txt
+                </strong>
+
+                <span>
+                    Authorized app inventory sellers
+                </span>
+
+            </div>
+
+
+            <div class="standards-arrow">
+                →
+            </div>
+
+
+            <div class="standards-box">
+
+                <strong>
+                    sellers.json
+                </strong>
+
+                <span>
+                    Seller identity information
+                </span>
+
+            </div>
+
+
+            <div class="standards-arrow">
+                →
+            </div>
+
+
+            <div class="standards-box highlighted">
+
+                <strong>
+                    SupplyChain
+                </strong>
+
+                <span>
+                    Transaction supply-chain visibility
+                </span>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================
+     HOW TRANSPARENCY WORKS
+===================================== -->
+
+<section class="flow-section" id="how">
+
+    <div class="container">
+
+
+        <div class="section-title">
+
+            <h2>
+                How Programmatic Transparency Works
+            </h2>
+
+            <p>
+                Multiple standards can work together to provide
+                different views of the advertising supply chain.
+            </p>
+
+        </div>
+
+
+        <div class="flow">
+
+
+            <div class="flow-box">
+
+                Publisher
+
+                <small>
+                    Owns advertising inventory
+                </small>
+
+            </div>
+
+
+            <div class="flow-arrow">
+                →
+            </div>
+
+
+            <div class="flow-box">
+
+                ads.txt
+
+                <small>
+                    Identifies authorized sellers
+                </small>
+
+            </div>
+
+
+            <div class="flow-arrow">
+                →
+            </div>
+
+
+            <div class="flow-box">
+
+                SSP / Exchange
+
+                <small>
+                    Offers inventory to buyers
+                </small>
+
+            </div>
+
+
+            <div class="flow-arrow">
+                →
+            </div>
+
+
+            <div class="flow-box">
+
+                sellers.json
+
+                <small>
+                    Identifies supply-side entities
+                </small>
+
+            </div>
+
+
+            <div class="flow-arrow">
+                →
+            </div>
+
+
+            <div class="flow-box">
+
+                SupplyChain
+
+                <small>
+                    Represents supply-chain nodes
+                </small>
+
+            </div>
+
+
+            <div class="flow-arrow">
+                →
+            </div>
+
+
+            <div class="flow-box">
+
+                Buyer
+
+                <small>
+                    Evaluates available supply
+                </small>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================
+     SUPPLY CHAIN
+===================================== -->
+
+<section class="transparency" id="transparency">
+
+    <div class="container">
+
+
+        <div class="section-title">
+
+            <h2>
+                Programmatic Supply Chain Example
+            </h2>
+
+            <p>
+                A simplified example showing how advertising
+                inventory can move through multiple technology
+                participants before reaching a buyer.
+            </p>
+
+        </div>
+
+
+        <div class="transparency-container">
+
+
+            <div class="transparency-row">
+
+                <div class="transparency-name">
+                    Publisher
+                </div>
+
+                <div class="transparency-bar">
+
+                    <div class="transparency-fill"
+                         style="width:35%;">
+
+                        Inventory Owner
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="transparency-row">
+
+                <div class="transparency-name">
+                    SSP / Exchange
+                </div>
+
+                <div class="transparency-bar">
+
+                    <div class="transparency-fill"
+                         style="width:58%;">
+
+                        Supply Platform
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="transparency-row">
+
+                <div class="transparency-name">
+                    Reseller
+                </div>
+
+                <div class="transparency-bar">
+
+                    <div class="transparency-fill"
+                         style="width:72%;">
+
+                        Authorized Reseller
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="transparency-row">
+
+                <div class="transparency-name">
+                    Buyer / DSP
+                </div>
+
+                <div class="transparency-bar">
+
+                    <div class="transparency-fill winner"
+                         style="width:91%;">
+
+                        Demand Platform
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="transparency-result">
+
+                Standards such as ads.txt, sellers.json and the
+                SupplyChain object can provide complementary
+                information about participants and relationships
+                within the programmatic supply chain.
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================
+     COMPARISON
+===================================== -->
+
+<section class="comparison" id="comparison">
+
+    <div class="container">
+
+
+        <div class="section-title">
+
+            <h2>
+                Programmatic Transparency Standards Compared
+            </h2>
+
+            <p>
+                Each standard serves a different purpose within
+                the advertising ecosystem.
+            </p>
+
+        </div>
+
+
+        <div class="comparison-table-wrapper">
+
+            <table>
+
+                <thead>
+
+                    <tr>
+
+                        <th>
+                            Standard
+                        </th>
+
+                        <th>
+                            Primary Purpose
+                        </th>
+
+                        <th>
+                            Main Participant
+                        </th>
+
+                    </tr>
+
+                </thead>
+
+
+                <tbody>
+
+                    <tr>
+
+                        <td>
+                            ads.txt
+                        </td>
+
+                        <td>
+                            Identifies authorized sellers of web advertising inventory
+                        </td>
+
+                        <td>
+                            Publisher
+                        </td>
+
+                    </tr>
+
+
+                    <tr>
+
+                        <td>
+                            app-ads.txt
+                        </td>
+
+                        <td>
+                            Identifies authorized sellers of app advertising inventory
+                        </td>
+
+                        <td>
+                            App developer
+                        </td>
+
+                    </tr>
+
+
+                    <tr>
+
+                        <td>
+                            sellers.json
+                        </td>
+
+                        <td>
+                            Provides information about entities participating in the selling process
+                        </td>
+
+                        <td>
+                            SSP / Exchange
+                        </td>
+
+                    </tr>
+
+
+                    <tr>
+
+                        <td>
+                            SupplyChain
+                        </td>
+
+                        <td>
+                            Represents participants involved in the transaction supply chain
+                        </td>
+
+                        <td>
+                            Supply-side and intermediary platforms
+                        </td>
+
+                    </tr>
+
+
+                    <tr>
+
+                        <td>
+                            OpenRTB
+                        </td>
+
+                        <td>
+                            Defines communication and auction-related specifications for programmatic advertising
+                        </td>
+
+                        <td>
+                            Buyers and sellers
+                        </td>
+
+                    </tr>
+
+
+                    <tr>
+
+                        <td>
+                            Transparency objective
+                        </td>
+
+                        <td>
+                            Improve visibility into inventory and supply relationships
+                        </td>
+
+                        <td>
+                            Entire ecosystem
+                        </td>
+
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================
+     BENEFITS
+===================================== -->
+
+<section class="benefits" id="benefits">
+
+    <div class="container">
+
+
+        <div class="section-title">
+
+            <h2>
+                Benefits of Programmatic Standards
+            </h2>
+
+            <p>
+                Standards can improve transparency, interoperability
+                and trust across digital advertising transactions.
+            </p>
+
+        </div>
+
+
+        <div class="benefit-grid">
+
+
+            <div class="benefit">
+
+                <div class="benefit-icon">
+                    ADS
+                </div>
+
+                <h3>
+                    Authorized Sellers
+                </h3>
+
+                <p>
+                    ads.txt and app-ads.txt help publishers identify
+                    advertising systems that are authorized to sell
+                    their inventory.
+                </p>
+
+            </div>
+
+
+            <div class="benefit">
+
+                <div class="benefit-icon">
+                    ID
+                </div>
+
+                <h3>
+                    Seller Identification
+                </h3>
+
+                <p>
+                    sellers.json can provide information that helps
+                    buyers identify entities involved in selling
+                    advertising inventory.
+                </p>
+
+            </div>
+
+
+            <div class="benefit">
+
+                <div class="benefit-icon">
+                    SCH
+                </div>
+
+                <h3>
+                    Supply Chain Visibility
+                </h3>
+
+                <p>
+                    The SupplyChain object can provide information
+                    about the nodes involved in an advertising
+                    transaction.
+                </p>
+
+            </div>
+
+
+            <div class="benefit">
+
+                <div class="benefit-icon">
+                    DSP
+                </div>
+
+                <h3>
+                    Buyer Evaluation
+                </h3>
+
+                <p>
+                    Buyers can use available supply-chain information
+                    as one factor when evaluating programmatic inventory.
+                </p>
+
+            </div>
+
+
+            <div class="benefit">
+
+                <div class="benefit-icon">
+                    API
+                </div>
+
+                <h3>
+                    Interoperability
+                </h3>
+
+                <p>
+                    Industry specifications help different advertising
+                    systems exchange information using common frameworks.
+                </p>
+
+            </div>
+
+
+            <div class="benefit">
+
+                <div class="benefit-icon">
+                    TRN
+                </div>
+
+                <h3>
+                    Greater Transparency
+                </h3>
+
+                <p>
+                    Better visibility can help publishers, buyers and
+                    technology providers understand programmatic
+                    supply relationships.
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================
+     KEY TERMS
+===================================== -->
+
+<section class="terms" id="terms">
+
+    <div class="container">
+
+
+        <div class="section-title">
+
+            <h2>
+                Key Programmatic Standards & Transparency Terms
+            </h2>
+
+        </div>
+
+
+        <div class="term-grid">
+
+
+            <div class="term">
+
+                <strong>
+                    ads.txt
+                </strong>
+
+                <span>
+                    A standard that allows publishers to publicly identify authorized sellers of their digital advertising inventory.
+                </span>
+
+            </div>
+
+
+            <div class="term">
+
+                <strong>
+                    app-ads.txt
+                </strong>
+
+                <span>
+                    An extension of ads.txt designed for mobile and connected television application inventory.
+                </span>
+
+            </div>
+
+
+            <div class="term">
+
+                <strong>
+                    sellers.json
+                </strong>
+
+                <span>
+                    A transparency mechanism that provides information about entities involved in selling advertising inventory.
+                </span>
+
+            </div>
+
+
+            <div class="term">
+
+                <strong>
+                    SupplyChain
+                </strong>
+
+                <span>
+                    A mechanism used to describe the entities involved in the programmatic advertising supply chain.
+                </span>
+
+            </div>
+
+
+            <div class="term">
+
+                <strong>
+                    OpenRTB
+                </strong>
+
+                <span>
+                    An industry specification used to facilitate communication between buyers and sellers in real-time bidding.
+                </span>
+
+            </div>
+
+
+            <div class="term">
+
+                <strong>
+                    Authorized Seller
+                </strong>
+
+                <span>
+                    An advertising system that a publisher has authorized to sell its inventory.
+                </span>
+
+            </div>
+
+
+            <div class="term">
+
+                <strong>
+                    Reseller
+                </strong>
+
+                <span>
+                    An entity authorized to resell advertising inventory on behalf of another seller or publisher.
+                </span>
+
+            </div>
+
+
+            <div class="term">
+
+                <strong>
+                    Supply Chain
+                </strong>
+
+                <span>
+                    The sequence of publishers, sellers, exchanges, SSPs and other entities involved in a programmatic transaction.
+                </span>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================
+     FEEDBACK FORM
+===================================== -->
+
+<section class="feedback">
+
+    <div class="container">
+
+        <div class="feedback-box">
+
+            <div class="feedback-header">
+
+                <span class="feedback-label">
+                    HELP US IMPROVE
+                </span>
+
+                <h2>
+                    Something Doesn't Look Right?
+                </h2>
+
+                <p>
+                    Found an incorrect explanation, outdated
+                    information or something that could be clearer?
+                    Let us know and we'll review it.
+                </p>
+
+            </div>
+
+
+            <form class="feedback-form"
+                  action="#"
+                  method="post">
+
+                <label>
+
+                    Name
+
+                    <input
+                        type="text"
+                        name="name"
+                        placeholder="Enter your name"
+                        autocomplete="name"
+                        required>
+
+                </label>
+
+
+                <label>
+
+                    What should we review?
+
+                    <textarea
+                        name="feedback"
+                        placeholder="Tell us what needs to be corrected or improved..."
+                        required></textarea>
+
+                </label>
+
+
+                <button
+                    type="submit"
+                    class="feedback-submit">
+
+                    Submit Feedback →
+
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================
+     CTA
+===================================== -->
+
+<section class="cta">
+
+    <div class="container">
+
+
+        <h2>
+            Explore More Programmatic Advertising
+        </h2>
+
+
+        <p>
+            Continue learning about Open Bidding, header bidding,
+            Google Ad Manager, SSPs, DSPs, RTB, ad exchanges,
+            CTV and the wider programmatic advertising ecosystem.
+        </p>
+
+
+        <a href="/advertising/open-bidding/"
+           class="cta-button">
+
+            Explore Open Bidding →
+
+        </a>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================
+     FOOTER
+===================================== -->
+
+<footer>
+
+    <p>
+
+        <strong>PubsRate</strong>
+
+        — Publisher Monetization,
+        Advertising & AdTech Resources
+
+    </p>
+
+</footer>
+
+
+</body>
+
+</html>
