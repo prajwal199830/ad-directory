@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,948 +5,1424 @@
 
     <meta charset="UTF-8">
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
 
-    <!-- =========================
-         SEO
-    ========================== -->
+    <title>Advertising Hub | Programmatic, DOOH, CTV & AdTech | PubsRate</title>
 
-    <title>Digital Advertising Guide & AdTech News | PubsRate</title>
-
-    <meta
-        name="description"
-        content="Explore digital advertising guides, AdTech news and updates covering programmatic advertising, Google Ad Manager, header bidding, CTV, AI, publisher monetization and advertising technology."
-    >
+    <meta name="description"
+          content="Explore advertising and AdTech with PubsRate. Learn about programmatic advertising, DSPs, SSPs, open bidding, mediation, campaigns, DOOH, CTV, publisher monetization, advertising metrics and industry technologies.">
 
     <meta name="robots" content="index, follow">
-
-    <link
-        rel="canonical"
-        href="https://pubsrate.com/advertising/"
-    >
-
-
-    <!-- =========================
-         OPEN GRAPH
-    ========================== -->
-
-    <meta property="og:type" content="website">
-
-    <meta
-        property="og:title"
-        content="Digital Advertising Guide & AdTech News | PubsRate"
-    >
-
-    <meta
-        property="og:description"
-        content="Digital advertising guides, AdTech news and practical resources covering programmatic, Google Ad Manager, CTV and publisher monetization."
-    >
-
-    <meta
-        property="og:url"
-        content="https://pubsrate.com/advertising/"
-    >
-
-    <meta property="og:site_name" content="PubsRate">
-
-
-    <!-- =========================
-         TWITTER / X
-    ========================== -->
-
-    <meta name="twitter:card" content="summary">
-
-    <meta
-        name="twitter:title"
-        content="Digital Advertising Guide & AdTech News | PubsRate"
-    >
-
-    <meta
-        name="twitter:description"
-        content="Digital advertising guides, AdTech news and AdTech updates from PubsRate."
-    >
-
-
-    <!-- =========================
-         STRUCTURED DATA
-    ========================== -->
-
-    <script type="application/ld+json">
-
-    {
-        "@context": "https://schema.org",
-        "@graph": [
-
-            {
-                "@type": "WebSite",
-                "@id": "https://pubsrate.com/#website",
-                "url": "https://pubsrate.com/",
-                "name": "PubsRate",
-                "description": "Publishers content owners & Distributors, advertising and AdTech resources, tools and community.",
-                "publisher": {
-                    "@type": "Organization",
-                    "name": "PubsRate",
-                    "url": "https://pubsrate.com/"
-                }
-            },
-
-            {
-                "@type": "CollectionPage",
-                "@id": "https://pubsrate.com/advertising/#webpage",
-                "url": "https://pubsrate.com/advertising/",
-                "name": "Digital Advertising Guide & AdTech News",
-                "description": "Digital advertising guides, AdTech news and resources covering programmatic advertising, Google Ad Manager, header bidding, CTV and publisher monetization.",
-                "isPartOf": {
-                    "@id": "https://pubsrate.com/#website"
-                }
-            },
-
-            {
-                "@type": "BreadcrumbList",
-                "@id": "https://pubsrate.com/advertising/#breadcrumb",
-                "itemListElement": [
-                    {
-                        "@type": "ListItem",
-                        "position": 1,
-                        "name": "Home",
-                        "item": "https://pubsrate.com/"
-                    },
-                    {
-                        "@type": "ListItem",
-                        "position": 2,
-                        "name": "Advertising",
-                        "item": "https://pubsrate.com/advertising/"
-                    }
-                ]
-            },
-
-            {
-                "@type": "ItemList",
-                "name": "PubsRate Advertising Guides",
-                "itemListElement": [
-
-                    {
-                        "@type": "ListItem",
-                        "position": 1,
-                        "name": "What is Google Ad Manager?",
-                        "url": "https://pubsrate.com/advertising/what-is-google-ad-manager.html"
-                    },
-
-                    {
-                        "@type": "ListItem",
-                        "position": 2,
-                        "name": "What is Programmatic Advertising?",
-                        "url": "https://pubsrate.com/advertising/what-is-programmatic-advertising.html"
-                    },
-
-                    {
-                        "@type": "ListItem",
-                        "position": 3,
-                        "name": "What is Header Bidding?",
-                        "url": "https://pubsrate.com/advertising/what-is-header-bidding.html"
-                    },
-
-                    {
-                        "@type": "ListItem",
-                        "position": 4,
-                        "name": "What is CTV Advertising?",
-                        "url": "https://pubsrate.com/advertising/what-is-ctv-advertising.html"
-                    }
-
-                ]
-            }
-
-        ]
-    }
-
-    </script>
 
 
     <style>
 
         * {
+            margin: 0;
+            padding: 0;
             box-sizing: border-box;
         }
 
-
-        body {
-            margin: 0;
-
-            font-family:
-                Arial,
-                Helvetica,
-                sans-serif;
-
-            background: #f5f7fb;
-
-            color: #1f2937;
+        html {
+            scroll-behavior: smooth;
         }
 
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f7f9fc;
+            color: #172033;
+            line-height: 1.6;
+        }
 
         a {
             text-decoration: none;
         }
 
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: auto;
+        }
 
-        /* =========================
-           HEADER
-        ========================== */
-
-        header {
-            background: #111827;
-
-            color: white;
-
-            padding: 18px 20px;
+        section {
+            padding: 70px 0;
         }
 
 
-        .header-container {
-            max-width: 1150px;
+        /* =========================================
+           NAVIGATION
+        ========================================== */
+
+        .navbar {
+            background: #ffffff;
+            border-bottom: 1px solid #e5e7eb;
+
+            padding: 16px 6%;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 25px;
+            font-weight: 700;
+            color: #111827;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 28px;
+        }
+
+        .nav-links a {
+            color: #4b5563;
+            font-size: 15px;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: #2563eb;
+        }
+
+
+        /* =========================================
+           NEWS COMING SOON
+        ========================================== */
+
+        .news-link {
+            position: relative;
+        }
+
+        .coming-soon {
+            position: absolute;
+
+            top: 27px;
+            left: 50%;
+
+            transform: translateX(-50%)
+                       translateY(-4px);
+
+            background: #111827;
+            color: #ffffff;
+
+            padding: 6px 11px;
+
+            border-radius: 6px;
+
+            font-size: 11px;
+
+            white-space: nowrap;
+
+            opacity: 0;
+            visibility: hidden;
+
+            transition: .2s;
+
+            box-shadow: 0 5px 15px rgba(0,0,0,.12);
+        }
+
+        .coming-soon::before {
+            content: "";
+
+            position: absolute;
+
+            top: -5px;
+            left: 50%;
+
+            transform: translateX(-50%);
+
+            border-left: 5px solid transparent;
+            border-right: 5px solid transparent;
+            border-bottom: 5px solid #111827;
+        }
+
+        .news-link:hover .coming-soon {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-50%)
+                       translateY(0);
+        }
+
+
+        /* =========================================
+           HERO
+        ========================================== */
+
+        .hero {
+            background:
+                radial-gradient(
+                    circle at 85% 20%,
+                    #263b65,
+                    transparent 35%
+                ),
+                #111827;
+
+            color: white;
+
+            padding: 72px 20px 55px;
+
+            text-align: center;
+        }
+
+        .hero-badge {
+            display: inline-block;
+
+            background: #1f2937;
+
+            border: 1px solid #374151;
+
+            padding: 6px 14px;
+
+            border-radius: 30px;
+
+            font-size: 11px;
+
+            margin-bottom: 18px;
+
+            letter-spacing: .7px;
+        }
+
+        .hero h1 {
+            font-size: 52px;
+            line-height: 1.1;
+            margin-bottom: 18px;
+        }
+
+        .hero p {
+            max-width: 820px;
 
             margin: auto;
 
+            color: #d1d5db;
+
+            font-size: 17px;
+        }
+
+        .hero-buttons {
+            margin-top: 25px;
+        }
+
+        .btn {
+            display: inline-block;
+
+            padding: 11px 20px;
+
+            border-radius: 7px;
+
+            margin: 4px;
+
+            font-weight: 600;
+
+            font-size: 13px;
+        }
+
+        .btn-primary {
+            background: #2563eb;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #1d4ed8;
+        }
+
+        .btn-secondary {
+            border: 1px solid #4b5563;
+            color: white;
+        }
+
+        .btn-secondary:hover {
+            background: #1f2937;
+        }
+
+
+        /* =========================================
+           EXPLORE STRIP
+        ========================================== */
+
+        .explore-strip {
+            background: #ffffff;
+
+            border-bottom: 1px solid #e5e7eb;
+
+            padding: 20px 0;
+        }
+
+        .explore-grid {
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 15px;
+
+            max-width: 1000px;
+
+            margin: auto;
+        }
+
+        .explore-card {
             display: flex;
+
+            align-items: center;
 
             justify-content: space-between;
 
-            align-items: center;
+            gap: 15px;
+
+            padding: 17px 20px;
+
+            border: 1px solid #e5e7eb;
+
+            border-radius: 10px;
+
+            background: #fafafa;
+
+            transition: .2s;
         }
 
+        .explore-card:hover {
+            border-color: #93c5fd;
 
-        .logo {
-            font-size: 27px;
+            background: #eff6ff;
 
-            font-weight: bold;
+            transform: translateY(-2px);
+
+            box-shadow: 0 6px 18px rgba(0,0,0,.05);
         }
 
-
-        .logo span {
-            color: #38bdf8;
-        }
-
-
-        nav {
+        .explore-left {
             display: flex;
 
             align-items: center;
 
-            gap: 25px;
+            gap: 13px;
         }
 
+        .explore-icon {
+            width: 38px;
+            height: 38px;
 
-        nav a {
-            color: white;
+            border-radius: 8px;
 
-            font-size: 15px;
-        }
+            background: #eff6ff;
 
-
-        nav a:hover {
-            color: #38bdf8;
-        }
-
-
-        /* =========================
-           MAIN
-        ========================== */
-
-        .container {
-            max-width: 1150px;
-
-            margin: auto;
-
-            padding: 35px 20px 60px;
-        }
-
-
-        /* =========================
-           BREADCRUMB
-        ========================== */
-
-        .breadcrumb {
-            font-size: 14px;
-
-            margin-bottom: 20px;
-
-            color: #64748b;
-        }
-
-
-        .breadcrumb a {
             color: #2563eb;
 
-            font-weight: 600;
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            font-size: 9px;
+
+            font-weight: 700;
+
+            flex-shrink: 0;
+        }
+
+        .explore-label {
+            font-size: 10px;
+
+            font-weight: 700;
+
+            color: #2563eb;
+
+            letter-spacing: 1px;
+
+            margin-bottom: 2px;
+        }
+
+        .explore-title {
+            font-size: 16px;
+
+            font-weight: 700;
+
+            color: #172033;
+        }
+
+        .explore-description {
+            font-size: 11px;
+
+            color: #6b7280;
+
+            margin-top: 2px;
+        }
+
+        .explore-arrow {
+            color: #2563eb;
+
+            font-size: 20px;
+
+            flex-shrink: 0;
         }
 
 
-        /* =========================
-           HERO
-        ========================== */
+        /* =========================================
+           SECTION TITLES
+        ========================================== */
 
-        .hero {
-            background: white;
+        .section-title {
+            text-align: center;
 
-            padding: 50px 45px;
+            margin-bottom: 40px;
+        }
 
-            border-radius: 18px;
+        .section-title h2 {
+            font-size: 33px;
 
-            box-shadow:
-                0 4px 15px rgba(0,0,0,0.07);
+            margin-bottom: 9px;
+        }
 
-            margin-bottom: 45px;
+        .section-title p {
+            color: #6b7280;
+
+            max-width: 750px;
+
+            margin: auto;
         }
 
 
-        .hero-label {
-            display: inline-block;
+        /* =========================================
+           EVOLUTION
+        ========================================== */
 
-            background: #e0f2fe;
+        .history {
+            background: #f7f9fc;
 
-            color: #0369a1;
+            padding-top: 60px;
+        }
 
-            padding: 8px 13px;
+        .timeline {
+            position: relative;
 
-            border-radius: 20px;
+            display: grid;
 
-            font-size: 13px;
+            grid-template-columns: repeat(8, 1fr);
+
+            gap: 12px;
+        }
+
+        .timeline::before {
+            content: "";
+
+            position: absolute;
+
+            top: 25px;
+
+            left: 3%;
+            right: 3%;
+
+            height: 2px;
+
+            background: #dbe3ef;
+        }
+
+        .timeline-item {
+            position: relative;
+
+            text-align: center;
+
+            z-index: 1;
+        }
+
+        .timeline-dot {
+            width: 50px;
+            height: 50px;
+
+            background: #2563eb;
+
+            color: white;
+
+            border-radius: 50%;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            margin: auto auto 16px;
+
+            font-size: 8px;
 
             font-weight: bold;
 
-            margin-bottom: 15px;
+            border: 5px solid #f7f9fc;
+
+            box-shadow: 0 0 0 1px #dbe3ef;
+        }
+
+        .timeline-item h3 {
+            font-size: 14px;
+
+            margin-bottom: 5px;
+        }
+
+        .timeline-item p {
+            font-size: 11px;
+
+            color: #6b7280;
         }
 
 
-        .hero h1 {
-            font-size: 43px;
+        /* =========================================
+           EVOLUTION FLOW
+        ========================================== */
 
-            line-height: 1.15;
-
-            margin:
-                0 0 18px;
-
-            color: #111827;
+        .evolution {
+            background: #ffffff;
         }
 
-
-        .hero p {
-            max-width: 850px;
-
-            font-size: 18px;
-
-            line-height: 1.75;
-
-            color: #64748b;
-
-            margin: 0;
-        }
-
-
-        /* =========================
-           SECTION
-        ========================== */
-
-        .section {
-            margin-bottom: 60px;
-        }
-
-
-        .section-header {
-            margin-bottom: 22px;
-        }
-
-
-        .section-header h2 {
-            font-size: 30px;
-
-            margin: 0 0 8px;
-
-            color: #111827;
-        }
-
-
-        .section-header p {
-            margin: 0;
-
-            color: #64748b;
-
-            line-height: 1.6;
-        }
-
-
-        /* =========================
-           FEATURED NEWS
-        ========================== */
-
-        .featured {
-            display: grid;
-
-            grid-template-columns:
-                1.2fr 1fr;
-
-            background: white;
-
-            border-radius: 16px;
-
-            overflow: hidden;
-
-            box-shadow:
-                0 4px 15px rgba(0,0,0,0.06);
-
-            margin-bottom: 22px;
-        }
-
-
-        .featured-visual {
-            min-height: 310px;
-
-            background:
-                linear-gradient(
-                    135deg,
-                    #1e3a8a,
-                    #0284c7
-                );
-
+        .evolution-flow {
             display: flex;
 
             align-items: center;
 
             justify-content: center;
 
-            color: white;
+            flex-wrap: wrap;
 
-            font-size: 75px;
+            gap: 9px;
+        }
+
+        .evolution-box {
+            background: #f8fafc;
+
+            border: 1px solid #e5e7eb;
+
+            border-radius: 9px;
+
+            padding: 15px 17px;
+
+            min-width: 110px;
+
+            text-align: center;
+
+            font-weight: 600;
+
+            font-size: 12px;
+        }
+
+        .evolution-arrow {
+            font-size: 20px;
+
+            color: #2563eb;
         }
 
 
-        .featured-content {
-            padding: 35px;
+        /* =========================================
+           QUICK PROGRAMMATIC NAV
+        ========================================== */
+
+        .quick-explore {
+            background: #f7f9fc;
+
+            border-top: 1px solid #e5e7eb;
+
+            border-bottom: 1px solid #e5e7eb;
+
+            padding: 30px 0;
         }
 
+        .quick-explore-header {
+            display: flex;
 
-        .label {
+            align-items: center;
+
+            justify-content: space-between;
+
+            margin-bottom: 17px;
+        }
+
+        .quick-explore-title span {
+            font-size: 10px;
+
+            font-weight: 700;
+
             color: #2563eb;
 
-            font-size: 13px;
-
-            font-weight: bold;
-
-            text-transform: uppercase;
-
-            letter-spacing: .5px;
+            letter-spacing: 1.5px;
         }
 
-
-        .featured-content h3 {
-            font-size: 28px;
-
-            line-height: 1.35;
-
-            margin:
-                10px 0 15px;
+        .quick-explore-title h2 {
+            font-size: 21px;
         }
 
-
-        .featured-content p {
-            color: #64748b;
-
-            line-height: 1.7;
-        }
-
-
-        .date {
-            color: #94a3b8;
+        .quick-explore-header p {
+            color: #6b7280;
 
             font-size: 13px;
-
-            margin-top: 15px;
         }
 
+        .quick-links {
+            display: grid;
 
-        .button {
-            display: inline-block;
+            grid-template-columns: repeat(5, 1fr);
 
-            margin-top: 18px;
+            gap: 9px;
+        }
 
-            background: #2563eb;
+        .quick-links a {
+            display: flex;
 
-            color: white;
+            align-items: center;
 
-            padding:
-                11px 17px;
+            gap: 7px;
+
+            padding: 12px;
+
+            border: 1px solid #e5e7eb;
 
             border-radius: 8px;
 
+            color: #172033;
+
+            background: #ffffff;
+
+            font-size: 12px;
+
+            font-weight: 600;
+
+            transition: .2s;
+        }
+
+        .quick-links a strong {
+            font-size: 9px;
+
+            color: #9ca3af;
+        }
+
+        .quick-links a span {
+            margin-left: auto;
+
+            color: #2563eb;
+        }
+
+        .quick-links a:hover {
+            border-color: #93c5fd;
+
+            background: #eff6ff;
+
+            transform: translateY(-2px);
+        }
+
+
+        /* =========================================
+           PROGRAMMATIC ECOSYSTEM
+        ========================================== */
+
+        .ecosystem {
+            background: #ffffff;
+        }
+
+        .ecosystem-flow {
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            flex-wrap: wrap;
+
+            gap: 10px;
+        }
+
+        .eco-box {
+            background: white;
+
+            border: 1px solid #dbe3ef;
+
+            border-radius: 12px;
+
+            padding: 20px;
+
+            width: 165px;
+
+            text-align: center;
+
+            box-shadow: 0 4px 15px rgba(0,0,0,.04);
+        }
+
+        .eco-box strong {
+            display: block;
+
+            font-size: 17px;
+
+            margin-bottom: 4px;
+        }
+
+        .eco-box span {
+            font-size: 12px;
+
+            color: #6b7280;
+        }
+
+        .eco-arrow {
+            color: #2563eb;
+
+            font-size: 23px;
+
             font-weight: bold;
         }
 
 
-        .button:hover {
-            background: #1d4ed8;
+        /* =========================================
+           AUCTION
+        ========================================== */
+
+        .auction-section {
+            background: #111827;
+
+            color: white;
+        }
+
+        .auction-section .section-title p {
+            color: #9ca3af;
+        }
+
+        .auction-box {
+            max-width: 950px;
+
+            margin: auto;
+
+            background: #1f2937;
+
+            border: 1px solid #374151;
+
+            border-radius: 15px;
+
+            padding: 28px;
+        }
+
+        .auction-step {
+            display: flex;
+
+            align-items: center;
+
+            gap: 15px;
+
+            margin-bottom: 17px;
+        }
+
+        .auction-label {
+            width: 180px;
+
+            font-weight: 600;
+
+            font-size: 13px;
+        }
+
+        .auction-bar {
+            flex: 1;
+
+            background: #374151;
+
+            border-radius: 7px;
+
+            height: 40px;
+
+            overflow: hidden;
+        }
+
+        .auction-fill {
+            height: 100%;
+
+            display: flex;
+
+            align-items: center;
+
+            padding-left: 15px;
+
+            background: #2563eb;
+
+            font-size: 12px;
+
+            font-weight: bold;
+        }
+
+        .auction-fill.green {
+            background: #16a34a;
+        }
+
+        .auction-result {
+            text-align: center;
+
+            margin-top: 22px;
+
+            padding: 17px;
+
+            border-radius: 10px;
+
+            background: #172a1d;
+
+            border: 1px solid #28663b;
+
+            color: #bbf7d0;
+
+            font-size: 13px;
         }
 
 
-        /* =========================
-           NEWS GRID
-        ========================== */
+        /* =========================================
+           CARDS
+        ========================================== */
 
-        .grid {
+        .card-grid {
             display: grid;
 
-            grid-template-columns:
-                repeat(3, 1fr);
+            grid-template-columns: repeat(3, 1fr);
 
             gap: 20px;
         }
 
-
         .card {
             background: white;
 
-            padding: 25px;
-
-            border-radius: 14px;
-
-            box-shadow:
-                0 3px 12px rgba(0,0,0,0.06);
-
             border: 1px solid #e5e7eb;
+
+            border-radius: 12px;
+
+            padding: 26px;
+
+            transition: .2s;
         }
 
+        .card:hover {
+            transform: translateY(-4px);
+
+            border-color: #93c5fd;
+
+            box-shadow: 0 10px 30px rgba(0,0,0,.07);
+        }
 
         .card-icon {
-            font-size: 35px;
+            width: 43px;
+            height: 43px;
 
-            margin-bottom: 15px;
+            background: #eff6ff;
+
+            color: #2563eb;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 9px;
+
+            font-size: 9px;
+
+            font-weight: bold;
+
+            margin-bottom: 16px;
         }
-
 
         .card h3 {
             font-size: 19px;
 
-            line-height: 1.4;
-
-            margin:
-                8px 0 10px;
+            margin-bottom: 7px;
         }
-
 
         .card p {
-            color: #64748b;
+            color: #6b7280;
 
-            line-height: 1.6;
+            font-size: 13px;
 
-            font-size: 14px;
-
-            margin: 0;
+            margin-bottom: 14px;
         }
 
-
-        .card .button {
-            margin-top: 15px;
-
-            background: transparent;
-
+        .card a {
             color: #2563eb;
 
-            padding: 0;
+            font-weight: 600;
+
+            font-size: 13px;
+        }
+
+        .card a:hover {
+            text-decoration: underline;
         }
 
 
-        /* =========================
-           GUIDES
-        ========================== */
+        /* =========================================
+           DOOH
+        ========================================== */
 
-        .guide-grid {
+        .dooh {
+            background: #ffffff;
+        }
+
+        .dooh-grid {
             display: grid;
 
-            grid-template-columns:
-                repeat(2, 1fr);
+            grid-template-columns: repeat(4, 1fr);
 
-            gap: 18px;
+            gap: 17px;
         }
 
-
-        .guide {
-            background: white;
-
-            padding: 25px;
-
-            border-radius: 14px;
+        .dooh-card {
+            background: #f8fafc;
 
             border: 1px solid #e5e7eb;
-
-            box-shadow:
-                0 3px 12px rgba(0,0,0,0.05);
-        }
-
-
-        .guide h3 {
-            margin:
-                0 0 10px;
-
-            font-size: 20px;
-        }
-
-
-        .guide p {
-            color: #64748b;
-
-            line-height: 1.6;
-
-            margin:
-                0 0 15px;
-        }
-
-
-        .guide a {
-            color: #2563eb;
-
-            font-weight: bold;
-        }
-
-
-        /* =========================
-           TOPICS
-        ========================== */
-
-        .topic-grid {
-            display: grid;
-
-            grid-template-columns:
-                repeat(4, 1fr);
-
-            gap: 15px;
-        }
-
-
-        .topic {
-            background: white;
-
-            padding: 22px;
 
             border-radius: 12px;
 
+            padding: 22px;
+
+            transition: .2s;
+        }
+
+        .dooh-card:hover {
+            transform: translateY(-4px);
+
+            border-color: #93c5fd;
+
+            background: #ffffff;
+
+            box-shadow: 0 8px 25px rgba(0,0,0,.06);
+        }
+
+        .dooh-icon {
+            font-size: 23px;
+
+            margin-bottom: 10px;
+        }
+
+        .dooh-card h3 {
+            font-size: 16px;
+
+            margin-bottom: 5px;
+        }
+
+        .dooh-card p {
+            font-size: 12px;
+
+            color: #6b7280;
+        }
+
+
+        /* =========================================
+           DOOH EVOLUTION
+        ========================================== */
+
+        .dooh-evolution {
+            background: #f7f9fc;
+        }
+
+        .dooh-flow {
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            flex-wrap: wrap;
+
+            gap: 12px;
+        }
+
+        .dooh-flow-box {
+            background: #ffffff;
+
             border: 1px solid #e5e7eb;
-
-            color: #111827;
-
-            font-weight: bold;
-
-            text-align: center;
-
-            transition:
-                transform .2s,
-                box-shadow .2s;
-        }
-
-
-        .topic:hover {
-            transform:
-                translateY(-3px);
-
-            box-shadow:
-                0 6px 15px rgba(0,0,0,0.08);
-        }
-
-
-        .topic span {
-            display: block;
-
-            font-size: 28px;
-
-            margin-bottom: 8px;
-        }
-
-
-        /* =========================
-           TOOLS
-        ========================== */
-
-        .tools-section {
-            background: #111827;
-
-            padding: 35px;
-
-            border-radius: 16px;
-
-            color: white;
-        }
-
-
-        .tools-section h2 {
-            margin-top: 0;
-
-            font-size: 29px;
-        }
-
-
-        .tools-section p {
-            color: #cbd5e1;
-
-            line-height: 1.6;
-        }
-
-
-        .tools-grid {
-            display: grid;
-
-            grid-template-columns:
-                repeat(3, 1fr);
-
-            gap: 15px;
-
-            margin-top: 25px;
-        }
-
-
-        .tool {
-            background: #1f2937;
-
-            padding: 20px;
 
             border-radius: 10px;
 
+            padding: 18px;
+
+            text-align: center;
+
+            min-width: 155px;
+        }
+
+        .dooh-flow-box strong {
+            display: block;
+
+            margin-bottom: 4px;
+
+            font-size: 14px;
+        }
+
+        .dooh-flow-box span {
+            font-size: 11px;
+
+            color: #6b7280;
+        }
+
+        .dooh-flow-arrow {
+            color: #2563eb;
+
+            font-size: 22px;
+        }
+
+
+        /* =========================================
+           PROGRAMMATIC DOOH
+        ========================================== */
+
+        .pdooh {
+            background: #111827;
+
             color: white;
+        }
+
+        .pdooh .section-title p {
+            color: #9ca3af;
+        }
+
+        .pdooh-flow {
+            display: grid;
+
+            grid-template-columns: repeat(5, 1fr);
+
+            gap: 14px;
+        }
+
+        .pdooh-box {
+            background: #1f2937;
 
             border: 1px solid #374151;
+
+            border-radius: 12px;
+
+            padding: 22px;
+
+            text-align: center;
         }
 
-
-        .tool:hover {
-            background: #374151;
-        }
-
-
-        .tool strong {
+        .pdooh-box strong {
             display: block;
 
             margin-bottom: 6px;
         }
 
+        .pdooh-box span {
+            color: #9ca3af;
 
-        .tool span {
-            color: #cbd5e1;
+            font-size: 11px;
+        }
+
+
+        /* =========================================
+           CTV
+        ========================================== */
+
+        #ctv {
+            background: #ffffff;
+        }
+
+
+        /* =========================================
+           METRICS
+        ========================================== */
+
+        .metrics {
+            background: #f7f9fc;
+        }
+
+        .metric-grid {
+            display: grid;
+
+            grid-template-columns: repeat(4, 1fr);
+
+            gap: 17px;
+        }
+
+        .metric {
+            background: white;
+
+            border: 1px solid #e5e7eb;
+
+            border-radius: 12px;
+
+            padding: 23px;
+
+            text-align: center;
+        }
+
+        .metric-value {
+            font-size: 27px;
+
+            font-weight: 700;
+
+            color: #2563eb;
+
+            margin-bottom: 4px;
+        }
+
+        .metric h3 {
+            font-size: 16px;
+
+            margin-bottom: 4px;
+        }
+
+        .metric p {
+            font-size: 12px;
+
+            color: #6b7280;
+        }
+
+
+        /* =========================================
+           STANDARDS
+        ========================================== */
+
+        .standards {
+            background: #ffffff;
+        }
+
+        .tags {
+            display: flex;
+
+            flex-wrap: wrap;
+
+            justify-content: center;
+
+            gap: 10px;
+        }
+
+        .tag {
+            background: white;
+
+            border: 1px solid #dbe1ea;
+
+            padding: 10px 18px;
+
+            border-radius: 8px;
+
+            color: #374151;
+
+            font-weight: 600;
+
+            font-size: 13px;
+
+            transition: .2s;
+        }
+
+        .tag:hover {
+            border-color: #2563eb;
+
+            color: #2563eb;
+        }
+
+
+        /* =========================================
+           TOOLS
+        ========================================== */
+
+        .tools {
+            background: #f7f9fc;
+        }
+
+
+        /* =========================================
+           FEEDBACK
+        ========================================== */
+
+        .feedback {
+            background: #ffffff;
+        }
+
+        .feedback-box {
+            max-width: 750px;
+
+            margin: auto;
+
+            background: #f8fafc;
+
+            border: 1px solid #e5e7eb;
+
+            border-radius: 14px;
+
+            padding: 30px;
+        }
+
+        .feedback-box h2 {
+            font-size: 24px;
+
+            margin-bottom: 8px;
+        }
+
+        .feedback-box > p {
+            color: #6b7280;
+
+            font-size: 13px;
+
+            margin-bottom: 22px;
+        }
+
+        .form-group {
+            margin-bottom: 17px;
+        }
+
+        .form-group label {
+            display: block;
+
+            font-size: 13px;
+
+            font-weight: 600;
+
+            margin-bottom: 6px;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+
+            padding: 11px 13px;
+
+            border: 1px solid #dbe1ea;
+
+            border-radius: 7px;
+
+            background: #ffffff;
+
+            font-family: Arial, Helvetica, sans-serif;
+
+            font-size: 13px;
+
+            outline: none;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: #2563eb;
+
+            box-shadow: 0 0 0 3px rgba(37,99,235,.08);
+        }
+
+        .form-group textarea {
+            min-height: 120px;
+
+            resize: vertical;
+        }
+
+        .submit-btn {
+            border: none;
+
+            cursor: pointer;
+
+            background: #2563eb;
+
+            color: white;
+
+            padding: 11px 20px;
+
+            border-radius: 7px;
+
+            font-weight: 600;
 
             font-size: 13px;
         }
 
-
-        /* =========================
-           SEO CONTENT
-        ========================== */
-
-        .seo-content {
-            background: white;
-
-            padding: 40px;
-
-            border-radius: 16px;
-
-            border: 1px solid #e5e7eb;
-
-            box-shadow:
-                0 3px 12px rgba(0,0,0,0.05);
+        .submit-btn:hover {
+            background: #1d4ed8;
         }
 
 
-        .seo-content h2 {
-            margin:
-                0 0 12px;
-
-            font-size: 25px;
-
-            color: #111827;
-        }
-
-
-        .seo-content h2:not(:first-child) {
-            margin-top: 35px;
-        }
-
-
-        .seo-content p {
-            color: #64748b;
-
-            line-height: 1.8;
-
-            font-size: 16px;
-
-            margin: 0;
-        }
-
-
-        .seo-content a {
-            color: #2563eb;
-
-            font-weight: bold;
-        }
-
-
-        /* =========================
-           FAQ
-        ========================== */
-
-        .faq {
-            margin-top: 60px;
-        }
-
-
-        .faq-item {
-            background: white;
-
-            border:
-                1px solid #e5e7eb;
-
-            border-radius: 10px;
-
-            padding: 20px;
-
-            margin-bottom: 12px;
-        }
-
-
-        .faq-item h3 {
-            margin:
-                0 0 8px;
-
-            font-size: 18px;
-        }
-
-
-        .faq-item p {
-            margin: 0;
-
-            color: #64748b;
-
-            line-height: 1.6;
-        }
-
-
-        /* =========================
+        /* =========================================
            CTA
-        ========================== */
+        ========================================== */
 
         .cta {
-            margin-top: 60px;
-
-            background: #e0f2fe;
-
-            padding: 40px;
-
-            border-radius: 16px;
-
-            text-align: center;
-        }
-
-
-        .cta h2 {
-            margin-top: 0;
-
-            font-size: 29px;
-        }
-
-
-        .cta p {
-            color: #475569;
-
-            line-height: 1.6;
-        }
-
-
-        .cta a {
-            display: inline-block;
-
-            margin-top: 12px;
-
-            background: #0369a1;
+            background: #111827;
 
             color: white;
 
-            padding:
-                12px 20px;
+            text-align: center;
+        }
 
-            border-radius: 8px;
+        .cta h2 {
+            font-size: 34px;
 
-            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .cta p {
+            color: #9ca3af;
+
+            max-width: 700px;
+
+            margin: auto auto 22px;
         }
 
 
-        /* =========================
+        /* =========================================
            FOOTER
-        ========================== */
+        ========================================== */
 
         footer {
+            background: #0b1120;
+
+            color: #9ca3af;
+
+            padding: 42px 20px;
+
             text-align: center;
+        }
 
-            padding: 40px 20px;
-
-            color: #64748b;
-
-            font-size: 14px;
+        footer strong {
+            color: white;
         }
 
 
-        /* =========================
+        /* =========================================
+           TABLET
+        ========================================== */
+
+        @media (max-width: 1000px) {
+
+            .timeline {
+                grid-template-columns: repeat(4, 1fr);
+
+                gap: 35px;
+            }
+
+            .timeline::before {
+                display: none;
+            }
+
+            .quick-links {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .card-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .dooh-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .metric-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .pdooh-flow {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+        }
+
+
+        /* =========================================
            MOBILE
-        ========================== */
+        ========================================== */
 
-        @media (max-width: 850px) {
+        @media (max-width: 650px) {
 
-            .header-container {
-                flex-direction: column;
-
-                gap: 15px;
+            .nav-links {
+                display: none;
             }
-
-
-            nav {
-                flex-wrap: wrap;
-
-                justify-content: center;
-
-                gap: 15px;
-            }
-
 
             .hero {
-                padding: 35px 25px;
+                padding: 60px 20px 45px;
             }
-
 
             .hero h1 {
-                font-size: 32px;
+                font-size: 37px;
             }
 
+            .hero p {
+                font-size: 15px;
+            }
 
-            .featured {
+            section {
+                padding: 55px 0;
+            }
+
+            .section-title h2 {
+                font-size: 27px;
+            }
+
+            .explore-grid {
                 grid-template-columns: 1fr;
             }
 
+            .explore-card {
+                padding: 14px 16px;
+            }
 
-            .grid {
+            .explore-title {
+                font-size: 15px;
+            }
+
+            .explore-description {
+                font-size: 10px;
+            }
+
+            .timeline {
                 grid-template-columns: 1fr;
             }
 
+            .quick-explore-header {
+                display: block;
+            }
 
-            .guide-grid {
+            .quick-explore-header p {
+                margin-top: 4px;
+            }
+
+            .quick-links {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .card-grid {
                 grid-template-columns: 1fr;
             }
 
-
-            .topic-grid {
-                grid-template-columns:
-                    repeat(2, 1fr);
-            }
-
-
-            .tools-grid {
+            .dooh-grid {
                 grid-template-columns: 1fr;
             }
 
+            .metric-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
 
-            .seo-content {
-                padding: 25px;
+            .pdooh-flow {
+                grid-template-columns: 1fr;
+            }
+
+            .ecosystem-flow {
+                flex-direction: column;
+            }
+
+            .eco-arrow {
+                transform: rotate(90deg);
+            }
+
+            .dooh-flow {
+                flex-direction: column;
+            }
+
+            .dooh-flow-arrow {
+                transform: rotate(90deg);
+            }
+
+            .evolution-flow {
+                flex-direction: column;
+            }
+
+            .evolution-arrow {
+                transform: rotate(90deg);
+            }
+
+            .auction-step {
+                flex-direction: column;
+
+                align-items: stretch;
+            }
+
+            .auction-label {
+                width: auto;
+            }
+
+            .feedback-box {
+                padding: 22px;
             }
 
         }
@@ -960,252 +1435,510 @@
 <body>
 
 
-<!-- =========================
-     HEADER
-========================= -->
+<!-- =========================================
+     NAVIGATION
+========================================= -->
 
-<header>
+<header class="navbar">
 
-    <div class="header-container">
-
-        <div class="logo">
-            Pubs<span>Rate</span>
-        </div>
-
-
-        <nav>
-
-            <a href="../index.html">
-                Home
-            </a>
-
-            <a href="../publishers/">
-                Publishers and Content Owners
-            </a>
-
-            <a href="../testtag/">
-                AdTech Tools
-            </a>
-
-            <a href="index.html">
-                Advertising
-            </a>
-
-            <a href="../tools/">
-                Tools
-            </a>
-
-        </nav>
-
+    <div class="logo">
+        PubsRate
     </div>
+
+
+    <nav class="nav-links">
+
+        <a href="/">
+            Home
+        </a>
+
+        <a href="/publishers/">
+            Publishers
+        </a>
+
+        <a href="/advertising/">
+            Advertising Hub
+        </a>
+
+        <a href="/tools/">
+            Tools
+        </a>
+
+        <a href="/news/" class="news-link">
+
+            News
+
+            <span class="coming-soon">
+                ✦ Coming Soon
+            </span>
+
+        </a>
+
+    </nav>
 
 </header>
 
 
 
-<main class="container">
-
-
-<!-- =========================
-     BREADCRUMB
-========================= -->
-
-<div class="breadcrumb">
-
-    <a href="../index.html">
-        Home
-    </a>
-
-    &nbsp;›&nbsp;
-
-    Advertising
-
-</div>
-
-
-
-<!-- =========================
+<!-- =========================================
      HERO
-========================= -->
+========================================= -->
 
 <section class="hero">
 
-    <div class="hero-label">
-        DIGITAL ADVERTISING & ADTECH
+    <div class="hero-badge">
+        PubsRate Advertising Hub
     </div>
 
-
     <h1>
-        Digital Advertising Guide & AdTech News
+        Advertising & AdTech
     </h1>
 
-
     <p>
-        Explore digital advertising guides, AdTech news and
-        practical resources covering programmatic advertising,
-        Google Ad Manager, header bidding, CTV, AI,
-        publisher monetization and advertising technology.
+        Explore how advertising evolved from traditional
+        media to programmatic, connected TV and digital
+        out-of-home advertising across the modern media ecosystem.
     </p>
+
+    <div class="hero-buttons">
+
+        <a href="#evolution" class="btn btn-primary">
+            Explore Evolution
+        </a>
+
+        <a href="#dooh" class="btn btn-secondary">
+            Explore DOOH
+        </a>
+
+    </div>
 
 </section>
 
 
 
-<!-- =========================
-     ADTECH NEWS
-========================= -->
+<!-- =========================================
+     EXPLORE STRIP
+========================================= -->
 
-<section class="section">
+<section class="explore-strip">
 
-    <div class="section-header">
+    <div class="container">
 
-        <h2>
-            📰 AdTech News & Updates
-        </h2>
+        <div class="explore-grid">
 
-        <p>
-            Follow important developments across digital advertising
-            and the AdTech ecosystem.
-        </p>
+
+            <a href="#advertising" class="explore-card">
+
+                <div class="explore-left">
+
+                    <div class="explore-icon">
+                        ADS
+                    </div>
+
+                    <div>
+
+                        <div class="explore-label">
+                            EXPLORE
+                        </div>
+
+                        <div class="explore-title">
+                            Advertising
+                        </div>
+
+                        <div class="explore-description">
+                            Programmatic • DOOH • CTV • Monetization
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="explore-arrow">
+                    →
+                </div>
+
+            </a>
+
+
+
+            <a href="#programmatic" class="explore-card">
+
+                <div class="explore-left">
+
+                    <div class="explore-icon">
+                        PROG
+                    </div>
+
+                    <div>
+
+                        <div class="explore-label">
+                            EXPLORE
+                        </div>
+
+                        <div class="explore-title">
+                            Programmatic
+                        </div>
+
+                        <div class="explore-description">
+                            DSP • SSP • Open Bidding • Campaigns
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="explore-arrow">
+                    →
+                </div>
+
+            </a>
+
+
+        </div>
 
     </div>
 
+</section>
 
-    <!-- FEATURED NEWS -->
 
-    <article class="featured">
 
-        <div class="featured-visual">
-            📢
+<!-- =========================================
+     EVOLUTION
+========================================= -->
+
+<section class="history" id="evolution">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <h2>
+                The Evolution of Advertising
+            </h2>
+
+            <p>
+                Advertising has transformed from traditional
+                mass media into highly automated, data-driven
+                digital marketplaces.
+            </p>
+
         </div>
 
 
-        <div class="featured-content">
+        <div class="timeline">
 
-            <div class="label">
-                Featured Update
+
+            <div class="timeline-item">
+
+                <div class="timeline-dot">
+                    PRINT
+                </div>
+
+                <h3>
+                    Print
+                </h3>
+
+                <p>
+                    Newspapers and magazines.
+                </p>
+
             </div>
 
 
-            <h3>
-                Latest Developments in Digital Advertising
-            </h3>
+            <div class="timeline-item">
 
+                <div class="timeline-dot">
+                    RADIO
+                </div>
 
-            <p>
-                Follow important changes across programmatic
-                advertising, publisher monetization, advertising
-                technology and the digital media ecosystem.
-            </p>
+                <h3>
+                    Radio
+                </h3>
 
+                <p>
+                    Broadcast advertising.
+                </p>
 
-            <div class="date">
-                August 2026
             </div>
 
 
-            <a
-                class="button"
-                href="google-ad-manager-update.html"
-            >
-                Read Update →
-            </a>
+            <div class="timeline-item">
+
+                <div class="timeline-dot">
+                    TV
+                </div>
+
+                <h3>
+                    Television
+                </h3>
+
+                <p>
+                    Mass-market video.
+                </p>
+
+            </div>
+
+
+            <div class="timeline-item">
+
+                <div class="timeline-dot">
+                    WEB
+                </div>
+
+                <h3>
+                    Web
+                </h3>
+
+                <p>
+                    Digital display.
+                </p>
+
+            </div>
+
+
+            <div class="timeline-item">
+
+                <div class="timeline-dot">
+                    RTB
+                </div>
+
+                <h3>
+                    RTB
+                </h3>
+
+                <p>
+                    Real-time auctions.
+                </p>
+
+            </div>
+
+
+            <div class="timeline-item">
+
+                <div class="timeline-dot">
+                    HB
+                </div>
+
+                <h3>
+                    Header Bidding
+                </h3>
+
+                <p>
+                    Demand competition.
+                </p>
+
+            </div>
+
+
+            <div class="timeline-item">
+
+                <div class="timeline-dot">
+                    CTV
+                </div>
+
+                <h3>
+                    CTV
+                </h3>
+
+                <p>
+                    Streaming TV.
+                </p>
+
+            </div>
+
+
+            <div class="timeline-item">
+
+                <div class="timeline-dot">
+                    DOOH
+                </div>
+
+                <h3>
+                    DOOH
+                </h3>
+
+                <p>
+                    Digital physical media.
+                </p>
+
+            </div>
+
 
         </div>
 
-    </article>
+    </div>
+
+</section>
 
 
-    <!-- NEWS CARDS -->
 
-    <div class="grid">
+<!-- =========================================
+     EVOLUTION FLOW
+========================================= -->
 
-        <article class="card">
+<section class="evolution" id="advertising">
 
-            <div class="card-icon">
-                🤖
-            </div>
+    <div class="container">
 
-            <div class="label">
-                AI & Advertising
-            </div>
+        <div class="section-title">
 
-            <h3>
-                How AI Is Changing Digital Advertising
-            </h3>
+            <h2>
+                From Traditional Advertising to AdTech
+            </h2>
 
             <p>
-                Explore how artificial intelligence is changing
-                advertising workflows, optimization and publisher
-                operations.
+                The industry moved from manually purchased
+                advertising placements toward automated,
+                data-driven media buying.
             </p>
 
-            <a
-                class="button"
-                href="google-ad-manager-update.html"
-            >
-                Read Update →
-            </a>
-
-        </article>
+        </div>
 
 
-        <article class="card">
+        <div class="evolution-flow">
 
-            <div class="card-icon">
-                📊
+            <div class="evolution-box">
+                Print
             </div>
 
-            <div class="label">
+            <div class="evolution-arrow">→</div>
+
+            <div class="evolution-box">
+                Radio
+            </div>
+
+            <div class="evolution-arrow">→</div>
+
+            <div class="evolution-box">
+                TV
+            </div>
+
+            <div class="evolution-arrow">→</div>
+
+            <div class="evolution-box">
+                Web
+            </div>
+
+            <div class="evolution-arrow">→</div>
+
+            <div class="evolution-box">
+                Ad Networks
+            </div>
+
+            <div class="evolution-arrow">→</div>
+
+            <div class="evolution-box">
+                RTB
+            </div>
+
+            <div class="evolution-arrow">→</div>
+
+            <div class="evolution-box">
                 Programmatic
             </div>
 
-            <h3>
-                Programmatic Advertising Developments
-            </h3>
+            <div class="evolution-arrow">→</div>
 
-            <p>
-                Follow important developments affecting publishers,
-                advertisers, DSPs, SSPs and programmatic platforms.
-            </p>
-
-            <a
-                class="button"
-                href="what-is-programmatic-advertising.html"
-            >
-                Explore Topic →
-            </a>
-
-        </article>
-
-
-        <article class="card">
-
-            <div class="card-icon">
-                📺
+            <div class="evolution-box">
+                CTV / DOOH
             </div>
 
-            <div class="label">
-                CTV & OTT
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================
+     PROGRAMMATIC QUICK NAVIGATION
+========================================= -->
+
+<section class="quick-explore" id="programmatic">
+
+    <div class="container">
+
+        <div class="quick-explore-header">
+
+            <div class="quick-explore-title">
+
+                <span>
+                    EXPLORE
+                </span>
+
+                <h2>
+                    Programmatic Advertising
+                </h2>
+
             </div>
 
-            <h3>
-                What's Changing in CTV Advertising?
-            </h3>
-
             <p>
-                Explore connected TV, OTT, video advertising and
-                the technologies powering streaming monetization.
+                Choose a topic to dive deeper
             </p>
 
-            <a
-                class="button"
-                href="what-is-ctv-advertising.html"
-            >
-                Explore Topic →
+        </div>
+
+
+        <div class="quick-links">
+
+
+            <a href="/advertising/programmatic/ecosystem/">
+
+                <strong>01</strong>
+
+                Ecosystem
+
+                <span>→</span>
+
             </a>
 
-        </article>
+
+            <a href="/advertising/programmatic/dsp/">
+
+                <strong>02</strong>
+
+                DSP
+
+                <span>→</span>
+
+            </a>
+
+
+            <a href="/advertising/programmatic/ssp/">
+
+                <strong>03</strong>
+
+                SSP
+
+                <span>→</span>
+
+            </a>
+
+
+            <a href="/advertising/programmatic/open-bidding/">
+
+                <strong>04</strong>
+
+                Open Bidding
+
+                <span>→</span>
+
+            </a>
+
+
+            <a href="/advertising/campaigns/">
+
+                <strong>05</strong>
+
+                Campaigns
+
+                <span>→</span>
+
+            </a>
+
+
+        </div>
 
     </div>
 
@@ -1213,175 +1946,99 @@
 
 
 
-<!-- =========================
-     ADVERTISING GUIDES
-========================= -->
+<!-- =========================================
+     PROGRAMMATIC ECOSYSTEM
+========================================= -->
 
-<section class="section">
+<section class="ecosystem">
 
-    <div class="section-header">
+    <div class="container">
 
-        <h2>
-            📚 Advertising Guides
-        </h2>
+        <div class="section-title">
 
-        <p>
-            Practical explanations of the technologies and concepts
-            used across digital advertising and AdTech.
-        </p>
-
-    </div>
-
-
-    <div class="guide-grid">
-
-
-        <article class="guide">
-
-            <h3>
-                What is Google Ad Manager?
-            </h3>
+            <h2>
+                Programmatic Ecosystem
+            </h2>
 
             <p>
-                Learn how Google Ad Manager works and how publishers
-                use it to manage advertising inventory, campaigns
-                and monetization.
+                Multiple technologies work together to connect
+                advertisers with publishers in milliseconds.
             </p>
 
-            <a href="what-is-google-ad-manager.html">
-                Read Guide →
-            </a>
-
-        </article>
+        </div>
 
 
-        <article class="guide">
-
-            <h3>
-                What is Programmatic Advertising?
-            </h3>
-
-            <p>
-                Understand programmatic advertising, DSPs, SSPs,
-                ad exchanges, real-time bidding and automated
-                media buying.
-            </p>
-
-            <a href="what-is-programmatic-advertising.html">
-                Read Guide →
-            </a>
-
-        </article>
+        <div class="ecosystem-flow">
 
 
-        <article class="guide">
+            <div class="eco-box">
 
-            <h3>
-                What is Header Bidding?
-            </h3>
+                <strong>
+                    Advertiser
+                </strong>
 
-            <p>
-                Learn how client-side and server-side header bidding
-                work and how publishers use them to access demand.
-            </p>
+                <span>
+                    Wants to reach an audience
+                </span>
 
-            <a href="what-is-header-bidding.html">
-                Read Guide →
-            </a>
-
-        </article>
+            </div>
 
 
-        <article class="guide">
-
-            <h3>
-                What is CTV Advertising?
-            </h3>
-
-            <p>
-                Understand connected TV advertising, OTT,
-                streaming inventory and video monetization.
-            </p>
-
-            <a href="what-is-ctv-advertising.html">
-                Read Guide →
-            </a>
-
-        </article>
-
-    </div>
-
-</section>
+            <div class="eco-arrow">
+                →
+            </div>
 
 
+            <div class="eco-box">
 
-<!-- =========================
-     ADVERTISING TOPICS
-========================= -->
+                <strong>
+                    Demand-Side Platform
+                </strong>
 
-<section class="section">
+                <span>
+                    Buys advertising inventory
+                </span>
 
-    <div class="section-header">
-
-        <h2>
-            🎯 Advertising Topics
-        </h2>
-
-        <p>
-            Explore the major areas of digital advertising and AdTech.
-        </p>
-
-    </div>
+            </div>
 
 
-    <div class="topic-grid">
-
-        <a class="topic" href="what-is-programmatic-advertising.html">
-            <span>📊</span>
-            Programmatic
-        </a>
+            <div class="eco-arrow">
+                →
+            </div>
 
 
-        <a class="topic" href="what-is-header-bidding.html">
-            <span>🔗</span>
-            AdTech
-        </a>
+            <div class="eco-box">
+
+                <strong>
+                    Supply-Side Platform
+                </strong>
+
+                <span>
+                    Represents publisher inventory
+                </span>
+
+            </div>
 
 
-        <a class="topic" href="what-is-ctv-advertising.html">
-            <span>📺</span>
-            CTV & OTT
-        </a>
+            <div class="eco-arrow">
+                →
+            </div>
 
 
-        <a class="topic" href="google-ad-manager-update.html">
-            <span>⚙️</span>
-            Google Ad Manager
-        </a>
+            <div class="eco-box">
+
+                <strong>
+                    Publisher
+                </strong>
+
+                <span>
+                    Displays winning advertising
+                </span>
+
+            </div>
 
 
-        <a class="topic" href="google-ad-manager-update.html">
-            <span>🤖</span>
-            AI & Advertising
-        </a>
-
-
-        <a class="topic" href="what-is-google-ad-manager.html">
-            <span>💰</span>
-            Publisher Monetization
-        </a>
-
-
-        <a class="topic" href="what-is-programmatic-advertising.html">
-            <span>📱</span>
-            Mobile Advertising
-        </a>
-
-
-        <a class="topic" href="google-ad-manager-update.html">
-            <span>📢</span>
-            Digital Advertising
-        </a>
+        </div>
 
     </div>
 
@@ -1389,122 +2046,983 @@
 
 
 
-<!-- =========================
-     ADVERTISING TOOLS
-========================= -->
+<!-- =========================================
+     REAL-TIME AUCTION
+========================================= -->
 
-<section class="section">
+<section class="auction-section">
 
-    <div class="tools-section">
+    <div class="container">
 
-        <h2>
-            🛠️ Advertising & AdTech Tools
-        </h2>
+        <div class="section-title">
+
+            <h2>
+                Inside a Real-Time Ad Auction
+            </h2>
+
+            <p>
+                A simplified view of what can happen when
+                a user opens a page containing programmatic inventory.
+            </p>
+
+        </div>
 
 
-        <p>
-            Use free PubsRate tools to calculate advertising
-            metrics, estimate revenue and test advertising
-            implementations.
-        </p>
+        <div class="auction-box">
 
 
-        <div class="tools-grid">
+            <div class="auction-step">
+
+                <div class="auction-label">
+                    User opens page
+                </div>
+
+                <div class="auction-bar">
+
+                    <div class="auction-fill"
+                         style="width:100%;">
+                        Ad Request Sent
+                    </div>
+
+                </div>
+
+            </div>
 
 
-            <a
-                class="tool"
-                href="../tools/cpm-calculator.html"
-            >
+            <div class="auction-step">
+
+                <div class="auction-label">
+                    DSP A
+                </div>
+
+                <div class="auction-bar">
+
+                    <div class="auction-fill"
+                         style="width:68%;">
+                        $2.40 CPM
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="auction-step">
+
+                <div class="auction-label">
+                    DSP B
+                </div>
+
+                <div class="auction-bar">
+
+                    <div class="auction-fill green"
+                         style="width:88%;">
+                        $3.10 CPM — WINNER
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="auction-step">
+
+                <div class="auction-label">
+                    DSP C
+                </div>
+
+                <div class="auction-bar">
+
+                    <div class="auction-fill"
+                         style="width:76%;">
+                        $2.75 CPM
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="auction-result">
+
+                Winning demand is selected and the advertisement
+                is returned to the publisher.
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================
+     PROGRAMMATIC TECHNOLOGIES
+========================================= -->
+
+<section>
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <h2>
+                Explore Programmatic Technologies
+            </h2>
+
+            <p>
+                Learn about the major technologies that make
+                digital advertising and publisher monetization possible.
+            </p>
+
+        </div>
+
+
+        <div class="card-grid">
+
+
+            <!-- DSP -->
+
+            <div class="card">
+
+                <div class="card-icon">
+                    DSP
+                </div>
+
+                <h3>
+                    Demand-Side Platform
+                </h3>
+
+                <p>
+                    Technology used by advertisers and agencies
+                    to purchase digital advertising inventory and
+                    manage media buying across multiple sources.
+                </p>
+
+                <a href="/advertising/programmatic/dsp/">
+                    Learn More →
+                </a>
+
+            </div>
+
+
+            <!-- SSP -->
+
+            <div class="card">
+
+                <div class="card-icon">
+                    SSP
+                </div>
+
+                <h3>
+                    Supply-Side Platform
+                </h3>
+
+                <p>
+                    Technology that helps publishers and media
+                    owners manage, optimize and sell their
+                    advertising inventory to buyers.
+                </p>
+
+                <a href="/advertising/programmatic/ssp/">
+                    Learn More →
+                </a>
+
+            </div>
+
+
+            <!-- OPEN BIDDING & MEDIATION -->
+
+            <div class="card">
+
+                <div class="card-icon">
+                    OB
+                </div>
+
+                <h3>
+                    Open Bidding & Mediation
+                </h3>
+
+                <p>
+                    Solutions that allow publishers and apps to
+                    bring multiple demand sources into competition
+                    to improve fill opportunities and monetization.
+                </p>
+
+                <a href="/advertising/programmatic/open-bidding/">
+                    Learn More →
+                </a>
+
+            </div>
+
+
+            <!-- CAMPAIGNS -->
+
+            <div class="card">
+
+                <div class="card-icon">
+                    CAMP
+                </div>
+
+                <h3>
+                    Campaigns
+                </h3>
+
+                <p>
+                    Advertising campaigns define how inventory,
+                    audiences, targeting, pricing and delivery
+                    are managed to achieve advertiser objectives.
+                </p>
+
+                <a href="/advertising/campaigns/">
+                    Learn More →
+                </a>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================
+     DOOH
+========================================= -->
+
+<section class="dooh" id="dooh">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <h2>
+                Digital Out-of-Home Advertising
+            </h2>
+
+            <p>
+                Advertising is no longer limited to websites,
+                apps and television. Digital screens are bringing
+                programmable advertising into physical locations.
+            </p>
+
+        </div>
+
+
+        <div class="dooh-grid">
+
+
+            <div class="dooh-card">
+
+                <div class="dooh-icon">
+                    🏬
+                </div>
+
+                <h3>
+                    Shopping Malls
+                </h3>
+
+                <p>
+                    Digital displays and video screens
+                    inside shopping centres.
+                </p>
+
+            </div>
+
+
+            <div class="dooh-card">
+
+                <div class="dooh-icon">
+                    ✈️
+                </div>
+
+                <h3>
+                    Airports
+                </h3>
+
+                <p>
+                    Large-format digital displays and
+                    passenger-facing advertising screens.
+                </p>
+
+            </div>
+
+
+            <div class="dooh-card">
+
+                <div class="dooh-icon">
+                    🚉
+                </div>
+
+                <h3>
+                    Railway & Metro
+                </h3>
+
+                <p>
+                    Digital advertising across stations,
+                    platforms and transit environments.
+                </p>
+
+            </div>
+
+
+            <div class="dooh-card">
+
+                <div class="dooh-icon">
+                    🏪
+                </div>
+
+                <h3>
+                    Retail Stores
+                </h3>
+
+                <p>
+                    Digital displays used inside stores
+                    and shopping environments.
+                </p>
+
+            </div>
+
+
+            <div class="dooh-card">
+
+                <div class="dooh-icon">
+                    🏢
+                </div>
+
+                <h3>
+                    Offices
+                </h3>
+
+                <p>
+                    Digital screens placed in commercial
+                    buildings and workplaces.
+                </p>
+
+            </div>
+
+
+            <div class="dooh-card">
+
+                <div class="dooh-icon">
+                    🛣️
+                </div>
+
+                <h3>
+                    Digital Billboards
+                </h3>
+
+                <p>
+                    Large outdoor digital displays used
+                    for high-impact advertising.
+                </p>
+
+            </div>
+
+
+            <div class="dooh-card">
+
+                <div class="dooh-icon">
+                    🚌
+                </div>
+
+                <h3>
+                    Transit Networks
+                </h3>
+
+                <p>
+                    Digital screens across buses, stations
+                    and transportation environments.
+                </p>
+
+            </div>
+
+
+            <div class="dooh-card">
+
+                <div class="dooh-icon">
+                    📺
+                </div>
+
+                <h3>
+                    Digital Signage
+                </h3>
+
+                <p>
+                    Commercial screens used to communicate
+                    content and advertising.
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================
+     DOOH EVOLUTION
+========================================= -->
+
+<section class="dooh-evolution">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <h2>
+                From Outdoor Advertising to Programmatic DOOH
+            </h2>
+
+            <p>
+                Digital screens have transformed traditional
+                outdoor advertising into a flexible and increasingly
+                data-driven advertising channel.
+            </p>
+
+        </div>
+
+
+        <div class="dooh-flow">
+
+
+            <div class="dooh-flow-box">
 
                 <strong>
-                    CPM Calculator
+                    Traditional Billboard
                 </strong>
 
                 <span>
-                    Calculate cost per thousand impressions.
+                    Fixed creative and manual booking
                 </span>
 
+            </div>
+
+
+            <div class="dooh-flow-arrow">
+                →
+            </div>
+
+
+            <div class="dooh-flow-box">
+
+                <strong>
+                    Digital Billboard
+                </strong>
+
+                <span>
+                    Multiple creatives and scheduled campaigns
+                </span>
+
+            </div>
+
+
+            <div class="dooh-flow-arrow">
+                →
+            </div>
+
+
+            <div class="dooh-flow-box">
+
+                <strong>
+                    Digital Signage
+                </strong>
+
+                <span>
+                    Connected screens and centralized management
+                </span>
+
+            </div>
+
+
+            <div class="dooh-flow-arrow">
+                →
+            </div>
+
+
+            <div class="dooh-flow-box">
+
+                <strong>
+                    Programmatic DOOH
+                </strong>
+
+                <span>
+                    Automated buying and dynamic campaigns
+                </span>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================
+     PROGRAMMATIC DOOH
+========================================= -->
+
+<section class="pdooh">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <h2>
+                How Programmatic DOOH Works
+            </h2>
+
+            <p>
+                Programmatic technology can connect advertisers
+                with digital screen inventory across physical locations.
+            </p>
+
+        </div>
+
+
+        <div class="pdooh-flow">
+
+
+            <div class="pdooh-box">
+
+                <strong>
+                    Advertiser
+                </strong>
+
+                <span>
+                    Defines campaign and audience goals
+                </span>
+
+            </div>
+
+
+            <div class="pdooh-box">
+
+                <strong>
+                    DOOH Platform
+                </strong>
+
+                <span>
+                    Connects demand with screen inventory
+                </span>
+
+            </div>
+
+
+            <div class="pdooh-box">
+
+                <strong>
+                    Screen Network
+                </strong>
+
+                <span>
+                    Provides digital advertising locations
+                </span>
+
+            </div>
+
+
+            <div class="pdooh-box">
+
+                <strong>
+                    Location & Data
+                </strong>
+
+                <span>
+                    Helps determine when and where ads appear
+                </span>
+
+            </div>
+
+
+            <div class="pdooh-box">
+
+                <strong>
+                    Audience
+                </strong>
+
+                <span>
+                    Sees the advertising in the physical world
+                </span>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================
+     CTV
+========================================= -->
+
+<section id="ctv">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <h2>
+                Connected TV & Video Advertising
+            </h2>
+
+            <p>
+                Television is becoming increasingly digital,
+                measurable and programmatic through streaming
+                platforms, connected devices and server-side ad insertion.
+            </p>
+
+        </div>
+
+
+        <div class="card-grid">
+
+
+            <div class="card">
+
+                <div class="card-icon">
+                    CTV
+                </div>
+
+                <h3>
+                    Connected TV
+                </h3>
+
+                <p>
+                    Advertising delivered through internet-connected
+                    televisions and streaming devices.
+                </p>
+
+                <a href="#">
+                    Learn More →
+                </a>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="card-icon">
+                    DAI
+                </div>
+
+                <h3>
+                    Dynamic Ad Insertion
+                </h3>
+
+                <p>
+                    Technology that enables advertisements to be
+                    dynamically inserted into video content.
+                </p>
+
+                <a href="#">
+                    Learn More →
+                </a>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="card-icon">
+                    VAST
+                </div>
+
+                <h3>
+                    VAST & Video Ads
+                </h3>
+
+                <p>
+                    Learn about video advertising standards,
+                    ad serving and measurement.
+                </p>
+
+                <a href="#">
+                    Learn More →
+                </a>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================
+     PUBLISHER MONETIZATION
+========================================= -->
+
+<section>
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <h2>
+                Publisher & Media Monetization
+            </h2>
+
+            <p>
+                Learn how publishers and media owners can
+                manage inventory and optimize advertising revenue.
+            </p>
+
+        </div>
+
+
+        <div class="card-grid">
+
+
+            <div class="card">
+
+                <div class="card-icon">
+                    CPM
+                </div>
+
+                <h3>
+                    CPM & eCPM
+                </h3>
+
+                <p>
+                    Understand the core pricing and revenue
+                    metrics used in advertising.
+                </p>
+
+                <a href="#">
+                    Learn More →
+                </a>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="card-icon">
+                    YIELD
+                </div>
+
+                <h3>
+                    Yield Optimization
+                </h3>
+
+                <p>
+                    Explore methods publishers use to improve
+                    demand competition and advertising revenue.
+                </p>
+
+                <a href="#">
+                    Learn More →
+                </a>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="card-icon">
+                    REV
+                </div>
+
+                <h3>
+                    Revenue Optimization
+                </h3>
+
+                <p>
+                    Learn how inventory, demand, pricing and
+                    fill rate influence advertising revenue.
+                </p>
+
+                <a href="#">
+                    Learn More →
+                </a>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================
+     METRICS
+========================================= -->
+
+<section class="metrics">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <h2>
+                Advertising Metrics
+            </h2>
+
+            <p>
+                The numbers publishers, advertisers and
+                media owners use to evaluate advertising performance.
+            </p>
+
+        </div>
+
+
+        <div class="metric-grid">
+
+
+            <div class="metric">
+
+                <div class="metric-value">
+                    CPM
+                </div>
+
+                <h3>
+                    Cost Per Mille
+                </h3>
+
+                <p>
+                    Cost or revenue per thousand impressions.
+                </p>
+
+            </div>
+
+
+            <div class="metric">
+
+                <div class="metric-value">
+                    eCPM
+                </div>
+
+                <h3>
+                    Effective CPM
+                </h3>
+
+                <p>
+                    Effective earnings per thousand impressions.
+                </p>
+
+            </div>
+
+
+            <div class="metric">
+
+                <div class="metric-value">
+                    CTR
+                </div>
+
+                <h3>
+                    Click-Through Rate
+                </h3>
+
+                <p>
+                    Percentage of impressions resulting in clicks.
+                </p>
+
+            </div>
+
+
+            <div class="metric">
+
+                <div class="metric-value">
+                    VR
+                </div>
+
+                <h3>
+                    Viewability
+                </h3>
+
+                <p>
+                    Measures whether an advertisement was viewable.
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================
+     STANDARDS
+========================================= -->
+
+<section class="standards">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <h2>
+                AdTech Standards & Technologies
+            </h2>
+
+            <p>
+                Explore important standards used throughout
+                digital advertising and programmatic ecosystems.
+            </p>
+
+        </div>
+
+
+        <div class="tags">
+
+            <a href="#" class="tag">
+                ads.txt
             </a>
 
-
-            <a
-                class="tool"
-                href="../tools/ecpm-calculator.html"
-            >
-
-                <strong>
-                    eCPM Calculator
-                </strong>
-
-                <span>
-                    Calculate effective cost per thousand impressions.
-                </span>
-
+            <a href="#" class="tag">
+                app-ads.txt
             </a>
 
-
-            <a
-                class="tool"
-                href="../tools/ctr-calculator.html"
-            >
-
-                <strong>
-                    CTR Calculator
-                </strong>
-
-                <span>
-                    Calculate advertising click-through rate.
-                </span>
-
+            <a href="#" class="tag">
+                sellers.json
             </a>
 
-
-            <a
-                class="tool"
-                href="../tools/fill-rate-calculator.html"
-            >
-
-                <strong>
-                    Fill Rate Calculator
-                </strong>
-
-                <span>
-                    Calculate advertising fill rate.
-                </span>
-
+            <a href="#" class="tag">
+                OpenRTB
             </a>
 
-
-            <a
-                class="tool"
-                href="../tools/ad-revenue-calculator.html"
-            >
-
-                <strong>
-                    Ad Revenue Calculator
-                </strong>
-
-                <span>
-                    Estimate advertising revenue from impressions and CPM.
-                </span>
-
+            <a href="#" class="tag">
+                SupplyChain
             </a>
 
+            <a href="#" class="tag">
+                VAST
+            </a>
 
-            <a
-                class="tool"
-                href="../tools/rpm-calculator.html"
-            >
+            <a href="#" class="tag">
+                VMAP
+            </a>
 
-                <strong>
-                    RPM Calculator
-                </strong>
-
-                <span>
-                    Calculate revenue per thousand page views.
-                </span>
-
+            <a href="#" class="tag">
+                CMP
             </a>
 
         </div>
@@ -1515,187 +3033,96 @@
 
 
 
-<!-- =========================
-     SEO CONTENT
-========================= -->
+<!-- =========================================
+     TOOLS
+========================================= -->
 
-<section class="seo-content">
+<section class="tools">
 
-    <h2>
-        What is Digital Advertising?
-    </h2>
+    <div class="container">
 
-    <p>
-        Digital advertising is the use of online platforms,
-        websites, applications, connected television and other
-        digital channels to deliver advertising to audiences.
-        Modern digital advertising includes direct campaigns,
-        programmatic advertising, search advertising, display
-        advertising, video advertising and connected TV.
-    </p>
+        <div class="section-title">
 
+            <h2>
+                Advertising & AdTech Tools
+            </h2>
 
-    <h2>
-        What is AdTech?
-    </h2>
+            <p>
+                Practical tools for publishers, advertisers
+                and AdTech professionals.
+            </p>
 
-    <p>
-        AdTech, short for advertising technology, refers to the
-        technologies and platforms used to buy, sell, deliver,
-        measure and optimize digital advertising. The ecosystem
-        includes publishers, advertisers, agencies, DSPs, SSPs,
-        ad exchanges, ad servers, data platforms and measurement
-        technologies.
-    </p>
+        </div>
 
 
-    <h2>
-        Programmatic Advertising
-    </h2>
-
-    <p>
-        Programmatic advertising uses automated technology to
-        buy and sell digital advertising inventory. Common
-        components include demand-side platforms, supply-side
-        platforms, ad exchanges, real-time bidding and header
-        bidding. Publishers use these technologies to connect
-        their inventory with advertising demand.
-    </p>
+        <div class="card-grid">
 
 
-    <h2>
-        Publisher Monetization
-    </h2>
+            <div class="card">
 
-    <p>
-        Publisher advertising revenue can depend on traffic,
-        impressions, CPM, eCPM, fill rate, viewability, demand
-        competition, ad formats and audience characteristics.
-        Understanding these metrics can help publishers evaluate
-        advertising performance and monetization opportunities.
-    </p>
+                <div class="card-icon">
+                    CPM
+                </div>
 
+                <h3>
+                    CPM Calculator
+                </h3>
 
-    <h2>
-        CTV and Video Advertising
-    </h2>
+                <p>
+                    Calculate CPM, impressions and advertising revenue.
+                </p>
 
-    <p>
-        Connected TV and digital video advertising are growing
-        areas of the digital advertising ecosystem. Technologies
-        such as VAST, video ad servers, client-side ad insertion
-        and server-side ad insertion help deliver advertising
-        across websites, applications, streaming services and
-        connected television platforms.
-    </p>
+                <a href="/tools/cpm-calculator/">
+                    Open Calculator →
+                </a>
+
+            </div>
 
 
-    <h2>
-        Explore PubsRate
-    </h2>
+            <div class="card">
 
-    <p>
-        Explore the
-        <a href="../publishers/">
-            PubsRate Publisher Directory
-        </a>
-        to discover publishers and media properties, or use our
-        <a href="../tools/">
-            AdTech Tools
-        </a>
-        to calculate advertising metrics and test advertising
-        implementations.
-    </p>
+                <div class="card-icon">
+                    VAST
+                </div>
 
-</section>
+                <h3>
+                    VAST Tester
+                </h3>
 
+                <p>
+                    Test and troubleshoot VAST video advertising tags.
+                </p>
 
+                <a href="/tools/vast-tester/">
+                    Open VAST Tester →
+                </a>
 
-<!-- =========================
-     FAQ
-========================= -->
-
-<section class="faq">
-
-    <div class="section-header">
-
-        <h2>
-            Frequently Asked Questions
-        </h2>
-
-    </div>
+            </div>
 
 
-    <div class="faq-item">
+            <div class="card">
 
-        <h3>
-            What is digital advertising?
-        </h3>
+                <div class="card-icon">
+                    TAG
+                </div>
 
-        <p>
-            Digital advertising is advertising delivered through
-            digital channels such as websites, mobile applications,
-            search engines, online video and connected television.
-        </p>
+                <h3>
+                    Ad Tag Tester
+                </h3>
 
-    </div>
+                <p>
+                    Test advertising tags and troubleshoot
+                    implementation issues.
+                </p>
 
+                <a href="/tools/ad-tag-tester/">
+                    Open Ad Tag Tester →
+                </a>
 
-    <div class="faq-item">
-
-        <h3>
-            What is AdTech?
-        </h3>
-
-        <p>
-            AdTech is the technology ecosystem used to buy, sell,
-            deliver, measure and optimize digital advertising.
-        </p>
-
-    </div>
+            </div>
 
 
-    <div class="faq-item">
-
-        <h3>
-            What is programmatic advertising?
-        </h3>
-
-        <p>
-            Programmatic advertising uses automated technology to
-            buy and sell digital advertising inventory, often using
-            platforms such as DSPs, SSPs and ad exchanges.
-        </p>
-
-    </div>
-
-
-    <div class="faq-item">
-
-        <h3>
-            What is Google Ad Manager?
-        </h3>
-
-        <p>
-            Google Ad Manager is an advertising platform used by
-            publishers to manage digital advertising inventory,
-            campaigns, demand and monetization.
-        </p>
-
-    </div>
-
-
-    <div class="faq-item">
-
-        <h3>
-            What is header bidding?
-        </h3>
-
-        <p>
-            Header bidding is an auction technology that allows
-            publishers to offer advertising inventory to multiple
-            demand sources before selecting a winning ad opportunity.
-        </p>
+        </div>
 
     </div>
 
@@ -1703,41 +3130,119 @@
 
 
 
-<!-- =========================
+<!-- =========================================
+     FEEDBACK FORM
+========================================= -->
+
+<section class="feedback">
+
+    <div class="container">
+
+        <div class="feedback-box">
+
+            <h2>
+                Something Doesn't Look Right?
+            </h2>
+
+            <p>
+                Found an incorrect explanation, outdated information
+                or something that could be clearer? Let us know and
+                we'll review it.
+            </p>
+
+
+            <form>
+
+
+                <div class="form-group">
+
+                    <label for="name">
+                        Name
+                    </label>
+
+                    <input
+                        type="text"
+                        id="name"
+                        name="name"
+                        placeholder="Your name"
+                        required>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="description">
+                        Description
+                    </label>
+
+                    <textarea
+                        id="description"
+                        name="description"
+                        placeholder="Tell us what needs to be corrected or clarified..."
+                        required></textarea>
+
+                </div>
+
+
+                <button
+                    type="submit"
+                    class="submit-btn">
+
+                    Submit Feedback
+
+                </button>
+
+
+            </form>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================
      CTA
-========================= -->
+========================================= -->
 
 <section class="cta">
 
-    <h2>
-        Explore Publishers,Content Owners & Distributors on PubsRate
-    </h2>
+    <div class="container">
 
+        <h2>
+            Explore the World of Advertising
+        </h2>
 
-    <p>
-        Discover publishers,content owner & distributor and media properties across
-        news, entertainment, sports, finance and technology.
-    </p>
+        <p>
+            Discover programmatic advertising, DOOH, CTV,
+            publisher monetization, AdTech standards and
+            practical advertising tools on PubsRate.
+        </p>
 
+        <a href="/advertising/" class="btn btn-primary">
+            Explore Advertising Hub →
+        </a>
 
-    <a href="../publishers/">
-        Browse Publishers and Content Owners Directory →
-    </a>
+    </div>
 
 </section>
 
 
-</main>
 
-
-
-<!-- =========================
+<!-- =========================================
      FOOTER
-========================= -->
+========================================= -->
 
 <footer>
 
-    © 2026 PubsRate. All rights reserved.
+    <p>
+        <strong>PubsRate</strong>
+        — Publisher Monetization,
+        Advertising & AdTech Resources
+    </p>
 
 </footer>
 
@@ -1745,4 +3250,3 @@
 </body>
 
 </html>
-```
