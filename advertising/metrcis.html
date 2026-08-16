@@ -1,0 +1,2228 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Advertising Metrics & Pricing Models | CPM, CPC, CPA, ROAS & Viewability | PubsRate</title>
+
+    <meta name="description"
+          content="Learn advertising metrics and pricing models including CPM, CPC, CPD, CPA, CPL, CPI, ROAS and ad viewability with simple explanations and examples from PubsRate.">
+
+    <meta name="keywords"
+          content="CPM, CPC, CPD, CPA, CPL, CPI, ROAS, advertising metrics, ad pricing models, ad viewability, digital advertising, AdTech, publisher monetization">
+
+    <meta name="author"
+          content="PubsRate">
+
+    <meta name="robots"
+          content="index, follow, max-image-preview:large">
+
+    <link rel="canonical"
+          href="https://www.pubsrate.com/advertising/metrics/">
+
+
+    <!-- =========================
+         OPEN GRAPH
+    ========================== -->
+
+    <meta property="og:type"
+          content="article">
+
+    <meta property="og:title"
+          content="Advertising Metrics & Pricing Models | PubsRate">
+
+    <meta property="og:description"
+          content="Understand CPM, CPC, CPD, CPA, CPL, CPI, ROAS and ad viewability with simple explanations from PubsRate.">
+
+    <meta property="og:url"
+          content="https://www.pubsrate.com/advertising/metrics/">
+
+    <meta property="og:site_name"
+          content="PubsRate">
+
+
+    <!-- =========================
+         TWITTER
+    ========================== -->
+
+    <meta name="twitter:card"
+          content="summary">
+
+    <meta name="twitter:title"
+          content="Advertising Metrics & Pricing Models | PubsRate">
+
+    <meta name="twitter:description"
+          content="Learn CPM, CPC, CPD, CPA, CPL, CPI, ROAS and ad viewability with simple advertising explanations.">
+
+
+    <!-- =========================
+         STRUCTURED DATA
+    ========================== -->
+
+    <script type="application/ld+json">
+
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "Advertising Metrics & Pricing Models",
+        "description": "Learn advertising metrics and pricing models including CPM, CPC, CPD, CPA, CPL, CPI, ROAS and ad viewability.",
+        "author": {
+            "@type": "Organization",
+            "name": "PubsRate",
+            "url": "https://www.pubsrate.com/"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "PubsRate",
+            "url": "https://www.pubsrate.com/"
+        },
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://www.pubsrate.com/advertising/metrics/"
+        },
+        "dateModified": "2026-08-16"
+    }
+
+    </script>
+
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f7f9fc;
+            color: #172033;
+            line-height: 1.7;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1150px;
+            margin: auto;
+        }
+
+
+        /* =========================
+           NAVBAR
+        ========================== */
+
+        .navbar {
+            min-height: 68px;
+
+            background: #ffffff;
+
+            border-bottom: 1px solid #e5e7eb;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            padding: 0 5%;
+
+            position: sticky;
+
+            top: 0;
+
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 24px;
+
+            font-weight: 700;
+
+            color: #111827;
+        }
+
+        .nav-links {
+            display: flex;
+
+            gap: 25px;
+
+            align-items: center;
+        }
+
+        .nav-links a {
+            font-size: 14px;
+
+            color: #4b5563;
+        }
+
+        .nav-links a:hover {
+            color: #2563eb;
+        }
+
+
+        /* =========================
+           NEWS NAV ITEM
+        ========================== */
+
+        .news-link {
+            display: flex;
+
+            align-items: center;
+
+            gap: 5px;
+        }
+
+        .news-link small {
+            font-size: 7px;
+
+            line-height: 1;
+
+            color: #2563eb;
+
+            font-weight: 700;
+
+            letter-spacing: .4px;
+
+            white-space: nowrap;
+        }
+
+
+        /* =========================
+           BREADCRUMB
+        ========================== */
+
+        .breadcrumb {
+            background: #ffffff;
+
+            border-bottom: 1px solid #e5e7eb;
+
+            padding: 12px 0;
+
+            font-size: 12px;
+
+            color: #6b7280;
+        }
+
+        .breadcrumb a {
+            color: #2563eb;
+        }
+
+
+        /* =========================
+           HERO
+        ========================== */
+
+        .hero {
+            background:
+                radial-gradient(
+                    circle at 80% 20%,
+                    #263b65,
+                    transparent 35%
+                ),
+                #111827;
+
+            color: #ffffff;
+
+            text-align: center;
+
+            padding: 75px 20px;
+        }
+
+        .hero-label {
+            font-size: 11px;
+
+            letter-spacing: 1.5px;
+
+            font-weight: 700;
+
+            color: #93c5fd;
+
+            margin-bottom: 15px;
+        }
+
+        .hero h1 {
+            font-size: 45px;
+
+            line-height: 1.15;
+
+            margin-bottom: 18px;
+        }
+
+        .hero p {
+            max-width: 800px;
+
+            margin: auto;
+
+            color: #d1d5db;
+
+            font-size: 17px;
+        }
+
+
+        /* =========================
+           EXPLORE BAR
+        ========================== */
+
+        .explore-bar {
+            background: #ffffff;
+
+            border-bottom: 1px solid #e5e7eb;
+
+            padding: 13px 0;
+        }
+
+        .explore-inner {
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            gap: 8px;
+
+            flex-wrap: wrap;
+        }
+
+        .explore-label {
+            font-size: 10px;
+
+            font-weight: 700;
+
+            color: #6b7280;
+
+            letter-spacing: 1px;
+
+            margin-right: 4px;
+        }
+
+        .explore-link {
+            padding: 6px 11px;
+
+            border: 1px solid #e5e7eb;
+
+            border-radius: 6px;
+
+            font-size: 10px;
+
+            color: #4b5563;
+
+            transition: .2s;
+        }
+
+        .explore-link:hover {
+            background: #eff6ff;
+
+            border-color: #93c5fd;
+
+            color: #2563eb;
+        }
+
+
+        /* =========================
+           INTRO
+        ========================== */
+
+        .intro {
+            background: #ffffff;
+
+            padding: 65px 0;
+        }
+
+        .section-title {
+            text-align: center;
+
+            margin-bottom: 40px;
+        }
+
+        .section-label {
+            display: inline-block;
+
+            font-size: 10px;
+
+            font-weight: 700;
+
+            letter-spacing: 1.5px;
+
+            color: #2563eb;
+
+            margin-bottom: 8px;
+        }
+
+        .section-title h2 {
+            font-size: 32px;
+
+            margin-bottom: 8px;
+        }
+
+        .section-title p {
+            max-width: 760px;
+
+            margin: auto;
+
+            color: #6b7280;
+
+            font-size: 14px;
+        }
+
+        .intro-box {
+            max-width: 900px;
+
+            margin: auto;
+
+            background: #f8fafc;
+
+            border: 1px solid #e5e7eb;
+
+            border-radius: 14px;
+
+            padding: 32px;
+        }
+
+        .intro-box p {
+            color: #5b6472;
+
+            font-size: 14px;
+
+            margin-bottom: 12px;
+        }
+
+        .intro-box p:last-child {
+            margin-bottom: 0;
+        }
+
+
+        /* =========================
+           METRIC CARDS
+        ========================== */
+
+        .metrics-section {
+            background: #f7f9fc;
+
+            padding: 70px 0;
+        }
+
+        .metrics-grid {
+            display: grid;
+
+            grid-template-columns:
+            repeat(2, 1fr);
+
+            gap: 22px;
+        }
+
+        .metric-card {
+            background: #ffffff;
+
+            border: 1px solid #e5e7eb;
+
+            border-radius: 15px;
+
+            padding: 30px;
+
+            position: relative;
+
+            transition: .25s ease;
+        }
+
+        .metric-card:hover {
+            transform: translateY(-5px);
+
+            border-color: #bfdbfe;
+
+            box-shadow:
+                0 15px 35px rgba(0,0,0,.07);
+        }
+
+        .metric-number {
+            position: absolute;
+
+            top: 22px;
+
+            right: 24px;
+
+            font-size: 11px;
+
+            font-weight: 700;
+
+            color: #9ca3af;
+        }
+
+        .metric-icon {
+            width: 52px;
+
+            height: 52px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            background: #eff6ff;
+
+            border-radius: 12px;
+
+            font-size: 20px;
+
+            margin-bottom: 18px;
+        }
+
+        .metric-card h3 {
+            font-size: 24px;
+
+            margin-bottom: 3px;
+        }
+
+        .metric-name {
+            display: block;
+
+            color: #2563eb;
+
+            font-size: 11px;
+
+            font-weight: 600;
+
+            margin-bottom: 14px;
+        }
+
+        .metric-card p {
+            color: #5b6472;
+
+            font-size: 13px;
+
+            line-height: 1.8;
+        }
+
+        .metric-tag {
+            display: inline-block;
+
+            margin-top: 18px;
+
+            padding: 5px 9px;
+
+            background: #111827;
+
+            color: #ffffff;
+
+            border-radius: 5px;
+
+            font-size: 9px;
+
+            font-weight: 600;
+        }
+
+
+        /* =========================
+           VIEWABILITY
+        ========================== */
+
+        .viewability-section {
+            background: #ffffff;
+
+            padding: 70px 0;
+        }
+
+        .viewability-box {
+            max-width: 950px;
+
+            margin: auto;
+
+            background: #f8fafc;
+
+            border: 1px solid #e5e7eb;
+
+            border-radius: 15px;
+
+            padding: 35px;
+        }
+
+        .viewability-box h3 {
+            font-size: 25px;
+
+            margin-bottom: 12px;
+        }
+
+        .viewability-box p {
+            color: #5b6472;
+
+            font-size: 13px;
+
+            margin-bottom: 12px;
+        }
+
+        .viewability-rule {
+            margin-top: 25px;
+
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 15px;
+        }
+
+        .rule-card {
+            background: #ffffff;
+
+            border: 1px solid #e5e7eb;
+
+            border-radius: 10px;
+
+            padding: 20px;
+        }
+
+        .rule-card strong {
+            display: block;
+
+            font-size: 15px;
+
+            margin-bottom: 6px;
+        }
+
+        .rule-card span {
+            font-size: 12px;
+
+            color: #6b7280;
+        }
+
+
+        /* =========================
+           FLOW
+        ========================== */
+
+        .flow-section {
+            background: #f7f9fc;
+
+            padding: 70px 0;
+        }
+
+        .flow {
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            flex-wrap: wrap;
+
+            gap: 10px;
+
+            margin-top: 35px;
+        }
+
+        .flow-box {
+            min-width: 150px;
+
+            text-align: center;
+
+            padding: 20px 15px;
+
+            background: #ffffff;
+
+            border: 1px solid #e5e7eb;
+
+            border-radius: 10px;
+
+            font-size: 12px;
+
+            font-weight: 700;
+        }
+
+        .flow-box small {
+            display: block;
+
+            color: #6b7280;
+
+            font-size: 10px;
+
+            font-weight: normal;
+
+            margin-top: 5px;
+        }
+
+        .flow-arrow {
+            color: #2563eb;
+
+            font-size: 20px;
+        }
+
+
+        /* =========================
+           COMPARISON
+        ========================== */
+
+        .comparison {
+            background: #ffffff;
+
+            padding: 70px 0;
+        }
+
+        .table-wrapper {
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+
+            border-collapse: collapse;
+
+            background: #ffffff;
+
+            border: 1px solid #e5e7eb;
+        }
+
+        th,
+        td {
+            padding: 15px;
+
+            border-bottom: 1px solid #e5e7eb;
+
+            text-align: left;
+
+            font-size: 13px;
+        }
+
+        th {
+            background: #111827;
+
+            color: #ffffff;
+
+            font-size: 12px;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+
+        /* =========================
+           QUICK REFERENCE
+        ========================== */
+
+        .quick-section {
+            background: #f7f9fc;
+
+            padding: 65px 0;
+        }
+
+        .quick-grid {
+            display: grid;
+
+            grid-template-columns:
+            repeat(4, 1fr);
+
+            gap: 14px;
+        }
+
+        .quick-card {
+            background: #ffffff;
+
+            border: 1px solid #e5e7eb;
+
+            border-radius: 10px;
+
+            padding: 20px;
+        }
+
+        .quick-card strong {
+            display: block;
+
+            font-size: 14px;
+
+            margin-bottom: 5px;
+        }
+
+        .quick-card span {
+            font-size: 11px;
+
+            color: #6b7280;
+        }
+
+
+        /* =========================
+           NOTICE
+        ========================== */
+
+        .notice-section {
+            background: #ffffff;
+
+            padding: 45px 0;
+        }
+
+        .notice-box {
+            max-width: 900px;
+
+            margin: auto;
+
+            background: #f8fafc;
+
+            border: 1px solid #e5e7eb;
+
+            border-radius: 12px;
+
+            padding: 28px;
+        }
+
+        .notice-box h2 {
+            font-size: 20px;
+
+            margin-bottom: 10px;
+        }
+
+        .notice-box p {
+            font-size: 12px;
+
+            color: #6b7280;
+
+            margin-bottom: 10px;
+        }
+
+
+        /* =========================
+           FEEDBACK
+        ========================== */
+
+        .feedback {
+            background: #ffffff;
+
+            padding: 25px 0 60px;
+        }
+
+        .feedback-box {
+            max-width: 900px;
+
+            margin: auto;
+
+            background: #f8fafc;
+
+            border: 1px solid #e5e7eb;
+
+            border-radius: 14px;
+
+            padding: 30px;
+        }
+
+        .feedback-label {
+            font-size: 10px;
+
+            color: #2563eb;
+
+            letter-spacing: 1px;
+
+            font-weight: 700;
+        }
+
+        .feedback-box h2 {
+            font-size: 23px;
+
+            margin: 5px 0 7px;
+        }
+
+        .feedback-box > p {
+            color: #6b7280;
+
+            font-size: 12px;
+
+            margin-bottom: 22px;
+        }
+
+        .feedback-form {
+            display: grid;
+
+            gap: 15px;
+        }
+
+        .feedback-form label {
+            font-size: 11px;
+
+            font-weight: 700;
+
+            color: #374151;
+
+            margin-bottom: -8px;
+        }
+
+        .feedback-form input,
+        .feedback-form textarea {
+            width: 100%;
+
+            border: 1px solid #dbe1e8;
+
+            border-radius: 8px;
+
+            padding: 12px 13px;
+
+            font-family: inherit;
+
+            font-size: 13px;
+
+            color: #172033;
+
+            background: #ffffff;
+
+            outline: none;
+
+            transition: .2s;
+        }
+
+        .feedback-form input:focus,
+        .feedback-form textarea:focus {
+            border-color: #93c5fd;
+
+            box-shadow: 0 0 0 3px rgba(37,99,235,.08);
+        }
+
+        .feedback-form textarea {
+            min-height: 130px;
+
+            resize: vertical;
+        }
+
+        .feedback-submit {
+            border: none;
+
+            background: #2563eb;
+
+            color: #ffffff;
+
+            padding: 12px 20px;
+
+            border-radius: 8px;
+
+            font-size: 12px;
+
+            font-weight: 700;
+
+            cursor: pointer;
+
+            transition: .2s;
+
+            width: fit-content;
+        }
+
+        .feedback-submit:hover {
+            background: #1d4ed8;
+        }
+
+        .feedback-submit:disabled {
+            opacity: .6;
+
+            cursor: not-allowed;
+        }
+
+        .feedback-status {
+            font-size: 12px;
+
+            color: #2563eb;
+
+            display: none;
+        }
+
+
+        /* =========================
+           CTA
+        ========================== */
+
+        .cta {
+            background: #111827;
+
+            color: #ffffff;
+
+            text-align: center;
+
+            padding: 65px 0;
+        }
+
+        .cta h2 {
+            font-size: 30px;
+
+            margin-bottom: 10px;
+        }
+
+        .cta p {
+            max-width: 700px;
+
+            margin: auto auto 20px;
+
+            color: #9ca3af;
+
+            font-size: 14px;
+        }
+
+        .cta-button {
+            display: inline-block;
+
+            background: #2563eb;
+
+            padding: 11px 20px;
+
+            border-radius: 7px;
+
+            font-size: 13px;
+
+            font-weight: 600;
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================== */
+
+        footer {
+            background: #0b1120;
+
+            color: #9ca3af;
+
+            text-align: center;
+
+            padding: 35px 20px;
+
+            font-size: 12px;
+        }
+
+        footer strong {
+            color: #ffffff;
+        }
+
+
+        /* =========================
+           RESPONSIVE
+        ========================== */
+
+        @media (max-width: 900px) {
+
+            .metrics-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .quick-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+        }
+
+
+        @media (max-width: 650px) {
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero {
+                padding: 60px 20px;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .hero p {
+                font-size: 14px;
+            }
+
+            .viewability-rule {
+                grid-template-columns: 1fr;
+            }
+
+            .quick-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .flow {
+                flex-direction: column;
+            }
+
+            .flow-arrow {
+                transform: rotate(90deg);
+            }
+
+            .feedback-button {
+                width: 100%;
+
+                text-align: center;
+            }
+
+            .feedback-submit {
+                width: 100%;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     NAVBAR
+===================================================== -->
+
+<header class="navbar">
+
+    <div class="logo">
+        PubsRate
+    </div>
+
+    <nav class="nav-links">
+
+        <a href="/">
+            Home
+        </a>
+
+        <a href="/publishers/">
+            Publishers
+        </a>
+
+        <a href="/advertising/">
+            Advertising Hub
+        </a>
+
+        <a href="/tools/">
+            Tools
+        </a>
+
+        <a href="/news/" class="news-link">
+
+            <span>News</span>
+
+            <small>
+                ✦ COMING SOON
+            </small>
+
+        </a>
+
+    </nav>
+
+</header>
+
+
+
+<!-- =====================================================
+     BREADCRUMB
+===================================================== -->
+
+<div class="breadcrumb">
+
+    <div class="container">
+
+        <a href="/">
+            PubsRate
+        </a>
+
+        &nbsp; / &nbsp;
+
+        <a href="/advertising/">
+            Advertising Hub
+        </a>
+
+        &nbsp; / &nbsp;
+
+        Advertising Metrics
+
+    </div>
+
+</div>
+
+
+
+<!-- =====================================================
+     HERO
+===================================================== -->
+
+<section class="hero">
+
+    <div class="hero-label">
+        PUBSRATE • ADVERTISING METRICS
+    </div>
+
+    <h1>
+        Advertising Metrics & Pricing Models
+    </h1>
+
+    <p>
+        Understand CPM, CPC, CPD, CPA, CPL, CPI, ROAS
+        and viewability with simple explanations.
+    </p>
+
+</section>
+
+
+
+<!-- =====================================================
+     EXPLORE
+===================================================== -->
+
+<div class="explore-bar">
+
+    <div class="container explore-inner">
+
+        <span class="explore-label">
+            EXPLORE
+        </span>
+
+        <a href="#cpm" class="explore-link">CPM</a>
+
+        <a href="#cpc" class="explore-link">CPC</a>
+
+        <a href="#cpd" class="explore-link">CPD</a>
+
+        <a href="#cpa" class="explore-link">CPA</a>
+
+        <a href="#cpl" class="explore-link">CPL</a>
+
+        <a href="#cpi" class="explore-link">CPI</a>
+
+        <a href="#roas" class="explore-link">ROAS</a>
+
+        <a href="#viewability" class="explore-link">
+            Viewability
+        </a>
+
+    </div>
+
+</div>
+
+
+
+<!-- =====================================================
+     INTRO
+===================================================== -->
+
+<section class="intro">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <div class="section-label">
+                ADVERTISING FUNDAMENTALS
+            </div>
+
+            <h2>
+                How Advertisers Measure Campaigns
+            </h2>
+
+            <p>
+                Advertising campaigns can be priced and evaluated
+                using different metrics depending on the campaign
+                objective.
+            </p>
+
+        </div>
+
+
+        <div class="intro-box">
+
+            <p>
+                Advertisers may pay based on impressions, clicks,
+                actions, leads, installs or a fixed advertising
+                period. Publishers and advertisers also use
+                performance metrics to understand how campaigns
+                are performing.
+            </p>
+
+            <p>
+                Understanding these terms helps explain how money
+                moves through the digital advertising ecosystem
+                and how campaign performance is measured.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     METRIC CARDS
+===================================================== -->
+
+<section class="metrics-section">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <div class="section-label">
+                PRICING & PERFORMANCE
+            </div>
+
+            <h2>
+                Key Advertising Metrics
+            </h2>
+
+            <p>
+                Explore the most common pricing models and
+                performance metrics.
+            </p>
+
+        </div>
+
+
+        <div class="metrics-grid">
+
+
+            <div class="metric-card" id="cpm">
+
+                <div class="metric-number">01</div>
+
+                <div class="metric-icon">1000</div>
+
+                <h3>CPM</h3>
+
+                <span class="metric-name">
+                    Cost Per Mille
+                </span>
+
+                <p>
+                    CPM represents the cost for one thousand
+                    ad impressions. Under a CPM pricing model,
+                    the advertiser pays based on impressions
+                    rather than clicks.
+                </p>
+
+                <span class="metric-tag">
+                    IMPRESSIONS
+                </span>
+
+            </div>
+
+
+
+            <div class="metric-card" id="cpc">
+
+                <div class="metric-number">02</div>
+
+                <div class="metric-icon">↗</div>
+
+                <h3>CPC</h3>
+
+                <span class="metric-name">
+                    Cost Per Click
+                </span>
+
+                <p>
+                    CPC is a pricing model where the advertiser
+                    pays when a user clicks on the advertisement.
+                </p>
+
+                <span class="metric-tag">
+                    CLICKS
+                </span>
+
+            </div>
+
+
+
+            <div class="metric-card" id="cpd">
+
+                <div class="metric-number">03</div>
+
+                <div class="metric-icon">24H</div>
+
+                <h3>CPD</h3>
+
+                <span class="metric-name">
+                    Cost Per Day
+                </span>
+
+                <p>
+                    CPD is a pricing model where an advertiser
+                    pays a fixed amount for an agreed advertising
+                    placement or period, typically for one day.
+                </p>
+
+                <span class="metric-tag">
+                    TIME
+                </span>
+
+            </div>
+
+
+
+            <div class="metric-card" id="cpa">
+
+                <div class="metric-number">04</div>
+
+                <div class="metric-icon">✓</div>
+
+                <h3>CPA</h3>
+
+                <span class="metric-name">
+                    Cost Per Acquisition / Action
+                </span>
+
+                <p>
+                    CPA is a performance-based pricing model where
+                    the advertiser pays when a defined action occurs,
+                    such as a purchase, registration or conversion.
+                </p>
+
+                <span class="metric-tag">
+                    ACTION
+                </span>
+
+            </div>
+
+
+
+            <div class="metric-card" id="cpl">
+
+                <div class="metric-number">05</div>
+
+                <div class="metric-icon">+</div>
+
+                <h3>CPL</h3>
+
+                <span class="metric-name">
+                    Cost Per Lead
+                </span>
+
+                <p>
+                    CPL is a pricing model where the advertiser
+                    pays for a qualified lead generated through
+                    an advertising campaign.
+                </p>
+
+                <span class="metric-tag">
+                    LEAD
+                </span>
+
+            </div>
+
+
+
+            <div class="metric-card" id="cpi">
+
+                <div class="metric-number">06</div>
+
+                <div class="metric-icon">↓</div>
+
+                <h3>CPI</h3>
+
+                <span class="metric-name">
+                    Cost Per Install
+                </span>
+
+                <p>
+                    CPI is a pricing model where the advertiser
+                    pays when a user installs an application
+                    as a result of an advertising campaign.
+                </p>
+
+                <span class="metric-tag">
+                    INSTALL
+                </span>
+
+            </div>
+
+
+
+            <div class="metric-card" id="roas">
+
+                <div class="metric-number">07</div>
+
+                <div class="metric-icon">ROI</div>
+
+                <h3>ROAS</h3>
+
+                <span class="metric-name">
+                    Return on Ad Spend
+                </span>
+
+                <p>
+                    ROAS measures the revenue generated from
+                    advertising compared with the amount spent
+                    on advertising.
+                </p>
+
+                <span class="metric-tag">
+                    PERFORMANCE
+                </span>
+
+            </div>
+
+
+
+            <div class="metric-card" id="viewability">
+
+                <div class="metric-number">08</div>
+
+                <div class="metric-icon">👁</div>
+
+                <h3>Viewability</h3>
+
+                <span class="metric-name">
+                    Ad Viewability
+                </span>
+
+                <p>
+                    Viewability measures whether an ad had an
+                    opportunity to be seen by a user. An ad being
+                    served does not necessarily mean that the user
+                    actually saw it.
+                </p>
+
+                <span class="metric-tag">
+                    VISIBILITY
+                </span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     VIEWABILITY
+===================================================== -->
+
+<section class="viewability-section">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <div class="section-label">
+                UNDERSTANDING VIEWABILITY
+            </div>
+
+            <h2>
+                Served Does Not Always Mean Viewable
+            </h2>
+
+            <p>
+                An impression can be served without the
+                advertisement actually being visible to the user.
+            </p>
+
+        </div>
+
+
+        <div class="viewability-box">
+
+            <h3>
+                What is Viewability?
+            </h3>
+
+            <p>
+                Viewability measures whether an advertisement had
+                an opportunity to be seen by the user.
+            </p>
+
+            <p>
+                For example, an advertisement may be loaded below
+                the visible portion of a webpage. The ad can be
+                served even though the user has not yet scrolled
+                far enough to see it.
+            </p>
+
+            <p>
+                Common industry viewability definitions use both
+                the percentage of the advertisement that is visible
+                and the amount of time it remains visible.
+            </p>
+
+
+            <div class="viewability-rule">
+
+                <div class="rule-card">
+
+                    <strong>
+                        Display Advertising
+                    </strong>
+
+                    <span>
+                        A commonly used MRC/IAB measurement threshold
+                        is at least 50% of the ad's pixels in view
+                        for at least 1 continuous second.
+                    </span>
+
+                </div>
+
+
+                <div class="rule-card">
+
+                    <strong>
+                        Video Advertising
+                    </strong>
+
+                    <span>
+                        A commonly used MRC/IAB measurement threshold
+                        is at least 50% of the video's pixels in view
+                        for at least 2 continuous seconds.
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     FLOW
+===================================================== -->
+
+<section class="flow-section">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <div class="section-label">
+                SIMPLE EXAMPLE
+            </div>
+
+            <h2>
+                Served → Viewable → Clicked → Converted
+            </h2>
+
+            <p>
+                These events represent different stages of
+                advertising performance.
+            </p>
+
+        </div>
+
+
+        <div class="flow">
+
+            <div class="flow-box">
+                Ad Served
+                <small>Ad is delivered</small>
+            </div>
+
+            <div class="flow-arrow">→</div>
+
+            <div class="flow-box">
+                Viewable
+                <small>Ad has an opportunity to be seen</small>
+            </div>
+
+            <div class="flow-arrow">→</div>
+
+            <div class="flow-box">
+                Clicked
+                <small>User interacts with ad</small>
+            </div>
+
+            <div class="flow-arrow">→</div>
+
+            <div class="flow-box">
+                Converted
+                <small>Desired action occurs</small>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     COMPARISON
+===================================================== -->
+
+<section class="comparison">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <div class="section-label">
+                QUICK REFERENCE
+            </div>
+
+            <h2>
+                Metrics at a Glance
+            </h2>
+
+            <p>
+                A quick overview of what each metric measures.
+            </p>
+
+        </div>
+
+
+        <div class="table-wrapper">
+
+            <table>
+
+                <thead>
+
+                    <tr>
+                        <th>Metric</th>
+                        <th>Full Form</th>
+                        <th>Measures</th>
+                    </tr>
+
+                </thead>
+
+
+                <tbody>
+
+                    <tr>
+                        <td><strong>CPM</strong></td>
+                        <td>Cost Per Mille</td>
+                        <td>Cost per thousand impressions</td>
+                    </tr>
+
+                    <tr>
+                        <td><strong>CPC</strong></td>
+                        <td>Cost Per Click</td>
+                        <td>Cost per click</td>
+                    </tr>
+
+                    <tr>
+                        <td><strong>CPD</strong></td>
+                        <td>Cost Per Day</td>
+                        <td>Fixed cost for an agreed period</td>
+                    </tr>
+
+                    <tr>
+                        <td><strong>CPA</strong></td>
+                        <td>Cost Per Acquisition / Action</td>
+                        <td>Cost per defined action or conversion</td>
+                    </tr>
+
+                    <tr>
+                        <td><strong>CPL</strong></td>
+                        <td>Cost Per Lead</td>
+                        <td>Cost per qualified lead</td>
+                    </tr>
+
+                    <tr>
+                        <td><strong>CPI</strong></td>
+                        <td>Cost Per Install</td>
+                        <td>Cost per application install</td>
+                    </tr>
+
+                    <tr>
+                        <td><strong>ROAS</strong></td>
+                        <td>Return on Ad Spend</td>
+                        <td>Revenue generated compared with advertising spend</td>
+                    </tr>
+
+                    <tr>
+                        <td><strong>Viewability</strong></td>
+                        <td>Ad Viewability</td>
+                        <td>Whether an ad had an opportunity to be seen</td>
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     QUICK REFERENCE
+===================================================== -->
+
+<section class="quick-section">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <div class="section-label">
+                REMEMBER THE DIFFERENCE
+            </div>
+
+            <h2>
+                Eight Key Terms
+            </h2>
+
+            <p>
+                A quick memory guide for advertisers,
+                publishers and AdTech professionals.
+            </p>
+
+        </div>
+
+
+        <div class="quick-grid">
+
+            <div class="quick-card">
+                <strong>CPM</strong>
+                <span>Pay based on impressions.</span>
+            </div>
+
+            <div class="quick-card">
+                <strong>CPC</strong>
+                <span>Pay based on clicks.</span>
+            </div>
+
+            <div class="quick-card">
+                <strong>CPD</strong>
+                <span>Pay a fixed amount for an agreed period.</span>
+            </div>
+
+            <div class="quick-card">
+                <strong>CPA</strong>
+                <span>Pay when a defined action occurs.</span>
+            </div>
+
+            <div class="quick-card">
+                <strong>CPL</strong>
+                <span>Pay for qualified leads.</span>
+            </div>
+
+            <div class="quick-card">
+                <strong>CPI</strong>
+                <span>Pay for application installs.</span>
+            </div>
+
+            <div class="quick-card">
+                <strong>ROAS</strong>
+                <span>Compare advertising revenue with ad spend.</span>
+            </div>
+
+            <div class="quick-card">
+                <strong>Viewability</strong>
+                <span>
+                    Measures whether the ad had an opportunity
+                    to be seen.
+                </span>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     CONTENT NOTICE
+===================================================== -->
+
+<section class="notice-section">
+
+    <div class="container">
+
+        <div class="notice-box">
+
+            <h2>
+                Content & Copyright Notice
+            </h2>
+
+            <p>
+                This page has been written and structured by
+                PubsRate for educational and informational purposes.
+                The explanations, examples and presentation are
+                created for the PubsRate platform.
+            </p>
+
+            <p>
+                Advertising terminology and measurement standards
+                may vary between platforms, advertisers, publishers
+                and measurement providers.
+            </p>
+
+            <p>
+                Third-party standards, company names, trademarks,
+                products and technologies mentioned on this page
+                belong to their respective owners.
+            </p>
+
+            <p>
+                Please do not reproduce the complete page content,
+                graphics or structure without permission.
+            </p>
+
+            <p style="
+                margin-top:15px;
+                font-weight:600;
+                color:#374151;
+            ">
+                Last reviewed: August 2026
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     FEEDBACK FORM
+===================================================== -->
+
+<section class="feedback">
+
+    <div class="container">
+
+        <div class="feedback-box">
+
+            <span class="feedback-label">
+                HELP US IMPROVE
+            </span>
+
+            <h2>
+                Something Doesn't Look Right?
+            </h2>
+
+            <p>
+                Found an incorrect explanation, outdated information
+                or something that needs improvement? Tell us about it.
+            </p>
+
+
+            <form id="feedbackForm"
+                  class="feedback-form">
+
+                <label for="feedbackName">
+                    Name
+                </label>
+
+                <input
+                    type="text"
+                    id="feedbackName"
+                    name="name"
+                    placeholder="Enter your name"
+                    required
+                >
+
+
+                <label for="feedbackDescription">
+                    Description
+                </label>
+
+                <textarea
+                    id="feedbackDescription"
+                    name="description"
+                    placeholder="Tell us what doesn't look right..."
+                    required
+                ></textarea>
+
+
+                <button
+                    type="submit"
+                    class="feedback-submit"
+                    id="feedbackSubmit">
+
+                    Submit Feedback →
+
+                </button>
+
+                <div
+                    class="feedback-status"
+                    id="feedbackStatus">
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     CTA
+===================================================== -->
+
+<section class="cta">
+
+    <div class="container">
+
+        <h2>
+            Explore More AdTech
+        </h2>
+
+        <p>
+            Continue exploring programmatic advertising,
+            publisher monetization, advertising technology
+            and other concepts through PubsRate.
+        </p>
+
+        <a href="/advertising/"
+           class="cta-button">
+
+            Explore Advertising Hub →
+
+        </a>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer>
+
+    <p>
+
+        <strong>PubsRate</strong>
+
+        — Publisher Monetization,
+        Advertising & AdTech Resources
+
+    </p>
+
+</footer>
+
+
+
+<!-- =====================================================
+     FIREBASE FEEDBACK
+=====================================================
+
+     IMPORTANT:
+
+     Add your Firebase configuration below.
+
+     Replace the placeholder values with the Firebase
+     configuration from your Firebase project.
+
+===================================================== -->
+
+
+<script type="module">
+
+    /*
+    =====================================================
+    FIREBASE CONFIGURATION
+    =====================================================
+
+    Replace these values with your Firebase project values.
+
+    Example:
+
+    const firebaseConfig = {
+        apiKey: "YOUR_API_KEY",
+        authDomain: "YOUR_PROJECT.firebaseapp.com",
+        projectId: "YOUR_PROJECT_ID",
+        storageBucket: "YOUR_PROJECT.firebasestorage.app",
+        messagingSenderId: "YOUR_SENDER_ID",
+        appId: "YOUR_APP_ID"
+    };
+
+    =====================================================
+    */
+
+
+    import {
+        initializeApp
+    }
+    from "https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js";
+
+
+    import {
+        getFirestore,
+        collection,
+        addDoc,
+        serverTimestamp
+    }
+    from "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
+
+
+    const firebaseConfig = {
+
+        apiKey: "YOUR_API_KEY",
+
+        authDomain: "YOUR_PROJECT.firebaseapp.com",
+
+        projectId: "YOUR_PROJECT_ID",
+
+        storageBucket: "YOUR_PROJECT.firebasestorage.app",
+
+        messagingSenderId: "YOUR_SENDER_ID",
+
+        appId: "YOUR_APP_ID"
+
+    };
+
+
+    /*
+    =====================================================
+    INITIALIZE FIREBASE
+    =====================================================
+    */
+
+    const app =
+        initializeApp(firebaseConfig);
+
+
+    const db =
+        getFirestore(app);
+
+
+
+    /*
+    =====================================================
+    FEEDBACK FORM
+    =====================================================
+    */
+
+    const feedbackForm =
+        document.getElementById("feedbackForm");
+
+
+    const feedbackSubmit =
+        document.getElementById("feedbackSubmit");
+
+
+    const feedbackStatus =
+        document.getElementById("feedbackStatus");
+
+
+
+    feedbackForm.addEventListener(
+        "submit",
+        async function(event) {
+
+            event.preventDefault();
+
+
+            const name =
+                document
+                .getElementById("feedbackName")
+                .value
+                .trim();
+
+
+            const description =
+                document
+                .getElementById("feedbackDescription")
+                .value
+                .trim();
+
+
+            if (!name || !description) {
+
+                feedbackStatus.style.display = "block";
+
+                feedbackStatus.textContent =
+                    "Please complete both fields.";
+
+                return;
+
+            }
+
+
+            feedbackSubmit.disabled = true;
+
+            feedbackSubmit.textContent =
+                "Submitting...";
+
+
+            try {
+
+                await addDoc(
+                    collection(db, "feedback"),
+                    {
+
+                        name: name,
+
+                        description: description,
+
+                        page:
+                            window.location.pathname,
+
+                        pageTitle:
+                            document.title,
+
+                        createdAt:
+                            serverTimestamp()
+
+                    }
+                );
+
+
+                feedbackStatus.style.display =
+                    "block";
+
+
+                feedbackStatus.textContent =
+                    "Thank you! Your feedback has been submitted.";
+
+
+                feedbackForm.reset();
+
+
+                feedbackSubmit.textContent =
+                    "Submitted ✓";
+
+
+            }
+            catch(error) {
+
+                console.error(
+                    "Feedback submission error:",
+                    error
+                );
+
+
+                feedbackStatus.style.display =
+                    "block";
+
+
+                feedbackStatus.textContent =
+                    "Something went wrong. Please try again.";
+
+
+                feedbackSubmit.disabled =
+                    false;
+
+
+                feedbackSubmit.textContent =
+                    "Submit Feedback →";
+
+            }
+
+        }
+    );
+
+</script>
+
+
+</body>
+
+</html>
