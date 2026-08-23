@@ -1,0 +1,3098 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+
+    <!-- =========================
+         SEO
+    ========================== -->
+
+    <title>
+        SSP Recommendation Tool | Find the Best SSP for Publishers | PubsRate
+    </title>
+
+    <meta name="description"
+          content="Find the best SSP for your website, app, video, CTV or DOOH inventory. Compare SSPs by geography, inventory type, OpenRTB, VAST, Open Bidding, header bidding, pause ads, CPM and publisher requirements.">
+
+    <meta name="keywords"
+          content="SSP recommendation tool, best SSP for publishers, SSP comparison, supply side platform, SSP, OpenRTB SSP, VAST SSP, video SSP, CTV SSP, DOOH SSP, header bidding SSP, Open Bidding SSP, publisher monetization, adtech">
+
+    <meta name="robots"
+          content="index, follow">
+
+    <meta name="author"
+          content="PubsRate">
+
+    <link rel="canonical"
+          href="https://www.pubsrate.com/tools/ssp-recommendation/">
+
+
+    <!-- =========================
+         OPEN GRAPH
+    ========================== -->
+
+    <meta property="og:type"
+          content="website">
+
+    <meta property="og:title"
+          content="SSP Recommendation Tool | Find the Best SSP for Publishers">
+
+    <meta property="og:description"
+          content="Compare SSPs based on inventory type, geography, OpenRTB, VAST, Open Bidding, header bidding, pause ads, CPM and publisher requirements.">
+
+    <meta property="og:url"
+          content="https://www.pubsrate.com/tools/ssp-recommendation/">
+
+    <meta property="og:site_name"
+          content="PubsRate">
+
+
+    <!-- =========================
+         TWITTER
+    ========================== -->
+
+    <meta name="twitter:card"
+          content="summary">
+
+    <meta name="twitter:title"
+          content="SSP Recommendation Tool | PubsRate">
+
+    <meta name="twitter:description"
+          content="Find and compare SSPs for display, video, CTV, DOOH and other publisher inventory.">
+
+
+    <!-- =========================
+         STRUCTURED DATA
+    ========================== -->
+
+    <script type="application/ld+json">
+
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "PubsRate SSP Recommendation Tool",
+        "url": "https://www.pubsrate.com/tools/ssp-recommendation/",
+        "description": "A publisher-focused tool for comparing SSPs based on inventory type, geography, request protocols, monetization integrations and publisher requirements.",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Web",
+        "author": {
+            "@type": "Organization",
+            "name": "PubsRate"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "PubsRate"
+        }
+    }
+
+    </script>
+
+
+    <script type="application/ld+json">
+
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "PubsRate",
+                "item": "https://www.pubsrate.com/"
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Tools",
+                "item": "https://www.pubsrate.com/tools/"
+            },
+            {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "SSP Recommendation Tool",
+                "item": "https://www.pubsrate.com/tools/ssp-recommendation/"
+            }
+        ]
+    }
+
+    </script>
+
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f7f9fc;
+            color: #172033;
+            line-height: 1.7;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1150px;
+            margin: auto;
+        }
+
+
+        /* =====================================
+           NAVBAR
+        ===================================== */
+
+        .navbar {
+            height: 68px;
+
+            background: #ffffff;
+
+            border-bottom: 1px solid #e5e7eb;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            padding: 0 5%;
+
+            position: sticky;
+
+            top: 0;
+
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 24px;
+
+            font-weight: 700;
+
+            color: #111827;
+        }
+
+        .nav-links {
+            display: flex;
+
+            gap: 26px;
+
+            align-items: center;
+        }
+
+        .nav-links a {
+            font-size: 14px;
+
+            color: #4b5563;
+        }
+
+        .nav-links a:hover {
+            color: #2563eb;
+        }
+
+
+        /* =====================================
+           NEWS
+        ===================================== */
+
+        .news-coming {
+            position: relative;
+            cursor: default;
+        }
+
+        .news-coming > span {
+            font-size: 14px;
+            color: #4b5563;
+        }
+
+        .coming-soon-tooltip {
+            position: absolute;
+
+            top: 30px;
+            right: 0;
+
+            width: 145px;
+
+            padding: 11px 13px;
+
+            background: #111827;
+
+            color: #ffffff;
+
+            border-radius: 8px;
+
+            text-align: center;
+
+            font-size: 12px;
+
+            font-weight: 600;
+
+            box-shadow: 0 8px 25px rgba(0,0,0,.15);
+
+            opacity: 0;
+
+            visibility: hidden;
+
+            transform: translateY(-5px);
+
+            transition: .2s;
+
+            z-index: 2000;
+        }
+
+        .coming-soon-tooltip strong {
+            display: block;
+
+            font-size: 14px;
+
+            margin-bottom: 2px;
+        }
+
+        .coming-soon-tooltip span {
+            font-size: 11px;
+
+            color: #d1d5db;
+        }
+
+        .news-coming:hover .coming-soon-tooltip {
+            opacity: 1;
+
+            visibility: visible;
+
+            transform: translateY(0);
+        }
+
+
+        /* =====================================
+           BREADCRUMB
+        ===================================== */
+
+        .breadcrumb {
+            background: #ffffff;
+
+            border-bottom: 1px solid #e5e7eb;
+
+            padding: 12px 0;
+
+            font-size: 12px;
+
+            color: #6b7280;
+        }
+
+        .breadcrumb a {
+            color: #2563eb;
+        }
+
+
+        /* =====================================
+           HERO
+        ===================================== */
+
+        .hero {
+            background:
+                radial-gradient(
+                    circle at 80% 20%,
+                    #263b65,
+                    transparent 35%
+                ),
+                #111827;
+
+            color: white;
+
+            text-align: center;
+
+            padding: 75px 20px;
+        }
+
+        .hero-label {
+            display: inline-block;
+
+            font-size: 11px;
+
+            font-weight: 700;
+
+            letter-spacing: 1.5px;
+
+            color: #93c5fd;
+
+            margin-bottom: 15px;
+        }
+
+        .hero h1 {
+            font-size: 46px;
+
+            line-height: 1.15;
+
+            margin-bottom: 18px;
+        }
+
+        .hero p {
+            max-width: 820px;
+
+            margin: auto;
+
+            color: #d1d5db;
+
+            font-size: 17px;
+        }
+
+
+        /* =====================================
+           TOOL
+        ===================================== */
+
+        .tool-section {
+            padding: 60px 0;
+        }
+
+        .tool-card {
+            background: #ffffff;
+
+            border: 1px solid #e5e7eb;
+
+            border-radius: 15px;
+
+            padding: 30px;
+
+            box-shadow: 0 8px 30px rgba(0,0,0,.04);
+        }
+
+        .tool-title {
+            margin-bottom: 25px;
+        }
+
+        .tool-title h2 {
+            font-size: 27px;
+
+            margin-bottom: 6px;
+        }
+
+        .tool-title p {
+            color: #6b7280;
+
+            font-size: 14px;
+        }
+
+
+        /* =====================================
+           FORM
+        ===================================== */
+
+        .form-grid {
+            display: grid;
+
+            grid-template-columns: repeat(3, 1fr);
+
+            gap: 18px;
+        }
+
+        .form-group {
+            display: flex;
+
+            flex-direction: column;
+        }
+
+        .form-group.full {
+            grid-column: 1 / -1;
+        }
+
+        .form-group label {
+            font-size: 12px;
+
+            font-weight: 700;
+
+            margin-bottom: 7px;
+
+            color: #374151;
+        }
+
+        .form-group select,
+        .form-group input {
+            width: 100%;
+
+            padding: 11px 12px;
+
+            border: 1px solid #d1d5db;
+
+            border-radius: 7px;
+
+            background: #ffffff;
+
+            font-family: inherit;
+
+            font-size: 13px;
+
+            outline: none;
+        }
+
+        .form-group select:focus,
+        .form-group input:focus {
+            border-color: #2563eb;
+
+            box-shadow: 0 0 0 2px rgba(37,99,235,.08);
+        }
+
+
+        /* =====================================
+           CHECKBOXES
+        ===================================== */
+
+        .checkbox-area {
+            display: grid;
+
+            grid-template-columns: repeat(4, 1fr);
+
+            gap: 10px;
+        }
+
+        .checkbox-item {
+            border: 1px solid #e5e7eb;
+
+            border-radius: 8px;
+
+            padding: 11px;
+
+            background: #f8fafc;
+
+            font-size: 12px;
+
+            cursor: pointer;
+        }
+
+        .checkbox-item:hover {
+            border-color: #93c5fd;
+
+            background: #eff6ff;
+        }
+
+        .checkbox-item input {
+            margin-right: 7px;
+        }
+
+
+        /* =====================================
+           BUTTON
+        ===================================== */
+
+        .recommend-button {
+            margin-top: 25px;
+
+            width: 100%;
+
+            border: none;
+
+            background: #2563eb;
+
+            color: white;
+
+            padding: 14px 20px;
+
+            border-radius: 8px;
+
+            font-size: 14px;
+
+            font-weight: 700;
+
+            cursor: pointer;
+        }
+
+        .recommend-button:hover {
+            background: #1d4ed8;
+        }
+
+
+        /* =====================================
+           RESULTS
+        ===================================== */
+
+        #results {
+            display: none;
+
+            margin-top: 35px;
+        }
+
+        .result-header {
+            text-align: center;
+
+            margin-bottom: 25px;
+        }
+
+        .result-header h2 {
+            font-size: 29px;
+
+            margin-bottom: 6px;
+        }
+
+        .result-header p {
+            color: #6b7280;
+
+            font-size: 13px;
+        }
+
+        .result-grid {
+            display: grid;
+
+            grid-template-columns: repeat(3, 1fr);
+
+            gap: 18px;
+        }
+
+
+        /* =====================================
+           SSP CARD
+        ===================================== */
+
+        .ssp-card {
+            background: #ffffff;
+
+            border: 1px solid #e5e7eb;
+
+            border-radius: 13px;
+
+            padding: 22px;
+
+            position: relative;
+
+            box-shadow: 0 5px 20px rgba(0,0,0,.03);
+        }
+
+        .recommended {
+            border-color: #2563eb;
+
+            box-shadow: 0 8px 30px rgba(37,99,235,.10);
+        }
+
+        .recommended-badge {
+            position: absolute;
+
+            top: -11px;
+
+            right: 15px;
+
+            background: #2563eb;
+
+            color: white;
+
+            padding: 4px 10px;
+
+            border-radius: 20px;
+
+            font-size: 10px;
+
+            font-weight: 700;
+        }
+
+        .ssp-name {
+            font-size: 21px;
+
+            font-weight: 700;
+
+            margin-bottom: 5px;
+        }
+
+        .ssp-type {
+            color: #6b7280;
+
+            font-size: 11px;
+
+            margin-bottom: 15px;
+        }
+
+
+        /* =====================================
+           SCORE
+        ===================================== */
+
+        .score {
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            background: #f8fafc;
+
+            border-radius: 8px;
+
+            padding: 10px 12px;
+
+            margin-bottom: 15px;
+        }
+
+        .score strong {
+            font-size: 24px;
+
+            color: #2563eb;
+        }
+
+        .score span {
+            font-size: 10px;
+
+            color: #6b7280;
+        }
+
+
+        /* =====================================
+           TAGS
+        ===================================== */
+
+        .tags {
+            display: flex;
+
+            flex-wrap: wrap;
+
+            gap: 6px;
+
+            margin-bottom: 15px;
+        }
+
+        .tag {
+            font-size: 10px;
+
+            padding: 4px 7px;
+
+            border-radius: 5px;
+
+            background: #eff6ff;
+
+            color: #1d4ed8;
+        }
+
+        .tag.green {
+            background: #ecfdf5;
+
+            color: #047857;
+        }
+
+        .tag.gray {
+            background: #f3f4f6;
+
+            color: #4b5563;
+        }
+
+        .tag.red {
+            background: #fef2f2;
+
+            color: #b91c1c;
+        }
+
+
+        /* =====================================
+           SSP DETAILS
+        ===================================== */
+
+        .ssp-details {
+            border-top: 1px solid #e5e7eb;
+
+            padding-top: 14px;
+        }
+
+        .detail-row {
+            display: flex;
+
+            justify-content: space-between;
+
+            gap: 10px;
+
+            margin-bottom: 7px;
+
+            font-size: 11px;
+        }
+
+        .detail-row span:first-child {
+            color: #6b7280;
+        }
+
+        .detail-row strong {
+            text-align: right;
+        }
+
+
+        /* =====================================
+           WHY RESULT
+        ===================================== */
+
+        .match-box {
+            margin-top: 15px;
+
+            padding: 12px;
+
+            border-radius: 8px;
+
+            background: #f8fafc;
+
+            border: 1px solid #e5e7eb;
+
+            font-size: 11px;
+
+            color: #4b5563;
+        }
+
+
+        /* =====================================
+           DISCLAIMER
+        ===================================== */
+
+        .disclaimer {
+            margin-top: 25px;
+
+            background: #fff7ed;
+
+            border: 1px solid #fed7aa;
+
+            border-radius: 9px;
+
+            padding: 15px;
+
+            color: #9a3412;
+
+            font-size: 11px;
+        }
+
+
+        /* =====================================
+           EXPLANATION
+        ===================================== */
+
+        .info-section {
+            background: #ffffff;
+
+            padding: 65px 0;
+        }
+
+        .section-title {
+            text-align: center;
+
+            margin-bottom: 35px;
+        }
+
+        .section-title h2 {
+            font-size: 31px;
+
+            margin-bottom: 8px;
+        }
+
+        .section-title p {
+            max-width: 760px;
+
+            margin: auto;
+
+            color: #6b7280;
+
+            font-size: 14px;
+        }
+
+        .info-grid {
+            display: grid;
+
+            grid-template-columns: repeat(3, 1fr);
+
+            gap: 18px;
+        }
+
+        .info-card {
+            background: #f8fafc;
+
+            border: 1px solid #e5e7eb;
+
+            border-radius: 11px;
+
+            padding: 22px;
+        }
+
+        .info-card h3 {
+            font-size: 18px;
+
+            margin-bottom: 7px;
+        }
+
+        .info-card p {
+            font-size: 12px;
+
+            color: #6b7280;
+        }
+
+
+        /* =====================================
+           FOOTER
+        ===================================== */
+
+        footer {
+            background: #0b1120;
+
+            color: #9ca3af;
+
+            text-align: center;
+
+            padding: 35px 20px;
+
+            font-size: 12px;
+        }
+
+        footer strong {
+            color: white;
+        }
+
+
+        /* =====================================
+           RESPONSIVE
+        ===================================== */
+
+        @media (max-width: 900px) {
+
+            .form-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .result-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .info-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .checkbox-area {
+                grid-template-columns: 1fr 1fr;
+            }
+
+        }
+
+
+        @media (max-width: 600px) {
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero {
+                padding: 60px 20px;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .hero p {
+                font-size: 14px;
+            }
+
+            .form-grid,
+            .result-grid,
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .checkbox-area {
+                grid-template-columns: 1fr;
+            }
+
+            .tool-card {
+                padding: 20px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================
+     NAVBAR
+===================================== -->
+
+<header class="navbar">
+
+    <div class="logo">
+        PubsRate
+    </div>
+
+    <nav class="nav-links">
+
+        <a href="/">
+            Home
+        </a>
+
+        <a href="/publishers/">
+            Publishers
+        </a>
+
+        <a href="/advertising/">
+            Advertising Hub
+        </a>
+
+        <a href="/tools/">
+            Tools
+        </a>
+
+        <div class="news-coming">
+
+            <span>
+                News
+            </span>
+
+            <div class="coming-soon-tooltip">
+
+                <strong>
+                    ✦ Coming Soon
+                </strong>
+
+                <span>
+                    PubsRate News
+                </span>
+
+            </div>
+
+        </div>
+
+    </nav>
+
+</header>
+
+
+<!-- =====================================
+     BREADCRUMB
+===================================== -->
+
+<div class="breadcrumb">
+
+    <div class="container">
+
+        <a href="/">
+            PubsRate
+        </a>
+
+        &nbsp; / &nbsp;
+
+        <a href="/tools/">
+            Tools
+        </a>
+
+        &nbsp; / &nbsp;
+
+        SSP Recommendation Tool
+
+    </div>
+
+</div>
+
+
+<!-- =====================================
+     HERO
+===================================== -->
+
+<section class="hero">
+
+    <div class="hero-label">
+        PUBLISHER MONETIZATION TOOL
+    </div>
+
+    <h1>
+        Which SSP Should You Use?
+    </h1>
+
+    <p>
+        Tell us about your inventory, geography, traffic,
+        request type and monetization requirements.
+        PubsRate will compare SSPs and identify the
+        best-fit demand partners for your setup.
+    </p>
+
+</section>
+
+
+<!-- =====================================
+     TOOL
+===================================== -->
+
+<section class="tool-section">
+
+    <div class="container">
+
+        <div class="tool-card">
+
+            <div class="tool-title">
+
+                <h2>
+                    Find Your Best SSP
+                </h2>
+
+                <p>
+                    Select your requirements to generate
+                    a publisher-focused SSP recommendation.
+                </p>
+
+            </div>
+
+
+            <form id="sspForm">
+
+
+                <div class="form-grid">
+
+
+                    <!-- COUNTRY -->
+
+                    <div class="form-group">
+
+                        <label>
+                            Primary Traffic Country
+                        </label>
+
+                        <select id="country">
+
+                            <option value="global">
+                                Global
+                            </option>
+
+                            <option value="india">
+                                India
+                            </option>
+
+                            <option value="usa">
+                                United States
+                            </option>
+
+                            <option value="uk">
+                                United Kingdom
+                            </option>
+
+                            <option value="canada">
+                                Canada
+                            </option>
+
+                            <option value="australia">
+                                Australia
+                            </option>
+
+                            <option value="europe">
+                                Europe
+                            </option>
+
+                            <option value="asia">
+                                Asia
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <!-- INVENTORY -->
+
+                    <div class="form-group">
+
+                        <label>
+                            Primary Inventory Type
+                        </label>
+
+                        <select id="inventory">
+
+                            <option value="display">
+                                Display
+                            </option>
+
+                            <option value="video">
+                                Video
+                            </option>
+
+                            <option value="ctv">
+                                CTV / OTT
+                            </option>
+
+                            <option value="dooh">
+                                DOOH
+                            </option>
+
+                            <option value="mobile">
+                                Mobile App
+                            </option>
+
+                            <option value="native">
+                                Native
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <!-- MONTHLY IMPRESSIONS -->
+
+                    <div class="form-group">
+
+                        <label>
+                            Monthly Impressions
+                        </label>
+
+                        <input
+                            type="number"
+                            id="impressions"
+                            placeholder="Example: 10000000"
+                            min="0">
+
+                    </div>
+
+
+                    <!-- CPM -->
+
+                    <div class="form-group">
+
+                        <label>
+                            Minimum Target CPM ($)
+                        </label>
+
+                        <input
+                            type="number"
+                            id="targetCpm"
+                            placeholder="Example: 2.50"
+                            min="0"
+                            step="0.01">
+
+                    </div>
+
+
+                    <!-- REQUEST TYPE -->
+
+                    <div class="form-group">
+
+                        <label>
+                            Preferred Request Type
+                        </label>
+
+                        <select id="requestType">
+
+                            <option value="any">
+                                No Preference
+                            </option>
+
+                            <option value="ortb">
+                                OpenRTB / oRTB
+                            </option>
+
+                            <option value="vast">
+                                VAST
+                            </option>
+
+                            <option value="ortb-vast">
+                                OpenRTB + VAST
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <!-- PLATFORM -->
+
+                    <div class="form-group">
+
+                        <label>
+                            Monetization Platform
+                        </label>
+
+                        <select id="platform">
+
+                            <option value="gam">
+                                Google Ad Manager
+                            </option>
+
+                            <option value="prebid">
+                                Prebid.js
+                            </option>
+
+                            <option value="both">
+                                GAM + Prebid.js
+                            </option>
+
+                            <option value="other">
+                                Other / Direct Integration
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <!-- REQUIREMENTS -->
+
+                    <div class="form-group full">
+
+                        <label>
+                            Required Capabilities
+                        </label>
+
+
+                        <div class="checkbox-area">
+
+
+                            <label class="checkbox-item">
+
+                                <input
+                                    type="checkbox"
+                                    id="headerBidding">
+
+                                Header Bidding
+
+                            </label>
+
+
+                            <label class="checkbox-item">
+
+                                <input
+                                    type="checkbox"
+                                    id="openBidding">
+
+                                Google Open Bidding
+
+                            </label>
+
+
+                            <label class="checkbox-item">
+
+                                <input
+                                    type="checkbox"
+                                    id="pauseAds">
+
+                                Pause Ads
+
+                            </label>
+
+
+                            <label class="checkbox-item">
+
+                                <input
+                                    type="checkbox"
+                                    id="deals">
+
+                                Private Deals / PMP
+
+                            </label>
+
+
+                            <label class="checkbox-item">
+
+                                <input
+                                    type="checkbox"
+                                    id="video">
+
+                                Video Demand
+
+                            </label>
+
+
+                            <label class="checkbox-item">
+
+                                <input
+                                    type="checkbox"
+                                    id="ctv">
+
+                                CTV / OTT Demand
+
+                            </label>
+
+
+                            <label class="checkbox-item">
+
+                                <input
+                                    type="checkbox"
+                                    id="dooh">
+
+                                DOOH Demand
+
+                            </label>
+
+
+                            <label class="checkbox-item">
+
+                                <input
+                                    type="checkbox"
+                                    id="mobile">
+
+                                Mobile App Demand
+
+                            </label>
+
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+
+                <button
+                    type="submit"
+                    class="recommend-button">
+
+                    Find Recommended SSPs →
+
+                </button>
+
+
+            </form>
+
+        </div>
+
+
+        <!-- =====================================
+             RESULTS
+        ===================================== -->
+
+        <div id="results">
+
+            <div class="result-header">
+
+                <h2>
+                    Recommended SSPs
+                </h2>
+
+                <p>
+                    Results are ranked according to the requirements
+                    entered above.
+                </p>
+
+            </div>
+
+
+            <div
+                id="resultGrid"
+                class="result-grid">
+            </div>
+
+
+            <div class="disclaimer">
+
+                <strong>
+                    Important:
+                </strong>
+
+                SSP capabilities, supported inventory, geographic
+                coverage, commercial terms, CPMs, fees and integrations
+                can change. This tool is intended for discovery and
+                comparison, not as a guarantee of approval, demand,
+                fill rate, CPM or revenue. Publishers should confirm
+                current requirements and commercial terms directly
+                with each SSP.
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================
+     HOW IT WORKS
+===================================== -->
+
+<section class="info-section">
+
+    <div class="container">
+
+
+        <div class="section-title">
+
+            <h2>
+                How the SSP Recommendation Works
+            </h2>
+
+            <p>
+                PubsRate compares publisher requirements against
+                SSP capabilities instead of simply listing SSPs.
+            </p>
+
+        </div>
+
+
+        <div class="info-grid">
+
+
+            <div class="info-card">
+
+                <h3>
+                    01. Publisher Requirements
+                </h3>
+
+                <p>
+                    Enter your geography, inventory type,
+                    monthly impressions, CPM target and
+                    technical requirements.
+                </p>
+
+            </div>
+
+
+            <div class="info-card">
+
+                <h3>
+                    02. SSP Matching
+                </h3>
+
+                <p>
+                    The tool checks inventory, integration,
+                    request type and monetization requirements
+                    against the SSP database.
+                </p>
+
+            </div>
+
+
+            <div class="info-card">
+
+                <h3>
+                    03. Match Score
+                </h3>
+
+                <p>
+                    SSPs are ranked according to how closely
+                    their available capabilities match the
+                    publisher's requirements.
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================
+     FOOTER
+===================================== -->
+
+<footer>
+
+    <p>
+
+        <strong>PubsRate</strong>
+
+        — Publisher Monetization,
+        Advertising & AdTech Resources
+
+    </p>
+
+</footer>
+
+
+<script>
+
+
+/* =====================================
+   SSP DATABASE
+===================================== */
+
+const sspDatabase = [
+
+    {
+        name: "PubMatic",
+
+        type: "Independent SSP",
+
+        countries: [
+            "global",
+            "india",
+            "usa",
+            "uk",
+            "canada",
+            "australia",
+            "europe",
+            "asia"
+        ],
+
+        inventory: [
+            "display",
+            "video",
+            "mobile",
+            "ctv"
+        ],
+
+        requestTypes: [
+            "ortb",
+            "vast"
+        ],
+
+        headerBidding: true,
+
+        openBidding: true,
+
+        pauseAds: false,
+
+        deals: true,
+
+        video: true,
+
+        ctv: true,
+
+        dooh: false,
+
+        mobile: true,
+
+        minCpm: 1.00,
+
+        feeModel: "Commercial terms vary",
+
+        description:
+            "Strong multi-format publisher demand with web, app and video capabilities."
+    },
+
+
+    {
+        name: "Magnite",
+
+        type: "Independent SSP",
+
+        countries: [
+            "global",
+            "usa",
+            "uk",
+            "canada",
+            "australia",
+            "europe",
+            "asia"
+        ],
+
+        inventory: [
+            "display",
+            "video",
+            "ctv",
+            "mobile"
+        ],
+
+        requestTypes: [
+            "ortb",
+            "vast"
+        ],
+
+        headerBidding: true,
+
+        openBidding: true,
+
+        pauseAds: true,
+
+        deals: true,
+
+        video: true,
+
+        ctv: true,
+
+        dooh: false,
+
+        mobile: true,
+
+        minCpm: 1.50,
+
+        feeModel: "Commercial terms vary",
+
+        description:
+            "Large-scale omnichannel demand with particularly strong video and CTV positioning."
+    },
+
+
+    {
+        name: "Index Exchange",
+
+        type: "Independent SSP",
+
+        countries: [
+            "global",
+            "india",
+            "usa",
+            "uk",
+            "canada",
+            "australia",
+            "europe",
+            "asia"
+        ],
+
+        inventory: [
+            "display",
+            "video",
+            "mobile",
+            "ctv"
+        ],
+
+        requestTypes: [
+            "ortb",
+            "vast"
+        ],
+
+        headerBidding: true,
+
+        openBidding: true,
+
+        pauseAds: false,
+
+        deals: true,
+
+        video: true,
+
+        ctv: true,
+
+        dooh: false,
+
+        mobile: true,
+
+        minCpm: 1.25,
+
+        feeModel: "Commercial terms vary",
+
+        description:
+            "Premium exchange with broad publisher and programmatic demand coverage."
+    },
+
+
+    {
+        name: "OpenX",
+
+        type: "Independent SSP",
+
+        countries: [
+            "global",
+            "india",
+            "usa",
+            "uk",
+            "canada",
+            "australia",
+            "europe",
+            "asia"
+        ],
+
+        inventory: [
+            "display",
+            "video",
+            "mobile",
+            "ctv"
+        ],
+
+        requestTypes: [
+            "ortb",
+            "vast"
+        ],
+
+        headerBidding: true,
+
+        openBidding: true,
+
+        pauseAds: false,
+
+        deals: true,
+
+        video: true,
+
+        ctv: true,
+
+        dooh: false,
+
+        mobile: true,
+
+        minCpm: 1.00,
+
+        feeModel: "Commercial terms vary",
+
+        description:
+            "Established programmatic exchange supporting multiple publisher inventory types."
+    },
+
+
+    {
+        name: "Equativ",
+
+        type: "Independent SSP",
+
+        countries: [
+            "global",
+            "india",
+            "usa",
+            "uk",
+            "canada",
+            "australia",
+            "europe",
+            "asia"
+        ],
+
+        inventory: [
+            "display",
+            "video",
+            "mobile",
+            "ctv"
+        ],
+
+        requestTypes: [
+            "ortb",
+            "vast"
+        ],
+
+        headerBidding: true,
+
+        openBidding: true,
+
+        pauseAds: false,
+
+        deals: true,
+
+        video: true,
+
+        ctv: true,
+
+        dooh: false,
+
+        mobile: true,
+
+        minCpm: 1.00,
+
+        feeModel: "Commercial terms vary",
+
+        description:
+            "Multi-format advertising technology platform with publisher and video capabilities."
+    },
+
+
+    {
+        name: "TripleLift",
+
+        type: "Independent SSP",
+
+        countries: [
+            "global",
+            "usa",
+            "uk",
+            "canada",
+            "australia",
+            "europe",
+            "asia"
+        ],
+
+        inventory: [
+            "display",
+            "video",
+            "mobile",
+            "ctv"
+        ],
+
+        requestTypes: [
+            "ortb",
+            "vast"
+        ],
+
+        headerBidding: true,
+
+        openBidding: true,
+
+        pauseAds: false,
+
+        deals: true,
+
+        video: true,
+
+        ctv: true,
+
+        dooh: false,
+
+        mobile: true,
+
+        minCpm: 1.25,
+
+        feeModel: "Commercial terms vary",
+
+        description:
+            "Strong native, display, video and CTV-oriented programmatic demand."
+    },
+
+
+    {
+        name: "Sovrn",
+
+        type: "Independent SSP",
+
+        countries: [
+            "usa",
+            "uk",
+            "canada",
+            "europe",
+            "asia"
+        ],
+
+        inventory: [
+            "display",
+            "video",
+            "mobile"
+        ],
+
+        requestTypes: [
+            "ortb"
+        ],
+
+        headerBidding: true,
+
+        openBidding: true,
+
+        pauseAds: false,
+
+        deals: false,
+
+        video: true,
+
+        ctv: false,
+
+        dooh: false,
+
+        mobile: true,
+
+        minCpm: 0.75,
+
+        feeModel: "Commercial terms vary",
+
+        description:
+            "Publisher-focused demand platform with strong web monetization use cases."
+    },
+
+
+    {
+        name: "Media.net",
+
+        type: "Contextual / Programmatic Demand",
+
+        countries: [
+            "global",
+            "india",
+            "usa",
+            "uk",
+            "canada",
+            "australia",
+            "europe",
+            "asia"
+        ],
+
+        inventory: [
+            "display",
+            "mobile",
+            "video"
+        ],
+
+        requestTypes: [
+            "ortb",
+            "vast"
+        ],
+
+        headerBidding: true,
+
+        openBidding: true,
+
+        pauseAds: false,
+
+        deals: false,
+
+        video: true,
+
+        ctv: false,
+
+        dooh: false,
+
+        mobile: true,
+
+        minCpm: 0.75,
+
+        feeModel: "Commercial terms vary",
+
+        description:
+            "Well-known publisher monetization platform with strong contextual demand."
+    },
+
+
+    {
+        name: "Yieldmo",
+
+        type: "Independent SSP",
+
+        countries: [
+            "global",
+            "usa",
+            "uk",
+            "canada",
+            "australia",
+            "europe",
+            "asia"
+        ],
+
+        inventory: [
+            "display",
+            "mobile",
+            "video"
+        ],
+
+        requestTypes: [
+            "ortb"
+        ],
+
+        headerBidding: true,
+
+        openBidding: true,
+
+        pauseAds: false,
+
+        deals: false,
+
+        video: true,
+
+        ctv: false,
+
+        dooh: false,
+
+        mobile: true,
+
+        minCpm: 0.75,
+
+        feeModel: "Commercial terms vary",
+
+        description:
+            "Mobile and web-oriented programmatic demand with a focus on optimized ad experiences."
+    },
+
+
+    {
+        name: "InMobi",
+
+        type: "Mobile / Programmatic SSP",
+
+        countries: [
+            "global",
+            "india",
+            "usa",
+            "uk",
+            "canada",
+            "australia",
+            "europe",
+            "asia"
+        ],
+
+        inventory: [
+            "mobile",
+            "video",
+            "display"
+        ],
+
+        requestTypes: [
+            "ortb",
+            "vast"
+        ],
+
+        headerBidding: true,
+
+        openBidding: true,
+
+        pauseAds: false,
+
+        deals: false,
+
+        video: true,
+
+        ctv: false,
+
+        dooh: false,
+
+        mobile: true,
+
+        minCpm: 0.50,
+
+        feeModel: "Commercial terms vary",
+
+        description:
+            "Strong option for mobile application and mobile-focused publisher inventory."
+    },
+
+
+    {
+        name: "Smaato",
+
+        type: "Mobile / Programmatic SSP",
+
+        countries: [
+            "global",
+            "india",
+            "usa",
+            "uk",
+            "canada",
+            "australia",
+            "europe",
+            "asia"
+        ],
+
+        inventory: [
+            "mobile",
+            "display",
+            "video"
+        ],
+
+        requestTypes: [
+            "ortb",
+            "vast"
+        ],
+
+        headerBidding: true,
+
+        openBidding: true,
+
+        pauseAds: false,
+
+        deals: false,
+
+        video: true,
+
+        ctv: false,
+
+        dooh: false,
+
+        mobile: true,
+
+        minCpm: 0.50,
+
+        feeModel: "Commercial terms vary",
+
+        description:
+            "Programmatic monetization platform with strong mobile and in-app use cases."
+    },
+
+
+    {
+        name: "Sonobi",
+
+        type: "Independent SSP",
+
+        countries: [
+            "usa",
+            "canada",
+            "uk",
+            "europe"
+        ],
+
+        inventory: [
+            "display",
+            "video",
+            "mobile"
+        ],
+
+        requestTypes: [
+            "ortb"
+        ],
+
+        headerBidding: true,
+
+        openBidding: true,
+
+        pauseAds: false,
+
+        deals: true,
+
+        video: true,
+
+        ctv: false,
+
+        dooh: false,
+
+        mobile: true,
+
+        minCpm: 1.00,
+
+        feeModel: "Commercial terms vary",
+
+        description:
+            "Publisher-focused exchange with programmatic and deal capabilities."
+    },
+
+
+    {
+        name: "MobileFuse",
+
+        type: "Mobile / CTV SSP",
+
+        countries: [
+            "usa",
+            "canada"
+        ],
+
+        inventory: [
+            "mobile",
+            "video",
+            "ctv"
+        ],
+
+        requestTypes: [
+            "ortb",
+            "vast"
+        ],
+
+        headerBidding: true,
+
+        openBidding: true,
+
+        pauseAds: true,
+
+        deals: true,
+
+        video: true,
+
+        ctv: true,
+
+        dooh: false,
+
+        mobile: true,
+
+        minCpm: 1.00,
+
+        feeModel: "Commercial terms vary",
+
+        description:
+            "Strong fit for mobile, video and CTV-focused publisher inventory."
+    },
+
+
+    {
+        name: "Nexxen",
+
+        type: "Programmatic SSP",
+
+        countries: [
+            "usa",
+            "canada",
+            "uk",
+            "europe"
+        ],
+
+        inventory: [
+            "display",
+            "video",
+            "ctv",
+            "mobile"
+        ],
+
+        requestTypes: [
+            "ortb",
+            "vast"
+        ],
+
+        headerBidding: true,
+
+        openBidding: true,
+
+        pauseAds: true,
+
+        deals: false,
+
+        video: true,
+
+        ctv: true,
+
+        dooh: false,
+
+        mobile: true,
+
+        minCpm: 1.00,
+
+        feeModel: "Commercial terms vary",
+
+        description:
+            "Programmatic platform with display, video and CTV-oriented capabilities."
+    },
+
+
+    {
+        name: "OneTag",
+
+        type: "Independent SSP",
+
+        countries: [
+            "global",
+            "usa",
+            "uk",
+            "europe",
+            "asia"
+        ],
+
+        inventory: [
+            "display",
+            "video",
+            "mobile"
+        ],
+
+        requestTypes: [
+            "ortb"
+        ],
+
+        headerBidding: true,
+
+        openBidding: true,
+
+        pauseAds: false,
+
+        deals: false,
+
+        video: true,
+
+        ctv: false,
+
+        dooh: false,
+
+        mobile: true,
+
+        minCpm: 0.75,
+
+        feeModel: "Commercial terms vary",
+
+        description:
+            "Programmatic supply platform supporting web and mobile publisher monetization."
+    },
+
+
+    {
+        name: "Verve Group",
+
+        type: "Programmatic SSP",
+
+        countries: [
+            "usa",
+            "canada",
+            "uk",
+            "europe",
+            "asia"
+        ],
+
+        inventory: [
+            "mobile",
+            "video",
+            "ctv",
+            "display"
+        ],
+
+        requestTypes: [
+            "ortb",
+            "vast"
+        ],
+
+        headerBidding: true,
+
+        openBidding: true,
+
+        pauseAds: true,
+
+        deals: false,
+
+        video: true,
+
+        ctv: true,
+
+        dooh: false,
+
+        mobile: true,
+
+        minCpm: 0.75,
+
+        feeModel: "Commercial terms vary",
+
+        description:
+            "Mobile, video and CTV-oriented programmatic demand platform."
+    }
+
+];
+
+
+/* =====================================
+   FORM
+===================================== */
+
+document
+    .getElementById("sspForm")
+    .addEventListener("submit", function(event) {
+
+        event.preventDefault();
+
+        generateRecommendations();
+
+    });
+
+
+/* =====================================
+   GENERATE RECOMMENDATIONS
+===================================== */
+
+function generateRecommendations() {
+
+    const country =
+        document.getElementById("country").value;
+
+    const inventory =
+        document.getElementById("inventory").value;
+
+    const impressions =
+        Number(
+            document.getElementById("impressions").value
+        ) || 0;
+
+    const targetCpm =
+        Number(
+            document.getElementById("targetCpm").value
+        ) || 0;
+
+    const requestType =
+        document.getElementById("requestType").value;
+
+    const platform =
+        document.getElementById("platform").value;
+
+
+    const requirements = {
+
+        headerBidding:
+            document.getElementById("headerBidding").checked,
+
+        openBidding:
+            document.getElementById("openBidding").checked,
+
+        pauseAds:
+            document.getElementById("pauseAds").checked,
+
+        deals:
+            document.getElementById("deals").checked,
+
+        video:
+            document.getElementById("video").checked,
+
+        ctv:
+            document.getElementById("ctv").checked,
+
+        dooh:
+            document.getElementById("dooh").checked,
+
+        mobile:
+            document.getElementById("mobile").checked
+
+    };
+
+
+    let results = [];
+
+
+    sspDatabase.forEach(function(ssp) {
+
+        let score = 0;
+
+        let reasons = [];
+
+
+        /* COUNTRY */
+
+        if (
+            ssp.countries.includes(country) ||
+            ssp.countries.includes("global")
+        ) {
+
+            score += 15;
+
+            reasons.push(
+                "Geography match"
+            );
+
+        }
+
+
+        /* INVENTORY */
+
+        if (
+            ssp.inventory.includes(inventory)
+        ) {
+
+            score += 20;
+
+            reasons.push(
+                inventoryLabel(inventory) +
+                " support"
+            );
+
+        }
+
+
+        /* REQUEST TYPE */
+
+        if (requestType === "any") {
+
+            score += 5;
+
+        }
+
+        else if (
+            requestType === "ortb" &&
+            ssp.requestTypes.includes("ortb")
+        ) {
+
+            score += 15;
+
+            reasons.push(
+                "OpenRTB compatible"
+            );
+
+        }
+
+        else if (
+            requestType === "vast" &&
+            ssp.requestTypes.includes("vast")
+        ) {
+
+            score += 15;
+
+            reasons.push(
+                "VAST compatible"
+            );
+
+        }
+
+        else if (
+            requestType === "ortb-vast" &&
+            ssp.requestTypes.includes("ortb") &&
+            ssp.requestTypes.includes("vast")
+        ) {
+
+            score += 18;
+
+            reasons.push(
+                "OpenRTB + VAST"
+            );
+
+        }
+
+
+        /* HEADER BIDDING */
+
+        if (
+            requirements.headerBidding
+        ) {
+
+            if (ssp.headerBidding) {
+
+                score += 10;
+
+                reasons.push(
+                    "Header bidding support"
+                );
+
+            }
+
+        }
+
+
+        /* OPEN BIDDING */
+
+        if (
+            requirements.openBidding
+        ) {
+
+            if (ssp.openBidding) {
+
+                score += 10;
+
+                reasons.push(
+                    "Google Open Bidding"
+                );
+
+            }
+
+        }
+
+
+        /* PAUSE ADS */
+
+        if (
+            requirements.pauseAds
+        ) {
+
+            if (ssp.pauseAds) {
+
+                score += 10;
+
+                reasons.push(
+                    "Pause ad capability"
+                );
+
+            }
+            else {
+
+                score -= 10;
+
+            }
+
+        }
+
+
+        /* DEALS */
+
+        if (
+            requirements.deals
+        ) {
+
+            if (ssp.deals) {
+
+                score += 7;
+
+                reasons.push(
+                    "Deal / PMP capability"
+                );
+
+            }
+
+        }
+
+
+        /* VIDEO */
+
+        if (
+            requirements.video
+        ) {
+
+            if (ssp.video) {
+
+                score += 7;
+
+                reasons.push(
+                    "Video demand"
+                );
+
+            }
+
+        }
+
+
+        /* CTV */
+
+        if (
+            requirements.ctv
+        ) {
+
+            if (ssp.ctv) {
+
+                score += 10;
+
+                reasons.push(
+                    "CTV / OTT capability"
+                );
+
+            }
+            else {
+
+                score -= 5;
+
+            }
+
+        }
+
+
+        /* DOOH */
+
+        if (
+            requirements.dooh
+        ) {
+
+            if (ssp.dooh) {
+
+                score += 10;
+
+                reasons.push(
+                    "DOOH capability"
+                );
+
+            }
+            else {
+
+                score -= 5;
+
+            }
+
+        }
+
+
+        /* MOBILE */
+
+        if (
+            requirements.mobile
+        ) {
+
+            if (ssp.mobile) {
+
+                score += 7;
+
+                reasons.push(
+                    "Mobile demand"
+                );
+
+            }
+
+        }
+
+
+        /* CPM */
+
+        if (
+            targetCpm > 0
+        ) {
+
+            if (
+                ssp.minCpm <= targetCpm
+            ) {
+
+                score += 5;
+
+                reasons.push(
+                    "CPM target compatible"
+                );
+
+            }
+
+        }
+
+
+        /* PLATFORM */
+
+        if (
+            platform === "prebid" ||
+            platform === "both"
+        ) {
+
+            if (ssp.headerBidding) {
+
+                score += 5;
+
+            }
+
+        }
+
+
+        /* IMPRESSION SCALE */
+
+        if (
+            impressions >= 10000000
+        ) {
+
+            score += 5;
+
+        }
+
+        else if (
+            impressions >= 1000000
+        ) {
+
+            score += 3;
+
+        }
+
+
+        /* CAP SCORE */
+
+        score = Math.max(
+            0,
+            Math.min(
+                100,
+                score
+            )
+        );
+
+
+        results.push({
+
+            ...ssp,
+
+            score: score,
+
+            reasons: reasons
+
+        });
+
+    });
+
+
+    results.sort(
+        (a, b) =>
+            b.score - a.score
+    );
+
+
+    displayResults(
+        results.slice(0, 6)
+    );
+
+}
+
+
+/* =====================================
+   DISPLAY RESULTS
+===================================== */
+
+function displayResults(results) {
+
+    const resultContainer =
+        document.getElementById("results");
+
+    const resultGrid =
+        document.getElementById("resultGrid");
+
+
+    resultGrid.innerHTML = "";
+
+
+    results.forEach(
+        function(ssp, index) {
+
+            const card =
+                document.createElement("div");
+
+            card.className =
+                "ssp-card" +
+                (index === 0
+                    ? " recommended"
+                    : "");
+
+
+            const requestTags =
+                ssp.requestTypes
+                    .map(function(type) {
+
+                        return `
+                            <span class="tag">
+                                ${requestTypeLabel(type)}
+                            </span>
+                        `;
+
+                    })
+                    .join("");
+
+
+            card.innerHTML = `
+
+                ${
+                    index === 0
+                    ?
+                    `
+                    <div class="recommended-badge">
+                        BEST MATCH
+                    </div>
+                    `
+                    :
+                    ""
+                }
+
+
+                <div class="ssp-name">
+                    ${ssp.name}
+                </div>
+
+
+                <div class="ssp-type">
+                    ${ssp.type}
+                </div>
+
+
+                <div class="score">
+
+                    <div>
+
+                        <strong>
+                            ${ssp.score}%
+                        </strong>
+
+                        <span>
+                            Match Score
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="tags">
+
+                    ${requestTags}
+
+
+                    ${
+                        ssp.headerBidding
+                        ?
+                        `<span class="tag green">
+                            Header Bidding
+                        </span>`
+                        :
+                        ""
+                    }
+
+
+                    ${
+                        ssp.openBidding
+                        ?
+                        `<span class="tag green">
+                            Open Bidding
+                        </span>`
+                        :
+                        ""
+                    }
+
+
+                    ${
+                        ssp.video
+                        ?
+                        `<span class="tag">
+                            Video
+                        </span>`
+                        :
+                        ""
+                    }
+
+
+                    ${
+                        ssp.ctv
+                        ?
+                        `<span class="tag">
+                            CTV
+                        </span>`
+                        :
+                        ""
+                    }
+
+
+                    ${
+                        ssp.pauseAds
+                        ?
+                        `<span class="tag green">
+                            Pause Ads
+                        </span>`
+                        :
+                        ""
+                    }
+
+                </div>
+
+
+                <div class="ssp-details">
+
+
+                    <div class="detail-row">
+
+                        <span>
+                            Inventory
+                        </span>
+
+                        <strong>
+                            ${ssp.inventory
+                                .map(inventoryLabel)
+                                .join(", ")}
+                        </strong>
+
+                    </div>
+
+
+                    <div class="detail-row">
+
+                        <span>
+                            Open Bidding
+                        </span>
+
+                        <strong>
+                            ${yesNo(
+                                ssp.openBidding
+                            )}
+                        </strong>
+
+                    </div>
+
+
+                    <div class="detail-row">
+
+                        <span>
+                            Header Bidding
+                        </span>
+
+                        <strong>
+                            ${yesNo(
+                                ssp.headerBidding
+                            )}
+                        </strong>
+
+                    </div>
+
+
+                    <div class="detail-row">
+
+                        <span>
+                            Pause Ads
+                        </span>
+
+                        <strong>
+                            ${yesNo(
+                                ssp.pauseAds
+                            )}
+                        </strong>
+
+                    </div>
+
+
+                    <div class="detail-row">
+
+                        <span>
+                            Deals / PMP
+                        </span>
+
+                        <strong>
+                            ${yesNo(
+                                ssp.deals
+                            )}
+                        </strong>
+
+                    </div>
+
+
+                    <div class="detail-row">
+
+                        <span>
+                            CPM / Fee
+                        </span>
+
+                        <strong>
+                            ${ssp.feeModel}
+                        </strong>
+
+                    </div>
+
+
+                </div>
+
+
+                <div class="match-box">
+
+                    <strong>
+                        Why it matched:
+                    </strong>
+
+                    <br>
+
+                    ${
+                        ssp.reasons.length
+                        ?
+                        ssp.reasons
+                            .slice(0, 5)
+                            .join(" • ")
+                        :
+                        "General inventory compatibility"
+                    }
+
+                </div>
+
+
+                <div class="match-box">
+
+                    ${ssp.description}
+
+                </div>
+
+            `;
+
+
+            resultGrid.appendChild(card);
+
+        }
+    );
+
+
+    resultContainer.style.display =
+        "block";
+
+
+    resultContainer.scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+    });
+
+}
+
+
+/* =====================================
+   HELPERS
+===================================== */
+
+function yesNo(value) {
+
+    return value
+        ? "✓ Supported"
+        : "— Check with SSP";
+
+}
+
+
+function requestTypeLabel(type) {
+
+    if (type === "ortb") {
+
+        return "OpenRTB";
+
+    }
+
+    if (type === "vast") {
+
+        return "VAST";
+
+    }
+
+    return type;
+
+}
+
+
+function inventoryLabel(type) {
+
+    const labels = {
+
+        display: "Display",
+
+        video: "Video",
+
+        ctv: "CTV",
+
+        dooh: "DOOH",
+
+        mobile: "Mobile",
+
+        native: "Native"
+
+    };
+
+    return labels[type] || type;
+
+}
+
+</script>
+
+
+</body>
+
+</html>
