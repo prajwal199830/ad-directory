@@ -1,1 +1,715 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pubsrate CPM Benchmark</title>
 
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #f5f7fa;
+      color: #17202a;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 40px auto;
+      padding: 20px;
+    }
+
+    .header {
+      margin-bottom: 30px;
+    }
+
+    .header h1 {
+      font-size: 32px;
+      margin-bottom: 8px;
+    }
+
+    .header p {
+      color: #667085;
+      font-size: 15px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 12px;
+      padding: 24px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    }
+
+    .filters {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    label {
+      display: block;
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 7px;
+    }
+
+    select {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #d0d5dd;
+      border-radius: 7px;
+      background: white;
+      font-size: 14px;
+    }
+
+    button {
+      margin-top: 20px;
+      padding: 13px 22px;
+      border: none;
+      border-radius: 7px;
+      background: #1d4ed8;
+      color: white;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #1e40af;
+    }
+
+    .results {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 15px;
+    }
+
+    .metric {
+      border: 1px solid #e4e7ec;
+      border-radius: 10px;
+      padding: 20px;
+    }
+
+    .metric-title {
+      color: #667085;
+      font-size: 13px;
+      margin-bottom: 10px;
+    }
+
+    .metric-value {
+      font-size: 28px;
+      font-weight: 700;
+    }
+
+    .recommendation {
+      margin-top: 20px;
+      padding: 20px;
+      border-radius: 10px;
+      background: #f0fdf4;
+      border: 1px solid #bbf7d0;
+    }
+
+    .recommendation h3 {
+      margin-bottom: 8px;
+    }
+
+    .recommendation p {
+      color: #475467;
+      line-height: 1.6;
+    }
+
+    .range {
+      margin-top: 15px;
+    }
+
+    .range-bar {
+      height: 10px;
+      background: #e5e7eb;
+      border-radius: 10px;
+      overflow: hidden;
+      margin-top: 8px;
+    }
+
+    .range-fill {
+      height: 100%;
+      width: 60%;
+      background: #2563eb;
+    }
+
+    .disclaimer {
+      margin-top: 20px;
+      color: #98a2b3;
+      font-size: 12px;
+      line-height: 1.5;
+    }
+
+    @media (max-width: 800px) {
+      .filters,
+      .results {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 500px) {
+      .filters,
+      .results {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="container">
+
+  <div class="header">
+    <h1>Pubsrate CPM Benchmark</h1>
+    <p>
+      Estimate CPM benchmarks and recommended starting floors by GEO,
+      device, format and placement.
+    </p>
+  </div>
+
+  <div class="card">
+
+    <div class="filters">
+
+      <div>
+        <label>Country</label>
+
+        <select id="country">
+          <option value="US">United States</option>
+          <option value="UK">United Kingdom</option>
+          <option value="DE">Germany</option>
+          <option value="FR">France</option>
+          <option value="CA">Canada</option>
+          <option value="AU">Australia</option>
+          <option value="SG">Singapore</option>
+          <option value="MY">Malaysia</option>
+          <option value="IN">India</option>
+          <option value="VN">Vietnam</option>
+          <option value="ID">Indonesia</option>
+          <option value="PH">Philippines</option>
+        </select>
+
+      </div>
+
+      <div>
+        <label>Device</label>
+
+        <select id="device">
+          <option value="desktop">Desktop</option>
+          <option value="mobile">Mobile</option>
+          <option value="tablet">Tablet</option>
+        </select>
+
+      </div>
+
+      <div>
+        <label>Ad Format</label>
+
+        <select id="format">
+          <option value="display">Display</option>
+          <option value="video">Video</option>
+          <option value="native">Native</option>
+          <option value="sticky">Sticky</option>
+        </select>
+
+      </div>
+
+      <div>
+        <label>Placement</label>
+
+        <select id="placement">
+          <option value="above">Above the Fold</option>
+          <option value="inarticle">In Article</option>
+          <option value="sidebar">Sidebar</option>
+          <option value="below">Below the Fold</option>
+          <option value="anchor">Anchor</option>
+        </select>
+
+      </div>
+
+    </div>
+
+    <button onclick="calculateBenchmark()">
+      Calculate CPM
+    </button>
+
+  </div>
+
+  <div class="card">
+
+    <div class="results">
+
+      <div class="metric">
+        <div class="metric-title">
+          Market Benchmark
+        </div>
+
+        <div class="metric-value" id="benchmark">
+          $0.00
+        </div>
+      </div>
+
+      <div class="metric">
+        <div class="metric-title">
+          Recommended Floor
+        </div>
+
+        <div class="metric-value" id="floor">
+          $0.00
+        </div>
+      </div>
+
+      <div class="metric">
+        <div class="metric-title">
+          Low CPM
+        </div>
+
+        <div class="metric-value" id="low">
+          $0.00
+        </div>
+      </div>
+
+      <div class="metric">
+        <div class="metric-title">
+          High CPM
+        </div>
+
+        <div class="metric-value" id="high">
+          $0.00
+        </div>
+      </div>
+
+    </div>
+
+    <div class="recommendation">
+
+      <h3>
+        Pubsrate Recommendation
+      </h3>
+
+      <p id="recommendationText">
+        Select your inventory parameters and calculate the recommended floor.
+      </p>
+
+    </div>
+
+    <div class="range">
+
+      <strong>Estimated CPM Range</strong>
+
+      <div class="range-bar">
+        <div class="range-fill"></div>
+      </div>
+
+    </div>
+
+    <div class="disclaimer">
+      Benchmark values in this MVP are illustrative starting values.
+      Production recommendations should be calculated using actual auction,
+      bid, win-rate and fill-rate data.
+    </div>
+
+  </div>
+
+</div>
+
+
+<script>
+
+const benchmarkData = {
+
+  US: {
+    desktop: {
+      display: 2.20,
+      video: 8.50,
+      native: 2.80,
+      sticky: 3.20
+    },
+
+    mobile: {
+      display: 1.40,
+      video: 5.50,
+      native: 1.80,
+      sticky: 2.20
+    },
+
+    tablet: {
+      display: 1.70,
+      video: 6.50,
+      native: 2.10,
+      sticky: 2.50
+    }
+  },
+
+  UK: {
+    desktop: {
+      display: 1.80,
+      video: 6.50,
+      native: 2.20,
+      sticky: 2.60
+    },
+
+    mobile: {
+      display: 1.10,
+      video: 4.20,
+      native: 1.50,
+      sticky: 1.80
+    },
+
+    tablet: {
+      display: 1.40,
+      video: 5.00,
+      native: 1.80,
+      sticky: 2.10
+    }
+  },
+
+  DE: {
+    desktop: {
+      display: 1.50,
+      video: 5.50,
+      native: 1.90,
+      sticky: 2.20
+    },
+
+    mobile: {
+      display: 0.90,
+      video: 3.50,
+      native: 1.20,
+      sticky: 1.50
+    },
+
+    tablet: {
+      display: 1.20,
+      video: 4.20,
+      native: 1.50,
+      sticky: 1.80
+    }
+  },
+
+  FR: {
+    desktop: {
+      display: 1.30,
+      video: 4.80,
+      native: 1.70,
+      sticky: 2.00
+    },
+
+    mobile: {
+      display: 0.80,
+      video: 3.00,
+      native: 1.10,
+      sticky: 1.30
+    },
+
+    tablet: {
+      display: 1.00,
+      video: 3.70,
+      native: 1.40,
+      sticky: 1.60
+    }
+  },
+
+  CA: {
+    desktop: {
+      display: 1.70,
+      video: 6.00,
+      native: 2.10,
+      sticky: 2.40
+    },
+
+    mobile: {
+      display: 1.10,
+      video: 4.00,
+      native: 1.50,
+      sticky: 1.80
+    },
+
+    tablet: {
+      display: 1.30,
+      video: 4.80,
+      native: 1.80,
+      sticky: 2.00
+    }
+  },
+
+  AU: {
+    desktop: {
+      display: 1.80,
+      video: 6.50,
+      native: 2.20,
+      sticky: 2.50
+    },
+
+    mobile: {
+      display: 1.20,
+      video: 4.50,
+      native: 1.60,
+      sticky: 1.90
+    },
+
+    tablet: {
+      display: 1.50,
+      video: 5.20,
+      native: 1.90,
+      sticky: 2.20
+    }
+  },
+
+  SG: {
+    desktop: {
+      display: 1.20,
+      video: 4.50,
+      native: 1.60,
+      sticky: 1.90
+    },
+
+    mobile: {
+      display: 0.80,
+      video: 3.00,
+      native: 1.10,
+      sticky: 1.30
+    },
+
+    tablet: {
+      display: 1.00,
+      video: 3.60,
+      native: 1.40,
+      sticky: 1.60
+    }
+  },
+
+  MY: {
+    desktop: {
+      display: 0.70,
+      video: 2.80,
+      native: 0.90,
+      sticky: 1.10
+    },
+
+    mobile: {
+      display: 0.45,
+      video: 1.90,
+      native: 0.65,
+      sticky: 0.80
+    },
+
+    tablet: {
+      display: 0.55,
+      video: 2.20,
+      native: 0.75,
+      sticky: 0.90
+    }
+  },
+
+  IN: {
+    desktop: {
+      display: 0.35,
+      video: 1.50,
+      native: 0.45,
+      sticky: 0.60
+    },
+
+    mobile: {
+      display: 0.22,
+      video: 0.90,
+      native: 0.30,
+      sticky: 0.40
+    },
+
+    tablet: {
+      display: 0.28,
+      video: 1.20,
+      native: 0.38,
+      sticky: 0.50
+    }
+  },
+
+  VN: {
+    desktop: {
+      display: 0.30,
+      video: 1.20,
+      native: 0.40,
+      sticky: 0.50
+    },
+
+    mobile: {
+      display: 0.18,
+      video: 0.75,
+      native: 0.25,
+      sticky: 0.32
+    },
+
+    tablet: {
+      display: 0.24,
+      video: 0.95,
+      native: 0.32,
+      sticky: 0.40
+    }
+  },
+
+  ID: {
+    desktop: {
+      display: 0.30,
+      video: 1.30,
+      native: 0.40,
+      sticky: 0.50
+    },
+
+    mobile: {
+      display: 0.18,
+      video: 0.80,
+      native: 0.25,
+      sticky: 0.32
+    },
+
+    tablet: {
+      display: 0.24,
+      video: 1.00,
+      native: 0.32,
+      sticky: 0.40
+    }
+  },
+
+  PH: {
+    desktop: {
+      display: 0.35,
+      video: 1.40,
+      native: 0.45,
+      sticky: 0.55
+    },
+
+    mobile: {
+      display: 0.20,
+      video: 0.85,
+      native: 0.28,
+      sticky: 0.35
+    },
+
+    tablet: {
+      display: 0.27,
+      video: 1.05,
+      native: 0.35,
+      sticky: 0.45
+    }
+  }
+
+};
+
+
+function calculateBenchmark() {
+
+  const country =
+    document.getElementById("country").value;
+
+  const device =
+    document.getElementById("device").value;
+
+  const format =
+    document.getElementById("format").value;
+
+  const placement =
+    document.getElementById("placement").value;
+
+
+  let benchmark =
+    benchmarkData[country][device][format];
+
+
+  /*
+    Placement multiplier.
+
+    Above-the-fold inventory normally has
+    stronger demand than below-the-fold.
+  */
+
+  const placementMultiplier = {
+
+    above: 1.20,
+
+    inarticle: 1.10,
+
+    sidebar: 0.90,
+
+    below: 0.75,
+
+    anchor: 1.05
+
+  };
+
+
+  benchmark =
+    benchmark *
+    placementMultiplier[placement];
+
+
+  /*
+    Recommended floor is intentionally
+    below the benchmark.
+
+    This gives bidders room to compete
+    instead of immediately creating
+    an aggressive floor.
+  */
+
+  const recommendedFloor =
+    benchmark * 0.75;
+
+
+  const low =
+    benchmark * 0.50;
+
+
+  const high =
+    benchmark * 1.50;
+
+
+  document.getElementById("benchmark")
+    .textContent =
+    "$" + benchmark.toFixed(2);
+
+
+  document.getElementById("floor")
+    .textContent =
+    "$" + recommendedFloor.toFixed(2);
+
+
+  document.getElementById("low")
+    .textContent =
+    "$" + low.toFixed(2);
+
+
+  document.getElementById("high")
+    .textContent =
+    "$" + high.toFixed(2);
+
+
+  document.getElementById("recommendationText")
+    .textContent =
+
+    `For ${country} ${device} ${format} inventory,
+    Pubsrate estimates a market CPM of $${benchmark.toFixed(2)}.
+    A starting floor around $${recommendedFloor.toFixed(2)}
+    is recommended. The floor should then be adjusted using
+    your actual bid density, win rate, fill rate and revenue data.`;
+
+
+  document.querySelector(".range-fill")
+    .style.width = "60%";
+
+}
+
+</script>
+
+</body>
+</html>
