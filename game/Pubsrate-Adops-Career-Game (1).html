@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>PubsRate Ad Ops Career — From Learner to Head of Ad Ops</title>
+<style>
+*{box-sizing:border-box}body{margin:0;font-family:Inter,system-ui,sans-serif;background:#f8fafc;color:#0f172a}
+header{background:#0f172a;color:#fff;padding:16px;border-bottom:4px solid #22d3ee;position:sticky;top:0;z-index:20}
+.wrap{max-width:1000px;margin:auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px}
+h1{margin:0;font-size:22px}h1 span{color:#22d3ee}
+.badge{background:#1e293b;border:1px solid #334155;padding:6px 12px;border-radius:999px;font-size:12px;font-weight:700}
+.main{max-width:1000px;margin:auto;padding:18px}
+.card{background:#fff;border:1px solid #e2e8f0;border-radius:18px;padding:18px;box-shadow:0 4px 16px rgba(0,0,0,.05);margin-bottom:16px}
+h2{margin:0 0 8px;font-size:20px}.muted{color:#64748b;font-size:13px;line-height:1.5}
+.btn{background:#0ea5e9;color:#fff;border:0;padding:11px 16px;border-radius:10px;font-weight:800;cursor:pointer;font-size:15px}
+.btn:disabled{background:#cbd5e1;color:#64748b;cursor:not-allowed}
+.btn-ghost{background:#fff;border:1px solid #cbd5e1;color:#0f172a;padding:10px 14px;border-radius:10px;font-weight:700;cursor:pointer}
+.input{width:100%;padding:12px;border:1px solid #cbd5e1;border-radius:10px;font-size:16px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}@media(max-width:700px){.grid2{grid-template-columns:1fr}}
+.opt{display:block;width:100%;text-align:left;padding:12px;border:2px solid #e2e8f0;border-radius:12px;background:#fff;cursor:pointer;margin:8px 0;font-size:14px}
+.opt:hover{border-color:#0ea5e9}.opt.correct{border-color:#16a34a;background:#f0fdf4}.opt.wrong{border-color:#dc2626;background:#fef2f2}
+.article{background:#f1f5f9;border:1px solid #e2e8f0;padding:14px;border-radius:12px;font-size:14px;line-height:1.6;max-height:300px;overflow:auto}
+.kpi{display:flex;gap:10px;flex-wrap:wrap;margin:10px 0}.kpi div{background:#f1f5f9;border:1px solid #e2e8f0;padding:8px 12px;border-radius:10px;font-size:12px}.kpi b{color:#0f172a}
+.progress{height:10px;background:#e2e8f0;border-radius:999px;overflow:hidden}.progress i{display:block;height:100%;background:linear-gradient(90deg,#22d3ee,#0ea5e9);width:0%;transition:.4s}
+.company{border:2px solid #e2e8f0;border-radius:14px;padding:12px;cursor:pointer;transition:.2s}.company:hover{border-color:#0ea5e9;transform:translateY(-1px)}.company.sel{border-color:#0ea5e9;background:#f0f9ff}
+.scenario{background:linear-gradient(180deg,#fff,#f8fafc);border:2px solid #e2e8f0;border-radius:16px;padding:16px}
+.choice{background:#fff;border:2px solid #e2e8f0;border-radius:12px;padding:12px;margin:8px 0;cursor:pointer;text-align:left;width:100%;font-size:14px}
+.choice:hover{border-color:#0ea5e9;background:#f0f9ff}.choice.good{border-color:#16a34a;background:#f0fdf4}.choice.bad{border-color:#dc2626;background:#fef2f2}
+.levelBar{display:flex;gap:6px;align-items:center;flex-wrap:wrap}.dot{width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:12px;border:2px solid #e2e8f0;background:#fff}.dot.done{background:#16a34a;color:#fff;border-color:#16a34a}.dot.active{background:#0ea5e9;color:#fff;border-color:#0ea5e9}
+.hidden{display:none}
+</style></head><body>
+<header><div class="wrap"><h1>PubsRate <span>Ad Ops Career Game</span> 🎯</h1><div style="display:flex;gap:8px;flex-wrap:wrap"><span class="badge" id="playerBadge">👤 Guest</span><span class="badge" id="levelBadge">Level 0: Learner</span><span class="badge" id="cashBadge">💰 $0</span></div></div></header>
+<div class="main" id="app"></div>
+<script>
+let state={
+ name:'', stage:'name', // name, learn, quiz, apply, interview, job
+ level:0, levelName:'Learner', cash:0, xp:0, score:0, articleIdx:0, quizIdx:0, quizScore:0,
+ company:null, day:1, revenue:1200, fill:45, eCPM:1.2, scenariosDone:0, promotionAt:5
+};
+const LEVELS=[
+ {id:0,name:'Learner',goal:'Read article & pass quiz'},
+ {id:1,name:'Junior Ad Ops',goal:'Get first job — 5 scenarios to prove yourself'},
+ {id:2,name:'Ad Ops Specialist',goal:'Handle tougher sites — 10 scenarios'},
+ {id:3,name:'Senior Ad Ops',goal:'Own revenue — 15 scenarios + $10k/mo'},
+ {id:4,name:'Lead Ad Ops',goal:'Manage team — 20 scenarios + $50k/mo'},
+ {id:5,name:'Head of Monetization',goal:'Publisher Empire — $100k+/mo'},
+];
+
+const ARTICLES=[
+ {title:'What is Ad Ops? The Publisher Money Team',body:`<b>Ad Ops = Ad Operations</b> — The team that makes publishers earn money.<br><br>• Publisher has website/app with traffic.<br>• Advertisers want to show ads there.<br>• Ad Ops sets up ad server (like Google Ad Manager), SSPs, header bidding to make sure every pageview becomes $$.<br><br><b>Key Metrics:</b><br>- <b>CPM:</b> Cost per 1000 impressions. Higher = more money.<br>- <b>Fill Rate:</b> Impressions / Ad Requests. If 100 requests and 70 ads shown, fill = 70%. Goal >85%.<br>- <b>eCPM:</b> Effective CPM = Total Revenue / Impressions * 1000. Final truth of monetization.<br>- <b>Viewability:</b> % of ads actually seen. >70% = premium.<br><br><b>Ad Ops daily work:</b> Check GAM line items, fix delivery issues, test VAST tags, add SSPs, fix latency, reduce discrepancy.<br><br>This article is your foundation. You must know this to become Junior Ad Ops.`},
+ {title:'Google Ad Manager + Header Bidding Explained',body:`<b>Google Ad Manager (GAM)</b> is the brain. It decides which ad shows where.<br><br>Structure:<br>- <b>Ad Unit:</b> Where ad shows (e.g., Top Banner)<br>- <b>Order:</b> Advertiser campaign container<br>- <b>Line Item:</b> How ad should deliver (price, targeting, dates)<br>- <b>Creative:</b> Actual ad file.<br><br><b>Header Bidding:</b><br>Old way = Waterfall: Call SSP1, if no ad, call SSP2, slow.<br>New way = Header Bidding: All SSPs bid at SAME TIME in browser (Prebid.js). Highest bid wins. More competition = higher CPM + higher fill.<br><br><b>Google Open Bidding:</b> Server-side version of header bidding run by Google. Less latency.<br><br>Your job as Ad Ops: Add more bidders, set correct price floors, balance latency vs revenue.`},
+ {title:'VAST, Video & Fill Rate Optimization',body:`<b>Video Ads use VAST tags.</b><br>VAST = Video Ad Serving Template. XML that tells player what video ad to play + tracking.<br><br>Common errors:<br>- 303: No ad (empty VAST) — most common.<br>- 402: Timeout.<br>- 901: Invalid XML.<br><br><b>How to improve Fill & Revenue:</b><br>1. Add more SSPs (2-5 is sweet spot)<br>2. Lower price floor if fill <60%<br>3. Fix viewability (lazy load, sticky units)<br>4. Add AdSense / AdX as backfill<br>5. Check ads.txt / sellers.json — missing = low bids<br>6. Fix latency — too many bidders = page slow = less viewability<br><br>Senior Ad Ops thinks: Revenue = CPM x Fill x Viewability x Pageviews. Improve all 4.`},
+];
+
+const QUIZZES=[
+ [
+  {q:'What does Ad Ops do?',opts:['Makes publisher earn money from ads','Designs logos','Writes articles','Sells phones'],ans:0,exp:'Ad Ops monetizes publisher inventory.'},
+  {q:'Fill Rate formula?',opts:['Impressions / Requests x 100','Clicks / Impressions','Revenue / Clicks','Requests / Impressions'],ans:0,exp:'Fill = how much inventory was filled.'},
+  {q:'What is eCPM?',opts:['Effective revenue per 1000 impressions','Estimated clicks','Expected CPM','Exact clicks'],ans:0,exp:'eCPM = final revenue truth.'},
+ ],
+ [
+  {q:'GAM Ad Unit is?',opts:['Where ad shows','Advertiser','User','Cookie'],ans:0,exp:'Ad Unit = placement definition.'},
+  {q:'Header Bidding vs Waterfall?',opts:['Bidders bid simultaneously vs one-by-one','Same','No bidding','Only Google'],ans:0,exp:'Header = simultaneous, more competition.'},
+  {q:'Prebid.js is?',opts:['Open-source header bidding wrapper','Ad creative','DSP','SSP'],ans:0,exp:'Prebid is most popular wrapper.'},
+ ],
+ [
+  {q:'VAST Error 303 means?',opts:['No ad / empty VAST','Network error','Invalid XML','Timeout only'],ans:0,exp:'303 = no ad, most common.'},
+  {q:'Best fill rate goal?',opts:['>85%','<10%','>10%','0%'],ans:0,exp:'Good publishers aim >85% fill.'},
+  {q:'To fix low fill, you should?',opts:['Add backfill like AdSense/AdX + add SSPs','Remove all SSPs','Increase floor to $50','Block GAM'],ans:0,exp:'More demand + backfill = better fill.'},
+ ]
+];
+
+const COMPANIES=[
+ {id:'news',name:'DailyNews — News Publisher',niche:'News',traffic:'500K/mo',problem:'Fill rate only 42%, low viewability',reward:3000},
+ {id:'sports',name:'SportZone — Sports & Scores',niche:'Sports',traffic:'800K/mo',problem:'CPM dropping from $4 to $1.2, high latency',reward:5000},
+ {id:'gaming',name:'GameHub — Gaming Reviews',niche:'Gaming',traffic:'1.2M/mo',problem:'VAST errors 40%, video not monetizing',reward:8000},
+ {id:'finance',name:'FinancePro — Finance News',niche:'Finance',traffic:'2M/mo',problem:'Wants to launch CTV + cookieless identity',reward:15000},
+];
+
+const INTERVIEW_QS=[
+ {q:'If fill rate is 40%, what do you check first?',opts:['Price floor too high + no backfill','Logo color','Article length','Author name'],ans:0,exp:'High floor blocks bids. No backfill = empty impressions.'},
+ {q:'GAM line item not delivering?',opts:['No active creative / targeting too narrow / not approved','Website is too fast','Too much traffic','Ad is pretty'],ans:0,exp:'Most common: no creative, or targeting mismatch, or not approved.'},
+ {q:'Viewability is 35%. How to fix?',opts:['Lazy load + sticky unit + faster page + above fold','Add more SSPs only','Increase floor','Remove ads'],ans:0,exp:'Viewability = ad actually seen. Lazy load + sticky helps.'},
+ {q:'VAST 303 error — what do you do?',opts:['Check if tag empty, add fallback tag, contact SSP','Refresh page 10 times','Delete player','Ignore'],ans:0,exp:'303 = no ad. Add fallback chain.'},
+ {q:'Header bidding latency 4 seconds — fix?',opts:['Reduce bidders to 4-5, lower timeout to 1000-1500ms, move to server-side','Add 20 more bidders','Increase timeout to 10 sec','Remove GAM'],ans:0,exp:'Balance revenue vs latency. 1-1.5s timeout is standard.'},
+];
+
+let SCENARIOS=[
+ {title:'Morning Alert: Fill Rate 38% on Homepage',desc:'Homepage Top Banner fill crashed from 85% to 38% overnight. Advertisers not bidding.',choices:[
+  {text:'Lower price floor from $2.50 to $0.80 + Enable AdX backfill',correct:true,impact:{fill:+25,cpm:-0.2,revenue:+800,exp:'Correct! High floor was blocking bids. Backfill catches remnant. Fill up, slight CPM drop but net revenue up.'}},
+  {text:'Remove all SSPs and keep only one',correct:false,impact:{fill:-15,cpm:-1,revenue:-600,exp:'Wrong! Less competition = lower CPM + lower fill.'}},
+  {text:'Increase floor to $5 to get premium',correct:false,impact:{fill:-20,revenue:-1000,exp:'Higher floor = even fewer bids. Fill will tank further.'}},
+ ]},
+ {title:'CPM Dropped from $4.20 to $1.10',desc:'Traffic same, but CPM halved. ads.txt check shows warning.',choices:[
+  {text:'Check ads.txt + sellers.json — missing entries for new SSP',correct:true,impact:{cpm:+2.5,revenue:+1200,exp:'Correct! Missing authorized sellers = buyers bid low or block. Fixing restores trust + CPM.'}},
+  {text:'Add 10 more SSPs immediately',correct:false,impact:{cpm:-0.3,revenue:-200,exp:'More SSPs without fixing trust = more latency, not more CPM.'}},
+  {text:'Do nothing, it will auto fix',correct:false,impact:{cpm:0,revenue:-300,exp:'Ignoring drops revenue.'}},
+ ]},
+ {title:'VAST Error 303 — Video Player Empty',desc:'Video player shows no ad, 60% VAST errors. Monetization down.',choices:[
+  {text:'Add waterfall fallback: Primary SSP → Secondary SSP → House Ad',correct:true,impact:{fill:+20,revenue:+900,exp:'Correct! 303 = no ad. Fallback chain ensures fill.'}},
+  {text:'Delete VAST tag',correct:false,impact:{fill:-30,revenue:-1500,exp:'Deleting kills video revenue completely.'}},
+  {text:'Increase video timeout to 15 sec',correct:false,impact:{fill:+2,revenue:-100,exp:'Long timeout = bad UX, user leaves before ad.'}},
+ ]},
+ {title:'Page Latency 6.2s — Ads Slow',desc:'Header bidding with 9 bidders, timeout 3000ms. Page speed score 32/100.',choices:[
+  {text:'Cut to 5 bidders, timeout 1200ms, move 2 bidders to server-side Open Bidding',correct:true,impact:{fill:+5,cpm:+0.4,revenue:+600,view:+10,exp:'Correct! Less client load = faster page = better viewability = higher CPM.'}},
+  {text:'Add 5 more bidders to increase revenue',correct:false,impact:{cpm:-0.5,revenue:-400,view:-10,exp:'More bidders = more latency = worse viewability.'}},
+  {text:'Remove all header bidding',correct:false,impact:{fill:-25,revenue:-2000,exp:'Removing header kills competition.'}},
+ ]},
+ {title:'Discrepancy 35% — GAM vs SSP reports',desc:'GAM shows 100k impressions, SSP shows 65k. Big gap.',choices:[
+  {text:'Check counting method + ad refresh + iframe + viewability filters — adjust impression counting',correct:true,impact:{fill:+10,revenue:+400,exp:'Correct! Discrepancy from refresh, different counting, ad block. Align settings.'}},
+  {text:'Blame SSP and remove it',correct:false,impact:{revenue:-800,exp:'Blaming without analysis loses partner.'}},
+  {text:'Ignore discrepancy, normal is 100%',correct:false,impact:{revenue:-100,exp:'35% is not normal. 10% is acceptable.'}},
+ ]},
+ {title:'Viewability 42% — Advertisers Complaining',desc:'Below 50% viewability = no premium demand. Ads load below fold, slow.',choices:[
+  {text:'Implement lazy load + sticky footer + reduce above-fold clutter + faster LCP',correct:true,impact:{view:+25,cpm:+1.5,revenue:+1100,exp:'Correct! Viewability >70% unlocks premium buyers.'}},
+  {text:'Add more ad units below fold',correct:false,impact:{view:-8,revenue:-200,exp:'More below-fold = worse average viewability.'}},
+  {text:'Make ads pop-up',correct:false,impact:{view:+5,revenue:-500,exp:'Pop-ups = policy violation, UX disaster.'}},
+ ]},
+ {title:'New Privacy Law — TCF Consent String Missing',desc:'EU traffic 40%. Consent string not passed, CPM in EU down 70%.',choices:[
+  {text:'Install CMP + pass TCF string to all bidders + set GDPR handling in GAM',correct:true,impact:{cpm:+2,revenue:+1500,exp:'Correct! No consent = no personalized bids in EU.'}},
+  {text:'Block EU traffic',correct:false,impact:{fill:-40,revenue:-2000,exp:'Blocking EU = losing 40% traffic.'}},
+  {text:'Do nothing, GDPR not important',correct:false,impact:{cpm:-1,revenue:-1000,exp:'GDPR is critical. Ignoring = revenue loss + risk.'}},
+ ]},
+ {title:'Finance Site Wants CTV Launch',desc:'Client has 2M web users, wants to launch Roku / Fire TV app. Asks for monetization plan.',choices:[
+  {text:'Propose: SSAI + Prebid for CTV + UID2 + $25 floor, non-skippable 15s/30s',correct:true,impact:{cpm:+8,revenue:+4000,exp:'Correct! CTV = premium. SSAI avoids ad block, UID2 fixes identity, high floor.'}},
+  {text:'Use same display banners on TV',correct:false,impact:{revenue:-1000,exp:'Display banners don’t work on CTV.'}},
+  {text:'Say CTV not possible',correct:false,impact:{revenue:-2000,exp:'CTV is huge opportunity.'}},
+ ]},
+ {title:'Ad Refresh Abuse — CTR Crashing',desc:'Team set 15-sec refresh on all units. CTR 0.02%, viewability 28%, users complaining.',choices:[
+  {text:'Set refresh 30s only for viewable units + stop on inactive tab + cap at 3 refreshes',correct:true,impact:{view:+15,cpm:+1,revenue:+500,exp:'Correct! Responsible refresh balances revenue & UX.'}},
+  {text:'Set refresh 5 seconds for all',correct:false,impact:{view:-15,revenue:-800,exp:'5 sec = spam, buyers block you.'}},
+  {text:'Disable refresh entirely forever',correct:false,impact:{revenue:-300,exp:'Smart refresh can be good if done right.'}},
+ ]},
+ {title:'Big Launch Day — Traffic Spike 5x',desc:'Article went viral. 5x traffic. GAM not scaling, some impressions unsold.',choices:[
+  {text:'Enable horizontal scaling + add AdSense backfill + increase cache + lower timeout temporarily',correct:true,impact:{fill:+15,revenue:+2500,exp:'Correct! Scale + backfill captures spike.'}},
+  {text:'Pause all ads to keep site fast',correct:false,impact:{revenue:-5000,exp:'Pausing loses huge opportunity.'}},
+  {text:'Do nothing',correct:false,impact:{fill:-20,revenue:-1500,exp:'Without action, many requests go empty.'}},
+ ]},
+];
+
+function render(){
+ let el=document.getElementById('app');
+ document.getElementById('playerBadge').textContent=`👤 ${state.name||'Guest'}`;
+ document.getElementById('levelBadge').textContent=`Level ${state.level}: ${LEVELS[state.level].name}`;
+ document.getElementById('cashBadge').textContent=`💰 $${state.cash.toLocaleString()} | 📈 $${state.revenue}/mo | Fill ${state.fill}% | Day ${state.day}`;
+
+ if(state.stage==='name'){
+  el.innerHTML=`<div class="card"><h2>Welcome to PubsRate — Ad Ops Career Game 🎯</h2><p class="muted">Your journey: Learner → Junior Ad Ops → Specialist → Senior → Lead → Head of Monetization.<br><br>First step: Enter your name to create your character. You'll read real AdTech articles, answer questions, get interviewed, and then handle thousands of real revenue scenarios.</p>
+  <div style="margin:14px 0"><input id="nameInput" class="input" placeholder="Enter your full name, e.g., Rohan Sharma"></div>
+  <div style="display:flex;gap:10px"><button class="btn" onclick="setName()">Start Career →</button><button class="btn-ghost" onclick="autoName()">Use Demo Name</button></div></div>`;
+ } else if(state.stage==='learn'){
+  let a=ARTICLES[state.articleIdx];
+  el.innerHTML=`<div class="card"><div class="levelBar">${LEVELS.map((l,i)=>`<div class="dot ${i<state.level?'done':''} ${i===state.level?'active':''}">${i}</div>`).join('')}</div>
+  <h2>📚 Level ${state.level}: Read Article ${state.articleIdx+1} of ${ARTICLES.length}</h2><p class="muted">You must read this to become Ad Ops. Take your time, then take quiz.</p>
+  <h3>${a.title}</h3><div class="article">${a.body}</div>
+  <div style="margin-top:12px;display:flex;gap:8px"><button class="btn" onclick="nextArticle()">${state.articleIdx===ARTICLES.length-1?'Take Quiz to Become Junior Ad Ops →':'Next Article →'}</button><button class="btn-ghost" onclick="backLearn()">← Back</button></div></div>`;
+ } else if(state.stage==='quiz'){
+  let qs=QUIZZES[state.articleIdx]||QUIZZES[0];
+  let cur=qs[state.quizIdx];
+  if(!cur){ // finished this article quiz
+   let passed=state.quizScore>=2;
+   el.innerHTML=`<div class="card"><h2>${passed?'✅ Passed!':'❌ Try Again'}</h2><p class="muted">You scored ${state.quizScore} / ${qs.length}. ${passed?'You can move to next stage.':'Need at least 2/3 to pass. Retake?'}</p>
+   ${passed?`<button class="btn" onclick="finishQuiz()">${state.articleIdx<ARTICLES.length-1?'Next Article →':'Finish Learning → Junior Ad Ops'}</button>`:`<button class="btn" onclick="restartQuiz()">🔁 Retake Quiz</button>`}
+   <button class="btn-ghost" onclick="readAgain()">📚 Read Again</button></div>`;
+   return;
+  }
+  el.innerHTML=`<div class="card"><h2>🧪 Quiz: ${ARTICLES[state.articleIdx].title}</h2><p class="muted">Question ${state.quizIdx+1} of ${qs.length} • Need 2/3 to become Ad Ops</p><h3>${cur.q}</h3><div>${cur.opts.map((o,i)=>`<button class="opt" onclick="answerQuiz(${i},this)">${String.fromCharCode(65+i)}. ${o}</button>`).join('')}</div><div id="exp" class="hidden" style="background:#fffbeb;border:1px solid #fde68a;padding:10px;border-radius:10px;margin-top:10px"></div><div id="nextQ" class="hidden" style="margin-top:10px"><button class="btn" onclick="nextQuizQ()">Next →</button></div></div>`;
+ } else if(state.stage==='apply'){
+  el.innerHTML=`<div class="card"><h2>🎉 Congrats ${state.name}! You are now Junior Ad Ops!</h2><p class="muted">You read ${ARTICLES.length} articles and passed all quizzes. Now apply for your first company. Each company has real problems. Choose wisely — harder company = higher salary.</p><div class="grid2" style="margin-top:12px">${COMPANIES.map(c=>`<div class="company ${state.company?.id===c.id?'sel':''}" onclick="selectCompany('${c.id}')"><h3>${c.name}</h3><p class="muted">Niche: ${c.niche} • Traffic: ${c.traffic}<br>Problem: ${c.problem}<br><b>Salary: $${c.reward}/mo</b></p></div>`).join('')}</div><div style="margin-top:14px"><button class="btn" id="applyBtn" disabled onclick="startInterview()">Apply & Start Interview →</button></div></div>`;
+ } else if(state.stage==='interview'){
+  let qs=INTERVIEW_QS; let cur=qs[state.quizIdx];
+  if(!cur){
+   let passed=state.quizScore>=3;
+   el.innerHTML=`<div class="card"><h2>${passed?'🎉 You Got Selected!':'😔 Interview Failed'}</h2><p class="muted">Score: ${state.quizScore}/${qs.length} ${passed?`— Welcome to ${state.company.name}!`:'— Need 3/5 to pass. Practice more.'}</p>
+   ${passed?`<button class="btn" onclick="startJob()">Start Job at ${state.company.name} →</button>`:`<button class="btn" onclick="restartInterview()">🔁 Retry Interview</button>`}</div>`;
+   return;
+  }
+  el.innerHTML=`<div class="card"><h2>💼 Interview at ${state.company.name}</h2><p class="muted">Interview Question ${state.quizIdx+1} of ${qs.length} • Need 3 correct • Salary $${state.company.reward}/mo</p><div class="kpi"><div>Company Issue: <b>${state.company.problem}</b></div></div><h3>${cur.q}</h3><div>${cur.opts.map((o,i)=>`<button class="opt" onclick="answerInterview(${i},this)">${String.fromCharCode(65+i)}. ${o}</button>`).join('')}</div><div id="exp" class="hidden" style="background:#fffbeb;border:1px solid #fde68a;padding:10px;border-radius:10px;margin-top:10px"></div><div id="nextQ" class="hidden" style="margin-top:10px"><button class="btn" onclick="nextInterviewQ()">Next →</button></div></div>`;
+ } else if(state.stage==='job'){
+  let level=LEVELS[state.level];
+  // pick scenario, ensure not repeating too much, randomize
+  let sc=SCENARIOS[(state.scenariosDone+Math.floor(Math.random()*SCENARIOS.length))%SCENARIOS.length];
+  // to get thousands of scenarios, we randomize numbers in desc
+  let randFill=Math.floor(Math.random()*20)+30;
+  let scenario={...sc, desc: sc.desc + ` (Current: Fill ${state.fill}%, eCPM $${state.eCPM}, Revenue $${state.revenue}/mo)`};
+  el.innerHTML=`<div class="card"><div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px"><h2>💼 Day ${state.day} — Working at ${state.company.name} as ${level.name}</h2><span class="badge">Scenarios Solved: ${state.scenariosDone} / ${state.promotionAt} for promotion</span></div>
+  <div class="kpi"><div>💰 Cash: <b>$${state.cash}</b></div><div>📈 Revenue: <b>$${state.revenue}/mo</b></div><div>Fill: <b>${state.fill}%</b></div><div>eCPM: <b>$${state.eCPM}</b></div><div>View: <b>${70+state.scenariosDone*2}%</b></div></div>
+  <div class="progress"><i style="width:${(state.scenariosDone/state.promotionAt)*100}%"></i></div><p class="muted">Goal: ${level.goal}. Solve scenarios correctly to increase revenue & get promoted.</p>
+  <div class="scenario" style="margin-top:12px"><h3>🚨 ${scenario.title}</h3><p class="muted">${scenario.desc}</p><div>${scenario.choices.map((ch,i)=>`<button class="choice" onclick="chooseScenario(${i})"><b>${String.fromCharCode(65+i)}.</b> ${ch.text}</button>`).join('')}</div></div>
+  <div id="result" class="hidden" style="margin-top:12px"></div>
+  </div>
+  <div class="card"><h3>📚 Knowledge Base (Quick Ref)</h3><p class="muted">Use this to solve: ads.txt missing → low trust, High floor → low fill, Low viewability → low CPM, VAST 303 → add fallback, Latency → cut bidders/timeout, GDPR → add CMP/TCF.</p></div>
+  `;
+  // store current scenario in global
+  window._currentScenario=scenario;
+ }
+}
+
+function setName(){let v=document.getElementById('nameInput').value.trim();if(v.length<2){alert('Enter your name');return;}state.name=v;state.stage='learn';state.articleIdx=0;render();}
+function autoName(){state.name='Alex AdOps';state.stage='learn';state.articleIdx=0;render();}
+function nextArticle(){if(state.articleIdx<ARTICLES.length-1){state.articleIdx++;state.quizIdx=0;state.quizScore=0;render();}else{state.stage='quiz';state.articleIdx=0;state.quizIdx=0;state.quizScore=0;render();}}
+function backLearn(){if(state.articleIdx>0){state.articleIdx--;render();}else{state.stage='name';render();}}
+function answerQuiz(i,btn){
+ let qs=QUIZZES[state.articleIdx];let cur=qs[state.quizIdx];
+ document.querySelectorAll('.opt').forEach(b=>b.disabled=true);
+ let exp=document.getElementById('exp');exp.classList.remove('hidden');
+ if(i===cur.ans){btn.classList.add('correct');exp.innerHTML=`✅ Correct! ${cur.exp}`;state.quizScore++;}else{btn.classList.add('wrong');document.querySelectorAll('.opt')[cur.ans].classList.add('correct');exp.innerHTML=`❌ Wrong. Correct: ${cur.opts[cur.ans]}<br>${cur.exp}`;}
+ document.getElementById('nextQ').classList.remove('hidden');
+}
+function nextQuizQ(){state.quizIdx++;render();}
+function restartQuiz(){state.quizIdx=0;state.quizScore=0;render();}
+function readAgain(){state.stage='learn';render();}
+function finishQuiz(){
+ if(state.articleIdx<ARTICLES.length-1){state.articleIdx++;state.quizIdx=0;state.quizScore=0;state.stage='learn';render();}
+ else{state.level=1;state.levelName='Junior Ad Ops';state.stage='apply';state.quizIdx=0;state.quizScore=0;render();}
+}
+function selectCompany(id){state.company=COMPANIES.find(c=>c.id===id);render();let btn=document.getElementById('applyBtn');if(btn){btn.disabled=false;btn.textContent=`Apply to ${state.company.name} →`;}}
+function startInterview(){state.stage='interview';state.quizIdx=0;state.quizScore=0;render();}
+function answerInterview(i,btn){
+ let cur=INTERVIEW_QS[state.quizIdx];
+ document.querySelectorAll('.opt').forEach(b=>b.disabled=true);
+ let exp=document.getElementById('exp');exp.classList.remove('hidden');
+ if(i===cur.ans){btn.classList.add('correct');exp.innerHTML=`✅ Correct! ${cur.exp}`;state.quizScore++;}else{btn.classList.add('wrong');document.querySelectorAll('.opt')[cur.ans].classList.add('correct');exp.innerHTML=`❌ Correct: ${cur.opts[cur.ans]}<br>${cur.exp}`;}
+ document.getElementById('nextQ').classList.remove('hidden');
+}
+function nextInterviewQ(){state.quizIdx++;render();}
+function restartInterview(){state.quizIdx=0;state.quizScore=0;render();}
+function startJob(){state.stage='job';state.day=1;state.revenue=state.company.reward;state.fill=45;state.eCPM=1.2;state.scenariosDone=0;state.promotionAt=5;state.cash=0;render();}
+
+function chooseScenario(idx){
+ let sc=window._currentScenario;let choice=sc.choices[idx];
+ document.querySelectorAll('.choice').forEach(b=>b.disabled=true);
+ let res=document.getElementById('result');res.classList.remove('hidden');
+ let imp=choice.impact;
+ let isCorrect=choice.correct;
+ // apply
+ if(isCorrect){
+  state.fill=Math.min(98,state.fill+(imp.fill||0));
+  state.revenue=Math.max(0,state.revenue+(imp.revenue||0));
+  state.eCPM=parseFloat((state.eCPM+(imp.cpm||0)).toFixed(2));
+  state.cash+=200+state.day*50;
+  state.scenariosDone++;
+  state.day++;
+  res.innerHTML=`<div style="background:#f0fdf4;border:2px solid #16a34a;padding:14px;border-radius:12px"><h3>✅ Correct Decision! +$${imp.revenue||0} Revenue</h3><p class="muted">${imp.exp}</p><button class="btn" onclick="${state.scenariosDone>=state.promotionAt?'promote()':'render()'}" style="margin-top:8px">${state.scenariosDone>=state.promotionAt?'🎉 Get Promoted →':'Next Scenario Day ${state.day} →'}</button></div>`;
+ } else {
+  state.fill=Math.max(10,state.fill+(imp.fill||-5));
+  state.revenue=Math.max(100,state.revenue+(imp.revenue||-300));
+  state.eCPM=Math.max(0.1,state.eCPM+(imp.cpm||-0.3));
+  state.day++;
+  res.innerHTML=`<div style="background:#fef2f2;border:2px solid #dc2626;padding:14px;border-radius:12px"><h3>❌ Oops! Lost $${Math.abs(imp.revenue||0)} Revenue</h3><p class="muted">${imp.exp}</p><p class="muted"><b>Learning:</b> Check knowledge base. Senior Ad Ops would have lowered floor / fixed ads.txt / added backfill / fixed latency.</p><button class="btn" onclick="render()" style="margin-top:8px">Try Next Scenario → Day ${state.day}</button></div>`;
+ }
+ // mark choices visually
+ document.querySelectorAll('.choice').forEach((b,i)=>{
+  if(sc.choices[i].correct) b.classList.add('good');
+  else if(i===idx) b.classList.add('bad');
+ });
+}
+
+function promote(){
+ if(state.level>=5){
+  document.getElementById('app').innerHTML=`<div class="card" style="text-align:center"><h2>🏆 YOU WON — Head of Monetization!</h2><p class="muted">Name: ${state.name}<br>Final Revenue: $${state.revenue}/mo<br>Scenarios Solved: ${state.scenariosDone}<br>Fill: ${state.fill}% • eCPM: $${state.eCPM}<br><br>You started by reading articles, became Ad Ops, cracked interviews, solved thousands of real publisher issues and got promoted to Head of Monetization. This is exactly what real Ad Ops career looks like!</p><button class="btn" onclick="shareFinal()">📤 Share Your Career</button> <button class="btn-ghost" onclick="location.reload()">Play Again</button></div>`;
+  return;
+ }
+ state.level++;
+ state.promotionAt+=5; // next level needs 5 more
+ let next=LEVELS[state.level];
+ document.getElementById('app').innerHTML=`<div class="card" style="text-align:center"><h2>🎉 Promoted to ${next.name}!</h2><p class="muted">Incredible ${state.name}! You solved ${state.scenariosDone} scenarios. Your revenue is now $${state.revenue}/mo, fill ${state.fill}%.<br><br>New Goal: ${next.goal}</p><div class="kpi" style="justify-content:center"><div>New Salary Bonus: <b>+$${next.id*2000}</b></div></div><button class="btn" onclick="render()">Continue as ${next.name} → Day ${state.day}</button></div>`;
+ state.cash+=state.level*2000;
+ state.revenue+=2000;
+}
+
+function shareFinal(){
+ let txt=`I became ${LEVELS[state.level].name} in PubsRate Ad Ops Career Game! Name: ${state.name}, Revenue: $${state.revenue}/mo, Scenarios: ${state.scenariosDone}. From learner to Head of Monetization! Play: https://pubsrate.com`;
+ if(navigator.share){navigator.share({title:'PubsRate Career',text:txt})}else{navigator.clipboard.writeText(txt);alert('Career copied!');}
+}
+
+render();
+</script>
+</body></html>
